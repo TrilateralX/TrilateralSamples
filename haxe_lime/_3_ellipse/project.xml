@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+    <meta title="TrilateralLimeEllipse" package="net.nanjizal.trilateralLimeEllipse" version="1.0.0" company="Nanjizal" />
+    <app main="Main" path="Export" file="TrilateralLimeEllipse" />
+    <window width="1000" height="1000" antialiasing="4"/>
+    <source path="./" />
+    <haxelib name="lime" />
+    <haxelib name="dsHelper"/>
+    <haxelib name="fracs"/>
+    <haxelib name="justPath"/>
+    <haxelib name="trilateral3"/>
+    <haxelib name="pallette"/>
+    <haxelib name="hxPolyK"/>
+    <haxelib name="poly2trihx"/>
+    <haxelib name="hxGeomAlgo"/>
+    <haxelib name="kitGL"/>
+</project>

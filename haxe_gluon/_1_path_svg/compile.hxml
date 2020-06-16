@@ -1,0 +1,50 @@
+-main TrilateralGluonSVG
+-lib gluon
+-lib trilateralGluonChange
+-lib dsHelper
+-lib fracs
+-lib justPath
+-lib trilateral3 
+-lib pallette
+-lib hxPolyK
+-lib poly2trihx 
+-lib linc_glfw
+
+-lib kitGL
+
+-dce full
+
+-p ../../
+
+# -D static_link
+
+# new experimental hxcpp GC
+# -D HXCPP-GC-GENERATIONAL
+
+# more debug information
+# -D HXCPP-DEBUGGER
+# -D annotate-source
+
+# disable debug macos in generated c++
+-D no-debug
+
+# objective-c++ compatible output (in .mm files)
+# -D objc
+
+# disable C++ compilation
+# -D no-compilation
+-D mac
+-D HXCPP_M64
+
+# -D HXCPP_CLANG=1
+# -D HXCPP_M64=1
+# -D HXCPP_CPP11=1
+# -D OBJC_ARC=1
+
+-cpp bin
+
+-debug
+
+--next
+-cmd cd bin
+-cmd open 'TrilateralGluonSVG-debug'

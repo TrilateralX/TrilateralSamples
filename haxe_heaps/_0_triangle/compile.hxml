@@ -1,0 +1,16 @@
+-js test.js
+-lib dsHelper
+-lib fracs
+-lib justPath
+-lib trilateral3
+-lib pallette
+-lib hxPolyK
+-lib poly2trihx 
+-lib hxGeomAlgo
+-lib kitGL
+-lib heaps
+-main TrilateralHeapsTriangle
+#-D js-flatten 
+--next
+-cmd echo '<!DOCTYPE html><meta charset="UTF-8"><html><body><canvas id="webgl" bgColor="#FF181818" width="1024" height="968"></div></canvas><script src="test.js"></script></body></html>' > index.html
+-cmd open index.html

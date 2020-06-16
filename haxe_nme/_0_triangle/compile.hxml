@@ -1,0 +1,9 @@
+
+#jsprime
+ -cmd lsof -ti:6931 | xargs kill
+ --next
+ -cmd haxelib run nme test application.xml jsprime
+
+# 
+#neko
+#-cmd haxelib run nme application.xml neko

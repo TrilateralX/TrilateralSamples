@@ -1,0 +1,18 @@
+-js test.js
+-cp src
+-lib dsHelper
+-lib fracs
+-lib justPath
+-lib trilateral3
+-lib pallette
+-lib hxPolyK
+-lib poly2trihx 
+-lib hxGeomAlgo
+-lib kitGL
+-main TrilateralFill
+-D js-flatten 
+-dce full
+--next
+-cmd echo '<!DOCTYPE html><meta charset="UTF-8"><html><body><script src="test.js"></script></body></html>' >index.html
+# open html on mac os.
+-cmd open index.html
