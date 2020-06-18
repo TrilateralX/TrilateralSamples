@@ -31,7 +31,7 @@
 -D lime-html5
 -D html5
 -D web
--js Export/html5/bin/TrilateralLimeTriancle.js
+-js Export/html5/bin/TrilateralLimeTriangle.js
 -cp Export/html5/haxe
 -D html5
 -D html

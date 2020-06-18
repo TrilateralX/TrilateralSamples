@@ -1,5 +1,7 @@
 package;
 
+import trilateral3.target.openfl.AppOpenFL;
+
 // Color pallettes
 import pallette.simple.QuickARGB;
 // SVG path parser
@@ -59,7 +61,7 @@ class TrilateralOpenFLTriangle extends AppOpenFL {
     }
     
     override
-    public function drawRender(){
+    public function renderDraw(){
         
     }
     /*

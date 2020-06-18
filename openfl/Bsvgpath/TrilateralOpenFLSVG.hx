@@ -1,5 +1,7 @@
 package;
 
+import trilateral3.target.openfl.AppOpenFL;
+
 // Color pallettes
 import pallette.simple.QuickARGB;
 // SVG path parser
@@ -57,5 +59,9 @@ class TrilateralOpenFLSVG extends AppOpenFL {
         var translateContext = new TranslationContext( sketch, -100, 300 );
         var p = new SvgPath( translateContext );
         p.parse( quadtest_d );
+    }
+    override
+    public function renderDraw(){
+        
     }
 }

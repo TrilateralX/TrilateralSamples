@@ -1,12 +1,7 @@
 package;
 
-// TODO: change kitGL.nme to kitGL.glNme when code is working better.
+import trilateral3.target.nme.AppNme;
 
-import kitGL.nme.InterleaveAlterGL;
-import kitGL.nme.InterleaveDataGL;
-
-//import nme.app.NmeApplication;
-import nme.app.Window;
 // Color pallettes
 import pallette.simple.QuickARGB;
 // SVG path parser
@@ -37,22 +32,13 @@ import trilateral3.structure.ARGB;
 import kitGL.glWeb.DivertTrace;
 #end
 
-class TrilateralnmeSVG extends InterleaveAlterGL {
-    
-    public var pen: Pen;
-    public var currentTriangle: TriangleAbstract;
-    public var currentColor:    Color3Abstract; // can only use with interleave.
-    public var penNodule = new PenNodule();
-    public var regular: Regular;
-    
+class TrilateralnmeTriangle extends AppNme {
     public
-    function new( window: Window ){
-       super( window );
+    function new(){
+       super();
     }
     override
     public function draw(){
-        interleaveDataGL = { get_data: penNodule.get_data, get_size: penNodule.get_size };
-        pen = penNodule.pen;
         pen.addTriangle( 100, 100, 0
                        , 500, 500, 0
                        , 100, 500, 0 );

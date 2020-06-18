@@ -1,5 +1,5 @@
 package;
-import AppHeaps;
+import trilateral3.target.heaps.AppHeaps;
 
 // Color pallettes
 import pallette.simple.QuickARGB;
@@ -31,9 +31,8 @@ class TrilateralHeapsTriangle extends AppHeaps {
     var cubictest_d = "M100,200 C100,100 250,100 250,200S400,300 400,200";
     
     override
-    public function draw( pen: Pen ){
-        trace('test');
-        /*
+    public function draw(){
+        pen = nodule.pen;
         pen.addTriangle( 100, 100, 0
                        , 500, 500, 0
                        , 100, 500, 0 );
@@ -61,11 +60,10 @@ class TrilateralHeapsTriangle extends AppHeaps {
         pen.pos = start;
         var numberTriangles = Std.int( end-start );
         pen.colorTriangles( 0xFF0000FF, numberTriangles ); // color border Blue
-        */
     }
     
     override
-    public function drawRender( pen: Pen ){
+    public function drawRender(){
         
     }
     /*

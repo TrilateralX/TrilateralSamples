@@ -9,7 +9,7 @@ import Main;
 {
 	public static function main()
 	{
-		lime.system.System.__registerEntryPoint("TrilateralLimeTriancle", create);
+		lime.system.System.__registerEntryPoint("TrilateralLimeTriangle", create);
 
 		#if (!html5 || munit)
 		create(null);
@@ -22,9 +22,9 @@ import Main;
 
 		#if !munit
 		var app = new Main();
-		app.meta.set("build", "1");
+		app.meta.set("build", "8");
 		app.meta.set("company", "Nanjizal");
-		app.meta.set("file", "TrilateralLimeTriancle");
+		app.meta.set("file", "TrilateralLimeTriangle");
 		app.meta.set("name", "TrilateralLimeTriangle");
 		app.meta.set("packageName", "net.nanjizal.trilateralLimeTriangle");
 		app.meta.set("version", "1.0.0");

@@ -18,7 +18,7 @@ function main(){
     var divertTrace = new DivertTrace();
     trace("TrilateralTriangle example");
 }
-class TrilateralnmeTriangle extends InterleaveAlterGL {
+class TrilateralTriangle extends InterleaveAlterGL {
     public var pen: Pen;
     public var penNodule = new PenNodule();
     public function new( width: Int, height: Int ){
