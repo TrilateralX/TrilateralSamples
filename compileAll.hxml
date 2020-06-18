@@ -1,0 +1,39 @@
+
+# Gluon broken
+# -cmd echo 'compile Gluon examples'
+# -cmd haxe compileGluon.hxml
+
+--next
+# Heaps ( not low level yet )
+-cmd echo 'compile Heaps examples'
+-cmd haxe compileHeaps.hxml
+
+--next
+# Kha see original trilateral, not implemented since quite easy and not on haxe4.2 yet.
+# -cmd echo 'compile Kha examples'
+# -cmd haxe compileKha.hxml
+
+--next 
+# Lime ( currently only html5 working )
+-cmd echo 'compile lime examples'
+-cmd haxe compileLime.hxml
+
+--next
+# NME
+# -cmd echo 'compile nme examples'
+# -cmd haxe compileNme.hxml
+
+--next
+# nmeGL
+# -cmd echo 'compile nme GL examples'
+# -cmd haxe compileNmeGL.hxml
+
+--next
+# OpenFL
+#-cmd echo 'compile OpenFl examples, lime ones will be faster'
+#-cmd haxe compileOpenFL.hxml
+
+--next
+# WebGL
+-cmd echo 'compile WebGL examples'
+-cmd haxe compileWebGL.hxml

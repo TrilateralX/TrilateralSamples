@@ -1,0 +1,11 @@
+
+#A - Triangle
+# -cmd cd gluon
+# -cmd cd Atriangle
+# -cmd haxe compile.hxml
+
+#B - SVG
+-cmd cd gluon
+-cmd cd Bpathsvg
+-cmd haxe compile.hxml
+--next

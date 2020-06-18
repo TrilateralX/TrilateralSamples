@@ -1,0 +1,43 @@
+-cmd cd lime
+
+#A - Triangle
+-cmd cd Atriangle
+#-cmd haxe restart.hxml
+--next 
+
+-cmd cd ..
+
+#B - SVG
+-cmd cd Bsvgpath
+-cmd haxe restart.hxml
+--next
+
+-cmd cd ..
+
+#C - Fill
+-cmd cd Cfill
+-cmd haxe restart.hxml
+--next
+
+-cmd cd ..
+
+#D - Ellipse
+-cmd cd Dellipse
+-cmd haxe restart.hxml
+--next
+
+-cmd cd ..
+
+#E - Regular Color
+-cmd cd EregularColor
+-cmd haxe restart.hxml
+--next 
+
+-cmd cd ..
+
+#F - Rotate Move
+-cmd cd GrotateMove
+-cmd haxe restart.hxml
+
+-cmd cd ..
+-cmd cd ..

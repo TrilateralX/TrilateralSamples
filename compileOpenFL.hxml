@@ -1,0 +1,43 @@
+-cmd cd openfl
+
+#A - Triangle
+-cmd cd Atriangle
+-cmd haxe compile.hxml
+--next 
+
+-cmd cd ..
+
+#B - SVG
+-cmd cd Bsvgpath
+-cmd haxe compile.hxml
+--next
+
+-cmd cd ..
+
+#C - Fill
+-cmd cd Cfill
+-cmd haxe compile.hxml
+--next
+
+-cmd cd ..
+
+#D - Ellipse
+-cmd cd Dellipse
+-cmd haxe compile.hxml
+--next
+
+-cmd cd ..
+
+#E - Regular Color
+-cmd cd EregularColor
+-cmd haxe compile.hxml
+--next 
+
+-cmd cd ..
+
+#F - Rotate Move
+-cmd cd GrotateMove
+-cmd haxe compile.hxml
+
+-cmd cd ..
+-cmd cd ..
