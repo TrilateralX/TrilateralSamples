@@ -63,7 +63,7 @@ class TrilateralHeapsTriangle extends AppHeaps {
     }
     
     override
-    public function drawRender(){
+    public function renderDraw(){
         
     }
     /*

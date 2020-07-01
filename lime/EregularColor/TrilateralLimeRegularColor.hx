@@ -73,7 +73,7 @@ class TrilateralLimeRegularColor extends InterleaveAlterGL {
     var range = 80.; // controls transition speed
     var dStep = 0.;
     var delayStart = 100;
-    var count: Int;
+    var count: Int = 1;
     override
     public function renderDraw(){
         if( tick > delayStart ) {
@@ -91,7 +91,7 @@ class TrilateralLimeRegularColor extends InterleaveAlterGL {
             if( tick % range == 0 ){ // after 50 increase count 
                 count++;
                 dStep = 0;//1./range;
-                if( nines[ count ] == null ) count = 1;//9*4;
+                if( count > ( nines.length - 1) ) count = 1;//9*4;
             } else {
                 dStep += 1./range;
                 count = currCount;

@@ -10,7 +10,7 @@
 -D justPath=0.0.2
 -cp /usr/local/lib/haxeLibrary/trilateral3/git/src
 -D trilateral3=0.0.3
--cp /usr/local/lib/haxeLibrary/pallette/git/src
+-cp /usr/local/lib/haxeLibrary/pallette/0,0,1/src
 -D pallette=0.0.1
 -cp /usr/local/lib/haxeLibrary/hxPolyK/git
 -D hxPolyK=0.0.1

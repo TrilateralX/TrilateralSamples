@@ -57,7 +57,7 @@ class TrilateralLimeRotateMove extends InterleaveAlterGL {
         var end = start + len - 1 ;
         var len = add2DTriangle( pen.drawType, 300, 100, 100, 300, 500, 300 );
         end += len;
-        triangle = cast { start: start, end: end };
+        triangle = { start: Std.int( start ), end: Std.int( end ) };
         var red = 0xFFFF0000;
         pen.pos = start; // reset pos since colors interleaved
         pen.colorTriangles( red, triangle.length );
@@ -79,7 +79,7 @@ class TrilateralLimeRotateMove extends InterleaveAlterGL {
             rotateCentre( x + 30, y + 30, Math.random()*Math.PI*2 );
             pen.pos++;
         }
-        all = cast { start: start, end: pen.pos-1 };
+        all = { start: Std.int( start ), end: Std.int( pen.pos-1 ) };
         pen.colorTriangles( green, triangle.length );
     }
     override

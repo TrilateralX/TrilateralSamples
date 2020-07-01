@@ -2,16 +2,18 @@ Notes
 
 - haxe_webgl.fill - not filling see original? https://github.com/TrilateralX/TrilateralFill
 
-- Heaps currently Stack overflow, original working.. https://github.com/TrilateralX/TrilateralHeapsSVG
+- Heaps currently Stack overflow, original working..
+  I think it's just too slow I need some guidence on setting up shaders in Heaps.
+  https://github.com/TrilateralX/TrilateralHeapsSVG
 
-- NME examples not working, could be my haxe ver compatibility problem and the way NME loads modules it can't handle static modules?
+- NME examples not working, think nightlies are not really stable against latest haxe.
 
-- Gluon not working
+- Gluon works on cpp :)
 
-- Lime works but not cpp target yet.
+- Lime WebGL works 
 
-- Canvas should work just need to reuse from old project
+- Canvas should work just need to reuse from old project maybe not worth it.
 
-- OpenFL should work just need to reuse from old project
+- OpenFL works very slow on c++ or js - impractical.
 
 - Kha shoul work just need to reuse from old project and wait for new release of Kha with haxe4.2

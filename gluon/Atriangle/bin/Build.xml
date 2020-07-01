@@ -1,0 +1,474 @@
+<xml>
+<set name="HXCPP_API_LEVEL" value="400" />
+<files id="haxe">
+<compilerflag value="-Iinclude"/>
+  <file name="src/typedarray/Uint8ArrayImpl.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/typedarray/ArrayBufferView.h"/>
+   <depend name="include/typedarray/ArrayBufferViewBase.h"/>
+   <depend name="include/typedarray/ArrayBufferViewImplIterator_typedarray__Uint8Array_UInt8.h"/>
+   <depend name="include/typedarray/Uint8ArrayImpl.h"/>
+  </file>
+  <file name="src/typedarray/_Uint8Array/Uint8Array_Impl_.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/typedarray/ArrayBufferView.h"/>
+   <depend name="include/typedarray/ArrayBufferViewBase.h"/>
+   <depend name="include/typedarray/Uint8ArrayImpl.h"/>
+   <depend name="include/typedarray/_Uint8Array/Uint8Array_Impl_.h"/>
+  </file>
+  <file name="src/typedarray/Int32ArrayImpl.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/typedarray/ArrayBufferView.h"/>
+   <depend name="include/typedarray/ArrayBufferViewBase.h"/>
+   <depend name="include/typedarray/ArrayBufferViewImplIterator_typedarray__Int32Array_Int32.h"/>
+   <depend name="include/typedarray/Int32ArrayImpl.h"/>
+  </file>
+  <file name="src/typedarray/_Int32Array/Int32Array_Impl_.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/typedarray/ArrayBufferView.h"/>
+   <depend name="include/typedarray/ArrayBufferViewBase.h"/>
+   <depend name="include/typedarray/Int32ArrayImpl.h"/>
+   <depend name="include/typedarray/_Int32Array/Int32Array_Impl_.h"/>
+  </file>
+  <file name="src/typedarray/Float32ArrayImpl.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/typedarray/ArrayBufferView.h"/>
+   <depend name="include/typedarray/ArrayBufferViewBase.h"/>
+   <depend name="include/typedarray/ArrayBufferViewImplIterator_typedarray__Float32Array_ArrayType.h"/>
+   <depend name="include/typedarray/Float32ArrayImpl.h"/>
+  </file>
+  <file name="src/typedarray/_Float32Array/Float32Array_Impl_.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/typedarray/ArrayBufferView.h"/>
+   <depend name="include/typedarray/ArrayBufferViewBase.h"/>
+   <depend name="include/typedarray/Float32ArrayImpl.h"/>
+   <depend name="include/typedarray/_Float32Array/Float32Array_Impl_.h"/>
+  </file>
+  <file name="src/typedarray/_BufferSource/BufferSourceType.cpp" >
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/typedarray/ArrayBufferView.h"/>
+   <depend name="include/typedarray/_BufferSource/BufferSourceType.h"/>
+  </file>
+  <file name="src/typedarray/ArrayBufferViewImplIterator_typedarray__Uint8Array_UInt8.cpp" >
+   <depend name="include/typedarray/ArrayBufferViewImplIterator_typedarray__Uint8Array_UInt8.h"/>
+  </file>
+  <file name="src/typedarray/ArrayBufferViewImplIterator_typedarray__Int32Array_Int32.cpp" >
+   <depend name="include/typedarray/ArrayBufferViewImplIterator_typedarray__Int32Array_Int32.h"/>
+  </file>
+  <file name="src/typedarray/ArrayBufferViewImplIterator_typedarray__Float32Array_ArrayType.cpp" >
+   <depend name="include/typedarray/ArrayBufferViewImplIterator_typedarray__Float32Array_ArrayType.h"/>
+  </file>
+  <file name="src/typedarray/ArrayBufferViewBase.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/typedarray/ArrayBufferView.h"/>
+   <depend name="include/typedarray/ArrayBufferViewBase.h"/>
+  </file>
+  <file name="src/typedarray/ArrayBufferView.cpp" >
+   <depend name="include/typedarray/ArrayBufferView.h"/>
+  </file>
+  <file name="src/trilateral3/structure/Triangle3D.cpp" >
+   <depend name="include/trilateral3/matrix/Vertex.h"/>
+   <depend name="include/trilateral3/structure/Triangle3D.h"/>
+  </file>
+  <file name="src/trilateral3/structure/TriInt.cpp" >
+   <depend name="include/trilateral3/structure/TriInt.h"/>
+  </file>
+  <file name="src/trilateral3/structure/StartEnd.cpp" >
+   <depend name="include/trilateral3/structure/StartEnd.h"/>
+  </file>
+  <file name="src/trilateral3/nodule/PenNodule.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/dsHelper/flat/io/_Float32Flat/Float32Flat_Impl_.h"/>
+   <depend name="include/dsHelper/flatInterleave/_FloatColorTriangles/FloatColorTriangles_Impl_.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/trilateral3/Trilateral.h"/>
+   <depend name="include/trilateral3/drawing/Pen.h"/>
+   <depend name="include/trilateral3/geom/_FlatColorTriangles/FlatColorTriangles_Impl_.h"/>
+   <depend name="include/trilateral3/matrix/MatrixDozen.h"/>
+   <depend name="include/trilateral3/matrix/Vertex.h"/>
+   <depend name="include/trilateral3/nodule/PenNodule.h"/>
+   <depend name="include/trilateral3/structure/StartEnd.h"/>
+   <depend name="include/trilateral3/structure/TriInt.h"/>
+   <depend name="include/trilateral3/structure/Triangle3D.h"/>
+   <depend name="include/typedarray/ArrayBufferView.h"/>
+   <depend name="include/typedarray/ArrayBufferViewBase.h"/>
+   <depend name="include/typedarray/Float32ArrayImpl.h"/>
+   <depend name="include/typedarray/_Float32Array/Float32Array_Impl_.h"/>
+  </file>
+  <file name="src/trilateral3/matrix/Vertex.cpp" >
+   <depend name="include/trilateral3/matrix/Vertex.h"/>
+  </file>
+  <file name="src/trilateral3/matrix/MatrixDozen.cpp" >
+   <depend name="include/trilateral3/matrix/MatrixDozen.h"/>
+  </file>
+  <file name="src/trilateral3/geom/_FlatColorTriangles/FlatColorTriangles_Impl_.cpp" >
+   <depend name="include/dsHelper/flat/io/_Float32Flat/Float32Flat_Impl_.h"/>
+   <depend name="include/dsHelper/flatInterleave/_FloatColorTriangles/FloatColorTriangles_Impl_.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/trilateral3/geom/_FlatColorTriangles/FlatColorTriangles_Impl_.h"/>
+   <depend name="include/trilateral3/matrix/MatrixDozen.h"/>
+   <depend name="include/trilateral3/matrix/Vertex.h"/>
+   <depend name="include/trilateral3/structure/StartEnd.h"/>
+   <depend name="include/typedarray/ArrayBufferView.h"/>
+   <depend name="include/typedarray/ArrayBufferViewBase.h"/>
+   <depend name="include/typedarray/Float32ArrayImpl.h"/>
+  </file>
+  <file name="src/trilateral3/drawing/Sketch.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/fracs/DifferencePreference.h"/>
+   <depend name="include/haxe/Log.h"/>
+   <depend name="include/justPath/IPathContext.h"/>
+   <depend name="include/trilateral3/Trilateral.h"/>
+   <depend name="include/trilateral3/drawing/Contour.h"/>
+   <depend name="include/trilateral3/drawing/Pen.h"/>
+   <depend name="include/trilateral3/drawing/Sketch.h"/>
+   <depend name="include/trilateral3/matrix/MatrixDozen.h"/>
+  </file>
+  <file name="src/trilateral3/drawing/Pen.cpp" >
+   <depend name="include/trilateral3/drawing/Pen.h"/>
+  </file>
+  <file name="src/trilateral3/drawing/Contour.cpp" >
+   <depend name="include/trilateral3/Trilateral.h"/>
+   <depend name="include/trilateral3/drawing/Contour.h"/>
+   <depend name="include/trilateral3/drawing/Pen.h"/>
+   <depend name="include/trilateral3/matrix/MatrixDozen.h"/>
+  </file>
+  <file name="src/trilateral3/Trilateral.cpp" >
+   <depend name="include/trilateral3/Trilateral.h"/>
+   <depend name="include/trilateral3/matrix/MatrixDozen.h"/>
+  </file>
+  <file name="src/kitGL/gluon/Glwrapper.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/glfw/GLFWErrorHandler.h"/>
+   <depend name="include/glfw/GLFWKeyHandler.h"/>
+   <depend name="include/glfw/GLFWMouseButtonHandler.h"/>
+   <depend name="include/glfw/GLFWMouseMoveHandler.h"/>
+   <depend name="include/glfw/GLFWWindowSizeHandler.h"/>
+   <depend name="include/gluon/webgl/native/GLContext.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/Log.h"/>
+   <depend name="include/kitGL/gluon/Glwrapper.h"/>
+  </file>
+  <file name="src/kitGL/gluon/Animate.cpp" >
+   <depend name="include/haxe/MainEvent.h"/>
+   <depend name="include/haxe/MainLoop.h"/>
+   <depend name="include/kitGL/gluon/Animate.h"/>
+  </file>
+  <file name="src/justPath/IPathContext.cpp" >
+   <depend name="include/justPath/IPathContext.h"/>
+  </file>
+  <file name="src/haxe/iterators/ArrayIterator.cpp" >
+   <depend name="include/haxe/iterators/ArrayIterator.h"/>
+  </file>
+  <file name="src/haxe/io/Error.cpp" >
+   <depend name="include/haxe/io/Error.h"/>
+  </file>
+  <file name="src/haxe/io/Bytes.cpp" >
+   <depend name="include/haxe/io/Bytes.h"/>
+  </file>
+  <file name="src/haxe/ds/StringMap.cpp" >
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+  </file>
+  <file name="src/haxe/ValueException.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/ValueException.h"/>
+  </file>
+  <file name="src/haxe/NativeStackTrace.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/haxe/NativeStackTrace.h"/>
+   <depend name="include/haxe/StackItem.h"/>
+  </file>
+  <file name="src/haxe/MainLoop.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/MainEvent.h"/>
+   <depend name="include/haxe/MainLoop.h"/>
+  </file>
+  <file name="src/haxe/MainEvent.cpp" >
+   <depend name="include/haxe/MainEvent.h"/>
+   <depend name="include/haxe/MainLoop.h"/>
+  </file>
+  <file name="src/haxe/Log.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/haxe/Log.h"/>
+  </file>
+  <file name="src/haxe/Exception.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/NativeStackTrace.h"/>
+   <depend name="include/haxe/ValueException.h"/>
+  </file>
+  <file name="src/haxe/EntryPoint.cpp" >
+   <depend name="include/haxe/EntryPoint.h"/>
+   <depend name="include/haxe/MainLoop.h"/>
+   <depend name="include/sys/thread/Lock.h"/>
+   <depend name="include/sys/thread/Mutex.h"/>
+  </file>
+  <file name="src/sys/thread/Lock.cpp" >
+   <depend name="include/sys/thread/Lock.h"/>
+  </file>
+  <file name="src/sys/thread/Mutex.cpp" >
+   <depend name="include/sys/thread/Mutex.h"/>
+  </file>
+  <file name="src/haxe/IMap.cpp" >
+   <depend name="include/haxe/IMap.h"/>
+  </file>
+  <file name="src/haxe/_CallStack/CallStack_Impl_.cpp" >
+   <depend name="include/haxe/NativeStackTrace.h"/>
+   <depend name="include/haxe/StackItem.h"/>
+   <depend name="include/haxe/_CallStack/CallStack_Impl_.h"/>
+  </file>
+  <file name="src/haxe/StackItem.cpp" >
+   <depend name="include/haxe/StackItem.h"/>
+  </file>
+  <file name="src/gluon/webgl/native/GLShader.cpp" >
+   <depend name="include/gluon/webgl/native/GLContext.h"/>
+   <depend name="include/gluon/webgl/native/GLObject.h"/>
+   <depend name="include/gluon/webgl/native/GLShader.h"/>
+  </file>
+  <file name="src/gluon/webgl/native/GLProgram.cpp" >
+   <depend name="include/gluon/webgl/native/GLContext.h"/>
+   <depend name="include/gluon/webgl/native/GLObject.h"/>
+   <depend name="include/gluon/webgl/native/GLProgram.h"/>
+  </file>
+  <file name="src/gluon/webgl/native/GLFramebuffer.cpp" >
+   <depend name="include/gluon/webgl/native/GLContext.h"/>
+   <depend name="include/gluon/webgl/native/GLFramebuffer.h"/>
+   <depend name="include/gluon/webgl/native/GLObject.h"/>
+  </file>
+  <file name="src/gluon/webgl/native/GLContext.cpp" >
+   <depend name="include/gluon/webgl/native/GLContext.h"/>
+   <depend name="include/gluon/webgl/native/GLFramebuffer.h"/>
+   <depend name="include/gluon/webgl/native/GLObject.h"/>
+   <depend name="include/gluon/webgl/native/GLShader.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/typedarray/ArrayBufferView.h"/>
+   <depend name="include/typedarray/ArrayBufferViewBase.h"/>
+   <depend name="include/typedarray/Int32ArrayImpl.h"/>
+   <depend name="include/typedarray/Uint8ArrayImpl.h"/>
+   <depend name="include/typedarray/_Int32Array/Int32Array_Impl_.h"/>
+   <depend name="include/typedarray/_Uint8Array/Uint8Array_Impl_.h"/>
+  </file>
+  <file name="src/gluon/webgl/native/GLBuffer.cpp" >
+   <depend name="include/gluon/webgl/native/GLBuffer.h"/>
+   <depend name="include/gluon/webgl/native/GLContext.h"/>
+   <depend name="include/gluon/webgl/native/GLObject.h"/>
+  </file>
+  <file name="src/gluon/webgl/native/GLObject.cpp" >
+   <depend name="include/gluon/webgl/native/GLContext.h"/>
+   <depend name="include/gluon/webgl/native/GLObject.h"/>
+  </file>
+  <file name="src/gluon/webgl/_GLContext/GLContext_Impl_.cpp" >
+   <depend name="include/gluon/webgl/_GLContext/GLContext_Impl_.h"/>
+   <depend name="include/gluon/webgl/native/GLContext.h"/>
+   <depend name="include/haxe/Log.h"/>
+   <depend name="include/haxe/StackItem.h"/>
+   <depend name="include/haxe/_CallStack/CallStack_Impl_.h"/>
+  </file>
+  <file name="src/glfw/GLFWWindowSizeHandler.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/glfw/GLFWWindowSizeHandler.h"/>
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+  </file>
+  <file name="src/glfw/GLFWJoystickHandler.cpp" >
+   <depend name="include/glfw/GLFWJoystickHandler.h"/>
+  </file>
+  <file name="src/glfw/GLFWMouseWheelHandler.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/glfw/GLFWMouseWheelHandler.h"/>
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+  </file>
+  <file name="src/glfw/GLFWMouseButtonHandler.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/glfw/GLFWMouseButtonHandler.h"/>
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+  </file>
+  <file name="src/glfw/GLFWMouseMoveHandler.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/glfw/GLFWMouseMoveHandler.h"/>
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+  </file>
+  <file name="src/glfw/GLFWKeyHandler.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/glfw/GLFWKeyHandler.h"/>
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+  </file>
+  <file name="src/glfw/GLFWCharHandler.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/glfw/GLFWCharHandler.h"/>
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+  </file>
+  <file name="src/glfw/GLFWErrorHandler.cpp" >
+   <depend name="include/glfw/GLFWErrorHandler.h"/>
+   <depend name="include/haxe/Log.h"/>
+  </file>
+  <file name="src/fracs/DifferencePreference.cpp" >
+   <depend name="include/fracs/DifferencePreference.h"/>
+  </file>
+  <file name="src/dsHelper/flatInterleave/_FloatColorTriangles/FloatColorTriangles_Impl_.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/dsHelper/flatInterleave/_FloatColorTriangles/FloatColorTriangles_Impl_.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/typedarray/ArrayBufferView.h"/>
+   <depend name="include/typedarray/ArrayBufferViewBase.h"/>
+   <depend name="include/typedarray/Float32ArrayImpl.h"/>
+  </file>
+  <file name="src/dsHelper/flat/io/_Float32Flat/Float32Flat_Impl_.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/dsHelper/flat/io/_Float32Flat/Float32Flat_Impl_.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/typedarray/ArrayBufferView.h"/>
+   <depend name="include/typedarray/ArrayBufferViewBase.h"/>
+   <depend name="include/typedarray/Float32ArrayImpl.h"/>
+  </file>
+  <file name="src/TrilateralTriangle.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/TrilateralTriangle.h"/>
+   <depend name="include/gluon/webgl/native/GLContext.h"/>
+   <depend name="include/justPath/IPathContext.h"/>
+   <depend name="include/kitGL/gluon/InterleaveAlterGL.h"/>
+   <depend name="include/trilateral3/Trilateral.h"/>
+   <depend name="include/trilateral3/drawing/Pen.h"/>
+   <depend name="include/trilateral3/drawing/Sketch.h"/>
+   <depend name="include/trilateral3/matrix/MatrixDozen.h"/>
+   <depend name="include/trilateral3/nodule/PenNodule.h"/>
+   <depend name="include/typedarray/ArrayBufferView.h"/>
+   <depend name="include/typedarray/ArrayBufferViewBase.h"/>
+   <depend name="include/typedarray/Float32ArrayImpl.h"/>
+  </file>
+  <file name="src/kitGL/gluon/InterleaveAlterGL.cpp" >
+   <depend name="include/gluon/webgl/_GLContext/GLContext_Impl_.h"/>
+   <depend name="include/gluon/webgl/native/GLBuffer.h"/>
+   <depend name="include/gluon/webgl/native/GLContext.h"/>
+   <depend name="include/gluon/webgl/native/GLObject.h"/>
+   <depend name="include/gluon/webgl/native/GLProgram.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/kitGL/gluon/InterleaveAlterGL.h"/>
+   <depend name="include/typedarray/ArrayBufferView.h"/>
+   <depend name="include/typedarray/ArrayBufferViewBase.h"/>
+   <depend name="include/typedarray/Float32ArrayImpl.h"/>
+   <depend name="include/typedarray/_BufferSource/BufferSourceType.h"/>
+  </file>
+  <file name="src/Std.cpp" >
+   <depend name="include/Std.h"/>
+  </file>
+  <file name="src/_Main/Main_Fields_.cpp" >
+   <depend name="include/TrilateralTriangle.h"/>
+   <depend name="include/_Main/Main_Fields_.h"/>
+   <depend name="include/gluon/webgl/_GLContext/GLContext_Impl_.h"/>
+   <depend name="include/gluon/webgl/native/GLBuffer.h"/>
+   <depend name="include/gluon/webgl/native/GLContext.h"/>
+   <depend name="include/gluon/webgl/native/GLObject.h"/>
+   <depend name="include/gluon/webgl/native/GLProgram.h"/>
+   <depend name="include/gluon/webgl/native/GLShader.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/Log.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/kitGL/gluon/Animate.h"/>
+   <depend name="include/kitGL/gluon/Glwrapper.h"/>
+   <depend name="include/kitGL/gluon/InterleaveAlterGL.h"/>
+   <depend name="include/typedarray/ArrayBufferView.h"/>
+   <depend name="include/typedarray/ArrayBufferViewBase.h"/>
+   <depend name="include/typedarray/Float32ArrayImpl.h"/>
+   <depend name="include/typedarray/_BufferSource/BufferSourceType.h"/>
+  </file>
+  <file name="src/__boot__.cpp" >
+   <depend name="include/typedarray/_BufferSource/BufferSourceType.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/StackItem.h"/>
+   <depend name="include/fracs/DifferencePreference.h"/>
+   <depend name="include/trilateral3/nodule/PenNodule.h"/>
+   <depend name="include/trilateral3/Trilateral.h"/>
+   <depend name="include/haxe/Log.h"/>
+   <depend name="include/haxe/EntryPoint.h"/>
+   <depend name="include/glfw/GLFWWindowSizeHandler.h"/>
+   <depend name="include/glfw/GLFWMouseWheelHandler.h"/>
+   <depend name="include/glfw/GLFWMouseButtonHandler.h"/>
+   <depend name="include/glfw/GLFWMouseMoveHandler.h"/>
+   <depend name="include/glfw/GLFWKeyHandler.h"/>
+   <depend name="include/glfw/GLFWCharHandler.h"/>
+  </file>
+  <file name="src/__files__.cpp" if='HXCPP_DEBUGGER'>
+  </file>
+   <file name="${HXCPP}/src/hx/NoFiles.cpp" unless="HXCPP_DEBUGGER" />
+  <file name="src/__resources__.cpp" >
+  </file>
+</files>
+<files id="__lib__">
+<compilerflag value="-Iinclude"/>
+  <file name="src/__lib__.cpp" >
+   <depend name="include/_Main/Main_Fields_.h"/>
+   <depend name="include/haxe/EntryPoint.h"/>
+  </file>
+</files>
+<files id="__main__">
+<compilerflag value="-Iinclude"/>
+  <file name="src/__main__.cpp" >
+   <depend name="include/_Main/Main_Fields_.h"/>
+   <depend name="include/haxe/EntryPoint.h"/>
+  </file>
+</files>
+<files id="__resources__">
+</files>
+<files id="__externs__">
+</files>
+<set name="HAXE_OUTPUT" value="Main" />
+<include name="${HXCPP}/build-tool/BuildCommon.xml"/>
+<set name="LINC_GLFW_PATH" value="/usr/local/lib/haxeLibrary/linc_glfw/git/"/>
+<include name="${LINC_GLFW_PATH}linc/linc_glfw.xml" />
+
+		<target id="haxe">
+			<section if="macos">
+				<vflag name="-framework" value="OpenGL" />
+			</section>
+			<section if="windows">
+				<lib name="opengl32.lib" />
+			</section>
+			<section if="linux">
+				<lib name="-lGL" />
+			</section>
+			<section if="android">
+				<lib name="-lGLESv2" unless="static_link" />
+			</section>
+		</target>
+
+		<files id="haxe">
+			<compilerflag value="-I/usr/local/lib/haxeLibrary/gluon/git/gluon/webgl/native/include" />
+
+			<compilerflag value="-DGLEW_STATIC" />
+			<file name="/usr/local/lib/haxeLibrary/gluon/git/gluon/webgl/native/glew.c" if="windows">
+				<depend name="/usr/local/lib/haxeLibrary/gluon/git/gluon/webgl/native/include/GL/glew.h"/>
+			</file>
+		</files>
+		
+<error value="Hxcpp is out of date - please update" unlessApi="400" />
+</xml>

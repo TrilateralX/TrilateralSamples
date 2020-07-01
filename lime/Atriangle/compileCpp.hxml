@@ -1,2 +1,2 @@
--cmd lime test mac -64
+-cmd lime test mac -64 -debug
 #-cmd lime test mac neko

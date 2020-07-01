@@ -14,4 +14,5 @@
     <haxelib name="poly2trihx"/>
     <haxelib name="hxGeomAlgo"/>
     <haxelib name="kitGL"/>
+    <haxedef name="no-inline" if="neko"/>
 </project>

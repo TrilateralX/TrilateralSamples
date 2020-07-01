@@ -45,11 +45,11 @@ class TrilateralLimeTriangle extends InterleaveAlterGL {
         //pen.currentColor = 0xFF00FFFF; <- not working... need to check.
         sketch.width = 30;
         var start = pen.pos;
-        sketch.moveTo( 50, 50 );
-        sketch.lineTo( 550, 50 );
-        sketch.lineTo( 550, 550 );
-        sketch.lineTo( 50, 550 );
-        sketch.lineTo( 50, 50 );
+        sketch.moveTo( 50., 50. );
+        sketch.lineTo( 550., 50. );
+        sketch.lineTo( 550., 550. );
+        sketch.lineTo( 50., 550. );
+        sketch.lineTo( 50., 50. );
         var end = pen.pos;
         pen.pos = start;
         var numberTriangles = Std.int( end-start );
