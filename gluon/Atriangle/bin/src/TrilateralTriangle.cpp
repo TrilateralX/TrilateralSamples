@@ -13,8 +13,8 @@
 #ifndef INCLUDED_justPath_IPathContext
 #include <justPath/IPathContext.h>
 #endif
-#ifndef INCLUDED_kitGL_gluon_InterleaveAlterGL
-#include <kitGL/gluon/InterleaveAlterGL.h>
+#ifndef INCLUDED_kitGL_gluon_Ply
+#include <kitGL/gluon/Ply.h>
 #endif
 #ifndef INCLUDED_trilateral3_Trilateral
 #include <trilateral3/Trilateral.h>
@@ -41,14 +41,14 @@
 #include <typedarray/Float32ArrayImpl.h>
 #endif
 
-HX_DEFINE_STACK_FRAME(_hx_pos_eea6cf277589ad4e_21_new,"TrilateralTriangle","new",0x9b865ea6,"TrilateralTriangle.new","TrilateralTriangle.hx",21,0xd75eb78a)
-HX_LOCAL_STACK_FRAME(_hx_pos_eea6cf277589ad4e_28_draw,"TrilateralTriangle","draw",0x737a1afe,"TrilateralTriangle.draw","TrilateralTriangle.hx",28,0xd75eb78a)
-HX_LOCAL_STACK_FRAME(_hx_pos_eea6cf277589ad4e_61_renderDraw,"TrilateralTriangle","renderDraw",0x8da08cf4,"TrilateralTriangle.renderDraw","TrilateralTriangle.hx",61,0xd75eb78a)
+HX_DEFINE_STACK_FRAME(_hx_pos_eea6cf277589ad4e_22_new,"TrilateralTriangle","new",0x9b865ea6,"TrilateralTriangle.new","TrilateralTriangle.hx",22,0xd75eb78a)
+HX_LOCAL_STACK_FRAME(_hx_pos_eea6cf277589ad4e_29_draw,"TrilateralTriangle","draw",0x737a1afe,"TrilateralTriangle.draw","TrilateralTriangle.hx",29,0xd75eb78a)
+HX_LOCAL_STACK_FRAME(_hx_pos_eea6cf277589ad4e_64_renderDraw,"TrilateralTriangle","renderDraw",0x8da08cf4,"TrilateralTriangle.renderDraw","TrilateralTriangle.hx",64,0xd75eb78a)
 
 void TrilateralTriangle_obj::__construct( ::gluon::webgl::native::GLContext gl){
-            	HX_GC_STACKFRAME(&_hx_pos_eea6cf277589ad4e_21_new)
-HXLINE(  23)		this->penNodule =  ::trilateral3::nodule::PenNodule_obj::__alloc( HX_CTX ,null());
-HXLINE(  25)		super::__construct(gl);
+            	HX_GC_STACKFRAME(&_hx_pos_eea6cf277589ad4e_22_new)
+HXLINE(  24)		this->penNodule =  ::trilateral3::nodule::PenNodule_obj::__alloc( HX_CTX ,null());
+HXLINE(  26)		super::__construct(gl);
             	}
 
 Dynamic TrilateralTriangle_obj::__CreateEmpty() { return new TrilateralTriangle_obj; }
@@ -63,224 +63,142 @@ Dynamic TrilateralTriangle_obj::__Create(::hx::DynamicArray inArgs)
 }
 
 bool TrilateralTriangle_obj::_hx_isInstanceOf(int inClassId) {
-	if (inClassId<=(int)0x1c3f678c) {
-		return inClassId==(int)0x00000001 || inClassId==(int)0x1c3f678c;
+	if (inClassId<=(int)0x1a013729) {
+		return inClassId==(int)0x00000001 || inClassId==(int)0x1a013729;
 	} else {
 		return inClassId==(int)0x3208b674;
 	}
 }
 
 void TrilateralTriangle_obj::draw(){
-            	HX_GC_STACKFRAME(&_hx_pos_eea6cf277589ad4e_28_draw)
-HXLINE(  29)		this->interleaveDataGL =  ::Dynamic(::hx::Anon_obj::Create(2)
+            	HX_GC_STACKFRAME(&_hx_pos_eea6cf277589ad4e_29_draw)
+HXLINE(  31)		this->dataGL =  ::Dynamic(::hx::Anon_obj::Create(2)
             			->setFixed(0,HX_("get_data",b3,11,1e,c2),this->penNodule->get_data_dyn())
             			->setFixed(1,HX_("get_size",4a,5c,0e,cc),this->penNodule->get_size_dyn()));
-HXLINE(  30)		this->pen = this->penNodule->pen;
-HXLINE(  31)		{
-HXLINE(  31)			 ::trilateral3::drawing::Pen _this = this->pen;
-HXDLIN(  31)			_this->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(((Float)100.),((Float)100.),((Float)0.),((Float)500.),((Float)500.),((Float)0.),((Float)100.),((Float)500.),((Float)0.));
-HXDLIN(  31)			if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXLINE(  31)				_this->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
-            			}
-HXDLIN(  31)			_this->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
-            		}
+HXLINE(  33)		this->pen = this->penNodule->pen;
 HXLINE(  34)		{
-HXLINE(  34)			 ::trilateral3::drawing::Pen _this1 = this->pen;
-HXDLIN(  34)			_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(((Float)100.),((Float)100.),((Float)0.),((Float)500.),((Float)100.),((Float)0.),((Float)500.),((Float)500.),((Float)0.));
+HXLINE(  34)			 ::trilateral3::drawing::Pen _this = this->pen;
+HXDLIN(  34)			float ax = ( (float)(((Float)100.)) );
+HXDLIN(  34)			float ay = ( (float)(((Float)100.)) );
+HXDLIN(  34)			float bx = ( (float)(((Float)500.)) );
+HXDLIN(  34)			float by = ( (float)(((Float)500.)) );
+HXDLIN(  34)			float cx = ( (float)(((Float)100.)) );
+HXDLIN(  34)			float cy = ( (float)(((Float)500.)) );
+HXDLIN(  34)			bool windAdjust = ( (bool)(_this->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,((Float)0.),bx,by,((Float)0.),cx,cy,((Float)0.))) );
 HXDLIN(  34)			if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXLINE(  34)				_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXLINE(  34)				_this->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             			}
-HXDLIN(  34)			_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  34)			if (_this->useTexture) {
+HXLINE(  34)				ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  34)				ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  34)				bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  34)				by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  34)				cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  34)				cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  34)				_this->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            			}
             		}
 HXLINE(  37)		{
-HXLINE(  37)			 ::trilateral3::drawing::Pen _this2 = this->pen;
-HXDLIN(  37)			_this2->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(((Float)300.),((Float)300.),((Float)0.),((Float)400.),((Float)300.),((Float)0.),((Float)400.),((Float)400.),((Float)0.));
+HXLINE(  37)			 ::trilateral3::drawing::Pen _this1 = this->pen;
+HXDLIN(  37)			float ax1 = ( (float)(((Float)100.)) );
+HXDLIN(  37)			float ay1 = ( (float)(((Float)100.)) );
+HXDLIN(  37)			float bx1 = ( (float)(((Float)500.)) );
+HXDLIN(  37)			float by1 = ( (float)(((Float)100.)) );
+HXDLIN(  37)			float cx1 = ( (float)(((Float)500.)) );
+HXDLIN(  37)			float cy1 = ( (float)(((Float)500.)) );
+HXDLIN(  37)			bool windAdjust1 = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax1,ay1,((Float)0.),bx1,by1,((Float)0.),cx1,cy1,((Float)0.))) );
 HXDLIN(  37)			if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXLINE(  37)				_this2->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXLINE(  37)				_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             			}
-HXDLIN(  37)			_this2->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
-            		}
-HXLINE(  41)		{
-HXLINE(  41)			 ::trilateral3::drawing::Pen _this3 = this->pen;
-HXDLIN(  41)			_this3->drawType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(0);
-HXDLIN(  41)			_this3->colorType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(0);
-            		}
-HXLINE(  42)		{
-HXLINE(  42)			 ::trilateral3::drawing::Pen _this4 = this->pen;
-HXDLIN(  42)			int color = 16777215;
-HXDLIN(  42)			if ((color == -1)) {
-HXLINE(  42)				color = _this4->currentColor;
-            			}
-HXDLIN(  42)			_this4->colorType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,1);
-            		}
-HXLINE(  43)		{
-HXLINE(  43)			 ::trilateral3::drawing::Pen _this5 = this->pen;
-HXDLIN(  43)			int color1 = -65536;
-HXDLIN(  43)			if ((color1 == -1)) {
-HXLINE(  43)				color1 = _this5->currentColor;
-            			}
-HXDLIN(  43)			_this5->colorType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color1,1);
-            		}
-HXLINE(  44)		{
-HXLINE(  44)			 ::trilateral3::drawing::Pen _this6 = this->pen;
-HXDLIN(  44)			int color2 = -256;
-HXDLIN(  44)			if ((color2 == -1)) {
-HXLINE(  44)				color2 = _this6->currentColor;
-            			}
-HXDLIN(  44)			_this6->colorType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color2,1);
-            		}
-HXLINE(  46)		 ::trilateral3::drawing::Sketch sketch =  ::trilateral3::drawing::Sketch_obj::__alloc( HX_CTX ,this->pen,4,3);
-HXLINE(  48)		sketch->width = ( (Float)(30) );
-HXLINE(  49)		Float start = ( (Float)(this->pen->drawType->__Field(HX_("get_pos",2b,26,ca,26),::hx::paccDynamic)()) );
-HXLINE(  50)		sketch->moveTo(((Float)50.),((Float)50.));
-HXLINE(  51)		{
-HXLINE(  51)			bool repeat;
-HXDLIN(  51)			if ((sketch->x == ((Float)550.))) {
-HXLINE(  51)				repeat = (sketch->y == ((Float)50.));
-            			}
-            			else {
-HXLINE(  51)				repeat = false;
-            			}
-HXDLIN(  51)			if (!(repeat)) {
-HXLINE(  51)				if (::hx::IsNotNull( sketch->widthFunction )) {
-HXLINE(  51)					sketch->width = ( (Float)(sketch->widthFunction(sketch->width,sketch->x,sketch->y,((Float)550.),((Float)50.))) );
-            				}
-HXDLIN(  51)				if (::hx::IsNotNull( sketch->colourFunction )) {
-HXLINE(  51)					sketch->pen->currentColor = ( (int)(sketch->colourFunction(sketch->pen->currentColor,sketch->x,sketch->y,((Float)550.),((Float)50.))) );
-            				}
-HXDLIN(  51)				sketch->line(((Float)550.),((Float)50.));
-HXDLIN(  51)				int l = sketch->points->length;
-HXDLIN(  51)				::Array< Float > p = sketch->points->__get((l - 1)).StaticCast< ::Array< Float > >();
-HXDLIN(  51)				int l2 = p->length;
-HXDLIN(  51)				p[l2] = ((Float)550.);
-HXDLIN(  51)				p[(l2 + 1)] = ((Float)50.);
-HXDLIN(  51)				{
-HXLINE(  51)					 ::Dynamic d = sketch->dim->__get((sketch->dim->length - 1));
-HXDLIN(  51)					if (::hx::IsLess( ((Float)550.),d->__Field(HX_("minX",86,4e,5c,48),::hx::paccDynamic) )) {
-HXLINE(  51)						d->__SetField(HX_("minX",86,4e,5c,48),((Float)550.),::hx::paccDynamic);
-            					}
-HXDLIN(  51)					if (::hx::IsGreater( ((Float)550.),d->__Field(HX_("maxX",34,45,56,48),::hx::paccDynamic) )) {
-HXLINE(  51)						d->__SetField(HX_("maxX",34,45,56,48),((Float)550.),::hx::paccDynamic);
-            					}
-HXDLIN(  51)					if (::hx::IsLess( ((Float)50.),d->__Field(HX_("minY",87,4e,5c,48),::hx::paccDynamic) )) {
-HXLINE(  51)						d->__SetField(HX_("minY",87,4e,5c,48),((Float)50.),::hx::paccDynamic);
-            					}
-HXDLIN(  51)					if (::hx::IsGreater( ((Float)50.),d->__Field(HX_("maxY",35,45,56,48),::hx::paccDynamic) )) {
-HXLINE(  51)						d->__SetField(HX_("maxY",35,45,56,48),((Float)50.),::hx::paccDynamic);
-            					}
-            				}
-HXDLIN(  51)				sketch->x = ((Float)550.);
-HXDLIN(  51)				sketch->y = ((Float)50.);
+HXDLIN(  37)			if (_this1->useTexture) {
+HXLINE(  37)				ax1 = ( (float)((( (Float)(ax1) ) / ( (Float)(2000) ))) );
+HXDLIN(  37)				ay1 = ( (float)((( (Float)(ay1) ) / ( (Float)(2000) ))) );
+HXDLIN(  37)				bx1 = ( (float)((( (Float)(bx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  37)				by1 = ( (float)((( (Float)(by1) ) / ( (Float)(2000) ))) );
+HXDLIN(  37)				cx1 = ( (float)((( (Float)(cx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  37)				cy1 = ( (float)((( (Float)(cy1) ) / ( (Float)(2000) ))) );
+HXDLIN(  37)				_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax1,ay1,bx1,by1,cx1,cy1,windAdjust1);
             			}
             		}
-HXLINE(  52)		{
-HXLINE(  52)			bool repeat1;
-HXDLIN(  52)			if ((sketch->x == ((Float)550.))) {
-HXLINE(  52)				repeat1 = (sketch->y == ((Float)550.));
+HXLINE(  40)		{
+HXLINE(  40)			 ::trilateral3::drawing::Pen _this2 = this->pen;
+HXDLIN(  40)			float ax2 = ( (float)(((Float)300.)) );
+HXDLIN(  40)			float ay2 = ( (float)(((Float)300.)) );
+HXDLIN(  40)			float bx2 = ( (float)(((Float)400.)) );
+HXDLIN(  40)			float by2 = ( (float)(((Float)300.)) );
+HXDLIN(  40)			float cx2 = ( (float)(((Float)400.)) );
+HXDLIN(  40)			float cy2 = ( (float)(((Float)400.)) );
+HXDLIN(  40)			bool windAdjust2 = ( (bool)(_this2->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax2,ay2,((Float)0.),bx2,by2,((Float)0.),cx2,cy2,((Float)0.))) );
+HXDLIN(  40)			if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
+HXLINE(  40)				_this2->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             			}
-            			else {
-HXLINE(  52)				repeat1 = false;
-            			}
-HXDLIN(  52)			if (!(repeat1)) {
-HXLINE(  52)				if (::hx::IsNotNull( sketch->widthFunction )) {
-HXLINE(  52)					sketch->width = ( (Float)(sketch->widthFunction(sketch->width,sketch->x,sketch->y,((Float)550.),((Float)550.))) );
-            				}
-HXDLIN(  52)				if (::hx::IsNotNull( sketch->colourFunction )) {
-HXLINE(  52)					sketch->pen->currentColor = ( (int)(sketch->colourFunction(sketch->pen->currentColor,sketch->x,sketch->y,((Float)550.),((Float)550.))) );
-            				}
-HXDLIN(  52)				sketch->line(((Float)550.),((Float)550.));
-HXDLIN(  52)				int l = sketch->points->length;
-HXDLIN(  52)				::Array< Float > p = sketch->points->__get((l - 1)).StaticCast< ::Array< Float > >();
-HXDLIN(  52)				int l2 = p->length;
-HXDLIN(  52)				p[l2] = ((Float)550.);
-HXDLIN(  52)				p[(l2 + 1)] = ((Float)550.);
-HXDLIN(  52)				{
-HXLINE(  52)					 ::Dynamic d = sketch->dim->__get((sketch->dim->length - 1));
-HXDLIN(  52)					if (::hx::IsLess( ((Float)550.),d->__Field(HX_("minX",86,4e,5c,48),::hx::paccDynamic) )) {
-HXLINE(  52)						d->__SetField(HX_("minX",86,4e,5c,48),((Float)550.),::hx::paccDynamic);
-            					}
-HXDLIN(  52)					if (::hx::IsGreater( ((Float)550.),d->__Field(HX_("maxX",34,45,56,48),::hx::paccDynamic) )) {
-HXLINE(  52)						d->__SetField(HX_("maxX",34,45,56,48),((Float)550.),::hx::paccDynamic);
-            					}
-HXDLIN(  52)					if (::hx::IsLess( ((Float)550.),d->__Field(HX_("minY",87,4e,5c,48),::hx::paccDynamic) )) {
-HXLINE(  52)						d->__SetField(HX_("minY",87,4e,5c,48),((Float)550.),::hx::paccDynamic);
-            					}
-HXDLIN(  52)					if (::hx::IsGreater( ((Float)550.),d->__Field(HX_("maxY",35,45,56,48),::hx::paccDynamic) )) {
-HXLINE(  52)						d->__SetField(HX_("maxY",35,45,56,48),((Float)550.),::hx::paccDynamic);
-            					}
-            				}
-HXDLIN(  52)				sketch->x = ((Float)550.);
-HXDLIN(  52)				sketch->y = ((Float)550.);
+HXDLIN(  40)			if (_this2->useTexture) {
+HXLINE(  40)				ax2 = ( (float)((( (Float)(ax2) ) / ( (Float)(2000) ))) );
+HXDLIN(  40)				ay2 = ( (float)((( (Float)(ay2) ) / ( (Float)(2000) ))) );
+HXDLIN(  40)				bx2 = ( (float)((( (Float)(bx2) ) / ( (Float)(2000) ))) );
+HXDLIN(  40)				by2 = ( (float)((( (Float)(by2) ) / ( (Float)(2000) ))) );
+HXDLIN(  40)				cx2 = ( (float)((( (Float)(cx2) ) / ( (Float)(2000) ))) );
+HXDLIN(  40)				cy2 = ( (float)((( (Float)(cy2) ) / ( (Float)(2000) ))) );
+HXDLIN(  40)				_this2->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax2,ay2,bx2,by2,cx2,cy2,windAdjust2);
             			}
             		}
-HXLINE(  53)		{
-HXLINE(  53)			bool repeat2;
-HXDLIN(  53)			if ((sketch->x == ((Float)50.))) {
-HXLINE(  53)				repeat2 = (sketch->y == ((Float)550.));
+HXLINE(  44)		this->pen->paintType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(0);
+HXLINE(  45)		{
+HXLINE(  45)			 ::trilateral3::drawing::Pen _this3 = this->pen;
+HXDLIN(  45)			int color = 16777215;
+HXDLIN(  45)			if ((color == -1)) {
+HXLINE(  45)				color = _this3->currentColor;
             			}
-            			else {
-HXLINE(  53)				repeat2 = false;
-            			}
-HXDLIN(  53)			if (!(repeat2)) {
-HXLINE(  53)				if (::hx::IsNotNull( sketch->widthFunction )) {
-HXLINE(  53)					sketch->width = ( (Float)(sketch->widthFunction(sketch->width,sketch->x,sketch->y,((Float)50.),((Float)550.))) );
-            				}
-HXDLIN(  53)				if (::hx::IsNotNull( sketch->colourFunction )) {
-HXLINE(  53)					sketch->pen->currentColor = ( (int)(sketch->colourFunction(sketch->pen->currentColor,sketch->x,sketch->y,((Float)50.),((Float)550.))) );
-            				}
-HXDLIN(  53)				sketch->line(((Float)50.),((Float)550.));
-HXDLIN(  53)				int l = sketch->points->length;
-HXDLIN(  53)				::Array< Float > p = sketch->points->__get((l - 1)).StaticCast< ::Array< Float > >();
-HXDLIN(  53)				int l2 = p->length;
-HXDLIN(  53)				p[l2] = ((Float)50.);
-HXDLIN(  53)				p[(l2 + 1)] = ((Float)550.);
-HXDLIN(  53)				{
-HXLINE(  53)					 ::Dynamic d = sketch->dim->__get((sketch->dim->length - 1));
-HXDLIN(  53)					if (::hx::IsLess( ((Float)50.),d->__Field(HX_("minX",86,4e,5c,48),::hx::paccDynamic) )) {
-HXLINE(  53)						d->__SetField(HX_("minX",86,4e,5c,48),((Float)50.),::hx::paccDynamic);
-            					}
-HXDLIN(  53)					if (::hx::IsGreater( ((Float)50.),d->__Field(HX_("maxX",34,45,56,48),::hx::paccDynamic) )) {
-HXLINE(  53)						d->__SetField(HX_("maxX",34,45,56,48),((Float)50.),::hx::paccDynamic);
-            					}
-HXDLIN(  53)					if (::hx::IsLess( ((Float)550.),d->__Field(HX_("minY",87,4e,5c,48),::hx::paccDynamic) )) {
-HXLINE(  53)						d->__SetField(HX_("minY",87,4e,5c,48),((Float)550.),::hx::paccDynamic);
-            					}
-HXDLIN(  53)					if (::hx::IsGreater( ((Float)550.),d->__Field(HX_("maxY",35,45,56,48),::hx::paccDynamic) )) {
-HXLINE(  53)						d->__SetField(HX_("maxY",35,45,56,48),((Float)550.),::hx::paccDynamic);
-            					}
-            				}
-HXDLIN(  53)				sketch->x = ((Float)50.);
-HXDLIN(  53)				sketch->y = ((Float)550.);
-            			}
+HXDLIN(  45)			_this3->paintType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,1);
             		}
+HXLINE(  46)		{
+HXLINE(  46)			 ::trilateral3::drawing::Pen _this4 = this->pen;
+HXDLIN(  46)			int color1 = -65536;
+HXDLIN(  46)			if ((color1 == -1)) {
+HXLINE(  46)				color1 = _this4->currentColor;
+            			}
+HXDLIN(  46)			_this4->paintType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color1,1);
+            		}
+HXLINE(  47)		{
+HXLINE(  47)			 ::trilateral3::drawing::Pen _this5 = this->pen;
+HXDLIN(  47)			int color2 = -256;
+HXDLIN(  47)			if ((color2 == -1)) {
+HXLINE(  47)				color2 = _this5->currentColor;
+            			}
+HXDLIN(  47)			_this5->paintType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color2,1);
+            		}
+HXLINE(  49)		 ::trilateral3::drawing::Sketch sketch =  ::trilateral3::drawing::Sketch_obj::__alloc( HX_CTX ,this->pen,4,3);
+HXLINE(  51)		sketch->width = ( (Float)(30) );
+HXLINE(  52)		Float start = ( (Float)(this->pen->paintType->__Field(HX_("get_pos",2b,26,ca,26),::hx::paccDynamic)()) );
+HXLINE(  53)		sketch->moveTo(((Float)50.),((Float)50.));
 HXLINE(  54)		{
-HXLINE(  54)			bool repeat3;
-HXDLIN(  54)			if ((sketch->x == ((Float)50.))) {
-HXLINE(  54)				repeat3 = (sketch->y == ((Float)50.));
+HXLINE(  54)			bool repeat;
+HXDLIN(  54)			if ((sketch->x == ((Float)550.))) {
+HXLINE(  54)				repeat = (sketch->y == ((Float)50.));
             			}
             			else {
-HXLINE(  54)				repeat3 = false;
+HXLINE(  54)				repeat = false;
             			}
-HXDLIN(  54)			if (!(repeat3)) {
+HXDLIN(  54)			if (!(repeat)) {
 HXLINE(  54)				if (::hx::IsNotNull( sketch->widthFunction )) {
-HXLINE(  54)					sketch->width = ( (Float)(sketch->widthFunction(sketch->width,sketch->x,sketch->y,((Float)50.),((Float)50.))) );
+HXLINE(  54)					sketch->width = ( (Float)(sketch->widthFunction(sketch->width,sketch->x,sketch->y,((Float)550.),((Float)50.))) );
             				}
 HXDLIN(  54)				if (::hx::IsNotNull( sketch->colourFunction )) {
-HXLINE(  54)					sketch->pen->currentColor = ( (int)(sketch->colourFunction(sketch->pen->currentColor,sketch->x,sketch->y,((Float)50.),((Float)50.))) );
+HXLINE(  54)					sketch->pen->currentColor = ( (int)(sketch->colourFunction(sketch->pen->currentColor,sketch->x,sketch->y,((Float)550.),((Float)50.))) );
             				}
-HXDLIN(  54)				sketch->line(((Float)50.),((Float)50.));
+HXDLIN(  54)				sketch->line(((Float)550.),((Float)50.));
 HXDLIN(  54)				int l = sketch->points->length;
 HXDLIN(  54)				::Array< Float > p = sketch->points->__get((l - 1)).StaticCast< ::Array< Float > >();
 HXDLIN(  54)				int l2 = p->length;
-HXDLIN(  54)				p[l2] = ((Float)50.);
+HXDLIN(  54)				p[l2] = ((Float)550.);
 HXDLIN(  54)				p[(l2 + 1)] = ((Float)50.);
 HXDLIN(  54)				{
 HXLINE(  54)					 ::Dynamic d = sketch->dim->__get((sketch->dim->length - 1));
-HXDLIN(  54)					if (::hx::IsLess( ((Float)50.),d->__Field(HX_("minX",86,4e,5c,48),::hx::paccDynamic) )) {
-HXLINE(  54)						d->__SetField(HX_("minX",86,4e,5c,48),((Float)50.),::hx::paccDynamic);
+HXDLIN(  54)					if (::hx::IsLess( ((Float)550.),d->__Field(HX_("minX",86,4e,5c,48),::hx::paccDynamic) )) {
+HXLINE(  54)						d->__SetField(HX_("minX",86,4e,5c,48),((Float)550.),::hx::paccDynamic);
             					}
-HXDLIN(  54)					if (::hx::IsGreater( ((Float)50.),d->__Field(HX_("maxX",34,45,56,48),::hx::paccDynamic) )) {
-HXLINE(  54)						d->__SetField(HX_("maxX",34,45,56,48),((Float)50.),::hx::paccDynamic);
+HXDLIN(  54)					if (::hx::IsGreater( ((Float)550.),d->__Field(HX_("maxX",34,45,56,48),::hx::paccDynamic) )) {
+HXLINE(  54)						d->__SetField(HX_("maxX",34,45,56,48),((Float)550.),::hx::paccDynamic);
             					}
 HXDLIN(  54)					if (::hx::IsLess( ((Float)50.),d->__Field(HX_("minY",87,4e,5c,48),::hx::paccDynamic) )) {
 HXLINE(  54)						d->__SetField(HX_("minY",87,4e,5c,48),((Float)50.),::hx::paccDynamic);
@@ -289,24 +207,140 @@ HXDLIN(  54)					if (::hx::IsGreater( ((Float)50.),d->__Field(HX_("maxY",35,45,5
 HXLINE(  54)						d->__SetField(HX_("maxY",35,45,56,48),((Float)50.),::hx::paccDynamic);
             					}
             				}
-HXDLIN(  54)				sketch->x = ((Float)50.);
+HXDLIN(  54)				sketch->x = ((Float)550.);
 HXDLIN(  54)				sketch->y = ((Float)50.);
             			}
             		}
-HXLINE(  55)		Float end = ( (Float)(this->pen->drawType->__Field(HX_("get_pos",2b,26,ca,26),::hx::paccDynamic)()) );
-HXLINE(  56)		{
-HXLINE(  56)			 ::trilateral3::drawing::Pen _this7 = this->pen;
-HXDLIN(  56)			_this7->drawType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(start);
-HXDLIN(  56)			_this7->colorType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(start);
-            		}
-HXLINE(  57)		int numberTriangles = ::Std_obj::_hx_int((end - start));
-HXLINE(  58)		{
-HXLINE(  58)			 ::trilateral3::drawing::Pen _this8 = this->pen;
-HXDLIN(  58)			int color3 = -16776961;
-HXDLIN(  58)			if ((color3 == -1)) {
-HXLINE(  58)				color3 = _this8->currentColor;
+HXLINE(  55)		{
+HXLINE(  55)			bool repeat1;
+HXDLIN(  55)			if ((sketch->x == ((Float)550.))) {
+HXLINE(  55)				repeat1 = (sketch->y == ((Float)550.));
             			}
-HXDLIN(  58)			_this8->colorType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color3,numberTriangles);
+            			else {
+HXLINE(  55)				repeat1 = false;
+            			}
+HXDLIN(  55)			if (!(repeat1)) {
+HXLINE(  55)				if (::hx::IsNotNull( sketch->widthFunction )) {
+HXLINE(  55)					sketch->width = ( (Float)(sketch->widthFunction(sketch->width,sketch->x,sketch->y,((Float)550.),((Float)550.))) );
+            				}
+HXDLIN(  55)				if (::hx::IsNotNull( sketch->colourFunction )) {
+HXLINE(  55)					sketch->pen->currentColor = ( (int)(sketch->colourFunction(sketch->pen->currentColor,sketch->x,sketch->y,((Float)550.),((Float)550.))) );
+            				}
+HXDLIN(  55)				sketch->line(((Float)550.),((Float)550.));
+HXDLIN(  55)				int l = sketch->points->length;
+HXDLIN(  55)				::Array< Float > p = sketch->points->__get((l - 1)).StaticCast< ::Array< Float > >();
+HXDLIN(  55)				int l2 = p->length;
+HXDLIN(  55)				p[l2] = ((Float)550.);
+HXDLIN(  55)				p[(l2 + 1)] = ((Float)550.);
+HXDLIN(  55)				{
+HXLINE(  55)					 ::Dynamic d = sketch->dim->__get((sketch->dim->length - 1));
+HXDLIN(  55)					if (::hx::IsLess( ((Float)550.),d->__Field(HX_("minX",86,4e,5c,48),::hx::paccDynamic) )) {
+HXLINE(  55)						d->__SetField(HX_("minX",86,4e,5c,48),((Float)550.),::hx::paccDynamic);
+            					}
+HXDLIN(  55)					if (::hx::IsGreater( ((Float)550.),d->__Field(HX_("maxX",34,45,56,48),::hx::paccDynamic) )) {
+HXLINE(  55)						d->__SetField(HX_("maxX",34,45,56,48),((Float)550.),::hx::paccDynamic);
+            					}
+HXDLIN(  55)					if (::hx::IsLess( ((Float)550.),d->__Field(HX_("minY",87,4e,5c,48),::hx::paccDynamic) )) {
+HXLINE(  55)						d->__SetField(HX_("minY",87,4e,5c,48),((Float)550.),::hx::paccDynamic);
+            					}
+HXDLIN(  55)					if (::hx::IsGreater( ((Float)550.),d->__Field(HX_("maxY",35,45,56,48),::hx::paccDynamic) )) {
+HXLINE(  55)						d->__SetField(HX_("maxY",35,45,56,48),((Float)550.),::hx::paccDynamic);
+            					}
+            				}
+HXDLIN(  55)				sketch->x = ((Float)550.);
+HXDLIN(  55)				sketch->y = ((Float)550.);
+            			}
+            		}
+HXLINE(  56)		{
+HXLINE(  56)			bool repeat2;
+HXDLIN(  56)			if ((sketch->x == ((Float)50.))) {
+HXLINE(  56)				repeat2 = (sketch->y == ((Float)550.));
+            			}
+            			else {
+HXLINE(  56)				repeat2 = false;
+            			}
+HXDLIN(  56)			if (!(repeat2)) {
+HXLINE(  56)				if (::hx::IsNotNull( sketch->widthFunction )) {
+HXLINE(  56)					sketch->width = ( (Float)(sketch->widthFunction(sketch->width,sketch->x,sketch->y,((Float)50.),((Float)550.))) );
+            				}
+HXDLIN(  56)				if (::hx::IsNotNull( sketch->colourFunction )) {
+HXLINE(  56)					sketch->pen->currentColor = ( (int)(sketch->colourFunction(sketch->pen->currentColor,sketch->x,sketch->y,((Float)50.),((Float)550.))) );
+            				}
+HXDLIN(  56)				sketch->line(((Float)50.),((Float)550.));
+HXDLIN(  56)				int l = sketch->points->length;
+HXDLIN(  56)				::Array< Float > p = sketch->points->__get((l - 1)).StaticCast< ::Array< Float > >();
+HXDLIN(  56)				int l2 = p->length;
+HXDLIN(  56)				p[l2] = ((Float)50.);
+HXDLIN(  56)				p[(l2 + 1)] = ((Float)550.);
+HXDLIN(  56)				{
+HXLINE(  56)					 ::Dynamic d = sketch->dim->__get((sketch->dim->length - 1));
+HXDLIN(  56)					if (::hx::IsLess( ((Float)50.),d->__Field(HX_("minX",86,4e,5c,48),::hx::paccDynamic) )) {
+HXLINE(  56)						d->__SetField(HX_("minX",86,4e,5c,48),((Float)50.),::hx::paccDynamic);
+            					}
+HXDLIN(  56)					if (::hx::IsGreater( ((Float)50.),d->__Field(HX_("maxX",34,45,56,48),::hx::paccDynamic) )) {
+HXLINE(  56)						d->__SetField(HX_("maxX",34,45,56,48),((Float)50.),::hx::paccDynamic);
+            					}
+HXDLIN(  56)					if (::hx::IsLess( ((Float)550.),d->__Field(HX_("minY",87,4e,5c,48),::hx::paccDynamic) )) {
+HXLINE(  56)						d->__SetField(HX_("minY",87,4e,5c,48),((Float)550.),::hx::paccDynamic);
+            					}
+HXDLIN(  56)					if (::hx::IsGreater( ((Float)550.),d->__Field(HX_("maxY",35,45,56,48),::hx::paccDynamic) )) {
+HXLINE(  56)						d->__SetField(HX_("maxY",35,45,56,48),((Float)550.),::hx::paccDynamic);
+            					}
+            				}
+HXDLIN(  56)				sketch->x = ((Float)50.);
+HXDLIN(  56)				sketch->y = ((Float)550.);
+            			}
+            		}
+HXLINE(  57)		{
+HXLINE(  57)			bool repeat3;
+HXDLIN(  57)			if ((sketch->x == ((Float)50.))) {
+HXLINE(  57)				repeat3 = (sketch->y == ((Float)50.));
+            			}
+            			else {
+HXLINE(  57)				repeat3 = false;
+            			}
+HXDLIN(  57)			if (!(repeat3)) {
+HXLINE(  57)				if (::hx::IsNotNull( sketch->widthFunction )) {
+HXLINE(  57)					sketch->width = ( (Float)(sketch->widthFunction(sketch->width,sketch->x,sketch->y,((Float)50.),((Float)50.))) );
+            				}
+HXDLIN(  57)				if (::hx::IsNotNull( sketch->colourFunction )) {
+HXLINE(  57)					sketch->pen->currentColor = ( (int)(sketch->colourFunction(sketch->pen->currentColor,sketch->x,sketch->y,((Float)50.),((Float)50.))) );
+            				}
+HXDLIN(  57)				sketch->line(((Float)50.),((Float)50.));
+HXDLIN(  57)				int l = sketch->points->length;
+HXDLIN(  57)				::Array< Float > p = sketch->points->__get((l - 1)).StaticCast< ::Array< Float > >();
+HXDLIN(  57)				int l2 = p->length;
+HXDLIN(  57)				p[l2] = ((Float)50.);
+HXDLIN(  57)				p[(l2 + 1)] = ((Float)50.);
+HXDLIN(  57)				{
+HXLINE(  57)					 ::Dynamic d = sketch->dim->__get((sketch->dim->length - 1));
+HXDLIN(  57)					if (::hx::IsLess( ((Float)50.),d->__Field(HX_("minX",86,4e,5c,48),::hx::paccDynamic) )) {
+HXLINE(  57)						d->__SetField(HX_("minX",86,4e,5c,48),((Float)50.),::hx::paccDynamic);
+            					}
+HXDLIN(  57)					if (::hx::IsGreater( ((Float)50.),d->__Field(HX_("maxX",34,45,56,48),::hx::paccDynamic) )) {
+HXLINE(  57)						d->__SetField(HX_("maxX",34,45,56,48),((Float)50.),::hx::paccDynamic);
+            					}
+HXDLIN(  57)					if (::hx::IsLess( ((Float)50.),d->__Field(HX_("minY",87,4e,5c,48),::hx::paccDynamic) )) {
+HXLINE(  57)						d->__SetField(HX_("minY",87,4e,5c,48),((Float)50.),::hx::paccDynamic);
+            					}
+HXDLIN(  57)					if (::hx::IsGreater( ((Float)50.),d->__Field(HX_("maxY",35,45,56,48),::hx::paccDynamic) )) {
+HXLINE(  57)						d->__SetField(HX_("maxY",35,45,56,48),((Float)50.),::hx::paccDynamic);
+            					}
+            				}
+HXDLIN(  57)				sketch->x = ((Float)50.);
+HXDLIN(  57)				sketch->y = ((Float)50.);
+            			}
+            		}
+HXLINE(  58)		Float end = ( (Float)(this->pen->paintType->__Field(HX_("get_pos",2b,26,ca,26),::hx::paccDynamic)()) );
+HXLINE(  59)		this->pen->paintType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(start);
+HXLINE(  60)		int numberTriangles = ::Std_obj::_hx_int((end - start));
+HXLINE(  61)		{
+HXLINE(  61)			 ::trilateral3::drawing::Pen _this6 = this->pen;
+HXDLIN(  61)			int color3 = -16776961;
+HXDLIN(  61)			if ((color3 == -1)) {
+HXLINE(  61)				color3 = _this6->currentColor;
+            			}
+HXDLIN(  61)			_this6->paintType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color3,numberTriangles);
             		}
             	}
 
@@ -314,7 +348,7 @@ HXDLIN(  58)			_this8->colorType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx
 HX_DEFINE_DYNAMIC_FUNC0(TrilateralTriangle_obj,draw,(void))
 
 void TrilateralTriangle_obj::renderDraw(){
-            	HX_STACKFRAME(&_hx_pos_eea6cf277589ad4e_61_renderDraw)
+            	HX_STACKFRAME(&_hx_pos_eea6cf277589ad4e_64_renderDraw)
             	}
 
 
@@ -341,7 +375,7 @@ void TrilateralTriangle_obj::__Mark(HX_MARK_PARAMS)
 	HX_MARK_BEGIN_CLASS(TrilateralTriangle);
 	HX_MARK_MEMBER_NAME(pen,"pen");
 	HX_MARK_MEMBER_NAME(penNodule,"penNodule");
-	 ::kitGL::gluon::InterleaveAlterGL_obj::__Mark(HX_MARK_ARG);
+	 ::kitGL::gluon::Ply_obj::__Mark(HX_MARK_ARG);
 	HX_MARK_END_CLASS();
 }
 
@@ -349,7 +383,7 @@ void TrilateralTriangle_obj::__Visit(HX_VISIT_PARAMS)
 {
 	HX_VISIT_MEMBER_NAME(pen,"pen");
 	HX_VISIT_MEMBER_NAME(penNodule,"penNodule");
-	 ::kitGL::gluon::InterleaveAlterGL_obj::__Visit(HX_VISIT_ARG);
+	 ::kitGL::gluon::Ply_obj::__Visit(HX_VISIT_ARG);
 }
 
 ::hx::Val TrilateralTriangle_obj::__Field(const ::String &inName,::hx::PropertyAccess inCallProp)

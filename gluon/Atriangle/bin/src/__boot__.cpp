@@ -4,6 +4,12 @@
 #ifndef INCLUDED_typedarray__BufferSource_BufferSourceType
 #include <typedarray/_BufferSource/BufferSourceType.h>
 #endif
+#ifndef INCLUDED_hxGeomAlgo_ResultType
+#include <hxGeomAlgo/ResultType.h>
+#endif
+#ifndef INCLUDED_hxGeomAlgo_WindingRule
+#include <hxGeomAlgo/WindingRule.h>
+#endif
 #ifndef INCLUDED_haxe_io_Error
 #include <haxe/io/Error.h>
 #endif
@@ -18,6 +24,12 @@
 #endif
 #ifndef INCLUDED_trilateral3_Trilateral
 #include <trilateral3/Trilateral.h>
+#endif
+#ifndef INCLUDED_hxGeomAlgo_PolyTools
+#include <hxGeomAlgo/PolyTools.h>
+#endif
+#ifndef INCLUDED_hxGeomAlgo__HxPoint_HxPoint_Impl_
+#include <hxGeomAlgo/_HxPoint/HxPoint_Impl_.h>
 #endif
 #ifndef INCLUDED_haxe_Log
 #include <haxe/Log.h>
@@ -112,6 +124,57 @@
 #ifndef INCLUDED_justPath_IPathContext
 #include <justPath/IPathContext.h>
 #endif
+#ifndef INCLUDED_hxGeomAlgo_Tesselator
+#include <hxGeomAlgo/Tesselator.h>
+#endif
+#ifndef INCLUDED_hxGeomAlgo__Tess2_Sweep
+#include <hxGeomAlgo/_Tess2/Sweep.h>
+#endif
+#ifndef INCLUDED_hxGeomAlgo__Tess2_ActiveRegion
+#include <hxGeomAlgo/_Tess2/ActiveRegion.h>
+#endif
+#ifndef INCLUDED_hxGeomAlgo__Tess2_PriorityQ
+#include <hxGeomAlgo/_Tess2/PriorityQ.h>
+#endif
+#ifndef INCLUDED_hxGeomAlgo__Tess2_PQHandleElem
+#include <hxGeomAlgo/_Tess2/PQHandleElem.h>
+#endif
+#ifndef INCLUDED_hxGeomAlgo__Tess2_PQNode
+#include <hxGeomAlgo/_Tess2/PQNode.h>
+#endif
+#ifndef INCLUDED_hxGeomAlgo__Tess2_Dict
+#include <hxGeomAlgo/_Tess2/Dict.h>
+#endif
+#ifndef INCLUDED_hxGeomAlgo__Tess2_DictNode
+#include <hxGeomAlgo/_Tess2/DictNode.h>
+#endif
+#ifndef INCLUDED_hxGeomAlgo__Tess2_Geom
+#include <hxGeomAlgo/_Tess2/Geom.h>
+#endif
+#ifndef INCLUDED_hxGeomAlgo__Tess2_TessMesh
+#include <hxGeomAlgo/_Tess2/TessMesh.h>
+#endif
+#ifndef INCLUDED_hxGeomAlgo__Tess2_TessHalfEdge
+#include <hxGeomAlgo/_Tess2/TessHalfEdge.h>
+#endif
+#ifndef INCLUDED_hxGeomAlgo__Tess2_TessFace
+#include <hxGeomAlgo/_Tess2/TessFace.h>
+#endif
+#ifndef INCLUDED_hxGeomAlgo__Tess2_TessVertex
+#include <hxGeomAlgo/_Tess2/TessVertex.h>
+#endif
+#ifndef INCLUDED_hxGeomAlgo_Tess2
+#include <hxGeomAlgo/Tess2.h>
+#endif
+#ifndef INCLUDED_hxGeomAlgo_HxPointData
+#include <hxGeomAlgo/HxPointData.h>
+#endif
+#ifndef INCLUDED_hxGeomAlgo_HomogCoord
+#include <hxGeomAlgo/HomogCoord.h>
+#endif
+#ifndef INCLUDED_hxGeomAlgo_Debug
+#include <hxGeomAlgo/Debug.h>
+#endif
 #ifndef INCLUDED_haxe_iterators_ArrayIterator
 #include <haxe/iterators/ArrayIterator.h>
 #endif
@@ -175,6 +238,9 @@
 #ifndef INCLUDED_glfw_GLFWErrorHandler
 #include <glfw/GLFWErrorHandler.h>
 #endif
+#ifndef INCLUDED_dsHelper_flatInterleave__FloatColorTrianglesUV_FloatColorTrianglesUV_Impl_
+#include <dsHelper/flatInterleave/_FloatColorTrianglesUV/FloatColorTrianglesUV_Impl_.h>
+#endif
 #ifndef INCLUDED_dsHelper_flatInterleave__FloatColorTriangles_FloatColorTriangles_Impl_
 #include <dsHelper/flatInterleave/_FloatColorTriangles/FloatColorTriangles_Impl_.h>
 #endif
@@ -184,8 +250,8 @@
 #ifndef INCLUDED_TrilateralTriangle
 #include <TrilateralTriangle.h>
 #endif
-#ifndef INCLUDED_kitGL_gluon_InterleaveAlterGL
-#include <kitGL/gluon/InterleaveAlterGL.h>
+#ifndef INCLUDED_kitGL_gluon_Ply
+#include <kitGL/gluon/Ply.h>
 #endif
 #ifndef INCLUDED_Std
 #include <Std.h>
@@ -201,11 +267,15 @@ void __boot_all()
 __files__boot();
 ::hx::RegisterResources( ::hx::GetResources() );
 ::typedarray::_BufferSource::BufferSourceType_obj::__register();
+::hxGeomAlgo::ResultType_obj::__register();
+::hxGeomAlgo::WindingRule_obj::__register();
 ::haxe::io::Error_obj::__register();
 ::haxe::StackItem_obj::__register();
 ::fracs::DifferencePreference_obj::__register();
 ::trilateral3::nodule::PenNodule_obj::__register();
 ::trilateral3::Trilateral_obj::__register();
+::hxGeomAlgo::PolyTools_obj::__register();
+::hxGeomAlgo::_HxPoint::HxPoint_Impl__obj::__register();
 ::haxe::Log_obj::__register();
 ::haxe::EntryPoint_obj::__register();
 ::glfw::GLFWWindowSizeHandler_obj::__register();
@@ -237,6 +307,23 @@ __files__boot();
 ::kitGL::gluon::Glwrapper_obj::__register();
 ::kitGL::gluon::Animate_obj::__register();
 ::justPath::IPathContext_obj::__register();
+::hxGeomAlgo::Tesselator_obj::__register();
+::hxGeomAlgo::_Tess2::Sweep_obj::__register();
+::hxGeomAlgo::_Tess2::ActiveRegion_obj::__register();
+::hxGeomAlgo::_Tess2::PriorityQ_obj::__register();
+::hxGeomAlgo::_Tess2::PQHandleElem_obj::__register();
+::hxGeomAlgo::_Tess2::PQNode_obj::__register();
+::hxGeomAlgo::_Tess2::Dict_obj::__register();
+::hxGeomAlgo::_Tess2::DictNode_obj::__register();
+::hxGeomAlgo::_Tess2::Geom_obj::__register();
+::hxGeomAlgo::_Tess2::TessMesh_obj::__register();
+::hxGeomAlgo::_Tess2::TessHalfEdge_obj::__register();
+::hxGeomAlgo::_Tess2::TessFace_obj::__register();
+::hxGeomAlgo::_Tess2::TessVertex_obj::__register();
+::hxGeomAlgo::Tess2_obj::__register();
+::hxGeomAlgo::HxPointData_obj::__register();
+::hxGeomAlgo::HomogCoord_obj::__register();
+::hxGeomAlgo::Debug_obj::__register();
 ::haxe::iterators::ArrayIterator_obj::__register();
 ::haxe::io::Bytes_obj::__register();
 ::haxe::ds::StringMap_obj::__register();
@@ -258,13 +345,16 @@ __files__boot();
 ::gluon::webgl::_GLContext::GLContext_Impl__obj::__register();
 ::glfw::GLFWJoystickHandler_obj::__register();
 ::glfw::GLFWErrorHandler_obj::__register();
+::dsHelper::flatInterleave::_FloatColorTrianglesUV::FloatColorTrianglesUV_Impl__obj::__register();
 ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::__register();
 ::dsHelper::flat::io::_Float32Flat::Float32Flat_Impl__obj::__register();
 ::TrilateralTriangle_obj::__register();
-::kitGL::gluon::InterleaveAlterGL_obj::__register();
+::kitGL::gluon::Ply_obj::__register();
 ::Std_obj::__register();
 ::_Main::Main_Fields__obj::__register();
 ::typedarray::_BufferSource::BufferSourceType_obj::__boot();
+::hxGeomAlgo::ResultType_obj::__boot();
+::hxGeomAlgo::WindingRule_obj::__boot();
 ::haxe::io::Error_obj::__boot();
 ::haxe::StackItem_obj::__boot();
 ::fracs::DifferencePreference_obj::__boot();
@@ -276,6 +366,8 @@ __files__boot();
 ::glfw::GLFWMouseWheelHandler_obj::__boot();
 ::glfw::GLFWWindowSizeHandler_obj::__boot();
 ::haxe::EntryPoint_obj::__boot();
+::hxGeomAlgo::_HxPoint::HxPoint_Impl__obj::__boot();
+::hxGeomAlgo::PolyTools_obj::__boot();
 ::trilateral3::Trilateral_obj::__boot();
 ::trilateral3::nodule::PenNodule_obj::__boot();
 }

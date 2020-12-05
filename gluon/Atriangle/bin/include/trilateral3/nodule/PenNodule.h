@@ -54,7 +54,7 @@ class HXCPP_CLASS_ATTRIBUTES PenNodule_obj : public ::hx::Object
 		static int largeEnough;
 		 ::typedarray::Float32ArrayImpl colorTriangles;
 		 ::trilateral3::drawing::Pen pen;
-		void createPen();
+		 ::trilateral3::drawing::Pen createPen();
 		::Dynamic createPen_dyn();
 
 		 ::typedarray::Float32ArrayImpl get_data();

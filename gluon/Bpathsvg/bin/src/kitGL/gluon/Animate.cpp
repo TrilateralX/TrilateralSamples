@@ -11,40 +11,41 @@
 #include <kitGL/gluon/Animate.h>
 #endif
 
-HX_DEFINE_STACK_FRAME(_hx_pos_616671e4c5ba62f5_13_new,"kitGL.gluon.Animate","new",0xf1a28c61,"kitGL.gluon.Animate.new","kitGL/gluon/Animate.hx",13,0xcef31771)
 HX_DEFINE_STACK_FRAME(_hx_pos_616671e4c5ba62f5_14_new,"kitGL.gluon.Animate","new",0xf1a28c61,"kitGL.gluon.Animate.new","kitGL/gluon/Animate.hx",14,0xcef31771)
 HX_DEFINE_STACK_FRAME(_hx_pos_616671e4c5ba62f5_15_new,"kitGL.gluon.Animate","new",0xf1a28c61,"kitGL.gluon.Animate.new","kitGL/gluon/Animate.hx",15,0xcef31771)
+HX_DEFINE_STACK_FRAME(_hx_pos_616671e4c5ba62f5_16_new,"kitGL.gluon.Animate","new",0xf1a28c61,"kitGL.gluon.Animate.new","kitGL/gluon/Animate.hx",16,0xcef31771)
 HX_DEFINE_STACK_FRAME(_hx_pos_616671e4c5ba62f5_5_new,"kitGL.gluon.Animate","new",0xf1a28c61,"kitGL.gluon.Animate.new","kitGL/gluon/Animate.hx",5,0xcef31771)
-HX_LOCAL_STACK_FRAME(_hx_pos_616671e4c5ba62f5_17_start,"kitGL.gluon.Animate","start",0x7381f2a3,"kitGL.gluon.Animate.start","kitGL/gluon/Animate.hx",17,0xcef31771)
-HX_LOCAL_STACK_FRAME(_hx_pos_616671e4c5ba62f5_21_mainLoop,"kitGL.gluon.Animate","mainLoop",0xb25d3b9c,"kitGL.gluon.Animate.mainLoop","kitGL/gluon/Animate.hx",21,0xcef31771)
-HX_LOCAL_STACK_FRAME(_hx_pos_616671e4c5ba62f5_28_stop,"kitGL.gluon.Animate","stop",0x7ff1b4e1,"kitGL.gluon.Animate.stop","kitGL/gluon/Animate.hx",28,0xcef31771)
+HX_LOCAL_STACK_FRAME(_hx_pos_616671e4c5ba62f5_18_start,"kitGL.gluon.Animate","start",0x7381f2a3,"kitGL.gluon.Animate.start","kitGL/gluon/Animate.hx",18,0xcef31771)
+HX_LOCAL_STACK_FRAME(_hx_pos_616671e4c5ba62f5_22_mainLoop,"kitGL.gluon.Animate","mainLoop",0xb25d3b9c,"kitGL.gluon.Animate.mainLoop","kitGL/gluon/Animate.hx",22,0xcef31771)
+HX_LOCAL_STACK_FRAME(_hx_pos_616671e4c5ba62f5_29_stop,"kitGL.gluon.Animate","stop",0x7ff1b4e1,"kitGL.gluon.Animate.stop","kitGL/gluon/Animate.hx",29,0xcef31771)
 namespace kitGL{
 namespace gluon{
 
 void Animate_obj::__construct(){
             		HX_BEGIN_LOCAL_FUNC_S0(::hx::LocalFunc,_hx_Closure_0) HXARGC(0)
             		void _hx_run(){
-            			HX_STACKFRAME(&_hx_pos_616671e4c5ba62f5_13_new)
+            			HX_STACKFRAME(&_hx_pos_616671e4c5ba62f5_14_new)
             		}
             		HX_END_LOCAL_FUNC0((void))
 
             		HX_BEGIN_LOCAL_FUNC_S0(::hx::LocalFunc,_hx_Closure_1) HXARGC(0)
             		void _hx_run(){
-            			HX_STACKFRAME(&_hx_pos_616671e4c5ba62f5_14_new)
+            			HX_STACKFRAME(&_hx_pos_616671e4c5ba62f5_15_new)
             		}
             		HX_END_LOCAL_FUNC0((void))
 
             		HX_BEGIN_LOCAL_FUNC_S0(::hx::LocalFunc,_hx_Closure_2) HXARGC(0)
             		void _hx_run(){
-            			HX_STACKFRAME(&_hx_pos_616671e4c5ba62f5_15_new)
+            			HX_STACKFRAME(&_hx_pos_616671e4c5ba62f5_16_new)
             		}
             		HX_END_LOCAL_FUNC0((void))
 
             	HX_STACKFRAME(&_hx_pos_616671e4c5ba62f5_5_new)
-HXLINE(   9)		this->lastT = ((Float)0);
-HXLINE(  13)		this->onEnterFrame =  ::Dynamic(new _hx_Closure_0());
-HXLINE(  14)		this->onStop =  ::Dynamic(new _hx_Closure_1());
-HXLINE(  15)		this->onStart =  ::Dynamic(new _hx_Closure_2());
+HXLINE(  10)		this->lastT = ((Float)0);
+HXLINE(   6)		this->speedDelta = ((Float)0.01);
+HXLINE(  14)		this->onEnterFrame =  ::Dynamic(new _hx_Closure_0());
+HXLINE(  15)		this->onStop =  ::Dynamic(new _hx_Closure_1());
+HXLINE(  16)		this->onStart =  ::Dynamic(new _hx_Closure_2());
             	}
 
 Dynamic Animate_obj::__CreateEmpty() { return new Animate_obj; }
@@ -63,20 +64,20 @@ bool Animate_obj::_hx_isInstanceOf(int inClassId) {
 }
 
 void Animate_obj::start(){
-            	HX_STACKFRAME(&_hx_pos_616671e4c5ba62f5_17_start)
-HXLINE(  18)		this->mainLoopHandle = ::haxe::MainLoop_obj::add(this->mainLoop_dyn(),null());
-HXLINE(  19)		this->onStart();
+            	HX_STACKFRAME(&_hx_pos_616671e4c5ba62f5_18_start)
+HXLINE(  19)		this->mainLoopHandle = ::haxe::MainLoop_obj::add(this->mainLoop_dyn(),null());
+HXLINE(  20)		this->onStart();
             	}
 
 
 HX_DEFINE_DYNAMIC_FUNC0(Animate_obj,start,(void))
 
 void Animate_obj::mainLoop(){
-            	HX_STACKFRAME(&_hx_pos_616671e4c5ba62f5_21_mainLoop)
-HXLINE(  22)		Float t_s =  ::__time_stamp();
-HXLINE(  23)		if (((t_s - this->lastT) > ((Float)0.6))) {
-HXLINE(  24)			this->onEnterFrame();
-HXLINE(  25)			this->lastT = t_s;
+            	HX_STACKFRAME(&_hx_pos_616671e4c5ba62f5_22_mainLoop)
+HXLINE(  23)		Float t_s =  ::__time_stamp();
+HXLINE(  24)		if (((t_s - this->lastT) > this->speedDelta)) {
+HXLINE(  25)			this->onEnterFrame();
+HXLINE(  26)			this->lastT = t_s;
             		}
             	}
 
@@ -84,9 +85,9 @@ HXLINE(  25)			this->lastT = t_s;
 HX_DEFINE_DYNAMIC_FUNC0(Animate_obj,mainLoop,(void))
 
 void Animate_obj::stop(){
-            	HX_STACKFRAME(&_hx_pos_616671e4c5ba62f5_28_stop)
-HXLINE(  29)		this->mainLoopHandle->stop();
-HXLINE(  30)		this->onStop();
+            	HX_STACKFRAME(&_hx_pos_616671e4c5ba62f5_29_stop)
+HXLINE(  30)		this->mainLoopHandle->stop();
+HXLINE(  31)		this->onStop();
             	}
 
 
@@ -113,6 +114,7 @@ Animate_obj::Animate_obj()
 void Animate_obj::__Mark(HX_MARK_PARAMS)
 {
 	HX_MARK_BEGIN_CLASS(Animate);
+	HX_MARK_MEMBER_NAME(speedDelta,"speedDelta");
 	HX_MARK_MEMBER_NAME(onEnterFrame,"onEnterFrame");
 	HX_MARK_MEMBER_NAME(onStop,"onStop");
 	HX_MARK_MEMBER_NAME(onStart,"onStart");
@@ -123,6 +125,7 @@ void Animate_obj::__Mark(HX_MARK_PARAMS)
 
 void Animate_obj::__Visit(HX_VISIT_PARAMS)
 {
+	HX_VISIT_MEMBER_NAME(speedDelta,"speedDelta");
 	HX_VISIT_MEMBER_NAME(onEnterFrame,"onEnterFrame");
 	HX_VISIT_MEMBER_NAME(onStop,"onStop");
 	HX_VISIT_MEMBER_NAME(onStart,"onStart");
@@ -149,6 +152,9 @@ void Animate_obj::__Visit(HX_VISIT_PARAMS)
 	case 8:
 		if (HX_FIELD_EQ(inName,"mainLoop") ) { return ::hx::Val( mainLoop_dyn() ); }
 		break;
+	case 10:
+		if (HX_FIELD_EQ(inName,"speedDelta") ) { return ::hx::Val( speedDelta ); }
+		break;
 	case 12:
 		if (HX_FIELD_EQ(inName,"onEnterFrame") ) { return ::hx::Val( onEnterFrame ); }
 		break;
@@ -170,6 +176,9 @@ void Animate_obj::__Visit(HX_VISIT_PARAMS)
 	case 7:
 		if (HX_FIELD_EQ(inName,"onStart") ) { onStart=inValue.Cast<  ::Dynamic >(); return inValue; }
 		break;
+	case 10:
+		if (HX_FIELD_EQ(inName,"speedDelta") ) { speedDelta=inValue.Cast< Float >(); return inValue; }
+		break;
 	case 12:
 		if (HX_FIELD_EQ(inName,"onEnterFrame") ) { onEnterFrame=inValue.Cast<  ::Dynamic >(); return inValue; }
 		break;
@@ -181,6 +190,7 @@ void Animate_obj::__Visit(HX_VISIT_PARAMS)
 
 void Animate_obj::__GetFields(Array< ::String> &outFields)
 {
+	outFields->push(HX_("speedDelta",f1,16,f5,09));
 	outFields->push(HX_("lastT",3e,01,bc,6f));
 	outFields->push(HX_("mainLoopHandle",c5,9e,6f,20));
 	super::__GetFields(outFields);
@@ -188,6 +198,7 @@ void Animate_obj::__GetFields(Array< ::String> &outFields)
 
 #ifdef HXCPP_SCRIPTABLE
 static ::hx::StorageInfo Animate_obj_sMemberStorageInfo[] = {
+	{::hx::fsFloat,(int)offsetof(Animate_obj,speedDelta),HX_("speedDelta",f1,16,f5,09)},
 	{::hx::fsObject /*  ::Dynamic */ ,(int)offsetof(Animate_obj,onEnterFrame),HX_("onEnterFrame",f4,a5,93,da)},
 	{::hx::fsObject /*  ::Dynamic */ ,(int)offsetof(Animate_obj,onStop),HX_("onStop",c1,f8,e5,ee)},
 	{::hx::fsObject /*  ::Dynamic */ ,(int)offsetof(Animate_obj,onStart),HX_("onStart",c3,12,49,1a)},
@@ -199,6 +210,7 @@ static ::hx::StaticInfo *Animate_obj_sStaticStorageInfo = 0;
 #endif
 
 static ::String Animate_obj_sMemberFields[] = {
+	HX_("speedDelta",f1,16,f5,09),
 	HX_("onEnterFrame",f4,a5,93,da),
 	HX_("onStop",c1,f8,e5,ee),
 	HX_("onStart",c3,12,49,1a),

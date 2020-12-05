@@ -63,7 +63,8 @@
 #include <typedarray/_Float32Array/Float32Array_Impl_.h>
 #endif
 
-HX_DEFINE_STACK_FRAME(_hx_pos_b18627d9334a0b0e_11_new,"trilateral3.nodule.PenNodule","new",0x84f194ba,"trilateral3.nodule.PenNodule.new","trilateral3/nodule/PenNodule.hx",11,0x5b3c0216)
+HX_DEFINE_STACK_FRAME(_hx_pos_b18627d9334a0b0e_10_new,"trilateral3.nodule.PenNodule","new",0x84f194ba,"trilateral3.nodule.PenNodule.new","trilateral3/nodule/PenNodule.hx",10,0x5b3c0216)
+HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_28_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",28,0x5b3c0216)
 HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_29_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",29,0x5b3c0216)
 HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_30_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",30,0x5b3c0216)
 HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_31_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",31,0x5b3c0216)
@@ -80,7 +81,6 @@ HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_41_createPen,"trilateral3.nodule.P
 HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_42_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",42,0x5b3c0216)
 HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_43_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",43,0x5b3c0216)
 HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_44_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",44,0x5b3c0216)
-HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_45_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",45,0x5b3c0216)
 HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_49_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",49,0x5b3c0216)
 HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_50_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",50,0x5b3c0216)
 HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_51_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",51,0x5b3c0216)
@@ -88,9 +88,11 @@ HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_52_createPen,"trilateral3.nodule.P
 HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_53_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",53,0x5b3c0216)
 HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_54_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",54,0x5b3c0216)
 HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_55_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",55,0x5b3c0216)
-HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_56_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",56,0x5b3c0216)
-HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_57_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",57,0x5b3c0216)
-HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_58_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",58,0x5b3c0216)
+HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_59_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",59,0x5b3c0216)
+HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_60_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",60,0x5b3c0216)
+HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_61_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",61,0x5b3c0216)
+HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_62_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",62,0x5b3c0216)
+HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_63_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",63,0x5b3c0216)
 HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_64_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",64,0x5b3c0216)
 HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_65_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",65,0x5b3c0216)
 HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_66_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",66,0x5b3c0216)
@@ -98,42 +100,36 @@ HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_67_createPen,"trilateral3.nodule.P
 HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_68_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",68,0x5b3c0216)
 HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_69_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",69,0x5b3c0216)
 HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_70_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",70,0x5b3c0216)
-HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_73_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",73,0x5b3c0216)
-HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_74_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",74,0x5b3c0216)
-HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_75_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",75,0x5b3c0216)
-HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_76_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",76,0x5b3c0216)
-HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_77_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",77,0x5b3c0216)
-HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_78_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",78,0x5b3c0216)
-HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_79_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",79,0x5b3c0216)
-HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_25_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",25,0x5b3c0216)
-HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_87_get_data,"trilateral3.nodule.PenNodule","get_data",0x53384719,"trilateral3.nodule.PenNodule.get_data","trilateral3/nodule/PenNodule.hx",87,0x5b3c0216)
-HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_92_get_size,"trilateral3.nodule.PenNodule","get_size",0x5d2891b0,"trilateral3.nodule.PenNodule.get_size","trilateral3/nodule/PenNodule.hx",92,0x5b3c0216)
-HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_12_boot,"trilateral3.nodule.PenNodule","boot",0xc6898e98,"trilateral3.nodule.PenNodule.boot","trilateral3/nodule/PenNodule.hx",12,0x5b3c0216)
+HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_71_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",71,0x5b3c0216)
+HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_24_createPen,"trilateral3.nodule.PenNodule","createPen",0xafb7af17,"trilateral3.nodule.PenNodule.createPen","trilateral3/nodule/PenNodule.hx",24,0x5b3c0216)
+HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_81_get_data,"trilateral3.nodule.PenNodule","get_data",0x53384719,"trilateral3.nodule.PenNodule.get_data","trilateral3/nodule/PenNodule.hx",81,0x5b3c0216)
+HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_86_get_size,"trilateral3.nodule.PenNodule","get_size",0x5d2891b0,"trilateral3.nodule.PenNodule.get_size","trilateral3/nodule/PenNodule.hx",86,0x5b3c0216)
+HX_LOCAL_STACK_FRAME(_hx_pos_b18627d9334a0b0e_11_boot,"trilateral3.nodule.PenNodule","boot",0xc6898e98,"trilateral3.nodule.PenNodule.boot","trilateral3/nodule/PenNodule.hx",11,0x5b3c0216)
 namespace trilateral3{
 namespace nodule{
 
 void PenNodule_obj::__construct(::hx::Null< bool >  __o_useGLScale){
             		bool useGLScale = __o_useGLScale.Default(true);
-            	HX_GC_STACKFRAME(&_hx_pos_b18627d9334a0b0e_11_new)
-HXLINE(  13)		 ::typedarray::Float32ArrayImpl this1 = ::typedarray::_Float32Array::Float32Array_Impl__obj::_new((::trilateral3::nodule::PenNodule_obj::largeEnough + 2),null(),null(),null(),null());
-HXDLIN(  13)		{
-HXLINE(  13)			if ((0 >= this1->length)) {
-HXLINE(  13)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            	HX_GC_STACKFRAME(&_hx_pos_b18627d9334a0b0e_10_new)
+HXLINE(  12)		 ::typedarray::Float32ArrayImpl this1 = ::typedarray::_Float32Array::Float32Array_Impl__obj::_new((::trilateral3::nodule::PenNodule_obj::largeEnough + 2),null(),null(),null(),null());
+HXDLIN(  12)		{
+HXLINE(  12)			if ((0 >= this1->length)) {
+HXLINE(  12)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             			}
-HXDLIN(  13)			 ::__hxcpp_memory_set_float(this1->buffer->b,this1->byteOffset,((Float)0.));
+HXDLIN(  12)			 ::__hxcpp_memory_set_float(this1->buffer->b,this1->byteOffset,((Float)0.));
             		}
-HXDLIN(  13)		{
-HXLINE(  13)			if ((1 >= this1->length)) {
-HXLINE(  13)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  12)		{
+HXLINE(  12)			if ((1 >= this1->length)) {
+HXLINE(  12)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             			}
-HXDLIN(  13)			 ::__hxcpp_memory_set_float(this1->buffer->b,(4 + this1->byteOffset),((Float)0.));
+HXDLIN(  12)			 ::__hxcpp_memory_set_float(this1->buffer->b,(4 + this1->byteOffset),((Float)0.));
             		}
-HXDLIN(  13)		this->colorTriangles = this1;
-HXLINE(  16)		if (useGLScale) {
-HXLINE(  18)			 ::trilateral3::matrix::MatrixDozen transform1000 =  ::trilateral3::matrix::MatrixDozen_obj::__alloc( HX_CTX ,((Float)0.001),( (Float)(0) ),( (Float)(0) ),( (Float)(-1) ),( (Float)(0) ),((Float)-0.001),( (Float)(0) ),( (Float)(1) ),( (Float)(0) ),( (Float)(0) ),((Float)0.001),( (Float)(0) ));
-HXLINE(  21)			::trilateral3::Trilateral_obj::transformMatrix = transform1000;
+HXDLIN(  12)		this->colorTriangles = this1;
+HXLINE(  15)		if (useGLScale) {
+HXLINE(  17)			 ::trilateral3::matrix::MatrixDozen transform1000 =  ::trilateral3::matrix::MatrixDozen_obj::__alloc( HX_CTX ,((Float)0.001),( (Float)(0) ),( (Float)(0) ),( (Float)(-1) ),( (Float)(0) ),((Float)-0.001),( (Float)(0) ),( (Float)(1) ),( (Float)(0) ),( (Float)(0) ),((Float)0.001),( (Float)(0) ));
+HXLINE(  20)			::trilateral3::Trilateral_obj::transformMatrix = transform1000;
             		}
-HXLINE(  23)		this->createPen();
+HXLINE(  22)		this->createPen();
             	}
 
 Dynamic PenNodule_obj::__CreateEmpty() { return new PenNodule_obj; }
@@ -151,72 +147,72 @@ bool PenNodule_obj::_hx_isInstanceOf(int inClassId) {
 	return inClassId==(int)0x00000001 || inClassId==(int)0x052c2712;
 }
 
-void PenNodule_obj::createPen(){
+ ::trilateral3::drawing::Pen PenNodule_obj::createPen(){
             		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_0, ::typedarray::Float32ArrayImpl,_e) HXARGC(3)
             		void _hx_run(Float x,Float y,Float theta){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_29_createPen)
-HXLINE(  29)			Float cos = ::Math_obj::cos(theta);
-HXDLIN(  29)			Float sin = ::Math_obj::sin(theta);
-HXDLIN(  29)			{
-HXLINE(  29)				{
-HXLINE(  29)					 ::typedarray::Float32ArrayImpl _g = _e;
-HXDLIN(  29)					::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ax(_g,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_g) - x));
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_28_createPen)
+HXLINE(  28)			Float cos = ::Math_obj::cos(theta);
+HXDLIN(  28)			Float sin = ::Math_obj::sin(theta);
+HXDLIN(  28)			{
+HXLINE(  28)				{
+HXLINE(  28)					 ::typedarray::Float32ArrayImpl _g = _e;
+HXDLIN(  28)					::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ax(_g,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_g) - x));
             				}
-HXDLIN(  29)				{
-HXLINE(  29)					 ::typedarray::Float32ArrayImpl _g1 = _e;
-HXDLIN(  29)					::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ay(_g1,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_g1) - y));
+HXDLIN(  28)				{
+HXLINE(  28)					 ::typedarray::Float32ArrayImpl _g1 = _e;
+HXDLIN(  28)					::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ay(_g1,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_g1) - y));
             				}
-HXDLIN(  29)				{
-HXLINE(  29)					 ::typedarray::Float32ArrayImpl _g2 = _e;
-HXDLIN(  29)					::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_bx(_g2,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_g2) - x));
+HXDLIN(  28)				{
+HXLINE(  28)					 ::typedarray::Float32ArrayImpl _g2 = _e;
+HXDLIN(  28)					::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_bx(_g2,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_g2) - x));
             				}
-HXDLIN(  29)				{
-HXLINE(  29)					 ::typedarray::Float32ArrayImpl _g3 = _e;
-HXDLIN(  29)					::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_by(_g3,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_g3) - y));
+HXDLIN(  28)				{
+HXLINE(  28)					 ::typedarray::Float32ArrayImpl _g3 = _e;
+HXDLIN(  28)					::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_by(_g3,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_g3) - y));
             				}
-HXDLIN(  29)				{
-HXLINE(  29)					 ::typedarray::Float32ArrayImpl _g4 = _e;
-HXDLIN(  29)					::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cx(_g4,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_g4) - x));
+HXDLIN(  28)				{
+HXLINE(  28)					 ::typedarray::Float32ArrayImpl _g4 = _e;
+HXDLIN(  28)					::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cx(_g4,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_g4) - x));
             				}
-HXDLIN(  29)				{
-HXLINE(  29)					 ::typedarray::Float32ArrayImpl _g5 = _e;
-HXDLIN(  29)					::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cy(_g5,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_g5) - y));
+HXDLIN(  28)				{
+HXLINE(  28)					 ::typedarray::Float32ArrayImpl _g5 = _e;
+HXDLIN(  28)					::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cy(_g5,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_g5) - y));
             				}
-HXDLIN(  29)				Float dx = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_e);
-HXDLIN(  29)				Float dy = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_e);
-HXDLIN(  29)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ax(_e,((dx * cos) - (dy * sin)));
-HXDLIN(  29)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ay(_e,((dx * sin) + (dy * cos)));
-HXDLIN(  29)				dx = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_e);
-HXDLIN(  29)				dy = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_e);
-HXDLIN(  29)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_bx(_e,((dx * cos) - (dy * sin)));
-HXDLIN(  29)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_by(_e,((dx * sin) + (dy * cos)));
-HXDLIN(  29)				dx = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_e);
-HXDLIN(  29)				dy = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_e);
-HXDLIN(  29)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cx(_e,((dx * cos) - (dy * sin)));
-HXDLIN(  29)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cy(_e,((dx * sin) + (dy * cos)));
-HXDLIN(  29)				{
-HXLINE(  29)					 ::typedarray::Float32ArrayImpl _g6 = _e;
-HXDLIN(  29)					::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ax(_g6,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_g6) + x));
+HXDLIN(  28)				Float dx = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_e);
+HXDLIN(  28)				Float dy = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_e);
+HXDLIN(  28)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ax(_e,((dx * cos) - (dy * sin)));
+HXDLIN(  28)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ay(_e,((dx * sin) + (dy * cos)));
+HXDLIN(  28)				dx = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_e);
+HXDLIN(  28)				dy = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_e);
+HXDLIN(  28)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_bx(_e,((dx * cos) - (dy * sin)));
+HXDLIN(  28)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_by(_e,((dx * sin) + (dy * cos)));
+HXDLIN(  28)				dx = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_e);
+HXDLIN(  28)				dy = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_e);
+HXDLIN(  28)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cx(_e,((dx * cos) - (dy * sin)));
+HXDLIN(  28)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cy(_e,((dx * sin) + (dy * cos)));
+HXDLIN(  28)				{
+HXLINE(  28)					 ::typedarray::Float32ArrayImpl _g6 = _e;
+HXDLIN(  28)					::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ax(_g6,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_g6) + x));
             				}
-HXDLIN(  29)				{
-HXLINE(  29)					 ::typedarray::Float32ArrayImpl _g7 = _e;
-HXDLIN(  29)					::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ay(_g7,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_g7) + y));
+HXDLIN(  28)				{
+HXLINE(  28)					 ::typedarray::Float32ArrayImpl _g7 = _e;
+HXDLIN(  28)					::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ay(_g7,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_g7) + y));
             				}
-HXDLIN(  29)				{
-HXLINE(  29)					 ::typedarray::Float32ArrayImpl _g8 = _e;
-HXDLIN(  29)					::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_bx(_g8,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_g8) + x));
+HXDLIN(  28)				{
+HXLINE(  28)					 ::typedarray::Float32ArrayImpl _g8 = _e;
+HXDLIN(  28)					::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_bx(_g8,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_g8) + x));
             				}
-HXDLIN(  29)				{
-HXLINE(  29)					 ::typedarray::Float32ArrayImpl _g9 = _e;
-HXDLIN(  29)					::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_by(_g9,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_g9) + y));
+HXDLIN(  28)				{
+HXLINE(  28)					 ::typedarray::Float32ArrayImpl _g9 = _e;
+HXDLIN(  28)					::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_by(_g9,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_g9) + y));
             				}
-HXDLIN(  29)				{
-HXLINE(  29)					 ::typedarray::Float32ArrayImpl _g10 = _e;
-HXDLIN(  29)					::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cx(_g10,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_g10) + x));
+HXDLIN(  28)				{
+HXLINE(  28)					 ::typedarray::Float32ArrayImpl _g10 = _e;
+HXDLIN(  28)					::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cx(_g10,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_g10) + x));
             				}
-HXDLIN(  29)				{
-HXLINE(  29)					 ::typedarray::Float32ArrayImpl _g11 = _e;
-HXDLIN(  29)					::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cy(_g11,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_g11) + y));
+HXDLIN(  28)				{
+HXLINE(  28)					 ::typedarray::Float32ArrayImpl _g11 = _e;
+HXDLIN(  28)					::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cy(_g11,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_g11) + y));
             				}
             			}
             		}
@@ -224,1325 +220,1173 @@ HXDLIN(  29)					::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTri
 
             		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_1, ::typedarray::Float32ArrayImpl,_e1) HXARGC(2)
             		void _hx_run(Float dx,Float dy){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_30_createPen)
-HXLINE(  30)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::moveDelta(_e1,dx,dy);
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_29_createPen)
+HXLINE(  29)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::moveDelta(_e1,dx,dy);
             		}
             		HX_END_LOCAL_FUNC2((void))
 
             		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_2, ::typedarray::Float32ArrayImpl,_e2) HXARGC(4)
             		void _hx_run(Float x,Float y,Float cos,Float sin){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_31_createPen)
-HXLINE(  31)			{
-HXLINE(  31)				 ::typedarray::Float32ArrayImpl _g = _e2;
-HXDLIN(  31)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ax(_g,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_g) - x));
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_30_createPen)
+HXLINE(  30)			{
+HXLINE(  30)				 ::typedarray::Float32ArrayImpl _g = _e2;
+HXDLIN(  30)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ax(_g,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_g) - x));
             			}
-HXDLIN(  31)			{
-HXLINE(  31)				 ::typedarray::Float32ArrayImpl _g1 = _e2;
-HXDLIN(  31)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ay(_g1,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_g1) - y));
+HXDLIN(  30)			{
+HXLINE(  30)				 ::typedarray::Float32ArrayImpl _g1 = _e2;
+HXDLIN(  30)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ay(_g1,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_g1) - y));
             			}
-HXDLIN(  31)			{
-HXLINE(  31)				 ::typedarray::Float32ArrayImpl _g2 = _e2;
-HXDLIN(  31)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_bx(_g2,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_g2) - x));
+HXDLIN(  30)			{
+HXLINE(  30)				 ::typedarray::Float32ArrayImpl _g2 = _e2;
+HXDLIN(  30)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_bx(_g2,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_g2) - x));
             			}
-HXDLIN(  31)			{
-HXLINE(  31)				 ::typedarray::Float32ArrayImpl _g3 = _e2;
-HXDLIN(  31)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_by(_g3,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_g3) - y));
+HXDLIN(  30)			{
+HXLINE(  30)				 ::typedarray::Float32ArrayImpl _g3 = _e2;
+HXDLIN(  30)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_by(_g3,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_g3) - y));
             			}
-HXDLIN(  31)			{
-HXLINE(  31)				 ::typedarray::Float32ArrayImpl _g4 = _e2;
-HXDLIN(  31)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cx(_g4,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_g4) - x));
+HXDLIN(  30)			{
+HXLINE(  30)				 ::typedarray::Float32ArrayImpl _g4 = _e2;
+HXDLIN(  30)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cx(_g4,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_g4) - x));
             			}
-HXDLIN(  31)			{
-HXLINE(  31)				 ::typedarray::Float32ArrayImpl _g5 = _e2;
-HXDLIN(  31)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cy(_g5,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_g5) - y));
+HXDLIN(  30)			{
+HXLINE(  30)				 ::typedarray::Float32ArrayImpl _g5 = _e2;
+HXDLIN(  30)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cy(_g5,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_g5) - y));
             			}
-HXDLIN(  31)			Float dx = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_e2);
-HXDLIN(  31)			Float dy = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_e2);
-HXDLIN(  31)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ax(_e2,((dx * cos) - (dy * sin)));
-HXDLIN(  31)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ay(_e2,((dx * sin) + (dy * cos)));
-HXDLIN(  31)			dx = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_e2);
-HXDLIN(  31)			dy = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_e2);
-HXDLIN(  31)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_bx(_e2,((dx * cos) - (dy * sin)));
-HXDLIN(  31)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_by(_e2,((dx * sin) + (dy * cos)));
-HXDLIN(  31)			dx = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_e2);
-HXDLIN(  31)			dy = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_e2);
-HXDLIN(  31)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cx(_e2,((dx * cos) - (dy * sin)));
-HXDLIN(  31)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cy(_e2,((dx * sin) + (dy * cos)));
-HXDLIN(  31)			{
-HXLINE(  31)				 ::typedarray::Float32ArrayImpl _g6 = _e2;
-HXDLIN(  31)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ax(_g6,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_g6) + x));
+HXDLIN(  30)			Float dx = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_e2);
+HXDLIN(  30)			Float dy = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_e2);
+HXDLIN(  30)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ax(_e2,((dx * cos) - (dy * sin)));
+HXDLIN(  30)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ay(_e2,((dx * sin) + (dy * cos)));
+HXDLIN(  30)			dx = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_e2);
+HXDLIN(  30)			dy = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_e2);
+HXDLIN(  30)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_bx(_e2,((dx * cos) - (dy * sin)));
+HXDLIN(  30)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_by(_e2,((dx * sin) + (dy * cos)));
+HXDLIN(  30)			dx = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_e2);
+HXDLIN(  30)			dy = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_e2);
+HXDLIN(  30)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cx(_e2,((dx * cos) - (dy * sin)));
+HXDLIN(  30)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cy(_e2,((dx * sin) + (dy * cos)));
+HXDLIN(  30)			{
+HXLINE(  30)				 ::typedarray::Float32ArrayImpl _g6 = _e2;
+HXDLIN(  30)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ax(_g6,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_g6) + x));
             			}
-HXDLIN(  31)			{
-HXLINE(  31)				 ::typedarray::Float32ArrayImpl _g7 = _e2;
-HXDLIN(  31)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ay(_g7,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_g7) + y));
+HXDLIN(  30)			{
+HXLINE(  30)				 ::typedarray::Float32ArrayImpl _g7 = _e2;
+HXDLIN(  30)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ay(_g7,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_g7) + y));
             			}
-HXDLIN(  31)			{
-HXLINE(  31)				 ::typedarray::Float32ArrayImpl _g8 = _e2;
-HXDLIN(  31)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_bx(_g8,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_g8) + x));
+HXDLIN(  30)			{
+HXLINE(  30)				 ::typedarray::Float32ArrayImpl _g8 = _e2;
+HXDLIN(  30)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_bx(_g8,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_g8) + x));
             			}
-HXDLIN(  31)			{
-HXLINE(  31)				 ::typedarray::Float32ArrayImpl _g9 = _e2;
-HXDLIN(  31)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_by(_g9,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_g9) + y));
+HXDLIN(  30)			{
+HXLINE(  30)				 ::typedarray::Float32ArrayImpl _g9 = _e2;
+HXDLIN(  30)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_by(_g9,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_g9) + y));
             			}
-HXDLIN(  31)			{
-HXLINE(  31)				 ::typedarray::Float32ArrayImpl _g10 = _e2;
-HXDLIN(  31)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cx(_g10,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_g10) + x));
+HXDLIN(  30)			{
+HXLINE(  30)				 ::typedarray::Float32ArrayImpl _g10 = _e2;
+HXDLIN(  30)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cx(_g10,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_g10) + x));
             			}
-HXDLIN(  31)			{
-HXLINE(  31)				 ::typedarray::Float32ArrayImpl _g11 = _e2;
-HXDLIN(  31)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cy(_g11,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_g11) + y));
+HXDLIN(  30)			{
+HXLINE(  30)				 ::typedarray::Float32ArrayImpl _g11 = _e2;
+HXDLIN(  30)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cy(_g11,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_g11) + y));
             			}
             		}
             		HX_END_LOCAL_FUNC4((void))
 
             		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_3, ::typedarray::Float32ArrayImpl,_e3) HXARGC(2)
             		bool _hx_run(Float px,Float py){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_32_createPen)
-HXLINE(  32)			return ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::fullHit(_e3,px,py);
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_31_createPen)
+HXLINE(  31)			return ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::fullHit(_e3,px,py);
             		}
             		HX_END_LOCAL_FUNC2(return)
 
             		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_4, ::typedarray::Float32ArrayImpl,_e4) HXARGC(2)
             		bool _hx_run(Float px,Float py){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_33_createPen)
-HXLINE(  33)			Float planeAB = (::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_e4) - px);
-HXDLIN(  33)			Float planeAB1 = (planeAB * (::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_e4) - py));
-HXDLIN(  33)			Float planeAB2 = (::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_e4) - px);
-HXDLIN(  33)			Float planeAB3 = (planeAB1 - (planeAB2 * (::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_e4) - py)));
-HXDLIN(  33)			Float planeBC = (::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_e4) - px);
-HXDLIN(  33)			Float planeBC1 = (planeBC * (::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_e4) - py));
-HXDLIN(  33)			Float planeBC2 = (::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_e4) - px);
-HXDLIN(  33)			Float planeBC3 = (planeBC1 - (planeBC2 * (::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_e4) - py)));
-HXDLIN(  33)			Float planeCA = (::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_e4) - px);
-HXDLIN(  33)			Float planeCA1 = (planeCA * (::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_e4) - py));
-HXDLIN(  33)			Float planeCA2 = (::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_e4) - px);
-HXDLIN(  33)			Float planeCA3 = (planeCA1 - (planeCA2 * (::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_e4) - py)));
-HXDLIN(  33)			int triangleAbstract = ::Std_obj::_hx_int((::Math_obj::abs(planeAB3) / planeAB3));
-HXDLIN(  33)			if ((triangleAbstract == ::Std_obj::_hx_int((::Math_obj::abs(planeBC3) / planeBC3)))) {
-HXLINE(  33)				int triangleAbstract = ::Std_obj::_hx_int((::Math_obj::abs(planeBC3) / planeBC3));
-HXDLIN(  33)				return (triangleAbstract == ::Std_obj::_hx_int((::Math_obj::abs(planeCA3) / planeCA3)));
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_32_createPen)
+HXLINE(  32)			Float planeAB = (::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_e4) - px);
+HXDLIN(  32)			Float planeAB1 = (planeAB * (::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_e4) - py));
+HXDLIN(  32)			Float planeAB2 = (::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_e4) - px);
+HXDLIN(  32)			Float planeAB3 = (planeAB1 - (planeAB2 * (::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_e4) - py)));
+HXDLIN(  32)			Float planeBC = (::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_e4) - px);
+HXDLIN(  32)			Float planeBC1 = (planeBC * (::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_e4) - py));
+HXDLIN(  32)			Float planeBC2 = (::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_e4) - px);
+HXDLIN(  32)			Float planeBC3 = (planeBC1 - (planeBC2 * (::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_e4) - py)));
+HXDLIN(  32)			Float planeCA = (::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_e4) - px);
+HXDLIN(  32)			Float planeCA1 = (planeCA * (::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_e4) - py));
+HXDLIN(  32)			Float planeCA2 = (::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_e4) - px);
+HXDLIN(  32)			Float planeCA3 = (planeCA1 - (planeCA2 * (::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_e4) - py)));
+HXDLIN(  32)			int triangleAbstract = ::Std_obj::_hx_int((::Math_obj::abs(planeAB3) / planeAB3));
+HXDLIN(  32)			if ((triangleAbstract == ::Std_obj::_hx_int((::Math_obj::abs(planeBC3) / planeBC3)))) {
+HXLINE(  32)				int triangleAbstract = ::Std_obj::_hx_int((::Math_obj::abs(planeBC3) / planeBC3));
+HXDLIN(  32)				return (triangleAbstract == ::Std_obj::_hx_int((::Math_obj::abs(planeCA3) / planeCA3)));
             			}
             			else {
-HXLINE(  33)				return false;
+HXLINE(  32)				return false;
             			}
-HXDLIN(  33)			return false;
+HXDLIN(  32)			return false;
             		}
             		HX_END_LOCAL_FUNC2(return)
 
             		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_5, ::typedarray::Float32ArrayImpl,_e5) HXARGC(0)
             		Float _hx_run(){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_34_createPen)
-HXLINE(  34)			Float triangleAbstract = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_e5);
-HXDLIN(  34)			Float triangleAbstract1 = ::Math_obj::max(triangleAbstract,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_e5));
-HXDLIN(  34)			return ::Math_obj::max(triangleAbstract1,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_e5));
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_33_createPen)
+HXLINE(  33)			Float triangleAbstract = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_e5);
+HXDLIN(  33)			Float triangleAbstract1 = ::Math_obj::max(triangleAbstract,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_e5));
+HXDLIN(  33)			return ::Math_obj::max(triangleAbstract1,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_e5));
             		}
             		HX_END_LOCAL_FUNC0(return)
 
             		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_6, ::typedarray::Float32ArrayImpl,_e6) HXARGC(0)
             		Float _hx_run(){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_35_createPen)
-HXLINE(  35)			Float triangleAbstract = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_az(_e6);
-HXDLIN(  35)			Float triangleAbstract1 = ::Math_obj::max(triangleAbstract,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bz(_e6));
-HXDLIN(  35)			return ::Math_obj::max(triangleAbstract1,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cz(_e6));
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_34_createPen)
+HXLINE(  34)			Float triangleAbstract = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_az(_e6);
+HXDLIN(  34)			Float triangleAbstract1 = ::Math_obj::max(triangleAbstract,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bz(_e6));
+HXDLIN(  34)			return ::Math_obj::max(triangleAbstract1,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cz(_e6));
             		}
             		HX_END_LOCAL_FUNC0(return)
 
             		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_7, ::typedarray::Float32ArrayImpl,_e7) HXARGC(0)
             		Float _hx_run(){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_36_createPen)
-HXLINE(  36)			Float triangleAbstract = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_e7);
-HXDLIN(  36)			Float triangleAbstract1 = ::Math_obj::max(triangleAbstract,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_e7));
-HXDLIN(  36)			return ::Math_obj::max(triangleAbstract1,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_e7));
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_35_createPen)
+HXLINE(  35)			Float triangleAbstract = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_e7);
+HXDLIN(  35)			Float triangleAbstract1 = ::Math_obj::max(triangleAbstract,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_e7));
+HXDLIN(  35)			return ::Math_obj::max(triangleAbstract1,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_e7));
             		}
             		HX_END_LOCAL_FUNC0(return)
 
             		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_8, ::typedarray::Float32ArrayImpl,_e8) HXARGC(0)
             		Float _hx_run(){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_37_createPen)
-HXLINE(  37)			Float triangleAbstract = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_e8);
-HXDLIN(  37)			Float triangleAbstract1 = ::Math_obj::min(triangleAbstract,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_e8));
-HXDLIN(  37)			return ::Math_obj::min(triangleAbstract1,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_e8));
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_36_createPen)
+HXLINE(  36)			Float triangleAbstract = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_e8);
+HXDLIN(  36)			Float triangleAbstract1 = ::Math_obj::min(triangleAbstract,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_e8));
+HXDLIN(  36)			return ::Math_obj::min(triangleAbstract1,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_e8));
             		}
             		HX_END_LOCAL_FUNC0(return)
 
             		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_9, ::typedarray::Float32ArrayImpl,_e9) HXARGC(1)
             		Float _hx_run(Float x){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_38_createPen)
-HXLINE(  38)			Float dx = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_e9);
-HXDLIN(  38)			Float dx1 = ::Math_obj::min(dx,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_e9));
-HXDLIN(  38)			Float dx2 = (x - ::Math_obj::min(dx1,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_e9)));
-HXDLIN(  38)			 ::typedarray::Float32ArrayImpl _e = _e9;
-HXDLIN(  38)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ax(_e,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_e9) + dx2));
-HXDLIN(  38)			 ::typedarray::Float32ArrayImpl _e1 = _e9;
-HXDLIN(  38)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_bx(_e1,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_e9) + dx2));
-HXDLIN(  38)			 ::typedarray::Float32ArrayImpl _e2 = _e9;
-HXDLIN(  38)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cx(_e2,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_e9) + dx2));
-HXDLIN(  38)			return x;
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_37_createPen)
+HXLINE(  37)			Float dx = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_e9);
+HXDLIN(  37)			Float dx1 = ::Math_obj::min(dx,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_e9));
+HXDLIN(  37)			Float dx2 = (x - ::Math_obj::min(dx1,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_e9)));
+HXDLIN(  37)			 ::typedarray::Float32ArrayImpl _e = _e9;
+HXDLIN(  37)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ax(_e,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_e9) + dx2));
+HXDLIN(  37)			 ::typedarray::Float32ArrayImpl _e1 = _e9;
+HXDLIN(  37)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_bx(_e1,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_e9) + dx2));
+HXDLIN(  37)			 ::typedarray::Float32ArrayImpl _e2 = _e9;
+HXDLIN(  37)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cx(_e2,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_e9) + dx2));
+HXDLIN(  37)			return x;
             		}
             		HX_END_LOCAL_FUNC1(return)
 
             		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_10, ::typedarray::Float32ArrayImpl,_e10) HXARGC(0)
             		Float _hx_run(){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_39_createPen)
-HXLINE(  39)			Float triangleAbstract = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_e10);
-HXDLIN(  39)			Float triangleAbstract1 = ::Math_obj::min(triangleAbstract,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_e10));
-HXDLIN(  39)			return ::Math_obj::min(triangleAbstract1,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_e10));
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_38_createPen)
+HXLINE(  38)			Float triangleAbstract = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_e10);
+HXDLIN(  38)			Float triangleAbstract1 = ::Math_obj::min(triangleAbstract,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_e10));
+HXDLIN(  38)			return ::Math_obj::min(triangleAbstract1,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_e10));
             		}
             		HX_END_LOCAL_FUNC0(return)
 
             		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_11, ::typedarray::Float32ArrayImpl,_e11) HXARGC(1)
             		Float _hx_run(Float y){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_40_createPen)
-HXLINE(  40)			Float dy = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_e11);
-HXDLIN(  40)			Float dy1 = ::Math_obj::min(dy,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_e11));
-HXDLIN(  40)			Float dy2 = (y - ::Math_obj::min(dy1,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_e11)));
-HXDLIN(  40)			 ::typedarray::Float32ArrayImpl _e = _e11;
-HXDLIN(  40)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ay(_e,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_e11) + dy2));
-HXDLIN(  40)			 ::typedarray::Float32ArrayImpl _e1 = _e11;
-HXDLIN(  40)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_by(_e1,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_e11) + dy2));
-HXDLIN(  40)			 ::typedarray::Float32ArrayImpl _e2 = _e11;
-HXDLIN(  40)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cy(_e2,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_e11) + dy2));
-HXDLIN(  40)			return y;
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_39_createPen)
+HXLINE(  39)			Float dy = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_e11);
+HXDLIN(  39)			Float dy1 = ::Math_obj::min(dy,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_e11));
+HXDLIN(  39)			Float dy2 = (y - ::Math_obj::min(dy1,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_e11)));
+HXDLIN(  39)			 ::typedarray::Float32ArrayImpl _e = _e11;
+HXDLIN(  39)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_ay(_e,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_e11) + dy2));
+HXDLIN(  39)			 ::typedarray::Float32ArrayImpl _e1 = _e11;
+HXDLIN(  39)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_by(_e1,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_e11) + dy2));
+HXDLIN(  39)			 ::typedarray::Float32ArrayImpl _e2 = _e11;
+HXDLIN(  39)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cy(_e2,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_e11) + dy2));
+HXDLIN(  39)			return y;
             		}
             		HX_END_LOCAL_FUNC1(return)
 
             		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_12, ::typedarray::Float32ArrayImpl,_e12) HXARGC(0)
             		Float _hx_run(){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_41_createPen)
-HXLINE(  41)			Float triangleAbstract = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_az(_e12);
-HXDLIN(  41)			Float triangleAbstract1 = ::Math_obj::min(triangleAbstract,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bz(_e12));
-HXDLIN(  41)			return ::Math_obj::min(triangleAbstract1,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cz(_e12));
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_40_createPen)
+HXLINE(  40)			Float triangleAbstract = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_az(_e12);
+HXDLIN(  40)			Float triangleAbstract1 = ::Math_obj::min(triangleAbstract,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bz(_e12));
+HXDLIN(  40)			return ::Math_obj::min(triangleAbstract1,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cz(_e12));
             		}
             		HX_END_LOCAL_FUNC0(return)
 
             		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_13, ::typedarray::Float32ArrayImpl,_e13) HXARGC(1)
             		Float _hx_run(Float z){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_42_createPen)
-HXLINE(  42)			Float dz = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_az(_e13);
-HXDLIN(  42)			Float dz1 = ::Math_obj::min(dz,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bz(_e13));
-HXDLIN(  42)			Float dz2 = (z - ::Math_obj::min(dz1,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cz(_e13)));
-HXDLIN(  42)			 ::typedarray::Float32ArrayImpl _e = _e13;
-HXDLIN(  42)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_az(_e,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_az(_e13) + dz2));
-HXDLIN(  42)			 ::typedarray::Float32ArrayImpl _e1 = _e13;
-HXDLIN(  42)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_bz(_e1,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bz(_e13) + dz2));
-HXDLIN(  42)			 ::typedarray::Float32ArrayImpl _e2 = _e13;
-HXDLIN(  42)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cz(_e2,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cz(_e13) + dz2));
-HXDLIN(  42)			return z;
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_41_createPen)
+HXLINE(  41)			Float dz = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_az(_e13);
+HXDLIN(  41)			Float dz1 = ::Math_obj::min(dz,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bz(_e13));
+HXDLIN(  41)			Float dz2 = (z - ::Math_obj::min(dz1,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cz(_e13)));
+HXDLIN(  41)			 ::typedarray::Float32ArrayImpl _e = _e13;
+HXDLIN(  41)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_az(_e,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_az(_e13) + dz2));
+HXDLIN(  41)			 ::typedarray::Float32ArrayImpl _e1 = _e13;
+HXDLIN(  41)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_bz(_e1,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bz(_e13) + dz2));
+HXDLIN(  41)			 ::typedarray::Float32ArrayImpl _e2 = _e13;
+HXDLIN(  41)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_cz(_e2,(::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cz(_e13) + dz2));
+HXDLIN(  41)			return z;
             		}
             		HX_END_LOCAL_FUNC1(return)
 
             		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_14, ::typedarray::Float32ArrayImpl,_e14) HXARGC(9)
             		bool _hx_run(Float ax_,Float ay_,Float az_,Float bx_,Float by_,Float bz_,Float cx_,Float cy_,Float cz_){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_43_createPen)
-HXLINE(  43)			return ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::triangle(_e14,ax_,ay_,az_,bx_,by_,bz_,cx_,cy_,cz_);
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_42_createPen)
+HXLINE(  42)			return ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::triangle(_e14,ax_,ay_,az_,bx_,by_,bz_,cx_,cy_,cz_);
             		}
             		HX_END_LOCAL_FUNC9(return)
 
             		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_15, ::typedarray::Float32ArrayImpl,_e15) HXARGC(0)
             		 ::trilateral3::structure::Triangle3D _hx_run(){
-            			HX_GC_STACKFRAME(&_hx_pos_b18627d9334a0b0e_44_createPen)
-HXLINE(  44)			Float _g = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_e15);
-HXDLIN(  44)			Float _g1 = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_e15);
-HXDLIN(  44)			 ::trilateral3::matrix::Vertex pa =  ::trilateral3::matrix::Vertex_obj::__alloc( HX_CTX ,_g,_g1,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_az(_e15),((Float)1.));
-HXDLIN(  44)			Float _g2 = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_e15);
-HXDLIN(  44)			Float _g3 = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_e15);
-HXDLIN(  44)			 ::trilateral3::matrix::Vertex pb =  ::trilateral3::matrix::Vertex_obj::__alloc( HX_CTX ,_g2,_g3,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bz(_e15),((Float)1.));
-HXDLIN(  44)			Float _g4 = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_e15);
-HXDLIN(  44)			Float _g5 = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_e15);
-HXDLIN(  44)			 ::trilateral3::matrix::Vertex pc =  ::trilateral3::matrix::Vertex_obj::__alloc( HX_CTX ,_g4,_g5,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cz(_e15),((Float)1.));
-HXDLIN(  44)			return  ::trilateral3::structure::Triangle3D_obj::__alloc( HX_CTX ,pa,pb,pc);
+            			HX_GC_STACKFRAME(&_hx_pos_b18627d9334a0b0e_43_createPen)
+HXLINE(  43)			Float _g = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_e15);
+HXDLIN(  43)			Float _g1 = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_e15);
+HXDLIN(  43)			 ::trilateral3::matrix::Vertex pa =  ::trilateral3::matrix::Vertex_obj::__alloc( HX_CTX ,_g,_g1,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_az(_e15),((Float)1.));
+HXDLIN(  43)			Float _g2 = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_e15);
+HXDLIN(  43)			Float _g3 = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_e15);
+HXDLIN(  43)			 ::trilateral3::matrix::Vertex pb =  ::trilateral3::matrix::Vertex_obj::__alloc( HX_CTX ,_g2,_g3,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bz(_e15),((Float)1.));
+HXDLIN(  43)			Float _g4 = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_e15);
+HXDLIN(  43)			Float _g5 = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_e15);
+HXDLIN(  43)			 ::trilateral3::matrix::Vertex pc =  ::trilateral3::matrix::Vertex_obj::__alloc( HX_CTX ,_g4,_g5,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cz(_e15),((Float)1.));
+HXDLIN(  43)			return  ::trilateral3::structure::Triangle3D_obj::__alloc( HX_CTX ,pa,pb,pc);
             		}
             		HX_END_LOCAL_FUNC0(return)
 
             		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_16, ::typedarray::Float32ArrayImpl,_e16) HXARGC(1)
             		void _hx_run( ::trilateral3::matrix::MatrixDozen m){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_45_createPen)
-HXLINE(  45)			::trilateral3::geom::_FlatColorTriangles::FlatColorTriangles_Impl__obj::transform(_e16,m);
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_44_createPen)
+HXLINE(  44)			::trilateral3::geom::_FlatColorTriangles::FlatColorTriangles_Impl__obj::transform(_e16,m);
             		}
             		HX_END_LOCAL_FUNC1((void))
 
-            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_17, ::typedarray::Float32ArrayImpl,_e17) HXARGC(9)
-            		bool _hx_run(Float ax_,Float ay_,Float az_,Float bx_,Float by_,Float bz_,Float cx_,Float cy_,Float cz_){
+            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_17, ::typedarray::Float32ArrayImpl,_e17) HXARGC(1)
+            		int _hx_run(int col){
             			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_49_createPen)
-HXLINE(  49)			return ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::triangle(_e17,ax_,ay_,az_,bx_,by_,bz_,cx_,cy_,cz_);
-            		}
-            		HX_END_LOCAL_FUNC9(return)
-
-            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_18, ::typedarray::Float32ArrayImpl,_e18) HXARGC(1)
-            		void _hx_run( ::trilateral3::matrix::MatrixDozen m){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_50_createPen)
-HXLINE(  50)			::trilateral3::geom::_FlatColorTriangles::FlatColorTriangles_Impl__obj::transform(_e18,m);
-            		}
-            		HX_END_LOCAL_FUNC1((void))
-
-            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_19, ::typedarray::Float32ArrayImpl,_e19) HXARGC(2)
-            		void _hx_run( ::trilateral3::matrix::MatrixDozen m, ::trilateral3::structure::StartEnd startEnd){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_51_createPen)
-HXLINE(  51)			::trilateral3::geom::_FlatColorTriangles::FlatColorTriangles_Impl__obj::transformRange(_e19,m,startEnd);
-            		}
-            		HX_END_LOCAL_FUNC2((void))
-
-            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_20, ::typedarray::Float32ArrayImpl,_e20) HXARGC(0)
-            		 ::trilateral3::structure::Triangle3D _hx_run(){
-            			HX_GC_STACKFRAME(&_hx_pos_b18627d9334a0b0e_52_createPen)
-HXLINE(  52)			Float _g = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_e20);
-HXDLIN(  52)			Float _g1 = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_e20);
-HXDLIN(  52)			 ::trilateral3::matrix::Vertex pa =  ::trilateral3::matrix::Vertex_obj::__alloc( HX_CTX ,_g,_g1,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_az(_e20),((Float)1.));
-HXDLIN(  52)			Float _g2 = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_e20);
-HXDLIN(  52)			Float _g3 = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_e20);
-HXDLIN(  52)			 ::trilateral3::matrix::Vertex pb =  ::trilateral3::matrix::Vertex_obj::__alloc( HX_CTX ,_g2,_g3,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bz(_e20),((Float)1.));
-HXDLIN(  52)			Float _g4 = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_e20);
-HXDLIN(  52)			Float _g5 = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_e20);
-HXDLIN(  52)			 ::trilateral3::matrix::Vertex pc =  ::trilateral3::matrix::Vertex_obj::__alloc( HX_CTX ,_g4,_g5,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cz(_e20),((Float)1.));
-HXDLIN(  52)			return  ::trilateral3::structure::Triangle3D_obj::__alloc( HX_CTX ,pa,pb,pc);
-            		}
-            		HX_END_LOCAL_FUNC0(return)
-
-            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_21, ::typedarray::Float32ArrayImpl,_e21) HXARGC(0)
-            		Float _hx_run(){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_53_createPen)
-HXLINE(  53)			{
-HXLINE(  53)				if ((0 >= _e21->length)) {
-HXLINE(  53)					HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            				}
-HXDLIN(  53)				int p = _e21->byteOffset;
-HXDLIN(  53)				Float pos_ = (( (Float)( ::__hxcpp_memory_get_float(_e21->buffer->b,p)) ) + ((Float)1.));
-HXDLIN(  53)				{
-HXLINE(  53)					if ((0 >= _e21->length)) {
-HXLINE(  53)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            					}
-HXDLIN(  53)					int p1 = _e21->byteOffset;
-HXDLIN(  53)					 ::__hxcpp_memory_set_float(_e21->buffer->b,p1,pos_);
-            				}
-HXDLIN(  53)				if ((0 >= _e21->length)) {
-HXLINE(  53)					HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            				}
-HXDLIN(  53)				int p2 = _e21->byteOffset;
-HXDLIN(  53)				float drawAbstract =  ::__hxcpp_memory_get_float(_e21->buffer->b,p2);
-HXDLIN(  53)				if ((1 >= _e21->length)) {
-HXLINE(  53)					HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            				}
-HXDLIN(  53)				int p3 = (4 + _e21->byteOffset);
-HXDLIN(  53)				if ((drawAbstract > ( ::__hxcpp_memory_get_float(_e21->buffer->b,p3) - ( (float)(1) )))) {
-HXLINE(  53)					if ((0 >= _e21->length)) {
-HXLINE(  53)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            					}
-HXDLIN(  53)					int p = _e21->byteOffset;
-HXDLIN(  53)					float v =  ::__hxcpp_memory_get_float(_e21->buffer->b,p);
-HXDLIN(  53)					{
-HXLINE(  53)						if ((1 >= _e21->length)) {
-HXLINE(  53)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXLINE(  49)			{
+HXLINE(  49)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_redA(_e17,(( (Float)(((col >> 16) & 255)) ) / ( (Float)(255) )));
+HXDLIN(  49)				{
+HXLINE(  49)					Float v = (( (Float)((col & 255)) ) / ( (Float)(255) ));
+HXDLIN(  49)					{
+HXLINE(  49)						if ((0 >= _e17->length)) {
+HXLINE(  49)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             						}
-HXDLIN(  53)						int p1 = (4 + _e21->byteOffset);
-HXDLIN(  53)						 ::__hxcpp_memory_set_float(_e21->buffer->b,p1,v);
+HXDLIN(  49)						int p = _e17->byteOffset;
+HXDLIN(  49)						{
+HXLINE(  49)							int i = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e17->buffer->b,p)) )) * 21) + 5) + 2);
+HXDLIN(  49)							{
+HXLINE(  49)								bool color3Abstract;
+HXDLIN(  49)								if ((i >= 0)) {
+HXLINE(  49)									color3Abstract = (i >= _e17->length);
+            								}
+            								else {
+HXLINE(  49)									color3Abstract = true;
+            								}
+HXDLIN(  49)								if (color3Abstract) {
+HXLINE(  49)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            								}
+HXDLIN(  49)								int p1 = ((i * 4) + _e17->byteOffset);
+HXDLIN(  49)								 ::__hxcpp_memory_set_float(_e17->buffer->b,p1,v);
+            							}
+            						}
+            					}
+            				}
+HXDLIN(  49)				{
+HXLINE(  49)					Float v1 = (( (Float)(((col >> 8) & 255)) ) / ( (Float)(255) ));
+HXDLIN(  49)					{
+HXLINE(  49)						if ((0 >= _e17->length)) {
+HXLINE(  49)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            						}
+HXDLIN(  49)						int p2 = _e17->byteOffset;
+HXDLIN(  49)						{
+HXLINE(  49)							int i1 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e17->buffer->b,p2)) )) * 21) + 4) + 2);
+HXDLIN(  49)							{
+HXLINE(  49)								bool color3Abstract1;
+HXDLIN(  49)								if ((i1 >= 0)) {
+HXLINE(  49)									color3Abstract1 = (i1 >= _e17->length);
+            								}
+            								else {
+HXLINE(  49)									color3Abstract1 = true;
+            								}
+HXDLIN(  49)								if (color3Abstract1) {
+HXLINE(  49)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            								}
+HXDLIN(  49)								int p3 = ((i1 * 4) + _e17->byteOffset);
+HXDLIN(  49)								 ::__hxcpp_memory_set_float(_e17->buffer->b,p3,v1);
+            							}
+            						}
+            					}
+            				}
+HXDLIN(  49)				{
+HXLINE(  49)					Float v2 = (( (Float)(((col >> 24) & 255)) ) / ( (Float)(255) ));
+HXDLIN(  49)					{
+HXLINE(  49)						if ((0 >= _e17->length)) {
+HXLINE(  49)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            						}
+HXDLIN(  49)						int p4 = _e17->byteOffset;
+HXDLIN(  49)						{
+HXLINE(  49)							int i2 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e17->buffer->b,p4)) )) * 21) + 6) + 2);
+HXDLIN(  49)							{
+HXLINE(  49)								bool color3Abstract2;
+HXDLIN(  49)								if ((i2 >= 0)) {
+HXLINE(  49)									color3Abstract2 = (i2 >= _e17->length);
+            								}
+            								else {
+HXLINE(  49)									color3Abstract2 = true;
+            								}
+HXDLIN(  49)								if (color3Abstract2) {
+HXLINE(  49)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            								}
+HXDLIN(  49)								int p5 = ((i2 * 4) + _e17->byteOffset);
+HXDLIN(  49)								 ::__hxcpp_memory_set_float(_e17->buffer->b,p5,v2);
+            							}
+            						}
             					}
             				}
             			}
+HXDLIN(  49)			{
+HXLINE(  49)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_redB(_e17,(( (Float)(((col >> 16) & 255)) ) / ( (Float)(255) )));
+HXDLIN(  49)				{
+HXLINE(  49)					Float v3 = (( (Float)((col & 255)) ) / ( (Float)(255) ));
+HXDLIN(  49)					{
+HXLINE(  49)						if ((0 >= _e17->length)) {
+HXLINE(  49)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            						}
+HXDLIN(  49)						int p6 = _e17->byteOffset;
+HXDLIN(  49)						{
+HXLINE(  49)							int i3 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e17->buffer->b,p6)) )) * 21) + 12) + 2);
+HXDLIN(  49)							{
+HXLINE(  49)								bool color3Abstract3;
+HXDLIN(  49)								if ((i3 >= 0)) {
+HXLINE(  49)									color3Abstract3 = (i3 >= _e17->length);
+            								}
+            								else {
+HXLINE(  49)									color3Abstract3 = true;
+            								}
+HXDLIN(  49)								if (color3Abstract3) {
+HXLINE(  49)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            								}
+HXDLIN(  49)								int p7 = ((i3 * 4) + _e17->byteOffset);
+HXDLIN(  49)								 ::__hxcpp_memory_set_float(_e17->buffer->b,p7,v3);
+            							}
+            						}
+            					}
+            				}
+HXDLIN(  49)				{
+HXLINE(  49)					Float v4 = (( (Float)(((col >> 8) & 255)) ) / ( (Float)(255) ));
+HXDLIN(  49)					{
+HXLINE(  49)						if ((0 >= _e17->length)) {
+HXLINE(  49)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            						}
+HXDLIN(  49)						int p8 = _e17->byteOffset;
+HXDLIN(  49)						{
+HXLINE(  49)							int i4 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e17->buffer->b,p8)) )) * 21) + 11) + 2);
+HXDLIN(  49)							{
+HXLINE(  49)								bool color3Abstract4;
+HXDLIN(  49)								if ((i4 >= 0)) {
+HXLINE(  49)									color3Abstract4 = (i4 >= _e17->length);
+            								}
+            								else {
+HXLINE(  49)									color3Abstract4 = true;
+            								}
+HXDLIN(  49)								if (color3Abstract4) {
+HXLINE(  49)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            								}
+HXDLIN(  49)								int p9 = ((i4 * 4) + _e17->byteOffset);
+HXDLIN(  49)								 ::__hxcpp_memory_set_float(_e17->buffer->b,p9,v4);
+            							}
+            						}
+            					}
+            				}
+HXDLIN(  49)				{
+HXLINE(  49)					Float v5 = (( (Float)(((col >> 24) & 255)) ) / ( (Float)(255) ));
+HXDLIN(  49)					{
+HXLINE(  49)						if ((0 >= _e17->length)) {
+HXLINE(  49)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            						}
+HXDLIN(  49)						int p10 = _e17->byteOffset;
+HXDLIN(  49)						{
+HXLINE(  49)							int i5 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e17->buffer->b,p10)) )) * 21) + 13) + 2);
+HXDLIN(  49)							{
+HXLINE(  49)								bool color3Abstract5;
+HXDLIN(  49)								if ((i5 >= 0)) {
+HXLINE(  49)									color3Abstract5 = (i5 >= _e17->length);
+            								}
+            								else {
+HXLINE(  49)									color3Abstract5 = true;
+            								}
+HXDLIN(  49)								if (color3Abstract5) {
+HXLINE(  49)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            								}
+HXDLIN(  49)								int p11 = ((i5 * 4) + _e17->byteOffset);
+HXDLIN(  49)								 ::__hxcpp_memory_set_float(_e17->buffer->b,p11,v5);
+            							}
+            						}
+            					}
+            				}
+            			}
+HXDLIN(  49)			{
+HXLINE(  49)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_redC(_e17,(( (Float)(((col >> 16) & 255)) ) / ( (Float)(255) )));
+HXDLIN(  49)				{
+HXLINE(  49)					Float v6 = (( (Float)((col & 255)) ) / ( (Float)(255) ));
+HXDLIN(  49)					{
+HXLINE(  49)						if ((0 >= _e17->length)) {
+HXLINE(  49)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            						}
+HXDLIN(  49)						int p12 = _e17->byteOffset;
+HXDLIN(  49)						{
+HXLINE(  49)							int i6 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e17->buffer->b,p12)) )) * 21) + 19) + 2);
+HXDLIN(  49)							{
+HXLINE(  49)								bool color3Abstract6;
+HXDLIN(  49)								if ((i6 >= 0)) {
+HXLINE(  49)									color3Abstract6 = (i6 >= _e17->length);
+            								}
+            								else {
+HXLINE(  49)									color3Abstract6 = true;
+            								}
+HXDLIN(  49)								if (color3Abstract6) {
+HXLINE(  49)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            								}
+HXDLIN(  49)								int p13 = ((i6 * 4) + _e17->byteOffset);
+HXDLIN(  49)								 ::__hxcpp_memory_set_float(_e17->buffer->b,p13,v6);
+            							}
+            						}
+            					}
+            				}
+HXDLIN(  49)				{
+HXLINE(  49)					Float v7 = (( (Float)(((col >> 8) & 255)) ) / ( (Float)(255) ));
+HXDLIN(  49)					{
+HXLINE(  49)						if ((0 >= _e17->length)) {
+HXLINE(  49)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            						}
+HXDLIN(  49)						int p14 = _e17->byteOffset;
+HXDLIN(  49)						{
+HXLINE(  49)							int i7 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e17->buffer->b,p14)) )) * 21) + 18) + 2);
+HXDLIN(  49)							{
+HXLINE(  49)								bool color3Abstract7;
+HXDLIN(  49)								if ((i7 >= 0)) {
+HXLINE(  49)									color3Abstract7 = (i7 >= _e17->length);
+            								}
+            								else {
+HXLINE(  49)									color3Abstract7 = true;
+            								}
+HXDLIN(  49)								if (color3Abstract7) {
+HXLINE(  49)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            								}
+HXDLIN(  49)								int p15 = ((i7 * 4) + _e17->byteOffset);
+HXDLIN(  49)								 ::__hxcpp_memory_set_float(_e17->buffer->b,p15,v7);
+            							}
+            						}
+            					}
+            				}
+HXDLIN(  49)				{
+HXLINE(  49)					Float v8 = (( (Float)(((col >> 24) & 255)) ) / ( (Float)(255) ));
+HXDLIN(  49)					{
+HXLINE(  49)						if ((0 >= _e17->length)) {
+HXLINE(  49)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            						}
+HXDLIN(  49)						int p16 = _e17->byteOffset;
+HXDLIN(  49)						{
+HXLINE(  49)							int i8 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e17->buffer->b,p16)) )) * 21) + 20) + 2);
+HXDLIN(  49)							{
+HXLINE(  49)								bool color3Abstract8;
+HXDLIN(  49)								if ((i8 >= 0)) {
+HXLINE(  49)									color3Abstract8 = (i8 >= _e17->length);
+            								}
+            								else {
+HXLINE(  49)									color3Abstract8 = true;
+            								}
+HXDLIN(  49)								if (color3Abstract8) {
+HXLINE(  49)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            								}
+HXDLIN(  49)								int p17 = ((i8 * 4) + _e17->byteOffset);
+HXDLIN(  49)								 ::__hxcpp_memory_set_float(_e17->buffer->b,p17,v8);
+            							}
+            						}
+            					}
+            				}
+            			}
+HXDLIN(  49)			return col;
+            		}
+            		HX_END_LOCAL_FUNC1(return)
+
+            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_18, ::typedarray::Float32ArrayImpl,_e18) HXARGC(1)
+            		int _hx_run(int col){
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_50_createPen)
+HXLINE(  50)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_redA(_e18,(( (Float)(((col >> 16) & 255)) ) / ( (Float)(255) )));
+HXDLIN(  50)			{
+HXLINE(  50)				Float v = (( (Float)((col & 255)) ) / ( (Float)(255) ));
+HXDLIN(  50)				{
+HXLINE(  50)					if ((0 >= _e18->length)) {
+HXLINE(  50)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            					}
+HXDLIN(  50)					int p = _e18->byteOffset;
+HXDLIN(  50)					{
+HXLINE(  50)						int i = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e18->buffer->b,p)) )) * 21) + 5) + 2);
+HXDLIN(  50)						{
+HXLINE(  50)							bool color3Abstract;
+HXDLIN(  50)							if ((i >= 0)) {
+HXLINE(  50)								color3Abstract = (i >= _e18->length);
+            							}
+            							else {
+HXLINE(  50)								color3Abstract = true;
+            							}
+HXDLIN(  50)							if (color3Abstract) {
+HXLINE(  50)								HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            							}
+HXDLIN(  50)							int p1 = ((i * 4) + _e18->byteOffset);
+HXDLIN(  50)							 ::__hxcpp_memory_set_float(_e18->buffer->b,p1,v);
+            						}
+            					}
+            				}
+            			}
+HXDLIN(  50)			{
+HXLINE(  50)				Float v1 = (( (Float)(((col >> 8) & 255)) ) / ( (Float)(255) ));
+HXDLIN(  50)				{
+HXLINE(  50)					if ((0 >= _e18->length)) {
+HXLINE(  50)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            					}
+HXDLIN(  50)					int p2 = _e18->byteOffset;
+HXDLIN(  50)					{
+HXLINE(  50)						int i1 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e18->buffer->b,p2)) )) * 21) + 4) + 2);
+HXDLIN(  50)						{
+HXLINE(  50)							bool color3Abstract1;
+HXDLIN(  50)							if ((i1 >= 0)) {
+HXLINE(  50)								color3Abstract1 = (i1 >= _e18->length);
+            							}
+            							else {
+HXLINE(  50)								color3Abstract1 = true;
+            							}
+HXDLIN(  50)							if (color3Abstract1) {
+HXLINE(  50)								HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            							}
+HXDLIN(  50)							int p3 = ((i1 * 4) + _e18->byteOffset);
+HXDLIN(  50)							 ::__hxcpp_memory_set_float(_e18->buffer->b,p3,v1);
+            						}
+            					}
+            				}
+            			}
+HXDLIN(  50)			{
+HXLINE(  50)				Float v2 = (( (Float)(((col >> 24) & 255)) ) / ( (Float)(255) ));
+HXDLIN(  50)				{
+HXLINE(  50)					if ((0 >= _e18->length)) {
+HXLINE(  50)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            					}
+HXDLIN(  50)					int p4 = _e18->byteOffset;
+HXDLIN(  50)					{
+HXLINE(  50)						int i2 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e18->buffer->b,p4)) )) * 21) + 6) + 2);
+HXDLIN(  50)						{
+HXLINE(  50)							bool color3Abstract2;
+HXDLIN(  50)							if ((i2 >= 0)) {
+HXLINE(  50)								color3Abstract2 = (i2 >= _e18->length);
+            							}
+            							else {
+HXLINE(  50)								color3Abstract2 = true;
+            							}
+HXDLIN(  50)							if (color3Abstract2) {
+HXLINE(  50)								HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            							}
+HXDLIN(  50)							int p5 = ((i2 * 4) + _e18->byteOffset);
+HXDLIN(  50)							 ::__hxcpp_memory_set_float(_e18->buffer->b,p5,v2);
+            						}
+            					}
+            				}
+            			}
+HXDLIN(  50)			return col;
+            		}
+            		HX_END_LOCAL_FUNC1(return)
+
+            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_19, ::typedarray::Float32ArrayImpl,_e19) HXARGC(0)
+            		int _hx_run(){
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_51_createPen)
+HXLINE(  51)			if ((0 >= _e19->length)) {
+HXLINE(  51)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  51)			int p = _e19->byteOffset;
+HXDLIN(  51)			int i = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e19->buffer->b,p)) )) * 21) + 6) + 2);
+HXDLIN(  51)			bool color3Abstract;
+HXDLIN(  51)			if ((i >= 0)) {
+HXLINE(  51)				color3Abstract = (i >= _e19->length);
+            			}
+            			else {
+HXLINE(  51)				color3Abstract = true;
+            			}
+HXDLIN(  51)			if (color3Abstract) {
+HXLINE(  51)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  51)			int p1 = ((i * 4) + _e19->byteOffset);
+HXDLIN(  51)			int color3Abstract1 = (::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e19->buffer->b,p1)) ) * ( (Float)(255) ))) << 24);
+HXDLIN(  51)			int color3Abstract2 = (color3Abstract1 | (::Math_obj::round((::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_redA(_e19) * ( (Float)(255) ))) << 16));
+HXDLIN(  51)			if ((0 >= _e19->length)) {
+HXLINE(  51)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  51)			int p2 = _e19->byteOffset;
+HXDLIN(  51)			int i1 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e19->buffer->b,p2)) )) * 21) + 4) + 2);
+HXDLIN(  51)			bool color3Abstract3;
+HXDLIN(  51)			if ((i1 >= 0)) {
+HXLINE(  51)				color3Abstract3 = (i1 >= _e19->length);
+            			}
+            			else {
+HXLINE(  51)				color3Abstract3 = true;
+            			}
+HXDLIN(  51)			if (color3Abstract3) {
+HXLINE(  51)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  51)			int p3 = ((i1 * 4) + _e19->byteOffset);
+HXDLIN(  51)			int color3Abstract4 = (color3Abstract2 | (::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e19->buffer->b,p3)) ) * ( (Float)(255) ))) << 8));
+HXDLIN(  51)			if ((0 >= _e19->length)) {
+HXLINE(  51)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  51)			int p4 = _e19->byteOffset;
+HXDLIN(  51)			int i2 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e19->buffer->b,p4)) )) * 21) + 5) + 2);
+HXDLIN(  51)			bool color3Abstract5;
+HXDLIN(  51)			if ((i2 >= 0)) {
+HXLINE(  51)				color3Abstract5 = (i2 >= _e19->length);
+            			}
+            			else {
+HXLINE(  51)				color3Abstract5 = true;
+            			}
+HXDLIN(  51)			if (color3Abstract5) {
+HXLINE(  51)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  51)			int p5 = ((i2 * 4) + _e19->byteOffset);
+HXDLIN(  51)			return (color3Abstract4 | ::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e19->buffer->b,p5)) ) * ( (Float)(255) ))));
+            		}
+            		HX_END_LOCAL_FUNC0(return)
+
+            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_20, ::typedarray::Float32ArrayImpl,_e20) HXARGC(1)
+            		int _hx_run(int col){
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_52_createPen)
+HXLINE(  52)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_redB(_e20,(( (Float)(((col >> 16) & 255)) ) / ( (Float)(255) )));
+HXDLIN(  52)			{
+HXLINE(  52)				Float v = (( (Float)((col & 255)) ) / ( (Float)(255) ));
+HXDLIN(  52)				{
+HXLINE(  52)					if ((0 >= _e20->length)) {
+HXLINE(  52)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            					}
+HXDLIN(  52)					int p = _e20->byteOffset;
+HXDLIN(  52)					{
+HXLINE(  52)						int i = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e20->buffer->b,p)) )) * 21) + 12) + 2);
+HXDLIN(  52)						{
+HXLINE(  52)							bool color3Abstract;
+HXDLIN(  52)							if ((i >= 0)) {
+HXLINE(  52)								color3Abstract = (i >= _e20->length);
+            							}
+            							else {
+HXLINE(  52)								color3Abstract = true;
+            							}
+HXDLIN(  52)							if (color3Abstract) {
+HXLINE(  52)								HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            							}
+HXDLIN(  52)							int p1 = ((i * 4) + _e20->byteOffset);
+HXDLIN(  52)							 ::__hxcpp_memory_set_float(_e20->buffer->b,p1,v);
+            						}
+            					}
+            				}
+            			}
+HXDLIN(  52)			{
+HXLINE(  52)				Float v1 = (( (Float)(((col >> 8) & 255)) ) / ( (Float)(255) ));
+HXDLIN(  52)				{
+HXLINE(  52)					if ((0 >= _e20->length)) {
+HXLINE(  52)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            					}
+HXDLIN(  52)					int p2 = _e20->byteOffset;
+HXDLIN(  52)					{
+HXLINE(  52)						int i1 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e20->buffer->b,p2)) )) * 21) + 11) + 2);
+HXDLIN(  52)						{
+HXLINE(  52)							bool color3Abstract1;
+HXDLIN(  52)							if ((i1 >= 0)) {
+HXLINE(  52)								color3Abstract1 = (i1 >= _e20->length);
+            							}
+            							else {
+HXLINE(  52)								color3Abstract1 = true;
+            							}
+HXDLIN(  52)							if (color3Abstract1) {
+HXLINE(  52)								HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            							}
+HXDLIN(  52)							int p3 = ((i1 * 4) + _e20->byteOffset);
+HXDLIN(  52)							 ::__hxcpp_memory_set_float(_e20->buffer->b,p3,v1);
+            						}
+            					}
+            				}
+            			}
+HXDLIN(  52)			{
+HXLINE(  52)				Float v2 = (( (Float)(((col >> 24) & 255)) ) / ( (Float)(255) ));
+HXDLIN(  52)				{
+HXLINE(  52)					if ((0 >= _e20->length)) {
+HXLINE(  52)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            					}
+HXDLIN(  52)					int p4 = _e20->byteOffset;
+HXDLIN(  52)					{
+HXLINE(  52)						int i2 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e20->buffer->b,p4)) )) * 21) + 13) + 2);
+HXDLIN(  52)						{
+HXLINE(  52)							bool color3Abstract2;
+HXDLIN(  52)							if ((i2 >= 0)) {
+HXLINE(  52)								color3Abstract2 = (i2 >= _e20->length);
+            							}
+            							else {
+HXLINE(  52)								color3Abstract2 = true;
+            							}
+HXDLIN(  52)							if (color3Abstract2) {
+HXLINE(  52)								HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            							}
+HXDLIN(  52)							int p5 = ((i2 * 4) + _e20->byteOffset);
+HXDLIN(  52)							 ::__hxcpp_memory_set_float(_e20->buffer->b,p5,v2);
+            						}
+            					}
+            				}
+            			}
+HXDLIN(  52)			return col;
+            		}
+            		HX_END_LOCAL_FUNC1(return)
+
+            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_21, ::typedarray::Float32ArrayImpl,_e21) HXARGC(0)
+            		int _hx_run(){
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_53_createPen)
+HXLINE(  53)			if ((0 >= _e21->length)) {
+HXLINE(  53)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  53)			int p = _e21->byteOffset;
+HXDLIN(  53)			int i = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e21->buffer->b,p)) )) * 21) + 13) + 2);
+HXDLIN(  53)			bool color3Abstract;
+HXDLIN(  53)			if ((i >= 0)) {
+HXLINE(  53)				color3Abstract = (i >= _e21->length);
+            			}
+            			else {
+HXLINE(  53)				color3Abstract = true;
+            			}
+HXDLIN(  53)			if (color3Abstract) {
+HXLINE(  53)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  53)			int p1 = ((i * 4) + _e21->byteOffset);
+HXDLIN(  53)			int color3Abstract1 = (::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e21->buffer->b,p1)) ) * ( (Float)(255) ))) << 24);
+HXDLIN(  53)			int color3Abstract2 = (color3Abstract1 | (::Math_obj::round((::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_redB(_e21) * ( (Float)(255) ))) << 16));
+HXDLIN(  53)			if ((0 >= _e21->length)) {
+HXLINE(  53)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  53)			int p2 = _e21->byteOffset;
+HXDLIN(  53)			int i1 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e21->buffer->b,p2)) )) * 21) + 11) + 2);
+HXDLIN(  53)			bool color3Abstract3;
+HXDLIN(  53)			if ((i1 >= 0)) {
+HXLINE(  53)				color3Abstract3 = (i1 >= _e21->length);
+            			}
+            			else {
+HXLINE(  53)				color3Abstract3 = true;
+            			}
+HXDLIN(  53)			if (color3Abstract3) {
+HXLINE(  53)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  53)			int p3 = ((i1 * 4) + _e21->byteOffset);
+HXDLIN(  53)			int color3Abstract4 = (color3Abstract2 | (::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e21->buffer->b,p3)) ) * ( (Float)(255) ))) << 8));
 HXDLIN(  53)			if ((0 >= _e21->length)) {
 HXLINE(  53)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             			}
 HXDLIN(  53)			int p4 = _e21->byteOffset;
-HXDLIN(  53)			return ( (Float)( ::__hxcpp_memory_get_float(_e21->buffer->b,p4)) );
+HXDLIN(  53)			int i2 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e21->buffer->b,p4)) )) * 21) + 12) + 2);
+HXDLIN(  53)			bool color3Abstract5;
+HXDLIN(  53)			if ((i2 >= 0)) {
+HXLINE(  53)				color3Abstract5 = (i2 >= _e21->length);
+            			}
+            			else {
+HXLINE(  53)				color3Abstract5 = true;
+            			}
+HXDLIN(  53)			if (color3Abstract5) {
+HXLINE(  53)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  53)			int p5 = ((i2 * 4) + _e21->byteOffset);
+HXDLIN(  53)			return (color3Abstract4 | ::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e21->buffer->b,p5)) ) * ( (Float)(255) ))));
             		}
             		HX_END_LOCAL_FUNC0(return)
 
-            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_22, ::typedarray::Float32ArrayImpl,_e22) HXARGC(0)
-            		bool _hx_run(){
+            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_22, ::typedarray::Float32ArrayImpl,_e22) HXARGC(1)
+            		int _hx_run(int col){
             			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_54_createPen)
-HXLINE(  54)			if ((0 >= _e22->length)) {
-HXLINE(  54)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXLINE(  54)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_redC(_e22,(( (Float)(((col >> 16) & 255)) ) / ( (Float)(255) )));
+HXDLIN(  54)			{
+HXLINE(  54)				Float v = (( (Float)((col & 255)) ) / ( (Float)(255) ));
+HXDLIN(  54)				{
+HXLINE(  54)					if ((0 >= _e22->length)) {
+HXLINE(  54)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            					}
+HXDLIN(  54)					int p = _e22->byteOffset;
+HXDLIN(  54)					{
+HXLINE(  54)						int i = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e22->buffer->b,p)) )) * 21) + 19) + 2);
+HXDLIN(  54)						{
+HXLINE(  54)							bool color3Abstract;
+HXDLIN(  54)							if ((i >= 0)) {
+HXLINE(  54)								color3Abstract = (i >= _e22->length);
+            							}
+            							else {
+HXLINE(  54)								color3Abstract = true;
+            							}
+HXDLIN(  54)							if (color3Abstract) {
+HXLINE(  54)								HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            							}
+HXDLIN(  54)							int p1 = ((i * 4) + _e22->byteOffset);
+HXDLIN(  54)							 ::__hxcpp_memory_set_float(_e22->buffer->b,p1,v);
+            						}
+            					}
+            				}
             			}
-HXDLIN(  54)			int p = _e22->byteOffset;
-HXDLIN(  54)			Float drawAbstract = ( (Float)( ::__hxcpp_memory_get_float(_e22->buffer->b,p)) );
-HXDLIN(  54)			return (drawAbstract < ::dsHelper::flat::io::_Float32Flat::Float32Flat_Impl__obj::get_size(_e22));
+HXDLIN(  54)			{
+HXLINE(  54)				Float v1 = (( (Float)(((col >> 8) & 255)) ) / ( (Float)(255) ));
+HXDLIN(  54)				{
+HXLINE(  54)					if ((0 >= _e22->length)) {
+HXLINE(  54)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            					}
+HXDLIN(  54)					int p2 = _e22->byteOffset;
+HXDLIN(  54)					{
+HXLINE(  54)						int i1 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e22->buffer->b,p2)) )) * 21) + 18) + 2);
+HXDLIN(  54)						{
+HXLINE(  54)							bool color3Abstract1;
+HXDLIN(  54)							if ((i1 >= 0)) {
+HXLINE(  54)								color3Abstract1 = (i1 >= _e22->length);
+            							}
+            							else {
+HXLINE(  54)								color3Abstract1 = true;
+            							}
+HXDLIN(  54)							if (color3Abstract1) {
+HXLINE(  54)								HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            							}
+HXDLIN(  54)							int p3 = ((i1 * 4) + _e22->byteOffset);
+HXDLIN(  54)							 ::__hxcpp_memory_set_float(_e22->buffer->b,p3,v1);
+            						}
+            					}
+            				}
+            			}
+HXDLIN(  54)			{
+HXLINE(  54)				Float v2 = (( (Float)(((col >> 24) & 255)) ) / ( (Float)(255) ));
+HXDLIN(  54)				{
+HXLINE(  54)					if ((0 >= _e22->length)) {
+HXLINE(  54)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            					}
+HXDLIN(  54)					int p4 = _e22->byteOffset;
+HXDLIN(  54)					{
+HXLINE(  54)						int i2 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e22->buffer->b,p4)) )) * 21) + 20) + 2);
+HXDLIN(  54)						{
+HXLINE(  54)							bool color3Abstract2;
+HXDLIN(  54)							if ((i2 >= 0)) {
+HXLINE(  54)								color3Abstract2 = (i2 >= _e22->length);
+            							}
+            							else {
+HXLINE(  54)								color3Abstract2 = true;
+            							}
+HXDLIN(  54)							if (color3Abstract2) {
+HXLINE(  54)								HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            							}
+HXDLIN(  54)							int p5 = ((i2 * 4) + _e22->byteOffset);
+HXDLIN(  54)							 ::__hxcpp_memory_set_float(_e22->buffer->b,p5,v2);
+            						}
+            					}
+            				}
+            			}
+HXDLIN(  54)			return col;
             		}
-            		HX_END_LOCAL_FUNC0(return)
+            		HX_END_LOCAL_FUNC1(return)
 
             		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_23, ::typedarray::Float32ArrayImpl,_e23) HXARGC(0)
-            		Float _hx_run(){
+            		int _hx_run(){
             			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_55_createPen)
 HXLINE(  55)			if ((0 >= _e23->length)) {
 HXLINE(  55)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             			}
 HXDLIN(  55)			int p = _e23->byteOffset;
-HXDLIN(  55)			return ( (Float)( ::__hxcpp_memory_get_float(_e23->buffer->b,p)) );
+HXDLIN(  55)			int i = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e23->buffer->b,p)) )) * 21) + 20) + 2);
+HXDLIN(  55)			bool color3Abstract;
+HXDLIN(  55)			if ((i >= 0)) {
+HXLINE(  55)				color3Abstract = (i >= _e23->length);
+            			}
+            			else {
+HXLINE(  55)				color3Abstract = true;
+            			}
+HXDLIN(  55)			if (color3Abstract) {
+HXLINE(  55)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  55)			int p1 = ((i * 4) + _e23->byteOffset);
+HXDLIN(  55)			int color3Abstract1 = (::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e23->buffer->b,p1)) ) * ( (Float)(255) ))) << 24);
+HXDLIN(  55)			int color3Abstract2 = (color3Abstract1 | (::Math_obj::round((::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_redC(_e23) * ( (Float)(255) ))) << 16));
+HXDLIN(  55)			if ((0 >= _e23->length)) {
+HXLINE(  55)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  55)			int p2 = _e23->byteOffset;
+HXDLIN(  55)			int i1 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e23->buffer->b,p2)) )) * 21) + 18) + 2);
+HXDLIN(  55)			bool color3Abstract3;
+HXDLIN(  55)			if ((i1 >= 0)) {
+HXLINE(  55)				color3Abstract3 = (i1 >= _e23->length);
+            			}
+            			else {
+HXLINE(  55)				color3Abstract3 = true;
+            			}
+HXDLIN(  55)			if (color3Abstract3) {
+HXLINE(  55)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  55)			int p3 = ((i1 * 4) + _e23->byteOffset);
+HXDLIN(  55)			int color3Abstract4 = (color3Abstract2 | (::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e23->buffer->b,p3)) ) * ( (Float)(255) ))) << 8));
+HXDLIN(  55)			if ((0 >= _e23->length)) {
+HXLINE(  55)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  55)			int p4 = _e23->byteOffset;
+HXDLIN(  55)			int i2 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e23->buffer->b,p4)) )) * 21) + 19) + 2);
+HXDLIN(  55)			bool color3Abstract5;
+HXDLIN(  55)			if ((i2 >= 0)) {
+HXLINE(  55)				color3Abstract5 = (i2 >= _e23->length);
+            			}
+            			else {
+HXLINE(  55)				color3Abstract5 = true;
+            			}
+HXDLIN(  55)			if (color3Abstract5) {
+HXLINE(  55)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  55)			int p5 = ((i2 * 4) + _e23->byteOffset);
+HXDLIN(  55)			return (color3Abstract4 | ::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e23->buffer->b,p5)) ) * ( (Float)(255) ))));
             		}
             		HX_END_LOCAL_FUNC0(return)
 
-            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_24, ::typedarray::Float32ArrayImpl,_e24) HXARGC(1)
-            		Float _hx_run(Float pos_){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_56_createPen)
-HXLINE(  56)			{
-HXLINE(  56)				if ((0 >= _e24->length)) {
-HXLINE(  56)					HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            				}
-HXDLIN(  56)				int p = _e24->byteOffset;
-HXDLIN(  56)				 ::__hxcpp_memory_set_float(_e24->buffer->b,p,pos_);
-            			}
-HXDLIN(  56)			if ((0 >= _e24->length)) {
-HXLINE(  56)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  56)			int p1 = _e24->byteOffset;
-HXDLIN(  56)			float drawAbstract =  ::__hxcpp_memory_get_float(_e24->buffer->b,p1);
-HXDLIN(  56)			if ((1 >= _e24->length)) {
-HXLINE(  56)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  56)			int p2 = (4 + _e24->byteOffset);
-HXDLIN(  56)			if ((drawAbstract > ( ::__hxcpp_memory_get_float(_e24->buffer->b,p2) - ( (float)(1) )))) {
-HXLINE(  56)				if ((0 >= _e24->length)) {
-HXLINE(  56)					HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            				}
-HXDLIN(  56)				int p = _e24->byteOffset;
-HXDLIN(  56)				float v =  ::__hxcpp_memory_get_float(_e24->buffer->b,p);
-HXDLIN(  56)				{
-HXLINE(  56)					if ((1 >= _e24->length)) {
-HXLINE(  56)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            					}
-HXDLIN(  56)					int p1 = (4 + _e24->byteOffset);
-HXDLIN(  56)					 ::__hxcpp_memory_set_float(_e24->buffer->b,p1,v);
-            				}
-            			}
-HXDLIN(  56)			return pos_;
+            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_24, ::typedarray::Float32ArrayImpl,_e24) HXARGC(9)
+            		bool _hx_run(Float ax_,Float ay_,Float az_,Float bx_,Float by_,Float bz_,Float cx_,Float cy_,Float cz_){
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_59_createPen)
+HXLINE(  59)			return ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::triangle(_e24,ax_,ay_,az_,bx_,by_,bz_,cx_,cy_,cz_);
             		}
-            		HX_END_LOCAL_FUNC1(return)
+            		HX_END_LOCAL_FUNC9(return)
 
-            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_25, ::typedarray::Float32ArrayImpl,_e25) HXARGC(0)
-            		int _hx_run(){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_57_createPen)
-HXLINE(  57)			return ::dsHelper::flat::io::_Float32Flat::Float32Flat_Impl__obj::get_size(_e25);
-            		}
-            		HX_END_LOCAL_FUNC0(return)
-
-            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_26, ::typedarray::Float32ArrayImpl,_e26) HXARGC(1)
-            		int _hx_run(int id){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_58_createPen)
-HXLINE(  58)			return ::dsHelper::flat::io::_Float32Flat::Float32Flat_Impl__obj::set_size(_e26,id);
-            		}
-            		HX_END_LOCAL_FUNC1(return)
-
-            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_27, ::typedarray::Float32ArrayImpl,_e27) HXARGC(1)
-            		int _hx_run(int col){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_64_createPen)
-HXLINE(  64)			{
-HXLINE(  64)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_redA(_e27,(( (Float)(((col >> 16) & 255)) ) / ( (Float)(255) )));
-HXDLIN(  64)				{
-HXLINE(  64)					Float v = (( (Float)((col & 255)) ) / ( (Float)(255) ));
-HXDLIN(  64)					{
-HXLINE(  64)						if ((0 >= _e27->length)) {
-HXLINE(  64)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            						}
-HXDLIN(  64)						int p = _e27->byteOffset;
-HXDLIN(  64)						{
-HXLINE(  64)							int i = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p)) )) * 21) + 5) + 2);
-HXDLIN(  64)							{
-HXLINE(  64)								bool color3Abstract;
-HXDLIN(  64)								if ((i >= 0)) {
-HXLINE(  64)									color3Abstract = (i >= _e27->length);
-            								}
-            								else {
-HXLINE(  64)									color3Abstract = true;
-            								}
-HXDLIN(  64)								if (color3Abstract) {
-HXLINE(  64)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            								}
-HXDLIN(  64)								int p1 = ((i * 4) + _e27->byteOffset);
-HXDLIN(  64)								 ::__hxcpp_memory_set_float(_e27->buffer->b,p1,v);
-            							}
-            						}
-            					}
-            				}
-HXDLIN(  64)				{
-HXLINE(  64)					Float v1 = (( (Float)(((col >> 8) & 255)) ) / ( (Float)(255) ));
-HXDLIN(  64)					{
-HXLINE(  64)						if ((0 >= _e27->length)) {
-HXLINE(  64)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            						}
-HXDLIN(  64)						int p2 = _e27->byteOffset;
-HXDLIN(  64)						{
-HXLINE(  64)							int i1 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p2)) )) * 21) + 4) + 2);
-HXDLIN(  64)							{
-HXLINE(  64)								bool color3Abstract1;
-HXDLIN(  64)								if ((i1 >= 0)) {
-HXLINE(  64)									color3Abstract1 = (i1 >= _e27->length);
-            								}
-            								else {
-HXLINE(  64)									color3Abstract1 = true;
-            								}
-HXDLIN(  64)								if (color3Abstract1) {
-HXLINE(  64)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            								}
-HXDLIN(  64)								int p3 = ((i1 * 4) + _e27->byteOffset);
-HXDLIN(  64)								 ::__hxcpp_memory_set_float(_e27->buffer->b,p3,v1);
-            							}
-            						}
-            					}
-            				}
-HXDLIN(  64)				{
-HXLINE(  64)					Float v2 = (( (Float)(((col >> 24) & 255)) ) / ( (Float)(255) ));
-HXDLIN(  64)					{
-HXLINE(  64)						if ((0 >= _e27->length)) {
-HXLINE(  64)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            						}
-HXDLIN(  64)						int p4 = _e27->byteOffset;
-HXDLIN(  64)						{
-HXLINE(  64)							int i2 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p4)) )) * 21) + 6) + 2);
-HXDLIN(  64)							{
-HXLINE(  64)								bool color3Abstract2;
-HXDLIN(  64)								if ((i2 >= 0)) {
-HXLINE(  64)									color3Abstract2 = (i2 >= _e27->length);
-            								}
-            								else {
-HXLINE(  64)									color3Abstract2 = true;
-            								}
-HXDLIN(  64)								if (color3Abstract2) {
-HXLINE(  64)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            								}
-HXDLIN(  64)								int p5 = ((i2 * 4) + _e27->byteOffset);
-HXDLIN(  64)								 ::__hxcpp_memory_set_float(_e27->buffer->b,p5,v2);
-            							}
-            						}
-            					}
-            				}
-            			}
-HXDLIN(  64)			{
-HXLINE(  64)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_redB(_e27,(( (Float)(((col >> 16) & 255)) ) / ( (Float)(255) )));
-HXDLIN(  64)				{
-HXLINE(  64)					Float v3 = (( (Float)((col & 255)) ) / ( (Float)(255) ));
-HXDLIN(  64)					{
-HXLINE(  64)						if ((0 >= _e27->length)) {
-HXLINE(  64)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            						}
-HXDLIN(  64)						int p6 = _e27->byteOffset;
-HXDLIN(  64)						{
-HXLINE(  64)							int i3 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p6)) )) * 21) + 12) + 2);
-HXDLIN(  64)							{
-HXLINE(  64)								bool color3Abstract3;
-HXDLIN(  64)								if ((i3 >= 0)) {
-HXLINE(  64)									color3Abstract3 = (i3 >= _e27->length);
-            								}
-            								else {
-HXLINE(  64)									color3Abstract3 = true;
-            								}
-HXDLIN(  64)								if (color3Abstract3) {
-HXLINE(  64)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            								}
-HXDLIN(  64)								int p7 = ((i3 * 4) + _e27->byteOffset);
-HXDLIN(  64)								 ::__hxcpp_memory_set_float(_e27->buffer->b,p7,v3);
-            							}
-            						}
-            					}
-            				}
-HXDLIN(  64)				{
-HXLINE(  64)					Float v4 = (( (Float)(((col >> 8) & 255)) ) / ( (Float)(255) ));
-HXDLIN(  64)					{
-HXLINE(  64)						if ((0 >= _e27->length)) {
-HXLINE(  64)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            						}
-HXDLIN(  64)						int p8 = _e27->byteOffset;
-HXDLIN(  64)						{
-HXLINE(  64)							int i4 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p8)) )) * 21) + 11) + 2);
-HXDLIN(  64)							{
-HXLINE(  64)								bool color3Abstract4;
-HXDLIN(  64)								if ((i4 >= 0)) {
-HXLINE(  64)									color3Abstract4 = (i4 >= _e27->length);
-            								}
-            								else {
-HXLINE(  64)									color3Abstract4 = true;
-            								}
-HXDLIN(  64)								if (color3Abstract4) {
-HXLINE(  64)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            								}
-HXDLIN(  64)								int p9 = ((i4 * 4) + _e27->byteOffset);
-HXDLIN(  64)								 ::__hxcpp_memory_set_float(_e27->buffer->b,p9,v4);
-            							}
-            						}
-            					}
-            				}
-HXDLIN(  64)				{
-HXLINE(  64)					Float v5 = (( (Float)(((col >> 24) & 255)) ) / ( (Float)(255) ));
-HXDLIN(  64)					{
-HXLINE(  64)						if ((0 >= _e27->length)) {
-HXLINE(  64)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            						}
-HXDLIN(  64)						int p10 = _e27->byteOffset;
-HXDLIN(  64)						{
-HXLINE(  64)							int i5 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p10)) )) * 21) + 13) + 2);
-HXDLIN(  64)							{
-HXLINE(  64)								bool color3Abstract5;
-HXDLIN(  64)								if ((i5 >= 0)) {
-HXLINE(  64)									color3Abstract5 = (i5 >= _e27->length);
-            								}
-            								else {
-HXLINE(  64)									color3Abstract5 = true;
-            								}
-HXDLIN(  64)								if (color3Abstract5) {
-HXLINE(  64)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            								}
-HXDLIN(  64)								int p11 = ((i5 * 4) + _e27->byteOffset);
-HXDLIN(  64)								 ::__hxcpp_memory_set_float(_e27->buffer->b,p11,v5);
-            							}
-            						}
-            					}
-            				}
-            			}
-HXDLIN(  64)			{
-HXLINE(  64)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_redC(_e27,(( (Float)(((col >> 16) & 255)) ) / ( (Float)(255) )));
-HXDLIN(  64)				{
-HXLINE(  64)					Float v6 = (( (Float)((col & 255)) ) / ( (Float)(255) ));
-HXDLIN(  64)					{
-HXLINE(  64)						if ((0 >= _e27->length)) {
-HXLINE(  64)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            						}
-HXDLIN(  64)						int p12 = _e27->byteOffset;
-HXDLIN(  64)						{
-HXLINE(  64)							int i6 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p12)) )) * 21) + 19) + 2);
-HXDLIN(  64)							{
-HXLINE(  64)								bool color3Abstract6;
-HXDLIN(  64)								if ((i6 >= 0)) {
-HXLINE(  64)									color3Abstract6 = (i6 >= _e27->length);
-            								}
-            								else {
-HXLINE(  64)									color3Abstract6 = true;
-            								}
-HXDLIN(  64)								if (color3Abstract6) {
-HXLINE(  64)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            								}
-HXDLIN(  64)								int p13 = ((i6 * 4) + _e27->byteOffset);
-HXDLIN(  64)								 ::__hxcpp_memory_set_float(_e27->buffer->b,p13,v6);
-            							}
-            						}
-            					}
-            				}
-HXDLIN(  64)				{
-HXLINE(  64)					Float v7 = (( (Float)(((col >> 8) & 255)) ) / ( (Float)(255) ));
-HXDLIN(  64)					{
-HXLINE(  64)						if ((0 >= _e27->length)) {
-HXLINE(  64)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            						}
-HXDLIN(  64)						int p14 = _e27->byteOffset;
-HXDLIN(  64)						{
-HXLINE(  64)							int i7 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p14)) )) * 21) + 18) + 2);
-HXDLIN(  64)							{
-HXLINE(  64)								bool color3Abstract7;
-HXDLIN(  64)								if ((i7 >= 0)) {
-HXLINE(  64)									color3Abstract7 = (i7 >= _e27->length);
-            								}
-            								else {
-HXLINE(  64)									color3Abstract7 = true;
-            								}
-HXDLIN(  64)								if (color3Abstract7) {
-HXLINE(  64)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            								}
-HXDLIN(  64)								int p15 = ((i7 * 4) + _e27->byteOffset);
-HXDLIN(  64)								 ::__hxcpp_memory_set_float(_e27->buffer->b,p15,v7);
-            							}
-            						}
-            					}
-            				}
-HXDLIN(  64)				{
-HXLINE(  64)					Float v8 = (( (Float)(((col >> 24) & 255)) ) / ( (Float)(255) ));
-HXDLIN(  64)					{
-HXLINE(  64)						if ((0 >= _e27->length)) {
-HXLINE(  64)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            						}
-HXDLIN(  64)						int p16 = _e27->byteOffset;
-HXDLIN(  64)						{
-HXLINE(  64)							int i8 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p16)) )) * 21) + 20) + 2);
-HXDLIN(  64)							{
-HXLINE(  64)								bool color3Abstract8;
-HXDLIN(  64)								if ((i8 >= 0)) {
-HXLINE(  64)									color3Abstract8 = (i8 >= _e27->length);
-            								}
-            								else {
-HXLINE(  64)									color3Abstract8 = true;
-            								}
-HXDLIN(  64)								if (color3Abstract8) {
-HXLINE(  64)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            								}
-HXDLIN(  64)								int p17 = ((i8 * 4) + _e27->byteOffset);
-HXDLIN(  64)								 ::__hxcpp_memory_set_float(_e27->buffer->b,p17,v8);
-            							}
-            						}
-            					}
-            				}
-            			}
-HXDLIN(  64)			return col;
-            		}
-            		HX_END_LOCAL_FUNC1(return)
-
-            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_28, ::typedarray::Float32ArrayImpl,_e28) HXARGC(1)
-            		int _hx_run(int col){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_65_createPen)
-HXLINE(  65)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_redA(_e28,(( (Float)(((col >> 16) & 255)) ) / ( (Float)(255) )));
-HXDLIN(  65)			{
-HXLINE(  65)				Float v = (( (Float)((col & 255)) ) / ( (Float)(255) ));
-HXDLIN(  65)				{
-HXLINE(  65)					if ((0 >= _e28->length)) {
-HXLINE(  65)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            					}
-HXDLIN(  65)					int p = _e28->byteOffset;
-HXDLIN(  65)					{
-HXLINE(  65)						int i = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e28->buffer->b,p)) )) * 21) + 5) + 2);
-HXDLIN(  65)						{
-HXLINE(  65)							bool color3Abstract;
-HXDLIN(  65)							if ((i >= 0)) {
-HXLINE(  65)								color3Abstract = (i >= _e28->length);
-            							}
-            							else {
-HXLINE(  65)								color3Abstract = true;
-            							}
-HXDLIN(  65)							if (color3Abstract) {
-HXLINE(  65)								HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            							}
-HXDLIN(  65)							int p1 = ((i * 4) + _e28->byteOffset);
-HXDLIN(  65)							 ::__hxcpp_memory_set_float(_e28->buffer->b,p1,v);
-            						}
-            					}
-            				}
-            			}
-HXDLIN(  65)			{
-HXLINE(  65)				Float v1 = (( (Float)(((col >> 8) & 255)) ) / ( (Float)(255) ));
-HXDLIN(  65)				{
-HXLINE(  65)					if ((0 >= _e28->length)) {
-HXLINE(  65)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            					}
-HXDLIN(  65)					int p2 = _e28->byteOffset;
-HXDLIN(  65)					{
-HXLINE(  65)						int i1 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e28->buffer->b,p2)) )) * 21) + 4) + 2);
-HXDLIN(  65)						{
-HXLINE(  65)							bool color3Abstract1;
-HXDLIN(  65)							if ((i1 >= 0)) {
-HXLINE(  65)								color3Abstract1 = (i1 >= _e28->length);
-            							}
-            							else {
-HXLINE(  65)								color3Abstract1 = true;
-            							}
-HXDLIN(  65)							if (color3Abstract1) {
-HXLINE(  65)								HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            							}
-HXDLIN(  65)							int p3 = ((i1 * 4) + _e28->byteOffset);
-HXDLIN(  65)							 ::__hxcpp_memory_set_float(_e28->buffer->b,p3,v1);
-            						}
-            					}
-            				}
-            			}
-HXDLIN(  65)			{
-HXLINE(  65)				Float v2 = (( (Float)(((col >> 24) & 255)) ) / ( (Float)(255) ));
-HXDLIN(  65)				{
-HXLINE(  65)					if ((0 >= _e28->length)) {
-HXLINE(  65)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            					}
-HXDLIN(  65)					int p4 = _e28->byteOffset;
-HXDLIN(  65)					{
-HXLINE(  65)						int i2 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e28->buffer->b,p4)) )) * 21) + 6) + 2);
-HXDLIN(  65)						{
-HXLINE(  65)							bool color3Abstract2;
-HXDLIN(  65)							if ((i2 >= 0)) {
-HXLINE(  65)								color3Abstract2 = (i2 >= _e28->length);
-            							}
-            							else {
-HXLINE(  65)								color3Abstract2 = true;
-            							}
-HXDLIN(  65)							if (color3Abstract2) {
-HXLINE(  65)								HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            							}
-HXDLIN(  65)							int p5 = ((i2 * 4) + _e28->byteOffset);
-HXDLIN(  65)							 ::__hxcpp_memory_set_float(_e28->buffer->b,p5,v2);
-            						}
-            					}
-            				}
-            			}
-HXDLIN(  65)			return col;
-            		}
-            		HX_END_LOCAL_FUNC1(return)
-
-            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_29, ::typedarray::Float32ArrayImpl,_e29) HXARGC(0)
-            		int _hx_run(){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_66_createPen)
-HXLINE(  66)			if ((0 >= _e29->length)) {
-HXLINE(  66)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  66)			int p = _e29->byteOffset;
-HXDLIN(  66)			int i = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e29->buffer->b,p)) )) * 21) + 6) + 2);
-HXDLIN(  66)			bool color3Abstract;
-HXDLIN(  66)			if ((i >= 0)) {
-HXLINE(  66)				color3Abstract = (i >= _e29->length);
-            			}
-            			else {
-HXLINE(  66)				color3Abstract = true;
-            			}
-HXDLIN(  66)			if (color3Abstract) {
-HXLINE(  66)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  66)			int p1 = ((i * 4) + _e29->byteOffset);
-HXDLIN(  66)			int color3Abstract1 = (::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e29->buffer->b,p1)) ) * ( (Float)(255) ))) << 24);
-HXDLIN(  66)			int color3Abstract2 = (color3Abstract1 | (::Math_obj::round((::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_redA(_e29) * ( (Float)(255) ))) << 16));
-HXDLIN(  66)			if ((0 >= _e29->length)) {
-HXLINE(  66)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  66)			int p2 = _e29->byteOffset;
-HXDLIN(  66)			int i1 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e29->buffer->b,p2)) )) * 21) + 4) + 2);
-HXDLIN(  66)			bool color3Abstract3;
-HXDLIN(  66)			if ((i1 >= 0)) {
-HXLINE(  66)				color3Abstract3 = (i1 >= _e29->length);
-            			}
-            			else {
-HXLINE(  66)				color3Abstract3 = true;
-            			}
-HXDLIN(  66)			if (color3Abstract3) {
-HXLINE(  66)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  66)			int p3 = ((i1 * 4) + _e29->byteOffset);
-HXDLIN(  66)			int color3Abstract4 = (color3Abstract2 | (::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e29->buffer->b,p3)) ) * ( (Float)(255) ))) << 8));
-HXDLIN(  66)			if ((0 >= _e29->length)) {
-HXLINE(  66)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  66)			int p4 = _e29->byteOffset;
-HXDLIN(  66)			int i2 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e29->buffer->b,p4)) )) * 21) + 5) + 2);
-HXDLIN(  66)			bool color3Abstract5;
-HXDLIN(  66)			if ((i2 >= 0)) {
-HXLINE(  66)				color3Abstract5 = (i2 >= _e29->length);
-            			}
-            			else {
-HXLINE(  66)				color3Abstract5 = true;
-            			}
-HXDLIN(  66)			if (color3Abstract5) {
-HXLINE(  66)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  66)			int p5 = ((i2 * 4) + _e29->byteOffset);
-HXDLIN(  66)			return (color3Abstract4 | ::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e29->buffer->b,p5)) ) * ( (Float)(255) ))));
-            		}
-            		HX_END_LOCAL_FUNC0(return)
-
-            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_30, ::typedarray::Float32ArrayImpl,_e30) HXARGC(1)
-            		int _hx_run(int col){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_67_createPen)
-HXLINE(  67)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_redB(_e30,(( (Float)(((col >> 16) & 255)) ) / ( (Float)(255) )));
-HXDLIN(  67)			{
-HXLINE(  67)				Float v = (( (Float)((col & 255)) ) / ( (Float)(255) ));
-HXDLIN(  67)				{
-HXLINE(  67)					if ((0 >= _e30->length)) {
-HXLINE(  67)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            					}
-HXDLIN(  67)					int p = _e30->byteOffset;
-HXDLIN(  67)					{
-HXLINE(  67)						int i = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e30->buffer->b,p)) )) * 21) + 12) + 2);
-HXDLIN(  67)						{
-HXLINE(  67)							bool color3Abstract;
-HXDLIN(  67)							if ((i >= 0)) {
-HXLINE(  67)								color3Abstract = (i >= _e30->length);
-            							}
-            							else {
-HXLINE(  67)								color3Abstract = true;
-            							}
-HXDLIN(  67)							if (color3Abstract) {
-HXLINE(  67)								HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            							}
-HXDLIN(  67)							int p1 = ((i * 4) + _e30->byteOffset);
-HXDLIN(  67)							 ::__hxcpp_memory_set_float(_e30->buffer->b,p1,v);
-            						}
-            					}
-            				}
-            			}
-HXDLIN(  67)			{
-HXLINE(  67)				Float v1 = (( (Float)(((col >> 8) & 255)) ) / ( (Float)(255) ));
-HXDLIN(  67)				{
-HXLINE(  67)					if ((0 >= _e30->length)) {
-HXLINE(  67)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            					}
-HXDLIN(  67)					int p2 = _e30->byteOffset;
-HXDLIN(  67)					{
-HXLINE(  67)						int i1 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e30->buffer->b,p2)) )) * 21) + 11) + 2);
-HXDLIN(  67)						{
-HXLINE(  67)							bool color3Abstract1;
-HXDLIN(  67)							if ((i1 >= 0)) {
-HXLINE(  67)								color3Abstract1 = (i1 >= _e30->length);
-            							}
-            							else {
-HXLINE(  67)								color3Abstract1 = true;
-            							}
-HXDLIN(  67)							if (color3Abstract1) {
-HXLINE(  67)								HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            							}
-HXDLIN(  67)							int p3 = ((i1 * 4) + _e30->byteOffset);
-HXDLIN(  67)							 ::__hxcpp_memory_set_float(_e30->buffer->b,p3,v1);
-            						}
-            					}
-            				}
-            			}
-HXDLIN(  67)			{
-HXLINE(  67)				Float v2 = (( (Float)(((col >> 24) & 255)) ) / ( (Float)(255) ));
-HXDLIN(  67)				{
-HXLINE(  67)					if ((0 >= _e30->length)) {
-HXLINE(  67)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            					}
-HXDLIN(  67)					int p4 = _e30->byteOffset;
-HXDLIN(  67)					{
-HXLINE(  67)						int i2 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e30->buffer->b,p4)) )) * 21) + 13) + 2);
-HXDLIN(  67)						{
-HXLINE(  67)							bool color3Abstract2;
-HXDLIN(  67)							if ((i2 >= 0)) {
-HXLINE(  67)								color3Abstract2 = (i2 >= _e30->length);
-            							}
-            							else {
-HXLINE(  67)								color3Abstract2 = true;
-            							}
-HXDLIN(  67)							if (color3Abstract2) {
-HXLINE(  67)								HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            							}
-HXDLIN(  67)							int p5 = ((i2 * 4) + _e30->byteOffset);
-HXDLIN(  67)							 ::__hxcpp_memory_set_float(_e30->buffer->b,p5,v2);
-            						}
-            					}
-            				}
-            			}
-HXDLIN(  67)			return col;
-            		}
-            		HX_END_LOCAL_FUNC1(return)
-
-            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_31, ::typedarray::Float32ArrayImpl,_e31) HXARGC(0)
-            		int _hx_run(){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_68_createPen)
-HXLINE(  68)			if ((0 >= _e31->length)) {
-HXLINE(  68)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  68)			int p = _e31->byteOffset;
-HXDLIN(  68)			int i = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e31->buffer->b,p)) )) * 21) + 6) + 2);
-HXDLIN(  68)			bool color3Abstract;
-HXDLIN(  68)			if ((i >= 0)) {
-HXLINE(  68)				color3Abstract = (i >= _e31->length);
-            			}
-            			else {
-HXLINE(  68)				color3Abstract = true;
-            			}
-HXDLIN(  68)			if (color3Abstract) {
-HXLINE(  68)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  68)			int p1 = ((i * 4) + _e31->byteOffset);
-HXDLIN(  68)			int color3Abstract1 = (::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e31->buffer->b,p1)) ) * ( (Float)(255) ))) << 24);
-HXDLIN(  68)			int color3Abstract2 = (color3Abstract1 | (::Math_obj::round((::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_redA(_e31) * ( (Float)(255) ))) << 16));
-HXDLIN(  68)			if ((0 >= _e31->length)) {
-HXLINE(  68)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  68)			int p2 = _e31->byteOffset;
-HXDLIN(  68)			int i1 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e31->buffer->b,p2)) )) * 21) + 4) + 2);
-HXDLIN(  68)			bool color3Abstract3;
-HXDLIN(  68)			if ((i1 >= 0)) {
-HXLINE(  68)				color3Abstract3 = (i1 >= _e31->length);
-            			}
-            			else {
-HXLINE(  68)				color3Abstract3 = true;
-            			}
-HXDLIN(  68)			if (color3Abstract3) {
-HXLINE(  68)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  68)			int p3 = ((i1 * 4) + _e31->byteOffset);
-HXDLIN(  68)			int color3Abstract4 = (color3Abstract2 | (::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e31->buffer->b,p3)) ) * ( (Float)(255) ))) << 8));
-HXDLIN(  68)			if ((0 >= _e31->length)) {
-HXLINE(  68)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  68)			int p4 = _e31->byteOffset;
-HXDLIN(  68)			int i2 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e31->buffer->b,p4)) )) * 21) + 5) + 2);
-HXDLIN(  68)			bool color3Abstract5;
-HXDLIN(  68)			if ((i2 >= 0)) {
-HXLINE(  68)				color3Abstract5 = (i2 >= _e31->length);
-            			}
-            			else {
-HXLINE(  68)				color3Abstract5 = true;
-            			}
-HXDLIN(  68)			if (color3Abstract5) {
-HXLINE(  68)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  68)			int p5 = ((i2 * 4) + _e31->byteOffset);
-HXDLIN(  68)			return (color3Abstract4 | ::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e31->buffer->b,p5)) ) * ( (Float)(255) ))));
-            		}
-            		HX_END_LOCAL_FUNC0(return)
-
-            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_32, ::typedarray::Float32ArrayImpl,_e32) HXARGC(1)
-            		int _hx_run(int col){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_69_createPen)
-HXLINE(  69)			::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_redC(_e32,(( (Float)(((col >> 16) & 255)) ) / ( (Float)(255) )));
-HXDLIN(  69)			{
-HXLINE(  69)				Float v = (( (Float)((col & 255)) ) / ( (Float)(255) ));
-HXDLIN(  69)				{
-HXLINE(  69)					if ((0 >= _e32->length)) {
-HXLINE(  69)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            					}
-HXDLIN(  69)					int p = _e32->byteOffset;
-HXDLIN(  69)					{
-HXLINE(  69)						int i = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e32->buffer->b,p)) )) * 21) + 19) + 2);
-HXDLIN(  69)						{
-HXLINE(  69)							bool color3Abstract;
-HXDLIN(  69)							if ((i >= 0)) {
-HXLINE(  69)								color3Abstract = (i >= _e32->length);
-            							}
-            							else {
-HXLINE(  69)								color3Abstract = true;
-            							}
-HXDLIN(  69)							if (color3Abstract) {
-HXLINE(  69)								HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            							}
-HXDLIN(  69)							int p1 = ((i * 4) + _e32->byteOffset);
-HXDLIN(  69)							 ::__hxcpp_memory_set_float(_e32->buffer->b,p1,v);
-            						}
-            					}
-            				}
-            			}
-HXDLIN(  69)			{
-HXLINE(  69)				Float v1 = (( (Float)(((col >> 8) & 255)) ) / ( (Float)(255) ));
-HXDLIN(  69)				{
-HXLINE(  69)					if ((0 >= _e32->length)) {
-HXLINE(  69)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            					}
-HXDLIN(  69)					int p2 = _e32->byteOffset;
-HXDLIN(  69)					{
-HXLINE(  69)						int i1 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e32->buffer->b,p2)) )) * 21) + 18) + 2);
-HXDLIN(  69)						{
-HXLINE(  69)							bool color3Abstract1;
-HXDLIN(  69)							if ((i1 >= 0)) {
-HXLINE(  69)								color3Abstract1 = (i1 >= _e32->length);
-            							}
-            							else {
-HXLINE(  69)								color3Abstract1 = true;
-            							}
-HXDLIN(  69)							if (color3Abstract1) {
-HXLINE(  69)								HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            							}
-HXDLIN(  69)							int p3 = ((i1 * 4) + _e32->byteOffset);
-HXDLIN(  69)							 ::__hxcpp_memory_set_float(_e32->buffer->b,p3,v1);
-            						}
-            					}
-            				}
-            			}
-HXDLIN(  69)			{
-HXLINE(  69)				Float v2 = (( (Float)(((col >> 24) & 255)) ) / ( (Float)(255) ));
-HXDLIN(  69)				{
-HXLINE(  69)					if ((0 >= _e32->length)) {
-HXLINE(  69)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            					}
-HXDLIN(  69)					int p4 = _e32->byteOffset;
-HXDLIN(  69)					{
-HXLINE(  69)						int i2 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e32->buffer->b,p4)) )) * 21) + 20) + 2);
-HXDLIN(  69)						{
-HXLINE(  69)							bool color3Abstract2;
-HXDLIN(  69)							if ((i2 >= 0)) {
-HXLINE(  69)								color3Abstract2 = (i2 >= _e32->length);
-            							}
-            							else {
-HXLINE(  69)								color3Abstract2 = true;
-            							}
-HXDLIN(  69)							if (color3Abstract2) {
-HXLINE(  69)								HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            							}
-HXDLIN(  69)							int p5 = ((i2 * 4) + _e32->byteOffset);
-HXDLIN(  69)							 ::__hxcpp_memory_set_float(_e32->buffer->b,p5,v2);
-            						}
-            					}
-            				}
-            			}
-HXDLIN(  69)			return col;
-            		}
-            		HX_END_LOCAL_FUNC1(return)
-
-            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_33, ::typedarray::Float32ArrayImpl,_e33) HXARGC(0)
-            		int _hx_run(){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_70_createPen)
-HXLINE(  70)			if ((0 >= _e33->length)) {
-HXLINE(  70)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  70)			int p = _e33->byteOffset;
-HXDLIN(  70)			int i = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e33->buffer->b,p)) )) * 21) + 6) + 2);
-HXDLIN(  70)			bool color3Abstract;
-HXDLIN(  70)			if ((i >= 0)) {
-HXLINE(  70)				color3Abstract = (i >= _e33->length);
-            			}
-            			else {
-HXLINE(  70)				color3Abstract = true;
-            			}
-HXDLIN(  70)			if (color3Abstract) {
-HXLINE(  70)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  70)			int p1 = ((i * 4) + _e33->byteOffset);
-HXDLIN(  70)			int color3Abstract1 = (::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e33->buffer->b,p1)) ) * ( (Float)(255) ))) << 24);
-HXDLIN(  70)			int color3Abstract2 = (color3Abstract1 | (::Math_obj::round((::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_redA(_e33) * ( (Float)(255) ))) << 16));
-HXDLIN(  70)			if ((0 >= _e33->length)) {
-HXLINE(  70)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  70)			int p2 = _e33->byteOffset;
-HXDLIN(  70)			int i1 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e33->buffer->b,p2)) )) * 21) + 4) + 2);
-HXDLIN(  70)			bool color3Abstract3;
-HXDLIN(  70)			if ((i1 >= 0)) {
-HXLINE(  70)				color3Abstract3 = (i1 >= _e33->length);
-            			}
-            			else {
-HXLINE(  70)				color3Abstract3 = true;
-            			}
-HXDLIN(  70)			if (color3Abstract3) {
-HXLINE(  70)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  70)			int p3 = ((i1 * 4) + _e33->byteOffset);
-HXDLIN(  70)			int color3Abstract4 = (color3Abstract2 | (::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e33->buffer->b,p3)) ) * ( (Float)(255) ))) << 8));
-HXDLIN(  70)			if ((0 >= _e33->length)) {
-HXLINE(  70)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  70)			int p4 = _e33->byteOffset;
-HXDLIN(  70)			int i2 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e33->buffer->b,p4)) )) * 21) + 5) + 2);
-HXDLIN(  70)			bool color3Abstract5;
-HXDLIN(  70)			if ((i2 >= 0)) {
-HXLINE(  70)				color3Abstract5 = (i2 >= _e33->length);
-            			}
-            			else {
-HXLINE(  70)				color3Abstract5 = true;
-            			}
-HXDLIN(  70)			if (color3Abstract5) {
-HXLINE(  70)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  70)			int p5 = ((i2 * 4) + _e33->byteOffset);
-HXDLIN(  70)			return (color3Abstract4 | ::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e33->buffer->b,p5)) ) * ( (Float)(255) ))));
-            		}
-            		HX_END_LOCAL_FUNC0(return)
-
-            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_34, ::typedarray::Float32ArrayImpl,_e34) HXARGC(3)
+            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_25, ::typedarray::Float32ArrayImpl,_e25) HXARGC(3)
             		void _hx_run(int colorA,int colorB,int colorC){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_73_createPen)
-HXLINE(  73)			{
-HXLINE(  73)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_redA(_e34,(( (Float)(((colorA >> 16) & 255)) ) / ( (Float)(255) )));
-HXDLIN(  73)				{
-HXLINE(  73)					Float v = (( (Float)((colorA & 255)) ) / ( (Float)(255) ));
-HXDLIN(  73)					{
-HXLINE(  73)						if ((0 >= _e34->length)) {
-HXLINE(  73)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_60_createPen)
+HXLINE(  60)			{
+HXLINE(  60)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_redA(_e25,(( (Float)(((colorA >> 16) & 255)) ) / ( (Float)(255) )));
+HXDLIN(  60)				{
+HXLINE(  60)					Float v = (( (Float)((colorA & 255)) ) / ( (Float)(255) ));
+HXDLIN(  60)					{
+HXLINE(  60)						if ((0 >= _e25->length)) {
+HXLINE(  60)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             						}
-HXDLIN(  73)						int p = _e34->byteOffset;
-HXDLIN(  73)						{
-HXLINE(  73)							int i = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e34->buffer->b,p)) )) * 21) + 5) + 2);
-HXDLIN(  73)							{
-HXLINE(  73)								bool colorAbstract;
-HXDLIN(  73)								if ((i >= 0)) {
-HXLINE(  73)									colorAbstract = (i >= _e34->length);
+HXDLIN(  60)						int p = _e25->byteOffset;
+HXDLIN(  60)						{
+HXLINE(  60)							int i = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e25->buffer->b,p)) )) * 21) + 5) + 2);
+HXDLIN(  60)							{
+HXLINE(  60)								bool paintAbstract;
+HXDLIN(  60)								if ((i >= 0)) {
+HXLINE(  60)									paintAbstract = (i >= _e25->length);
             								}
             								else {
-HXLINE(  73)									colorAbstract = true;
+HXLINE(  60)									paintAbstract = true;
             								}
-HXDLIN(  73)								if (colorAbstract) {
-HXLINE(  73)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  60)								if (paintAbstract) {
+HXLINE(  60)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             								}
-HXDLIN(  73)								int p1 = ((i * 4) + _e34->byteOffset);
-HXDLIN(  73)								 ::__hxcpp_memory_set_float(_e34->buffer->b,p1,v);
+HXDLIN(  60)								int p1 = ((i * 4) + _e25->byteOffset);
+HXDLIN(  60)								 ::__hxcpp_memory_set_float(_e25->buffer->b,p1,v);
             							}
             						}
             					}
             				}
-HXDLIN(  73)				{
-HXLINE(  73)					Float v1 = (( (Float)(((colorA >> 8) & 255)) ) / ( (Float)(255) ));
-HXDLIN(  73)					{
-HXLINE(  73)						if ((0 >= _e34->length)) {
-HXLINE(  73)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  60)				{
+HXLINE(  60)					Float v1 = (( (Float)(((colorA >> 8) & 255)) ) / ( (Float)(255) ));
+HXDLIN(  60)					{
+HXLINE(  60)						if ((0 >= _e25->length)) {
+HXLINE(  60)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             						}
-HXDLIN(  73)						int p2 = _e34->byteOffset;
-HXDLIN(  73)						{
-HXLINE(  73)							int i1 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e34->buffer->b,p2)) )) * 21) + 4) + 2);
-HXDLIN(  73)							{
-HXLINE(  73)								bool colorAbstract1;
-HXDLIN(  73)								if ((i1 >= 0)) {
-HXLINE(  73)									colorAbstract1 = (i1 >= _e34->length);
+HXDLIN(  60)						int p2 = _e25->byteOffset;
+HXDLIN(  60)						{
+HXLINE(  60)							int i1 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e25->buffer->b,p2)) )) * 21) + 4) + 2);
+HXDLIN(  60)							{
+HXLINE(  60)								bool paintAbstract1;
+HXDLIN(  60)								if ((i1 >= 0)) {
+HXLINE(  60)									paintAbstract1 = (i1 >= _e25->length);
             								}
             								else {
-HXLINE(  73)									colorAbstract1 = true;
+HXLINE(  60)									paintAbstract1 = true;
             								}
-HXDLIN(  73)								if (colorAbstract1) {
-HXLINE(  73)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  60)								if (paintAbstract1) {
+HXLINE(  60)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             								}
-HXDLIN(  73)								int p3 = ((i1 * 4) + _e34->byteOffset);
-HXDLIN(  73)								 ::__hxcpp_memory_set_float(_e34->buffer->b,p3,v1);
+HXDLIN(  60)								int p3 = ((i1 * 4) + _e25->byteOffset);
+HXDLIN(  60)								 ::__hxcpp_memory_set_float(_e25->buffer->b,p3,v1);
             							}
             						}
             					}
             				}
-HXDLIN(  73)				{
-HXLINE(  73)					Float v2 = (( (Float)(((colorA >> 24) & 255)) ) / ( (Float)(255) ));
-HXDLIN(  73)					{
-HXLINE(  73)						if ((0 >= _e34->length)) {
-HXLINE(  73)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  60)				{
+HXLINE(  60)					Float v2 = (( (Float)(((colorA >> 24) & 255)) ) / ( (Float)(255) ));
+HXDLIN(  60)					{
+HXLINE(  60)						if ((0 >= _e25->length)) {
+HXLINE(  60)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             						}
-HXDLIN(  73)						int p4 = _e34->byteOffset;
-HXDLIN(  73)						{
-HXLINE(  73)							int i2 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e34->buffer->b,p4)) )) * 21) + 6) + 2);
-HXDLIN(  73)							{
-HXLINE(  73)								bool colorAbstract2;
-HXDLIN(  73)								if ((i2 >= 0)) {
-HXLINE(  73)									colorAbstract2 = (i2 >= _e34->length);
+HXDLIN(  60)						int p4 = _e25->byteOffset;
+HXDLIN(  60)						{
+HXLINE(  60)							int i2 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e25->buffer->b,p4)) )) * 21) + 6) + 2);
+HXDLIN(  60)							{
+HXLINE(  60)								bool paintAbstract2;
+HXDLIN(  60)								if ((i2 >= 0)) {
+HXLINE(  60)									paintAbstract2 = (i2 >= _e25->length);
             								}
             								else {
-HXLINE(  73)									colorAbstract2 = true;
+HXLINE(  60)									paintAbstract2 = true;
             								}
-HXDLIN(  73)								if (colorAbstract2) {
-HXLINE(  73)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  60)								if (paintAbstract2) {
+HXLINE(  60)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             								}
-HXDLIN(  73)								int p5 = ((i2 * 4) + _e34->byteOffset);
-HXDLIN(  73)								 ::__hxcpp_memory_set_float(_e34->buffer->b,p5,v2);
-            							}
-            						}
-            					}
-            				}
-            			}
-HXDLIN(  73)			{
-HXLINE(  73)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_redB(_e34,(( (Float)(((colorB >> 16) & 255)) ) / ( (Float)(255) )));
-HXDLIN(  73)				{
-HXLINE(  73)					Float v3 = (( (Float)((colorB & 255)) ) / ( (Float)(255) ));
-HXDLIN(  73)					{
-HXLINE(  73)						if ((0 >= _e34->length)) {
-HXLINE(  73)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            						}
-HXDLIN(  73)						int p6 = _e34->byteOffset;
-HXDLIN(  73)						{
-HXLINE(  73)							int i3 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e34->buffer->b,p6)) )) * 21) + 12) + 2);
-HXDLIN(  73)							{
-HXLINE(  73)								bool colorAbstract3;
-HXDLIN(  73)								if ((i3 >= 0)) {
-HXLINE(  73)									colorAbstract3 = (i3 >= _e34->length);
-            								}
-            								else {
-HXLINE(  73)									colorAbstract3 = true;
-            								}
-HXDLIN(  73)								if (colorAbstract3) {
-HXLINE(  73)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            								}
-HXDLIN(  73)								int p7 = ((i3 * 4) + _e34->byteOffset);
-HXDLIN(  73)								 ::__hxcpp_memory_set_float(_e34->buffer->b,p7,v3);
-            							}
-            						}
-            					}
-            				}
-HXDLIN(  73)				{
-HXLINE(  73)					Float v4 = (( (Float)(((colorB >> 8) & 255)) ) / ( (Float)(255) ));
-HXDLIN(  73)					{
-HXLINE(  73)						if ((0 >= _e34->length)) {
-HXLINE(  73)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            						}
-HXDLIN(  73)						int p8 = _e34->byteOffset;
-HXDLIN(  73)						{
-HXLINE(  73)							int i4 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e34->buffer->b,p8)) )) * 21) + 11) + 2);
-HXDLIN(  73)							{
-HXLINE(  73)								bool colorAbstract4;
-HXDLIN(  73)								if ((i4 >= 0)) {
-HXLINE(  73)									colorAbstract4 = (i4 >= _e34->length);
-            								}
-            								else {
-HXLINE(  73)									colorAbstract4 = true;
-            								}
-HXDLIN(  73)								if (colorAbstract4) {
-HXLINE(  73)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            								}
-HXDLIN(  73)								int p9 = ((i4 * 4) + _e34->byteOffset);
-HXDLIN(  73)								 ::__hxcpp_memory_set_float(_e34->buffer->b,p9,v4);
-            							}
-            						}
-            					}
-            				}
-HXDLIN(  73)				{
-HXLINE(  73)					Float v5 = (( (Float)(((colorB >> 24) & 255)) ) / ( (Float)(255) ));
-HXDLIN(  73)					{
-HXLINE(  73)						if ((0 >= _e34->length)) {
-HXLINE(  73)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            						}
-HXDLIN(  73)						int p10 = _e34->byteOffset;
-HXDLIN(  73)						{
-HXLINE(  73)							int i5 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e34->buffer->b,p10)) )) * 21) + 13) + 2);
-HXDLIN(  73)							{
-HXLINE(  73)								bool colorAbstract5;
-HXDLIN(  73)								if ((i5 >= 0)) {
-HXLINE(  73)									colorAbstract5 = (i5 >= _e34->length);
-            								}
-            								else {
-HXLINE(  73)									colorAbstract5 = true;
-            								}
-HXDLIN(  73)								if (colorAbstract5) {
-HXLINE(  73)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            								}
-HXDLIN(  73)								int p11 = ((i5 * 4) + _e34->byteOffset);
-HXDLIN(  73)								 ::__hxcpp_memory_set_float(_e34->buffer->b,p11,v5);
+HXDLIN(  60)								int p5 = ((i2 * 4) + _e25->byteOffset);
+HXDLIN(  60)								 ::__hxcpp_memory_set_float(_e25->buffer->b,p5,v2);
             							}
             						}
             					}
             				}
             			}
-HXDLIN(  73)			{
-HXLINE(  73)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_redC(_e34,(( (Float)(((colorC >> 16) & 255)) ) / ( (Float)(255) )));
-HXDLIN(  73)				{
-HXLINE(  73)					Float v6 = (( (Float)((colorC & 255)) ) / ( (Float)(255) ));
-HXDLIN(  73)					{
-HXLINE(  73)						if ((0 >= _e34->length)) {
-HXLINE(  73)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  60)			{
+HXLINE(  60)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_redB(_e25,(( (Float)(((colorB >> 16) & 255)) ) / ( (Float)(255) )));
+HXDLIN(  60)				{
+HXLINE(  60)					Float v3 = (( (Float)((colorB & 255)) ) / ( (Float)(255) ));
+HXDLIN(  60)					{
+HXLINE(  60)						if ((0 >= _e25->length)) {
+HXLINE(  60)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             						}
-HXDLIN(  73)						int p12 = _e34->byteOffset;
-HXDLIN(  73)						{
-HXLINE(  73)							int i6 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e34->buffer->b,p12)) )) * 21) + 19) + 2);
-HXDLIN(  73)							{
-HXLINE(  73)								bool colorAbstract6;
-HXDLIN(  73)								if ((i6 >= 0)) {
-HXLINE(  73)									colorAbstract6 = (i6 >= _e34->length);
+HXDLIN(  60)						int p6 = _e25->byteOffset;
+HXDLIN(  60)						{
+HXLINE(  60)							int i3 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e25->buffer->b,p6)) )) * 21) + 12) + 2);
+HXDLIN(  60)							{
+HXLINE(  60)								bool paintAbstract3;
+HXDLIN(  60)								if ((i3 >= 0)) {
+HXLINE(  60)									paintAbstract3 = (i3 >= _e25->length);
             								}
             								else {
-HXLINE(  73)									colorAbstract6 = true;
+HXLINE(  60)									paintAbstract3 = true;
             								}
-HXDLIN(  73)								if (colorAbstract6) {
-HXLINE(  73)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  60)								if (paintAbstract3) {
+HXLINE(  60)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             								}
-HXDLIN(  73)								int p13 = ((i6 * 4) + _e34->byteOffset);
-HXDLIN(  73)								 ::__hxcpp_memory_set_float(_e34->buffer->b,p13,v6);
+HXDLIN(  60)								int p7 = ((i3 * 4) + _e25->byteOffset);
+HXDLIN(  60)								 ::__hxcpp_memory_set_float(_e25->buffer->b,p7,v3);
             							}
             						}
             					}
             				}
-HXDLIN(  73)				{
-HXLINE(  73)					Float v7 = (( (Float)(((colorC >> 8) & 255)) ) / ( (Float)(255) ));
-HXDLIN(  73)					{
-HXLINE(  73)						if ((0 >= _e34->length)) {
-HXLINE(  73)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  60)				{
+HXLINE(  60)					Float v4 = (( (Float)(((colorB >> 8) & 255)) ) / ( (Float)(255) ));
+HXDLIN(  60)					{
+HXLINE(  60)						if ((0 >= _e25->length)) {
+HXLINE(  60)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             						}
-HXDLIN(  73)						int p14 = _e34->byteOffset;
-HXDLIN(  73)						{
-HXLINE(  73)							int i7 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e34->buffer->b,p14)) )) * 21) + 18) + 2);
-HXDLIN(  73)							{
-HXLINE(  73)								bool colorAbstract7;
-HXDLIN(  73)								if ((i7 >= 0)) {
-HXLINE(  73)									colorAbstract7 = (i7 >= _e34->length);
+HXDLIN(  60)						int p8 = _e25->byteOffset;
+HXDLIN(  60)						{
+HXLINE(  60)							int i4 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e25->buffer->b,p8)) )) * 21) + 11) + 2);
+HXDLIN(  60)							{
+HXLINE(  60)								bool paintAbstract4;
+HXDLIN(  60)								if ((i4 >= 0)) {
+HXLINE(  60)									paintAbstract4 = (i4 >= _e25->length);
             								}
             								else {
-HXLINE(  73)									colorAbstract7 = true;
+HXLINE(  60)									paintAbstract4 = true;
             								}
-HXDLIN(  73)								if (colorAbstract7) {
-HXLINE(  73)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  60)								if (paintAbstract4) {
+HXLINE(  60)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             								}
-HXDLIN(  73)								int p15 = ((i7 * 4) + _e34->byteOffset);
-HXDLIN(  73)								 ::__hxcpp_memory_set_float(_e34->buffer->b,p15,v7);
+HXDLIN(  60)								int p9 = ((i4 * 4) + _e25->byteOffset);
+HXDLIN(  60)								 ::__hxcpp_memory_set_float(_e25->buffer->b,p9,v4);
             							}
             						}
             					}
             				}
-HXDLIN(  73)				{
-HXLINE(  73)					Float v8 = (( (Float)(((colorC >> 24) & 255)) ) / ( (Float)(255) ));
-HXDLIN(  73)					{
-HXLINE(  73)						if ((0 >= _e34->length)) {
-HXLINE(  73)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  60)				{
+HXLINE(  60)					Float v5 = (( (Float)(((colorB >> 24) & 255)) ) / ( (Float)(255) ));
+HXDLIN(  60)					{
+HXLINE(  60)						if ((0 >= _e25->length)) {
+HXLINE(  60)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             						}
-HXDLIN(  73)						int p16 = _e34->byteOffset;
-HXDLIN(  73)						{
-HXLINE(  73)							int i8 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e34->buffer->b,p16)) )) * 21) + 20) + 2);
-HXDLIN(  73)							{
-HXLINE(  73)								bool colorAbstract8;
-HXDLIN(  73)								if ((i8 >= 0)) {
-HXLINE(  73)									colorAbstract8 = (i8 >= _e34->length);
+HXDLIN(  60)						int p10 = _e25->byteOffset;
+HXDLIN(  60)						{
+HXLINE(  60)							int i5 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e25->buffer->b,p10)) )) * 21) + 13) + 2);
+HXDLIN(  60)							{
+HXLINE(  60)								bool paintAbstract5;
+HXDLIN(  60)								if ((i5 >= 0)) {
+HXLINE(  60)									paintAbstract5 = (i5 >= _e25->length);
             								}
             								else {
-HXLINE(  73)									colorAbstract8 = true;
+HXLINE(  60)									paintAbstract5 = true;
             								}
-HXDLIN(  73)								if (colorAbstract8) {
-HXLINE(  73)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  60)								if (paintAbstract5) {
+HXLINE(  60)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             								}
-HXDLIN(  73)								int p17 = ((i8 * 4) + _e34->byteOffset);
-HXDLIN(  73)								 ::__hxcpp_memory_set_float(_e34->buffer->b,p17,v8);
+HXDLIN(  60)								int p11 = ((i5 * 4) + _e25->byteOffset);
+HXDLIN(  60)								 ::__hxcpp_memory_set_float(_e25->buffer->b,p11,v5);
+            							}
+            						}
+            					}
+            				}
+            			}
+HXDLIN(  60)			{
+HXLINE(  60)				::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_redC(_e25,(( (Float)(((colorC >> 16) & 255)) ) / ( (Float)(255) )));
+HXDLIN(  60)				{
+HXLINE(  60)					Float v6 = (( (Float)((colorC & 255)) ) / ( (Float)(255) ));
+HXDLIN(  60)					{
+HXLINE(  60)						if ((0 >= _e25->length)) {
+HXLINE(  60)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            						}
+HXDLIN(  60)						int p12 = _e25->byteOffset;
+HXDLIN(  60)						{
+HXLINE(  60)							int i6 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e25->buffer->b,p12)) )) * 21) + 19) + 2);
+HXDLIN(  60)							{
+HXLINE(  60)								bool paintAbstract6;
+HXDLIN(  60)								if ((i6 >= 0)) {
+HXLINE(  60)									paintAbstract6 = (i6 >= _e25->length);
+            								}
+            								else {
+HXLINE(  60)									paintAbstract6 = true;
+            								}
+HXDLIN(  60)								if (paintAbstract6) {
+HXLINE(  60)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            								}
+HXDLIN(  60)								int p13 = ((i6 * 4) + _e25->byteOffset);
+HXDLIN(  60)								 ::__hxcpp_memory_set_float(_e25->buffer->b,p13,v6);
+            							}
+            						}
+            					}
+            				}
+HXDLIN(  60)				{
+HXLINE(  60)					Float v7 = (( (Float)(((colorC >> 8) & 255)) ) / ( (Float)(255) ));
+HXDLIN(  60)					{
+HXLINE(  60)						if ((0 >= _e25->length)) {
+HXLINE(  60)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            						}
+HXDLIN(  60)						int p14 = _e25->byteOffset;
+HXDLIN(  60)						{
+HXLINE(  60)							int i7 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e25->buffer->b,p14)) )) * 21) + 18) + 2);
+HXDLIN(  60)							{
+HXLINE(  60)								bool paintAbstract7;
+HXDLIN(  60)								if ((i7 >= 0)) {
+HXLINE(  60)									paintAbstract7 = (i7 >= _e25->length);
+            								}
+            								else {
+HXLINE(  60)									paintAbstract7 = true;
+            								}
+HXDLIN(  60)								if (paintAbstract7) {
+HXLINE(  60)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            								}
+HXDLIN(  60)								int p15 = ((i7 * 4) + _e25->byteOffset);
+HXDLIN(  60)								 ::__hxcpp_memory_set_float(_e25->buffer->b,p15,v7);
+            							}
+            						}
+            					}
+            				}
+HXDLIN(  60)				{
+HXLINE(  60)					Float v8 = (( (Float)(((colorC >> 24) & 255)) ) / ( (Float)(255) ));
+HXDLIN(  60)					{
+HXLINE(  60)						if ((0 >= _e25->length)) {
+HXLINE(  60)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            						}
+HXDLIN(  60)						int p16 = _e25->byteOffset;
+HXDLIN(  60)						{
+HXLINE(  60)							int i8 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e25->buffer->b,p16)) )) * 21) + 20) + 2);
+HXDLIN(  60)							{
+HXLINE(  60)								bool paintAbstract8;
+HXDLIN(  60)								if ((i8 >= 0)) {
+HXLINE(  60)									paintAbstract8 = (i8 >= _e25->length);
+            								}
+            								else {
+HXLINE(  60)									paintAbstract8 = true;
+            								}
+HXDLIN(  60)								if (paintAbstract8) {
+HXLINE(  60)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            								}
+HXDLIN(  60)								int p17 = ((i8 * 4) + _e25->byteOffset);
+HXDLIN(  60)								 ::__hxcpp_memory_set_float(_e25->buffer->b,p17,v8);
             							}
             						}
             					}
@@ -1551,294 +1395,294 @@ HXDLIN(  73)								 ::__hxcpp_memory_set_float(_e34->buffer->b,p17,v8);
             		}
             		HX_END_LOCAL_FUNC3((void))
 
-            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_35, ::typedarray::Float32ArrayImpl,_e35) HXARGC(2)
+            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_26, ::typedarray::Float32ArrayImpl,_e26) HXARGC(2)
             		void _hx_run(int color,int times){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_74_createPen)
-HXLINE(  74)			int _g = 0;
-HXDLIN(  74)			int _g1 = times;
-HXDLIN(  74)			while((_g < _g1)){
-HXLINE(  74)				_g = (_g + 1);
-HXDLIN(  74)				int i = (_g - 1);
-HXDLIN(  74)				{
-HXLINE(  74)					{
-HXLINE(  74)						::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_redA(_e35,(( (Float)(((color >> 16) & 255)) ) / ( (Float)(255) )));
-HXDLIN(  74)						{
-HXLINE(  74)							Float v = (( (Float)((color & 255)) ) / ( (Float)(255) ));
-HXDLIN(  74)							{
-HXLINE(  74)								if ((0 >= _e35->length)) {
-HXLINE(  74)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_61_createPen)
+HXLINE(  61)			int _g = 0;
+HXDLIN(  61)			int _g1 = times;
+HXDLIN(  61)			while((_g < _g1)){
+HXLINE(  61)				_g = (_g + 1);
+HXDLIN(  61)				int i = (_g - 1);
+HXDLIN(  61)				{
+HXLINE(  61)					{
+HXLINE(  61)						::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_redA(_e26,(( (Float)(((color >> 16) & 255)) ) / ( (Float)(255) )));
+HXDLIN(  61)						{
+HXLINE(  61)							Float v = (( (Float)((color & 255)) ) / ( (Float)(255) ));
+HXDLIN(  61)							{
+HXLINE(  61)								if ((0 >= _e26->length)) {
+HXLINE(  61)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             								}
-HXDLIN(  74)								int p = _e35->byteOffset;
-HXDLIN(  74)								{
-HXLINE(  74)									int i1 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e35->buffer->b,p)) )) * 21) + 5) + 2);
-HXDLIN(  74)									{
-HXLINE(  74)										bool colorAbstract;
-HXDLIN(  74)										if ((i1 >= 0)) {
-HXLINE(  74)											colorAbstract = (i1 >= _e35->length);
+HXDLIN(  61)								int p = _e26->byteOffset;
+HXDLIN(  61)								{
+HXLINE(  61)									int i1 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e26->buffer->b,p)) )) * 21) + 5) + 2);
+HXDLIN(  61)									{
+HXLINE(  61)										bool paintAbstract;
+HXDLIN(  61)										if ((i1 >= 0)) {
+HXLINE(  61)											paintAbstract = (i1 >= _e26->length);
             										}
             										else {
-HXLINE(  74)											colorAbstract = true;
+HXLINE(  61)											paintAbstract = true;
             										}
-HXDLIN(  74)										if (colorAbstract) {
-HXLINE(  74)											HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  61)										if (paintAbstract) {
+HXLINE(  61)											HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             										}
-HXDLIN(  74)										int p1 = ((i1 * 4) + _e35->byteOffset);
-HXDLIN(  74)										 ::__hxcpp_memory_set_float(_e35->buffer->b,p1,v);
+HXDLIN(  61)										int p1 = ((i1 * 4) + _e26->byteOffset);
+HXDLIN(  61)										 ::__hxcpp_memory_set_float(_e26->buffer->b,p1,v);
             									}
             								}
             							}
             						}
-HXDLIN(  74)						{
-HXLINE(  74)							Float v1 = (( (Float)(((color >> 8) & 255)) ) / ( (Float)(255) ));
-HXDLIN(  74)							{
-HXLINE(  74)								if ((0 >= _e35->length)) {
-HXLINE(  74)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  61)						{
+HXLINE(  61)							Float v1 = (( (Float)(((color >> 8) & 255)) ) / ( (Float)(255) ));
+HXDLIN(  61)							{
+HXLINE(  61)								if ((0 >= _e26->length)) {
+HXLINE(  61)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             								}
-HXDLIN(  74)								int p2 = _e35->byteOffset;
-HXDLIN(  74)								{
-HXLINE(  74)									int i2 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e35->buffer->b,p2)) )) * 21) + 4) + 2);
-HXDLIN(  74)									{
-HXLINE(  74)										bool colorAbstract1;
-HXDLIN(  74)										if ((i2 >= 0)) {
-HXLINE(  74)											colorAbstract1 = (i2 >= _e35->length);
+HXDLIN(  61)								int p2 = _e26->byteOffset;
+HXDLIN(  61)								{
+HXLINE(  61)									int i2 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e26->buffer->b,p2)) )) * 21) + 4) + 2);
+HXDLIN(  61)									{
+HXLINE(  61)										bool paintAbstract1;
+HXDLIN(  61)										if ((i2 >= 0)) {
+HXLINE(  61)											paintAbstract1 = (i2 >= _e26->length);
             										}
             										else {
-HXLINE(  74)											colorAbstract1 = true;
+HXLINE(  61)											paintAbstract1 = true;
             										}
-HXDLIN(  74)										if (colorAbstract1) {
-HXLINE(  74)											HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  61)										if (paintAbstract1) {
+HXLINE(  61)											HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             										}
-HXDLIN(  74)										int p3 = ((i2 * 4) + _e35->byteOffset);
-HXDLIN(  74)										 ::__hxcpp_memory_set_float(_e35->buffer->b,p3,v1);
+HXDLIN(  61)										int p3 = ((i2 * 4) + _e26->byteOffset);
+HXDLIN(  61)										 ::__hxcpp_memory_set_float(_e26->buffer->b,p3,v1);
             									}
             								}
             							}
             						}
-HXDLIN(  74)						{
-HXLINE(  74)							Float v2 = (( (Float)(((color >> 24) & 255)) ) / ( (Float)(255) ));
-HXDLIN(  74)							{
-HXLINE(  74)								if ((0 >= _e35->length)) {
-HXLINE(  74)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  61)						{
+HXLINE(  61)							Float v2 = (( (Float)(((color >> 24) & 255)) ) / ( (Float)(255) ));
+HXDLIN(  61)							{
+HXLINE(  61)								if ((0 >= _e26->length)) {
+HXLINE(  61)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             								}
-HXDLIN(  74)								int p4 = _e35->byteOffset;
-HXDLIN(  74)								{
-HXLINE(  74)									int i3 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e35->buffer->b,p4)) )) * 21) + 6) + 2);
-HXDLIN(  74)									{
-HXLINE(  74)										bool colorAbstract2;
-HXDLIN(  74)										if ((i3 >= 0)) {
-HXLINE(  74)											colorAbstract2 = (i3 >= _e35->length);
+HXDLIN(  61)								int p4 = _e26->byteOffset;
+HXDLIN(  61)								{
+HXLINE(  61)									int i3 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e26->buffer->b,p4)) )) * 21) + 6) + 2);
+HXDLIN(  61)									{
+HXLINE(  61)										bool paintAbstract2;
+HXDLIN(  61)										if ((i3 >= 0)) {
+HXLINE(  61)											paintAbstract2 = (i3 >= _e26->length);
             										}
             										else {
-HXLINE(  74)											colorAbstract2 = true;
+HXLINE(  61)											paintAbstract2 = true;
             										}
-HXDLIN(  74)										if (colorAbstract2) {
-HXLINE(  74)											HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  61)										if (paintAbstract2) {
+HXLINE(  61)											HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             										}
-HXDLIN(  74)										int p5 = ((i3 * 4) + _e35->byteOffset);
-HXDLIN(  74)										 ::__hxcpp_memory_set_float(_e35->buffer->b,p5,v2);
-            									}
-            								}
-            							}
-            						}
-            					}
-HXDLIN(  74)					{
-HXLINE(  74)						::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_redB(_e35,(( (Float)(((color >> 16) & 255)) ) / ( (Float)(255) )));
-HXDLIN(  74)						{
-HXLINE(  74)							Float v3 = (( (Float)((color & 255)) ) / ( (Float)(255) ));
-HXDLIN(  74)							{
-HXLINE(  74)								if ((0 >= _e35->length)) {
-HXLINE(  74)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            								}
-HXDLIN(  74)								int p6 = _e35->byteOffset;
-HXDLIN(  74)								{
-HXLINE(  74)									int i4 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e35->buffer->b,p6)) )) * 21) + 12) + 2);
-HXDLIN(  74)									{
-HXLINE(  74)										bool colorAbstract3;
-HXDLIN(  74)										if ((i4 >= 0)) {
-HXLINE(  74)											colorAbstract3 = (i4 >= _e35->length);
-            										}
-            										else {
-HXLINE(  74)											colorAbstract3 = true;
-            										}
-HXDLIN(  74)										if (colorAbstract3) {
-HXLINE(  74)											HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            										}
-HXDLIN(  74)										int p7 = ((i4 * 4) + _e35->byteOffset);
-HXDLIN(  74)										 ::__hxcpp_memory_set_float(_e35->buffer->b,p7,v3);
-            									}
-            								}
-            							}
-            						}
-HXDLIN(  74)						{
-HXLINE(  74)							Float v4 = (( (Float)(((color >> 8) & 255)) ) / ( (Float)(255) ));
-HXDLIN(  74)							{
-HXLINE(  74)								if ((0 >= _e35->length)) {
-HXLINE(  74)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            								}
-HXDLIN(  74)								int p8 = _e35->byteOffset;
-HXDLIN(  74)								{
-HXLINE(  74)									int i5 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e35->buffer->b,p8)) )) * 21) + 11) + 2);
-HXDLIN(  74)									{
-HXLINE(  74)										bool colorAbstract4;
-HXDLIN(  74)										if ((i5 >= 0)) {
-HXLINE(  74)											colorAbstract4 = (i5 >= _e35->length);
-            										}
-            										else {
-HXLINE(  74)											colorAbstract4 = true;
-            										}
-HXDLIN(  74)										if (colorAbstract4) {
-HXLINE(  74)											HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            										}
-HXDLIN(  74)										int p9 = ((i5 * 4) + _e35->byteOffset);
-HXDLIN(  74)										 ::__hxcpp_memory_set_float(_e35->buffer->b,p9,v4);
-            									}
-            								}
-            							}
-            						}
-HXDLIN(  74)						{
-HXLINE(  74)							Float v5 = (( (Float)(((color >> 24) & 255)) ) / ( (Float)(255) ));
-HXDLIN(  74)							{
-HXLINE(  74)								if ((0 >= _e35->length)) {
-HXLINE(  74)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            								}
-HXDLIN(  74)								int p10 = _e35->byteOffset;
-HXDLIN(  74)								{
-HXLINE(  74)									int i6 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e35->buffer->b,p10)) )) * 21) + 13) + 2);
-HXDLIN(  74)									{
-HXLINE(  74)										bool colorAbstract5;
-HXDLIN(  74)										if ((i6 >= 0)) {
-HXLINE(  74)											colorAbstract5 = (i6 >= _e35->length);
-            										}
-            										else {
-HXLINE(  74)											colorAbstract5 = true;
-            										}
-HXDLIN(  74)										if (colorAbstract5) {
-HXLINE(  74)											HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            										}
-HXDLIN(  74)										int p11 = ((i6 * 4) + _e35->byteOffset);
-HXDLIN(  74)										 ::__hxcpp_memory_set_float(_e35->buffer->b,p11,v5);
+HXDLIN(  61)										int p5 = ((i3 * 4) + _e26->byteOffset);
+HXDLIN(  61)										 ::__hxcpp_memory_set_float(_e26->buffer->b,p5,v2);
             									}
             								}
             							}
             						}
             					}
-HXDLIN(  74)					{
-HXLINE(  74)						::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_redC(_e35,(( (Float)(((color >> 16) & 255)) ) / ( (Float)(255) )));
-HXDLIN(  74)						{
-HXLINE(  74)							Float v6 = (( (Float)((color & 255)) ) / ( (Float)(255) ));
-HXDLIN(  74)							{
-HXLINE(  74)								if ((0 >= _e35->length)) {
-HXLINE(  74)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  61)					{
+HXLINE(  61)						::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_redB(_e26,(( (Float)(((color >> 16) & 255)) ) / ( (Float)(255) )));
+HXDLIN(  61)						{
+HXLINE(  61)							Float v3 = (( (Float)((color & 255)) ) / ( (Float)(255) ));
+HXDLIN(  61)							{
+HXLINE(  61)								if ((0 >= _e26->length)) {
+HXLINE(  61)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             								}
-HXDLIN(  74)								int p12 = _e35->byteOffset;
-HXDLIN(  74)								{
-HXLINE(  74)									int i7 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e35->buffer->b,p12)) )) * 21) + 19) + 2);
-HXDLIN(  74)									{
-HXLINE(  74)										bool colorAbstract6;
-HXDLIN(  74)										if ((i7 >= 0)) {
-HXLINE(  74)											colorAbstract6 = (i7 >= _e35->length);
+HXDLIN(  61)								int p6 = _e26->byteOffset;
+HXDLIN(  61)								{
+HXLINE(  61)									int i4 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e26->buffer->b,p6)) )) * 21) + 12) + 2);
+HXDLIN(  61)									{
+HXLINE(  61)										bool paintAbstract3;
+HXDLIN(  61)										if ((i4 >= 0)) {
+HXLINE(  61)											paintAbstract3 = (i4 >= _e26->length);
             										}
             										else {
-HXLINE(  74)											colorAbstract6 = true;
+HXLINE(  61)											paintAbstract3 = true;
             										}
-HXDLIN(  74)										if (colorAbstract6) {
-HXLINE(  74)											HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  61)										if (paintAbstract3) {
+HXLINE(  61)											HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             										}
-HXDLIN(  74)										int p13 = ((i7 * 4) + _e35->byteOffset);
-HXDLIN(  74)										 ::__hxcpp_memory_set_float(_e35->buffer->b,p13,v6);
+HXDLIN(  61)										int p7 = ((i4 * 4) + _e26->byteOffset);
+HXDLIN(  61)										 ::__hxcpp_memory_set_float(_e26->buffer->b,p7,v3);
             									}
             								}
             							}
             						}
-HXDLIN(  74)						{
-HXLINE(  74)							Float v7 = (( (Float)(((color >> 8) & 255)) ) / ( (Float)(255) ));
-HXDLIN(  74)							{
-HXLINE(  74)								if ((0 >= _e35->length)) {
-HXLINE(  74)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  61)						{
+HXLINE(  61)							Float v4 = (( (Float)(((color >> 8) & 255)) ) / ( (Float)(255) ));
+HXDLIN(  61)							{
+HXLINE(  61)								if ((0 >= _e26->length)) {
+HXLINE(  61)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             								}
-HXDLIN(  74)								int p14 = _e35->byteOffset;
-HXDLIN(  74)								{
-HXLINE(  74)									int i8 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e35->buffer->b,p14)) )) * 21) + 18) + 2);
-HXDLIN(  74)									{
-HXLINE(  74)										bool colorAbstract7;
-HXDLIN(  74)										if ((i8 >= 0)) {
-HXLINE(  74)											colorAbstract7 = (i8 >= _e35->length);
+HXDLIN(  61)								int p8 = _e26->byteOffset;
+HXDLIN(  61)								{
+HXLINE(  61)									int i5 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e26->buffer->b,p8)) )) * 21) + 11) + 2);
+HXDLIN(  61)									{
+HXLINE(  61)										bool paintAbstract4;
+HXDLIN(  61)										if ((i5 >= 0)) {
+HXLINE(  61)											paintAbstract4 = (i5 >= _e26->length);
             										}
             										else {
-HXLINE(  74)											colorAbstract7 = true;
+HXLINE(  61)											paintAbstract4 = true;
             										}
-HXDLIN(  74)										if (colorAbstract7) {
-HXLINE(  74)											HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  61)										if (paintAbstract4) {
+HXLINE(  61)											HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             										}
-HXDLIN(  74)										int p15 = ((i8 * 4) + _e35->byteOffset);
-HXDLIN(  74)										 ::__hxcpp_memory_set_float(_e35->buffer->b,p15,v7);
+HXDLIN(  61)										int p9 = ((i5 * 4) + _e26->byteOffset);
+HXDLIN(  61)										 ::__hxcpp_memory_set_float(_e26->buffer->b,p9,v4);
             									}
             								}
             							}
             						}
-HXDLIN(  74)						{
-HXLINE(  74)							Float v8 = (( (Float)(((color >> 24) & 255)) ) / ( (Float)(255) ));
-HXDLIN(  74)							{
-HXLINE(  74)								if ((0 >= _e35->length)) {
-HXLINE(  74)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  61)						{
+HXLINE(  61)							Float v5 = (( (Float)(((color >> 24) & 255)) ) / ( (Float)(255) ));
+HXDLIN(  61)							{
+HXLINE(  61)								if ((0 >= _e26->length)) {
+HXLINE(  61)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             								}
-HXDLIN(  74)								int p16 = _e35->byteOffset;
-HXDLIN(  74)								{
-HXLINE(  74)									int i9 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e35->buffer->b,p16)) )) * 21) + 20) + 2);
-HXDLIN(  74)									{
-HXLINE(  74)										bool colorAbstract8;
-HXDLIN(  74)										if ((i9 >= 0)) {
-HXLINE(  74)											colorAbstract8 = (i9 >= _e35->length);
+HXDLIN(  61)								int p10 = _e26->byteOffset;
+HXDLIN(  61)								{
+HXLINE(  61)									int i6 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e26->buffer->b,p10)) )) * 21) + 13) + 2);
+HXDLIN(  61)									{
+HXLINE(  61)										bool paintAbstract5;
+HXDLIN(  61)										if ((i6 >= 0)) {
+HXLINE(  61)											paintAbstract5 = (i6 >= _e26->length);
             										}
             										else {
-HXLINE(  74)											colorAbstract8 = true;
+HXLINE(  61)											paintAbstract5 = true;
             										}
-HXDLIN(  74)										if (colorAbstract8) {
-HXLINE(  74)											HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  61)										if (paintAbstract5) {
+HXLINE(  61)											HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             										}
-HXDLIN(  74)										int p17 = ((i9 * 4) + _e35->byteOffset);
-HXDLIN(  74)										 ::__hxcpp_memory_set_float(_e35->buffer->b,p17,v8);
+HXDLIN(  61)										int p11 = ((i6 * 4) + _e26->byteOffset);
+HXDLIN(  61)										 ::__hxcpp_memory_set_float(_e26->buffer->b,p11,v5);
+            									}
+            								}
+            							}
+            						}
+            					}
+HXDLIN(  61)					{
+HXLINE(  61)						::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::set_redC(_e26,(( (Float)(((color >> 16) & 255)) ) / ( (Float)(255) )));
+HXDLIN(  61)						{
+HXLINE(  61)							Float v6 = (( (Float)((color & 255)) ) / ( (Float)(255) ));
+HXDLIN(  61)							{
+HXLINE(  61)								if ((0 >= _e26->length)) {
+HXLINE(  61)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            								}
+HXDLIN(  61)								int p12 = _e26->byteOffset;
+HXDLIN(  61)								{
+HXLINE(  61)									int i7 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e26->buffer->b,p12)) )) * 21) + 19) + 2);
+HXDLIN(  61)									{
+HXLINE(  61)										bool paintAbstract6;
+HXDLIN(  61)										if ((i7 >= 0)) {
+HXLINE(  61)											paintAbstract6 = (i7 >= _e26->length);
+            										}
+            										else {
+HXLINE(  61)											paintAbstract6 = true;
+            										}
+HXDLIN(  61)										if (paintAbstract6) {
+HXLINE(  61)											HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            										}
+HXDLIN(  61)										int p13 = ((i7 * 4) + _e26->byteOffset);
+HXDLIN(  61)										 ::__hxcpp_memory_set_float(_e26->buffer->b,p13,v6);
+            									}
+            								}
+            							}
+            						}
+HXDLIN(  61)						{
+HXLINE(  61)							Float v7 = (( (Float)(((color >> 8) & 255)) ) / ( (Float)(255) ));
+HXDLIN(  61)							{
+HXLINE(  61)								if ((0 >= _e26->length)) {
+HXLINE(  61)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            								}
+HXDLIN(  61)								int p14 = _e26->byteOffset;
+HXDLIN(  61)								{
+HXLINE(  61)									int i8 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e26->buffer->b,p14)) )) * 21) + 18) + 2);
+HXDLIN(  61)									{
+HXLINE(  61)										bool paintAbstract7;
+HXDLIN(  61)										if ((i8 >= 0)) {
+HXLINE(  61)											paintAbstract7 = (i8 >= _e26->length);
+            										}
+            										else {
+HXLINE(  61)											paintAbstract7 = true;
+            										}
+HXDLIN(  61)										if (paintAbstract7) {
+HXLINE(  61)											HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            										}
+HXDLIN(  61)										int p15 = ((i8 * 4) + _e26->byteOffset);
+HXDLIN(  61)										 ::__hxcpp_memory_set_float(_e26->buffer->b,p15,v7);
+            									}
+            								}
+            							}
+            						}
+HXDLIN(  61)						{
+HXLINE(  61)							Float v8 = (( (Float)(((color >> 24) & 255)) ) / ( (Float)(255) ));
+HXDLIN(  61)							{
+HXLINE(  61)								if ((0 >= _e26->length)) {
+HXLINE(  61)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            								}
+HXDLIN(  61)								int p16 = _e26->byteOffset;
+HXDLIN(  61)								{
+HXLINE(  61)									int i9 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e26->buffer->b,p16)) )) * 21) + 20) + 2);
+HXDLIN(  61)									{
+HXLINE(  61)										bool paintAbstract8;
+HXDLIN(  61)										if ((i9 >= 0)) {
+HXLINE(  61)											paintAbstract8 = (i9 >= _e26->length);
+            										}
+            										else {
+HXLINE(  61)											paintAbstract8 = true;
+            										}
+HXDLIN(  61)										if (paintAbstract8) {
+HXLINE(  61)											HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            										}
+HXDLIN(  61)										int p17 = ((i9 * 4) + _e26->byteOffset);
+HXDLIN(  61)										 ::__hxcpp_memory_set_float(_e26->buffer->b,p17,v8);
             									}
             								}
             							}
             						}
             					}
             				}
-HXDLIN(  74)				{
-HXLINE(  74)					if ((0 >= _e35->length)) {
-HXLINE(  74)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  61)				{
+HXLINE(  61)					if ((0 >= _e26->length)) {
+HXLINE(  61)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             					}
-HXDLIN(  74)					int p18 = _e35->byteOffset;
-HXDLIN(  74)					{
-HXLINE(  74)						Float pos_ = (( (Float)( ::__hxcpp_memory_get_float(_e35->buffer->b,p18)) ) + 1);
-HXDLIN(  74)						{
-HXLINE(  74)							if ((0 >= _e35->length)) {
-HXLINE(  74)								HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  61)					int p18 = _e26->byteOffset;
+HXDLIN(  61)					{
+HXLINE(  61)						Float pos_ = (( (Float)( ::__hxcpp_memory_get_float(_e26->buffer->b,p18)) ) + 1);
+HXDLIN(  61)						{
+HXLINE(  61)							if ((0 >= _e26->length)) {
+HXLINE(  61)								HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             							}
-HXDLIN(  74)							int p19 = _e35->byteOffset;
-HXDLIN(  74)							 ::__hxcpp_memory_set_float(_e35->buffer->b,p19,pos_);
+HXDLIN(  61)							int p19 = _e26->byteOffset;
+HXDLIN(  61)							 ::__hxcpp_memory_set_float(_e26->buffer->b,p19,pos_);
             						}
-HXDLIN(  74)						if ((0 >= _e35->length)) {
-HXLINE(  74)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  61)						if ((0 >= _e26->length)) {
+HXLINE(  61)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             						}
-HXDLIN(  74)						int p20 = _e35->byteOffset;
-HXDLIN(  74)						float colorAbstract9 =  ::__hxcpp_memory_get_float(_e35->buffer->b,p20);
-HXDLIN(  74)						if ((1 >= _e35->length)) {
-HXLINE(  74)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  61)						int p20 = _e26->byteOffset;
+HXDLIN(  61)						float paintAbstract9 =  ::__hxcpp_memory_get_float(_e26->buffer->b,p20);
+HXDLIN(  61)						if ((1 >= _e26->length)) {
+HXLINE(  61)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             						}
-HXDLIN(  74)						int p21 = (4 + _e35->byteOffset);
-HXDLIN(  74)						if ((colorAbstract9 > ( ::__hxcpp_memory_get_float(_e35->buffer->b,p21) - ( (float)(1) )))) {
-HXLINE(  74)							if ((0 >= _e35->length)) {
-HXLINE(  74)								HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  61)						int p21 = (4 + _e26->byteOffset);
+HXDLIN(  61)						if ((paintAbstract9 > ( ::__hxcpp_memory_get_float(_e26->buffer->b,p21) - ( (float)(1) )))) {
+HXLINE(  61)							if ((0 >= _e26->length)) {
+HXLINE(  61)								HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             							}
-HXDLIN(  74)							int p = _e35->byteOffset;
-HXDLIN(  74)							float v =  ::__hxcpp_memory_get_float(_e35->buffer->b,p);
-HXDLIN(  74)							{
-HXLINE(  74)								if ((1 >= _e35->length)) {
-HXLINE(  74)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  61)							int p = _e26->byteOffset;
+HXDLIN(  61)							float v =  ::__hxcpp_memory_get_float(_e26->buffer->b,p);
+HXDLIN(  61)							{
+HXLINE(  61)								if ((1 >= _e26->length)) {
+HXLINE(  61)									HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             								}
-HXDLIN(  74)								int p1 = (4 + _e35->byteOffset);
-HXDLIN(  74)								 ::__hxcpp_memory_set_float(_e35->buffer->b,p1,v);
+HXDLIN(  61)								int p1 = (4 + _e26->byteOffset);
+HXDLIN(  61)								 ::__hxcpp_memory_set_float(_e26->buffer->b,p1,v);
             							}
             						}
             					}
@@ -1847,250 +1691,340 @@ HXDLIN(  74)								 ::__hxcpp_memory_set_float(_e35->buffer->b,p1,v);
             		}
             		HX_END_LOCAL_FUNC2((void))
 
-            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_36, ::typedarray::Float32ArrayImpl,_e36) HXARGC(0)
+            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_27, ::typedarray::Float32ArrayImpl,_e27) HXARGC(0)
             		 ::trilateral3::structure::TriInt _hx_run(){
-            			HX_GC_STACKFRAME(&_hx_pos_b18627d9334a0b0e_75_createPen)
-HXLINE(  75)			if ((0 >= _e36->length)) {
-HXLINE(  75)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			HX_GC_STACKFRAME(&_hx_pos_b18627d9334a0b0e_62_createPen)
+HXLINE(  62)			if ((0 >= _e27->length)) {
+HXLINE(  62)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             			}
-HXDLIN(  75)			int p = _e36->byteOffset;
-HXDLIN(  75)			int i = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e36->buffer->b,p)) )) * 21) + 6) + 2);
-HXDLIN(  75)			bool _g;
-HXDLIN(  75)			if ((i >= 0)) {
-HXLINE(  75)				_g = (i >= _e36->length);
-            			}
-            			else {
-HXLINE(  75)				_g = true;
-            			}
-HXDLIN(  75)			if (_g) {
-HXLINE(  75)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  75)			int p1 = ((i * 4) + _e36->byteOffset);
-HXDLIN(  75)			int _g1 = (::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e36->buffer->b,p1)) ) * ( (Float)(255) ))) << 24);
-HXDLIN(  75)			int _g2 = (_g1 | (::Math_obj::round((::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_redA(_e36) * ( (Float)(255) ))) << 16));
-HXDLIN(  75)			if ((0 >= _e36->length)) {
-HXLINE(  75)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  75)			int p2 = _e36->byteOffset;
-HXDLIN(  75)			int i1 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e36->buffer->b,p2)) )) * 21) + 4) + 2);
-HXDLIN(  75)			bool _g3;
-HXDLIN(  75)			if ((i1 >= 0)) {
-HXLINE(  75)				_g3 = (i1 >= _e36->length);
+HXDLIN(  62)			int p = _e27->byteOffset;
+HXDLIN(  62)			int i = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p)) )) * 21) + 6) + 2);
+HXDLIN(  62)			bool _g;
+HXDLIN(  62)			if ((i >= 0)) {
+HXLINE(  62)				_g = (i >= _e27->length);
             			}
             			else {
-HXLINE(  75)				_g3 = true;
+HXLINE(  62)				_g = true;
             			}
-HXDLIN(  75)			if (_g3) {
-HXLINE(  75)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  62)			if (_g) {
+HXLINE(  62)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             			}
-HXDLIN(  75)			int p3 = ((i1 * 4) + _e36->byteOffset);
-HXDLIN(  75)			int _g4 = (_g2 | (::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e36->buffer->b,p3)) ) * ( (Float)(255) ))) << 8));
-HXDLIN(  75)			if ((0 >= _e36->length)) {
-HXLINE(  75)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  62)			int p1 = ((i * 4) + _e27->byteOffset);
+HXDLIN(  62)			int _g1 = (::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p1)) ) * ( (Float)(255) ))) << 24);
+HXDLIN(  62)			int _g2 = (_g1 | (::Math_obj::round((::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_redA(_e27) * ( (Float)(255) ))) << 16));
+HXDLIN(  62)			if ((0 >= _e27->length)) {
+HXLINE(  62)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             			}
-HXDLIN(  75)			int p4 = _e36->byteOffset;
-HXDLIN(  75)			int i2 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e36->buffer->b,p4)) )) * 21) + 5) + 2);
-HXDLIN(  75)			bool _g5;
-HXDLIN(  75)			if ((i2 >= 0)) {
-HXLINE(  75)				_g5 = (i2 >= _e36->length);
-            			}
-            			else {
-HXLINE(  75)				_g5 = true;
-            			}
-HXDLIN(  75)			if (_g5) {
-HXLINE(  75)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  75)			int p5 = ((i2 * 4) + _e36->byteOffset);
-HXDLIN(  75)			int _g6 = (_g4 | ::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e36->buffer->b,p5)) ) * ( (Float)(255) ))));
-HXDLIN(  75)			if ((0 >= _e36->length)) {
-HXLINE(  75)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  75)			int p6 = _e36->byteOffset;
-HXDLIN(  75)			int i3 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e36->buffer->b,p6)) )) * 21) + 6) + 2);
-HXDLIN(  75)			bool _g7;
-HXDLIN(  75)			if ((i3 >= 0)) {
-HXLINE(  75)				_g7 = (i3 >= _e36->length);
+HXDLIN(  62)			int p2 = _e27->byteOffset;
+HXDLIN(  62)			int i1 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p2)) )) * 21) + 4) + 2);
+HXDLIN(  62)			bool _g3;
+HXDLIN(  62)			if ((i1 >= 0)) {
+HXLINE(  62)				_g3 = (i1 >= _e27->length);
             			}
             			else {
-HXLINE(  75)				_g7 = true;
+HXLINE(  62)				_g3 = true;
             			}
-HXDLIN(  75)			if (_g7) {
-HXLINE(  75)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  62)			if (_g3) {
+HXLINE(  62)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             			}
-HXDLIN(  75)			int p7 = ((i3 * 4) + _e36->byteOffset);
-HXDLIN(  75)			int _g8 = (::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e36->buffer->b,p7)) ) * ( (Float)(255) ))) << 24);
-HXDLIN(  75)			int _g9 = (_g8 | (::Math_obj::round((::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_redA(_e36) * ( (Float)(255) ))) << 16));
-HXDLIN(  75)			if ((0 >= _e36->length)) {
-HXLINE(  75)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  62)			int p3 = ((i1 * 4) + _e27->byteOffset);
+HXDLIN(  62)			int _g4 = (_g2 | (::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p3)) ) * ( (Float)(255) ))) << 8));
+HXDLIN(  62)			if ((0 >= _e27->length)) {
+HXLINE(  62)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             			}
-HXDLIN(  75)			int p8 = _e36->byteOffset;
-HXDLIN(  75)			int i4 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e36->buffer->b,p8)) )) * 21) + 4) + 2);
-HXDLIN(  75)			bool _g10;
-HXDLIN(  75)			if ((i4 >= 0)) {
-HXLINE(  75)				_g10 = (i4 >= _e36->length);
-            			}
-            			else {
-HXLINE(  75)				_g10 = true;
-            			}
-HXDLIN(  75)			if (_g10) {
-HXLINE(  75)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  75)			int p9 = ((i4 * 4) + _e36->byteOffset);
-HXDLIN(  75)			int _g11 = (_g9 | (::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e36->buffer->b,p9)) ) * ( (Float)(255) ))) << 8));
-HXDLIN(  75)			if ((0 >= _e36->length)) {
-HXLINE(  75)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  75)			int p10 = _e36->byteOffset;
-HXDLIN(  75)			int i5 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e36->buffer->b,p10)) )) * 21) + 5) + 2);
-HXDLIN(  75)			bool _g12;
-HXDLIN(  75)			if ((i5 >= 0)) {
-HXLINE(  75)				_g12 = (i5 >= _e36->length);
+HXDLIN(  62)			int p4 = _e27->byteOffset;
+HXDLIN(  62)			int i2 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p4)) )) * 21) + 5) + 2);
+HXDLIN(  62)			bool _g5;
+HXDLIN(  62)			if ((i2 >= 0)) {
+HXLINE(  62)				_g5 = (i2 >= _e27->length);
             			}
             			else {
-HXLINE(  75)				_g12 = true;
+HXLINE(  62)				_g5 = true;
             			}
-HXDLIN(  75)			if (_g12) {
-HXLINE(  75)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  62)			if (_g5) {
+HXLINE(  62)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             			}
-HXDLIN(  75)			int p11 = ((i5 * 4) + _e36->byteOffset);
-HXDLIN(  75)			int _g13 = (_g11 | ::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e36->buffer->b,p11)) ) * ( (Float)(255) ))));
-HXDLIN(  75)			if ((0 >= _e36->length)) {
-HXLINE(  75)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  62)			int p5 = ((i2 * 4) + _e27->byteOffset);
+HXDLIN(  62)			int _g6 = (_g4 | ::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p5)) ) * ( (Float)(255) ))));
+HXDLIN(  62)			if ((0 >= _e27->length)) {
+HXLINE(  62)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             			}
-HXDLIN(  75)			int p12 = _e36->byteOffset;
-HXDLIN(  75)			int i6 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e36->buffer->b,p12)) )) * 21) + 6) + 2);
-HXDLIN(  75)			bool colorAbstract;
-HXDLIN(  75)			if ((i6 >= 0)) {
-HXLINE(  75)				colorAbstract = (i6 >= _e36->length);
-            			}
-            			else {
-HXLINE(  75)				colorAbstract = true;
-            			}
-HXDLIN(  75)			if (colorAbstract) {
-HXLINE(  75)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  75)			int p13 = ((i6 * 4) + _e36->byteOffset);
-HXDLIN(  75)			int colorAbstract1 = (::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e36->buffer->b,p13)) ) * ( (Float)(255) ))) << 24);
-HXDLIN(  75)			int colorAbstract2 = (colorAbstract1 | (::Math_obj::round((::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_redA(_e36) * ( (Float)(255) ))) << 16));
-HXDLIN(  75)			if ((0 >= _e36->length)) {
-HXLINE(  75)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  75)			int p14 = _e36->byteOffset;
-HXDLIN(  75)			int i7 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e36->buffer->b,p14)) )) * 21) + 4) + 2);
-HXDLIN(  75)			bool colorAbstract3;
-HXDLIN(  75)			if ((i7 >= 0)) {
-HXLINE(  75)				colorAbstract3 = (i7 >= _e36->length);
+HXDLIN(  62)			int p6 = _e27->byteOffset;
+HXDLIN(  62)			int i3 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p6)) )) * 21) + 13) + 2);
+HXDLIN(  62)			bool _g7;
+HXDLIN(  62)			if ((i3 >= 0)) {
+HXLINE(  62)				_g7 = (i3 >= _e27->length);
             			}
             			else {
-HXLINE(  75)				colorAbstract3 = true;
+HXLINE(  62)				_g7 = true;
             			}
-HXDLIN(  75)			if (colorAbstract3) {
-HXLINE(  75)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  62)			if (_g7) {
+HXLINE(  62)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             			}
-HXDLIN(  75)			int p15 = ((i7 * 4) + _e36->byteOffset);
-HXDLIN(  75)			int colorAbstract4 = (colorAbstract2 | (::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e36->buffer->b,p15)) ) * ( (Float)(255) ))) << 8));
-HXDLIN(  75)			if ((0 >= _e36->length)) {
-HXLINE(  75)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  62)			int p7 = ((i3 * 4) + _e27->byteOffset);
+HXDLIN(  62)			int _g8 = (::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p7)) ) * ( (Float)(255) ))) << 24);
+HXDLIN(  62)			int _g9 = (_g8 | (::Math_obj::round((::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_redB(_e27) * ( (Float)(255) ))) << 16));
+HXDLIN(  62)			if ((0 >= _e27->length)) {
+HXLINE(  62)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             			}
-HXDLIN(  75)			int p16 = _e36->byteOffset;
-HXDLIN(  75)			int i8 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e36->buffer->b,p16)) )) * 21) + 5) + 2);
-HXDLIN(  75)			bool colorAbstract5;
-HXDLIN(  75)			if ((i8 >= 0)) {
-HXLINE(  75)				colorAbstract5 = (i8 >= _e36->length);
+HXDLIN(  62)			int p8 = _e27->byteOffset;
+HXDLIN(  62)			int i4 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p8)) )) * 21) + 11) + 2);
+HXDLIN(  62)			bool _g10;
+HXDLIN(  62)			if ((i4 >= 0)) {
+HXLINE(  62)				_g10 = (i4 >= _e27->length);
             			}
             			else {
-HXLINE(  75)				colorAbstract5 = true;
+HXLINE(  62)				_g10 = true;
             			}
-HXDLIN(  75)			if (colorAbstract5) {
-HXLINE(  75)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  62)			if (_g10) {
+HXLINE(  62)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             			}
-HXDLIN(  75)			int p17 = ((i8 * 4) + _e36->byteOffset);
-HXDLIN(  75)			return  ::trilateral3::structure::TriInt_obj::__alloc( HX_CTX ,_g6,_g13,(colorAbstract4 | ::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e36->buffer->b,p17)) ) * ( (Float)(255) )))));
+HXDLIN(  62)			int p9 = ((i4 * 4) + _e27->byteOffset);
+HXDLIN(  62)			int _g11 = (_g9 | (::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p9)) ) * ( (Float)(255) ))) << 8));
+HXDLIN(  62)			if ((0 >= _e27->length)) {
+HXLINE(  62)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  62)			int p10 = _e27->byteOffset;
+HXDLIN(  62)			int i5 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p10)) )) * 21) + 12) + 2);
+HXDLIN(  62)			bool _g12;
+HXDLIN(  62)			if ((i5 >= 0)) {
+HXLINE(  62)				_g12 = (i5 >= _e27->length);
+            			}
+            			else {
+HXLINE(  62)				_g12 = true;
+            			}
+HXDLIN(  62)			if (_g12) {
+HXLINE(  62)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  62)			int p11 = ((i5 * 4) + _e27->byteOffset);
+HXDLIN(  62)			int _g13 = (_g11 | ::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p11)) ) * ( (Float)(255) ))));
+HXDLIN(  62)			if ((0 >= _e27->length)) {
+HXLINE(  62)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  62)			int p12 = _e27->byteOffset;
+HXDLIN(  62)			int i6 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p12)) )) * 21) + 20) + 2);
+HXDLIN(  62)			bool paintAbstract;
+HXDLIN(  62)			if ((i6 >= 0)) {
+HXLINE(  62)				paintAbstract = (i6 >= _e27->length);
+            			}
+            			else {
+HXLINE(  62)				paintAbstract = true;
+            			}
+HXDLIN(  62)			if (paintAbstract) {
+HXLINE(  62)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  62)			int p13 = ((i6 * 4) + _e27->byteOffset);
+HXDLIN(  62)			int paintAbstract1 = (::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p13)) ) * ( (Float)(255) ))) << 24);
+HXDLIN(  62)			int paintAbstract2 = (paintAbstract1 | (::Math_obj::round((::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_redC(_e27) * ( (Float)(255) ))) << 16));
+HXDLIN(  62)			if ((0 >= _e27->length)) {
+HXLINE(  62)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  62)			int p14 = _e27->byteOffset;
+HXDLIN(  62)			int i7 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p14)) )) * 21) + 18) + 2);
+HXDLIN(  62)			bool paintAbstract3;
+HXDLIN(  62)			if ((i7 >= 0)) {
+HXLINE(  62)				paintAbstract3 = (i7 >= _e27->length);
+            			}
+            			else {
+HXLINE(  62)				paintAbstract3 = true;
+            			}
+HXDLIN(  62)			if (paintAbstract3) {
+HXLINE(  62)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  62)			int p15 = ((i7 * 4) + _e27->byteOffset);
+HXDLIN(  62)			int paintAbstract4 = (paintAbstract2 | (::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p15)) ) * ( (Float)(255) ))) << 8));
+HXDLIN(  62)			if ((0 >= _e27->length)) {
+HXLINE(  62)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  62)			int p16 = _e27->byteOffset;
+HXDLIN(  62)			int i8 = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p16)) )) * 21) + 19) + 2);
+HXDLIN(  62)			bool paintAbstract5;
+HXDLIN(  62)			if ((i8 >= 0)) {
+HXLINE(  62)				paintAbstract5 = (i8 >= _e27->length);
+            			}
+            			else {
+HXLINE(  62)				paintAbstract5 = true;
+            			}
+HXDLIN(  62)			if (paintAbstract5) {
+HXLINE(  62)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  62)			int p17 = ((i8 * 4) + _e27->byteOffset);
+HXDLIN(  62)			return  ::trilateral3::structure::TriInt_obj::__alloc( HX_CTX ,_g6,_g13,(paintAbstract4 | ::Math_obj::round((( (Float)( ::__hxcpp_memory_get_float(_e27->buffer->b,p17)) ) * ( (Float)(255) )))));
             		}
             		HX_END_LOCAL_FUNC0(return)
 
-            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_37, ::typedarray::Float32ArrayImpl,_e37) HXARGC(0)
+            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_28, ::typedarray::Float32ArrayImpl,_e28) HXARGC(1)
+            		void _hx_run( ::trilateral3::matrix::MatrixDozen m){
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_63_createPen)
+HXLINE(  63)			::trilateral3::geom::_FlatColorTriangles::FlatColorTriangles_Impl__obj::transform(_e28,m);
+            		}
+            		HX_END_LOCAL_FUNC1((void))
+
+            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_29, ::typedarray::Float32ArrayImpl,_e29) HXARGC(2)
+            		void _hx_run( ::trilateral3::matrix::MatrixDozen m, ::trilateral3::structure::StartEnd startEnd){
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_64_createPen)
+HXLINE(  64)			::trilateral3::geom::_FlatColorTriangles::FlatColorTriangles_Impl__obj::transformRange(_e29,m,startEnd);
+            		}
+            		HX_END_LOCAL_FUNC2((void))
+
+            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_30, ::typedarray::Float32ArrayImpl,_e30) HXARGC(0)
+            		 ::trilateral3::structure::Triangle3D _hx_run(){
+            			HX_GC_STACKFRAME(&_hx_pos_b18627d9334a0b0e_65_createPen)
+HXLINE(  65)			Float _g = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ax(_e30);
+HXDLIN(  65)			Float _g1 = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_ay(_e30);
+HXDLIN(  65)			 ::trilateral3::matrix::Vertex pa =  ::trilateral3::matrix::Vertex_obj::__alloc( HX_CTX ,_g,_g1,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_az(_e30),((Float)1.));
+HXDLIN(  65)			Float _g2 = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bx(_e30);
+HXDLIN(  65)			Float _g3 = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_by(_e30);
+HXDLIN(  65)			 ::trilateral3::matrix::Vertex pb =  ::trilateral3::matrix::Vertex_obj::__alloc( HX_CTX ,_g2,_g3,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_bz(_e30),((Float)1.));
+HXDLIN(  65)			Float _g4 = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cx(_e30);
+HXDLIN(  65)			Float _g5 = ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cy(_e30);
+HXDLIN(  65)			 ::trilateral3::matrix::Vertex pc =  ::trilateral3::matrix::Vertex_obj::__alloc( HX_CTX ,_g4,_g5,::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::get_cz(_e30),((Float)1.));
+HXDLIN(  65)			return  ::trilateral3::structure::Triangle3D_obj::__alloc( HX_CTX ,pa,pb,pc);
+            		}
+            		HX_END_LOCAL_FUNC0(return)
+
+            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_31, ::typedarray::Float32ArrayImpl,_e31) HXARGC(0)
             		Float _hx_run(){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_76_createPen)
-HXLINE(  76)			if ((0 >= _e37->length)) {
-HXLINE(  76)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  76)			int p = _e37->byteOffset;
-HXDLIN(  76)			return ( (Float)( ::__hxcpp_memory_get_float(_e37->buffer->b,p)) );
-            		}
-            		HX_END_LOCAL_FUNC0(return)
-
-            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_38, ::typedarray::Float32ArrayImpl,_e38) HXARGC(1)
-            		Float _hx_run(Float pos_){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_77_createPen)
-HXLINE(  77)			{
-HXLINE(  77)				if ((0 >= _e38->length)) {
-HXLINE(  77)					HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_66_createPen)
+HXLINE(  66)			{
+HXLINE(  66)				if ((0 >= _e31->length)) {
+HXLINE(  66)					HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             				}
-HXDLIN(  77)				int p = _e38->byteOffset;
-HXDLIN(  77)				 ::__hxcpp_memory_set_float(_e38->buffer->b,p,pos_);
-            			}
-HXDLIN(  77)			if ((0 >= _e38->length)) {
-HXLINE(  77)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  77)			int p1 = _e38->byteOffset;
-HXDLIN(  77)			float colorAbstract =  ::__hxcpp_memory_get_float(_e38->buffer->b,p1);
-HXDLIN(  77)			if ((1 >= _e38->length)) {
-HXLINE(  77)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            			}
-HXDLIN(  77)			int p2 = (4 + _e38->byteOffset);
-HXDLIN(  77)			if ((colorAbstract > ( ::__hxcpp_memory_get_float(_e38->buffer->b,p2) - ( (float)(1) )))) {
-HXLINE(  77)				if ((0 >= _e38->length)) {
-HXLINE(  77)					HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
-            				}
-HXDLIN(  77)				int p = _e38->byteOffset;
-HXDLIN(  77)				float v =  ::__hxcpp_memory_get_float(_e38->buffer->b,p);
-HXDLIN(  77)				{
-HXLINE(  77)					if ((1 >= _e38->length)) {
-HXLINE(  77)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+HXDLIN(  66)				int p = _e31->byteOffset;
+HXDLIN(  66)				Float pos_ = (( (Float)( ::__hxcpp_memory_get_float(_e31->buffer->b,p)) ) + ((Float)1.));
+HXDLIN(  66)				{
+HXLINE(  66)					if ((0 >= _e31->length)) {
+HXLINE(  66)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
             					}
-HXDLIN(  77)					int p1 = (4 + _e38->byteOffset);
-HXDLIN(  77)					 ::__hxcpp_memory_set_float(_e38->buffer->b,p1,v);
+HXDLIN(  66)					int p1 = _e31->byteOffset;
+HXDLIN(  66)					 ::__hxcpp_memory_set_float(_e31->buffer->b,p1,pos_);
+            				}
+HXDLIN(  66)				if ((0 >= _e31->length)) {
+HXLINE(  66)					HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            				}
+HXDLIN(  66)				int p2 = _e31->byteOffset;
+HXDLIN(  66)				float paintAbstract =  ::__hxcpp_memory_get_float(_e31->buffer->b,p2);
+HXDLIN(  66)				if ((1 >= _e31->length)) {
+HXLINE(  66)					HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            				}
+HXDLIN(  66)				int p3 = (4 + _e31->byteOffset);
+HXDLIN(  66)				if ((paintAbstract > ( ::__hxcpp_memory_get_float(_e31->buffer->b,p3) - ( (float)(1) )))) {
+HXLINE(  66)					if ((0 >= _e31->length)) {
+HXLINE(  66)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            					}
+HXDLIN(  66)					int p = _e31->byteOffset;
+HXDLIN(  66)					float v =  ::__hxcpp_memory_get_float(_e31->buffer->b,p);
+HXDLIN(  66)					{
+HXLINE(  66)						if ((1 >= _e31->length)) {
+HXLINE(  66)							HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            						}
+HXDLIN(  66)						int p1 = (4 + _e31->byteOffset);
+HXDLIN(  66)						 ::__hxcpp_memory_set_float(_e31->buffer->b,p1,v);
+            					}
             				}
             			}
-HXDLIN(  77)			return pos_;
-            		}
-            		HX_END_LOCAL_FUNC1(return)
-
-            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_39, ::typedarray::Float32ArrayImpl,_e39) HXARGC(0)
-            		int _hx_run(){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_78_createPen)
-HXLINE(  78)			return ::dsHelper::flat::io::_Float32Flat::Float32Flat_Impl__obj::get_size(_e39);
+HXDLIN(  66)			if ((0 >= _e31->length)) {
+HXLINE(  66)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  66)			int p4 = _e31->byteOffset;
+HXDLIN(  66)			return ( (Float)( ::__hxcpp_memory_get_float(_e31->buffer->b,p4)) );
             		}
             		HX_END_LOCAL_FUNC0(return)
 
-            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_40, ::typedarray::Float32ArrayImpl,_e40) HXARGC(1)
-            		int _hx_run(int id){
-            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_79_createPen)
-HXLINE(  79)			return ::dsHelper::flat::io::_Float32Flat::Float32Flat_Impl__obj::set_size(_e40,id);
+            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_32, ::typedarray::Float32ArrayImpl,_e32) HXARGC(0)
+            		bool _hx_run(){
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_67_createPen)
+HXLINE(  67)			if ((0 >= _e32->length)) {
+HXLINE(  67)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  67)			int p = _e32->byteOffset;
+HXDLIN(  67)			Float paintAbstract = ( (Float)( ::__hxcpp_memory_get_float(_e32->buffer->b,p)) );
+HXDLIN(  67)			return (paintAbstract < ::dsHelper::flat::io::_Float32Flat::Float32Flat_Impl__obj::get_size(_e32));
+            		}
+            		HX_END_LOCAL_FUNC0(return)
+
+            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_33, ::typedarray::Float32ArrayImpl,_e33) HXARGC(0)
+            		Float _hx_run(){
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_68_createPen)
+HXLINE(  68)			if ((0 >= _e33->length)) {
+HXLINE(  68)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  68)			int p = _e33->byteOffset;
+HXDLIN(  68)			return ( (Float)( ::__hxcpp_memory_get_float(_e33->buffer->b,p)) );
+            		}
+            		HX_END_LOCAL_FUNC0(return)
+
+            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_34, ::typedarray::Float32ArrayImpl,_e34) HXARGC(1)
+            		Float _hx_run(Float pos_){
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_69_createPen)
+HXLINE(  69)			{
+HXLINE(  69)				if ((0 >= _e34->length)) {
+HXLINE(  69)					HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            				}
+HXDLIN(  69)				int p = _e34->byteOffset;
+HXDLIN(  69)				 ::__hxcpp_memory_set_float(_e34->buffer->b,p,pos_);
+            			}
+HXDLIN(  69)			if ((0 >= _e34->length)) {
+HXLINE(  69)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  69)			int p1 = _e34->byteOffset;
+HXDLIN(  69)			float paintAbstract =  ::__hxcpp_memory_get_float(_e34->buffer->b,p1);
+HXDLIN(  69)			if ((1 >= _e34->length)) {
+HXLINE(  69)				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            			}
+HXDLIN(  69)			int p2 = (4 + _e34->byteOffset);
+HXDLIN(  69)			if ((paintAbstract > ( ::__hxcpp_memory_get_float(_e34->buffer->b,p2) - ( (float)(1) )))) {
+HXLINE(  69)				if ((0 >= _e34->length)) {
+HXLINE(  69)					HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            				}
+HXDLIN(  69)				int p = _e34->byteOffset;
+HXDLIN(  69)				float v =  ::__hxcpp_memory_get_float(_e34->buffer->b,p);
+HXDLIN(  69)				{
+HXLINE(  69)					if ((1 >= _e34->length)) {
+HXLINE(  69)						HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            					}
+HXDLIN(  69)					int p1 = (4 + _e34->byteOffset);
+HXDLIN(  69)					 ::__hxcpp_memory_set_float(_e34->buffer->b,p1,v);
+            				}
+            			}
+HXDLIN(  69)			return pos_;
             		}
             		HX_END_LOCAL_FUNC1(return)
 
-            	HX_GC_STACKFRAME(&_hx_pos_b18627d9334a0b0e_25_createPen)
-HXLINE(  26)		 ::typedarray::Float32ArrayImpl t = this->colorTriangles;
-HXLINE(  29)		 ::typedarray::Float32ArrayImpl _e = t;
-HXLINE(  30)		 ::typedarray::Float32ArrayImpl _e1 = t;
-HXLINE(  31)		 ::typedarray::Float32ArrayImpl _e2 = t;
-HXLINE(  32)		 ::typedarray::Float32ArrayImpl _e3 = t;
-HXLINE(  33)		 ::typedarray::Float32ArrayImpl _e4 = t;
-HXLINE(  34)		 ::typedarray::Float32ArrayImpl _e5 = t;
-HXLINE(  35)		 ::typedarray::Float32ArrayImpl _e6 = t;
-HXLINE(  36)		 ::typedarray::Float32ArrayImpl _e7 = t;
-HXLINE(  37)		 ::typedarray::Float32ArrayImpl _e8 = t;
-HXLINE(  38)		 ::typedarray::Float32ArrayImpl _e9 = t;
-HXLINE(  39)		 ::typedarray::Float32ArrayImpl _e10 = t;
-HXLINE(  40)		 ::typedarray::Float32ArrayImpl _e11 = t;
-HXLINE(  41)		 ::typedarray::Float32ArrayImpl _e12 = t;
-HXLINE(  42)		 ::typedarray::Float32ArrayImpl _e13 = t;
-HXLINE(  43)		 ::typedarray::Float32ArrayImpl _e14 = t;
-HXLINE(  44)		 ::typedarray::Float32ArrayImpl _e15 = t;
-HXLINE(  45)		 ::typedarray::Float32ArrayImpl _e16 = t;
-HXLINE(  28)		 ::Dynamic triangleAbstract =  ::Dynamic(::hx::Anon_obj::Create(17)
+            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_35, ::typedarray::Float32ArrayImpl,_e35) HXARGC(0)
+            		int _hx_run(){
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_70_createPen)
+HXLINE(  70)			return ::dsHelper::flat::io::_Float32Flat::Float32Flat_Impl__obj::get_size(_e35);
+            		}
+            		HX_END_LOCAL_FUNC0(return)
+
+            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_36, ::typedarray::Float32ArrayImpl,_e36) HXARGC(1)
+            		int _hx_run(int id){
+            			HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_71_createPen)
+HXLINE(  71)			return ::dsHelper::flat::io::_Float32Flat::Float32Flat_Impl__obj::set_size(_e36,id);
+            		}
+            		HX_END_LOCAL_FUNC1(return)
+
+            	HX_GC_STACKFRAME(&_hx_pos_b18627d9334a0b0e_24_createPen)
+HXLINE(  25)		 ::typedarray::Float32ArrayImpl t = this->colorTriangles;
+HXLINE(  28)		 ::typedarray::Float32ArrayImpl _e = t;
+HXLINE(  29)		 ::typedarray::Float32ArrayImpl _e1 = t;
+HXLINE(  30)		 ::typedarray::Float32ArrayImpl _e2 = t;
+HXLINE(  31)		 ::typedarray::Float32ArrayImpl _e3 = t;
+HXLINE(  32)		 ::typedarray::Float32ArrayImpl _e4 = t;
+HXLINE(  33)		 ::typedarray::Float32ArrayImpl _e5 = t;
+HXLINE(  34)		 ::typedarray::Float32ArrayImpl _e6 = t;
+HXLINE(  35)		 ::typedarray::Float32ArrayImpl _e7 = t;
+HXLINE(  36)		 ::typedarray::Float32ArrayImpl _e8 = t;
+HXLINE(  37)		 ::typedarray::Float32ArrayImpl _e9 = t;
+HXLINE(  38)		 ::typedarray::Float32ArrayImpl _e10 = t;
+HXLINE(  39)		 ::typedarray::Float32ArrayImpl _e11 = t;
+HXLINE(  40)		 ::typedarray::Float32ArrayImpl _e12 = t;
+HXLINE(  41)		 ::typedarray::Float32ArrayImpl _e13 = t;
+HXLINE(  42)		 ::typedarray::Float32ArrayImpl _e14 = t;
+HXLINE(  43)		 ::typedarray::Float32ArrayImpl _e15 = t;
+HXLINE(  44)		 ::typedarray::Float32ArrayImpl _e16 = t;
+HXLINE(  27)		 ::Dynamic triangleAbstract =  ::Dynamic(::hx::Anon_obj::Create(17)
             			->setFixed(0,HX_("rotateTrig",d7,d8,0e,85), ::Dynamic(new _hx_Closure_2(_e2)))
             			->setFixed(1,HX_("triangle",c8,be,c5,8d), ::Dynamic(new _hx_Closure_14(_e14)))
             			->setFixed(2,HX_("get_x",4f,a5,60,91), ::Dynamic(new _hx_Closure_8(_e8)))
@@ -2115,81 +2049,73 @@ HXLINE(  52)		 ::typedarray::Float32ArrayImpl _e20 = t;
 HXLINE(  53)		 ::typedarray::Float32ArrayImpl _e21 = t;
 HXLINE(  54)		 ::typedarray::Float32ArrayImpl _e22 = t;
 HXLINE(  55)		 ::typedarray::Float32ArrayImpl _e23 = t;
-HXLINE(  56)		 ::typedarray::Float32ArrayImpl _e24 = t;
-HXLINE(  57)		 ::typedarray::Float32ArrayImpl _e25 = t;
-HXLINE(  58)		 ::typedarray::Float32ArrayImpl _e26 = t;
-HXLINE(  48)		 ::Dynamic drawAbstract =  ::Dynamic(::hx::Anon_obj::Create(11)
-            			->setFixed(0,HX_("triangle",c8,be,c5,8d), ::Dynamic(new _hx_Closure_17(_e17)))
+HXLINE(  48)		 ::Dynamic color3Abstract =  ::Dynamic(::hx::Anon_obj::Create(7)
+            			->setFixed(0,HX_("set_argbA",d8,5d,81,4c), ::Dynamic(new _hx_Closure_18(_e18)))
+            			->setFixed(1,HX_("set_argbB",d9,5d,81,4c), ::Dynamic(new _hx_Closure_20(_e20)))
+            			->setFixed(2,HX_("set_argbC",da,5d,81,4c), ::Dynamic(new _hx_Closure_22(_e22)))
+            			->setFixed(3,HX_("get_argbA",cc,71,30,69), ::Dynamic(new _hx_Closure_19(_e19)))
+            			->setFixed(4,HX_("get_argbB",cd,71,30,69), ::Dynamic(new _hx_Closure_21(_e21)))
+            			->setFixed(5,HX_("get_argbC",ce,71,30,69), ::Dynamic(new _hx_Closure_23(_e23)))
+            			->setFixed(6,HX_("set_argb",49,a2,8c,6e), ::Dynamic(new _hx_Closure_17(_e17))));
+HXLINE(  59)		 ::typedarray::Float32ArrayImpl _e24 = t;
+HXLINE(  60)		 ::typedarray::Float32ArrayImpl _e25 = t;
+HXLINE(  61)		 ::typedarray::Float32ArrayImpl _e26 = t;
+HXLINE(  62)		 ::typedarray::Float32ArrayImpl _e27 = t;
+HXLINE(  63)		 ::typedarray::Float32ArrayImpl _e28 = t;
+HXLINE(  64)		 ::typedarray::Float32ArrayImpl _e29 = t;
+HXLINE(  65)		 ::typedarray::Float32ArrayImpl _e30 = t;
+HXLINE(  66)		 ::typedarray::Float32ArrayImpl _e31 = t;
+HXLINE(  67)		 ::typedarray::Float32ArrayImpl _e32 = t;
+HXLINE(  68)		 ::typedarray::Float32ArrayImpl _e33 = t;
+HXLINE(  69)		 ::typedarray::Float32ArrayImpl _e34 = t;
+HXLINE(  70)		 ::typedarray::Float32ArrayImpl _e35 = t;
+HXLINE(  71)		 ::typedarray::Float32ArrayImpl _e36 = t;
+HXLINE(  58)		 ::Dynamic paintAbstract =  ::Dynamic(::hx::Anon_obj::Create(15)
+            			->setFixed(0,HX_("triangle",c8,be,c5,8d), ::Dynamic(new _hx_Closure_24(_e24)))
             			->setFixed(1,HX_("triangleCurrent",51,ee,2b,9e),triangleAbstract)
-            			->setFixed(2,HX_("get_size",4a,5c,0e,cc), ::Dynamic(new _hx_Closure_25(_e25)))
-            			->setFixed(3,HX_("hasNext",6d,a5,46,18), ::Dynamic(new _hx_Closure_22(_e22)))
-            			->setFixed(4,HX_("set_pos",37,b7,cb,19), ::Dynamic(new _hx_Closure_24(_e24)))
-            			->setFixed(5,HX_("get_pos",2b,26,ca,26), ::Dynamic(new _hx_Closure_23(_e23)))
-            			->setFixed(6,HX_("getTriangle3D",af,89,3b,36), ::Dynamic(new _hx_Closure_20(_e20)))
-            			->setFixed(7,HX_("transform",6c,2d,93,45), ::Dynamic(new _hx_Closure_18(_e18)))
-            			->setFixed(8,HX_("next",f3,84,02,49), ::Dynamic(new _hx_Closure_21(_e21)))
-            			->setFixed(9,HX_("transformRange",b1,c0,a1,5a), ::Dynamic(new _hx_Closure_19(_e19)))
-            			->setFixed(10,HX_("set_size",be,b5,6b,7a), ::Dynamic(new _hx_Closure_26(_e26))));
-HXLINE(  64)		 ::typedarray::Float32ArrayImpl _e27 = t;
-HXLINE(  65)		 ::typedarray::Float32ArrayImpl _e28 = t;
-HXLINE(  66)		 ::typedarray::Float32ArrayImpl _e29 = t;
-HXLINE(  67)		 ::typedarray::Float32ArrayImpl _e30 = t;
-HXLINE(  68)		 ::typedarray::Float32ArrayImpl _e31 = t;
-HXLINE(  69)		 ::typedarray::Float32ArrayImpl _e32 = t;
-HXLINE(  70)		 ::typedarray::Float32ArrayImpl _e33 = t;
-HXLINE(  63)		 ::Dynamic color3Abstract =  ::Dynamic(::hx::Anon_obj::Create(7)
-            			->setFixed(0,HX_("set_argbA",d8,5d,81,4c), ::Dynamic(new _hx_Closure_28(_e28)))
-            			->setFixed(1,HX_("set_argbB",d9,5d,81,4c), ::Dynamic(new _hx_Closure_30(_e30)))
-            			->setFixed(2,HX_("set_argbC",da,5d,81,4c), ::Dynamic(new _hx_Closure_32(_e32)))
-            			->setFixed(3,HX_("get_argbA",cc,71,30,69), ::Dynamic(new _hx_Closure_29(_e29)))
-            			->setFixed(4,HX_("get_argbB",cd,71,30,69), ::Dynamic(new _hx_Closure_31(_e31)))
-            			->setFixed(5,HX_("get_argbC",ce,71,30,69), ::Dynamic(new _hx_Closure_33(_e33)))
-            			->setFixed(6,HX_("set_argb",49,a2,8c,6e), ::Dynamic(new _hx_Closure_27(_e27))));
-HXLINE(  73)		 ::typedarray::Float32ArrayImpl _e34 = t;
-HXLINE(  74)		 ::typedarray::Float32ArrayImpl _e35 = t;
-HXLINE(  75)		 ::typedarray::Float32ArrayImpl _e36 = t;
-HXLINE(  76)		 ::typedarray::Float32ArrayImpl _e37 = t;
-HXLINE(  77)		 ::typedarray::Float32ArrayImpl _e38 = t;
-HXLINE(  78)		 ::typedarray::Float32ArrayImpl _e39 = t;
-HXLINE(  79)		 ::typedarray::Float32ArrayImpl _e40 = t;
-HXLINE(  73)		 ::Dynamic colorAbstract =  ::Dynamic(::hx::Anon_obj::Create(8)
-            			->setFixed(0,HX_("cornerColors",65,87,ed,a2), ::Dynamic(new _hx_Closure_34(_e34)))
-            			->setFixed(1,HX_("getTriInt",ba,b1,09,c7), ::Dynamic(new _hx_Closure_36(_e36)))
-            			->setFixed(2,HX_("get_size",4a,5c,0e,cc), ::Dynamic(new _hx_Closure_39(_e39)))
-            			->setFixed(3,HX_("colorTriangles",c8,da,ed,e6), ::Dynamic(new _hx_Closure_35(_e35)))
-            			->setFixed(4,HX_("set_pos",37,b7,cb,19), ::Dynamic(new _hx_Closure_38(_e38)))
-            			->setFixed(5,HX_("get_pos",2b,26,ca,26), ::Dynamic(new _hx_Closure_37(_e37)))
-            			->setFixed(6,HX_("color3current",c9,64,01,5a),color3Abstract)
-            			->setFixed(7,HX_("set_size",be,b5,6b,7a), ::Dynamic(new _hx_Closure_40(_e40))));
-HXLINE(  82)		this->pen =  ::trilateral3::drawing::Pen_obj::__alloc( HX_CTX ,drawAbstract,colorAbstract);
+            			->setFixed(2,HX_("cornerColors",65,87,ed,a2), ::Dynamic(new _hx_Closure_25(_e25)))
+            			->setFixed(3,HX_("getTriInt",ba,b1,09,c7), ::Dynamic(new _hx_Closure_27(_e27)))
+            			->setFixed(4,HX_("get_size",4a,5c,0e,cc), ::Dynamic(new _hx_Closure_35(_e35)))
+            			->setFixed(5,HX_("colorTriangles",c8,da,ed,e6), ::Dynamic(new _hx_Closure_26(_e26)))
+            			->setFixed(6,HX_("hasNext",6d,a5,46,18), ::Dynamic(new _hx_Closure_32(_e32)))
+            			->setFixed(7,HX_("set_pos",37,b7,cb,19), ::Dynamic(new _hx_Closure_34(_e34)))
+            			->setFixed(8,HX_("get_pos",2b,26,ca,26), ::Dynamic(new _hx_Closure_33(_e33)))
+            			->setFixed(9,HX_("getTriangle3D",af,89,3b,36), ::Dynamic(new _hx_Closure_30(_e30)))
+            			->setFixed(10,HX_("transform",6c,2d,93,45), ::Dynamic(new _hx_Closure_28(_e28)))
+            			->setFixed(11,HX_("next",f3,84,02,49), ::Dynamic(new _hx_Closure_31(_e31)))
+            			->setFixed(12,HX_("color3current",c9,64,01,5a),color3Abstract)
+            			->setFixed(13,HX_("transformRange",b1,c0,a1,5a), ::Dynamic(new _hx_Closure_29(_e29)))
+            			->setFixed(14,HX_("set_size",be,b5,6b,7a), ::Dynamic(new _hx_Closure_36(_e36))));
+HXLINE(  75)		this->pen =  ::trilateral3::drawing::Pen_obj::__alloc( HX_CTX ,paintAbstract);
+HXLINE(  76)		return this->pen;
             	}
 
 
-HX_DEFINE_DYNAMIC_FUNC0(PenNodule_obj,createPen,(void))
+HX_DEFINE_DYNAMIC_FUNC0(PenNodule_obj,createPen,return )
 
  ::typedarray::Float32ArrayImpl PenNodule_obj::get_data(){
-            	HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_87_get_data)
-HXDLIN(  87)		 ::typedarray::Float32ArrayImpl this1 = this->colorTriangles;
-HXDLIN(  87)		int start = 2;
-HXDLIN(  87)		 ::Dynamic end = ((::dsHelper::flat::io::_Float32Flat::Float32Flat_Impl__obj::get_size(this1) * 21) + 2);
-HXDLIN(  87)		if (::hx::IsNull( end )) {
-HXDLIN(  87)			end = this1->length;
+            	HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_81_get_data)
+HXDLIN(  81)		 ::typedarray::Float32ArrayImpl this1 = this->colorTriangles;
+HXDLIN(  81)		int start = 2;
+HXDLIN(  81)		 ::Dynamic end = ((::dsHelper::flat::io::_Float32Flat::Float32Flat_Impl__obj::get_size(this1) * 21) + 2);
+HXDLIN(  81)		if (::hx::IsNull( end )) {
+HXDLIN(  81)			end = this1->length;
             		}
-HXDLIN(  87)		if ((start < 0)) {
-HXDLIN(  87)			start = (this1->length + start);
+HXDLIN(  81)		if ((start < 0)) {
+HXDLIN(  81)			start = (this1->length + start);
             		}
-HXDLIN(  87)		if (::hx::IsLess( end,0 )) {
-HXDLIN(  87)			end = (this1->length + end);
+HXDLIN(  81)		if (::hx::IsLess( end,0 )) {
+HXDLIN(  81)			end = (this1->length + end);
             		}
-HXDLIN(  87)		return ::typedarray::_Float32Array::Float32Array_Impl__obj::_new(null(),null(),this1->buffer,((start * 4) + this1->byteOffset),((( (int)(end) ) - start) * 4));
+HXDLIN(  81)		return ::typedarray::_Float32Array::Float32Array_Impl__obj::_new(null(),null(),this1->buffer,((start * 4) + this1->byteOffset),((( (int)(end) ) - start) * 4));
             	}
 
 
 HX_DEFINE_DYNAMIC_FUNC0(PenNodule_obj,get_data,return )
 
 int PenNodule_obj::get_size(){
-            	HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_92_get_size)
-HXDLIN(  92)		return ::Std_obj::_hx_int(( (Float)((::dsHelper::flat::io::_Float32Flat::Float32Flat_Impl__obj::get_size(this->colorTriangles) * 3)) ));
+            	HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_86_get_size)
+HXDLIN(  86)		return ::Std_obj::_hx_int(( (Float)((::dsHelper::flat::io::_Float32Flat::Float32Flat_Impl__obj::get_size(this->colorTriangles) * 3)) ));
             	}
 
 
@@ -2359,8 +2285,8 @@ void PenNodule_obj::__register()
 void PenNodule_obj::__boot()
 {
 {
-            	HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_12_boot)
-HXDLIN(  12)		largeEnough = 20000000;
+            	HX_STACKFRAME(&_hx_pos_b18627d9334a0b0e_11_boot)
+HXDLIN(  11)		largeEnough = 20000000;
             	}
 }
 

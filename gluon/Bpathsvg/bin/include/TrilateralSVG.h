@@ -6,21 +6,21 @@
 #include <hxcpp.h>
 #endif
 
-#ifndef INCLUDED_kitGL_gluon_InterleaveAlterGL
-#include <kitGL/gluon/InterleaveAlterGL.h>
+#ifndef INCLUDED_kitGL_gluon_Ply
+#include <kitGL/gluon/Ply.h>
 #endif
 HX_DECLARE_CLASS0(TrilateralSVG)
 HX_DECLARE_CLASS3(gluon,webgl,native,GLContext)
-HX_DECLARE_CLASS2(kitGL,gluon,InterleaveAlterGL)
+HX_DECLARE_CLASS2(kitGL,gluon,Ply)
 HX_DECLARE_CLASS2(trilateral3,drawing,Pen)
 HX_DECLARE_CLASS2(trilateral3,nodule,PenNodule)
 
 
 
-class HXCPP_CLASS_ATTRIBUTES TrilateralSVG_obj : public  ::kitGL::gluon::InterleaveAlterGL_obj
+class HXCPP_CLASS_ATTRIBUTES TrilateralSVG_obj : public  ::kitGL::gluon::Ply_obj
 {
 	public:
-		typedef  ::kitGL::gluon::InterleaveAlterGL_obj super;
+		typedef  ::kitGL::gluon::Ply_obj super;
 		typedef TrilateralSVG_obj OBJ_;
 		TrilateralSVG_obj();
 

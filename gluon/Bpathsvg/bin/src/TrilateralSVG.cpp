@@ -20,8 +20,8 @@
 #ifndef INCLUDED_justPath_transform_TranslationContext
 #include <justPath/transform/TranslationContext.h>
 #endif
-#ifndef INCLUDED_kitGL_gluon_InterleaveAlterGL
-#include <kitGL/gluon/InterleaveAlterGL.h>
+#ifndef INCLUDED_kitGL_gluon_Ply
+#include <kitGL/gluon/Ply.h>
 #endif
 #ifndef INCLUDED_trilateral3_drawing_Pen
 #include <trilateral3/drawing/Pen.h>
@@ -44,10 +44,10 @@
 
 HX_DEFINE_STACK_FRAME(_hx_pos_fff8ccda04e6eada_21_new,"TrilateralSVG","new",0x86741dea,"TrilateralSVG.new","TrilateralSVG.hx",21,0x2fab8cc6)
 HX_LOCAL_STACK_FRAME(_hx_pos_fff8ccda04e6eada_30_draw,"TrilateralSVG","draw",0x1893b73a,"TrilateralSVG.draw","TrilateralSVG.hx",30,0x2fab8cc6)
-HX_LOCAL_STACK_FRAME(_hx_pos_fff8ccda04e6eada_43_cubicSVG,"TrilateralSVG","cubicSVG",0xf3757170,"TrilateralSVG.cubicSVG","TrilateralSVG.hx",43,0x2fab8cc6)
-HX_LOCAL_STACK_FRAME(_hx_pos_fff8ccda04e6eada_38_cubicSVG,"TrilateralSVG","cubicSVG",0xf3757170,"TrilateralSVG.cubicSVG","TrilateralSVG.hx",38,0x2fab8cc6)
-HX_LOCAL_STACK_FRAME(_hx_pos_fff8ccda04e6eada_54_quadSVG,"TrilateralSVG","quadSVG",0xa5085e67,"TrilateralSVG.quadSVG","TrilateralSVG.hx",54,0x2fab8cc6)
-HX_LOCAL_STACK_FRAME(_hx_pos_fff8ccda04e6eada_49_quadSVG,"TrilateralSVG","quadSVG",0xa5085e67,"TrilateralSVG.quadSVG","TrilateralSVG.hx",49,0x2fab8cc6)
+HX_LOCAL_STACK_FRAME(_hx_pos_fff8ccda04e6eada_44_cubicSVG,"TrilateralSVG","cubicSVG",0xf3757170,"TrilateralSVG.cubicSVG","TrilateralSVG.hx",44,0x2fab8cc6)
+HX_LOCAL_STACK_FRAME(_hx_pos_fff8ccda04e6eada_39_cubicSVG,"TrilateralSVG","cubicSVG",0xf3757170,"TrilateralSVG.cubicSVG","TrilateralSVG.hx",39,0x2fab8cc6)
+HX_LOCAL_STACK_FRAME(_hx_pos_fff8ccda04e6eada_55_quadSVG,"TrilateralSVG","quadSVG",0xa5085e67,"TrilateralSVG.quadSVG","TrilateralSVG.hx",55,0x2fab8cc6)
+HX_LOCAL_STACK_FRAME(_hx_pos_fff8ccda04e6eada_50_quadSVG,"TrilateralSVG","quadSVG",0xa5085e67,"TrilateralSVG.quadSVG","TrilateralSVG.hx",50,0x2fab8cc6)
 
 void TrilateralSVG_obj::__construct( ::gluon::webgl::native::GLContext gl){
             	HX_GC_STACKFRAME(&_hx_pos_fff8ccda04e6eada_21_new)
@@ -69,8 +69,8 @@ Dynamic TrilateralSVG_obj::__Create(::hx::DynamicArray inArgs)
 }
 
 bool TrilateralSVG_obj::_hx_isInstanceOf(int inClassId) {
-	if (inClassId<=(int)0x1c3f678c) {
-		return inClassId==(int)0x00000001 || inClassId==(int)0x1c3f678c;
+	if (inClassId<=(int)0x1a013729) {
+		return inClassId==(int)0x00000001 || inClassId==(int)0x1a013729;
 	} else {
 		return inClassId==(int)0x643fe68c;
 	}
@@ -78,14 +78,14 @@ bool TrilateralSVG_obj::_hx_isInstanceOf(int inClassId) {
 
 void TrilateralSVG_obj::draw(){
             	HX_STACKFRAME(&_hx_pos_fff8ccda04e6eada_30_draw)
-HXLINE(  31)		this->interleaveDataGL =  ::Dynamic(::hx::Anon_obj::Create(2)
+HXLINE(  31)		this->dataGL =  ::Dynamic(::hx::Anon_obj::Create(2)
             			->setFixed(0,HX_("get_data",b3,11,1e,c2),this->penNodule->get_data_dyn())
             			->setFixed(1,HX_("get_size",4a,5c,0e,cc),this->penNodule->get_size_dyn()));
-HXLINE(  32)		this->pen = this->penNodule->pen;
-HXLINE(  33)		this->pen->currentColor = -16776961;
-HXLINE(  34)		this->cubicSVG();
-HXLINE(  35)		this->pen->currentColor = -16776961;
-HXLINE(  36)		this->quadSVG();
+HXLINE(  33)		this->pen = this->penNodule->pen;
+HXLINE(  34)		this->pen->currentColor = -16776961;
+HXLINE(  35)		this->cubicSVG();
+HXLINE(  36)		this->pen->currentColor = -16776961;
+HXLINE(  37)		this->quadSVG();
             	}
 
 
@@ -94,18 +94,18 @@ HX_DEFINE_DYNAMIC_FUNC0(TrilateralSVG_obj,draw,(void))
 void TrilateralSVG_obj::cubicSVG(){
             		HX_BEGIN_LOCAL_FUNC_S0(::hx::LocalFunc,_hx_Closure_0) HXARGC(5)
             		int _hx_run(int colour,Float x,Float y,Float x_,Float y_){
-            			HX_GC_STACKFRAME(&_hx_pos_fff8ccda04e6eada_43_cubicSVG)
-HXLINE(  43)			return ::Math_obj::round((( (Float)(colour) ) - (x * y)));
+            			HX_GC_STACKFRAME(&_hx_pos_fff8ccda04e6eada_44_cubicSVG)
+HXLINE(  44)			return ::Math_obj::round((( (Float)(colour) ) - (x * y)));
             		}
             		HX_END_LOCAL_FUNC5(return)
 
-            	HX_GC_STACKFRAME(&_hx_pos_fff8ccda04e6eada_38_cubicSVG)
-HXLINE(  39)		 ::trilateral3::drawing::Sketch sketch =  ::trilateral3::drawing::Sketch_obj::__alloc( HX_CTX ,this->pen,4,3);
-HXLINE(  40)		sketch->width = ( (Float)(20) );
-HXLINE(  42)		sketch->colourFunction =  ::Dynamic(new _hx_Closure_0());
-HXLINE(  45)		 ::justPath::transform::TranslationContext translateContext =  ::justPath::transform::TranslationContext_obj::__alloc( HX_CTX ,sketch,( (Float)(50) ),( (Float)(200) ));
-HXLINE(  46)		 ::justPath::SvgPath p =  ::justPath::SvgPath_obj::__alloc( HX_CTX ,translateContext);
-HXLINE(  47)		p->parse(this->cubictest_d);
+            	HX_GC_STACKFRAME(&_hx_pos_fff8ccda04e6eada_39_cubicSVG)
+HXLINE(  40)		 ::trilateral3::drawing::Sketch sketch =  ::trilateral3::drawing::Sketch_obj::__alloc( HX_CTX ,this->pen,4,3);
+HXLINE(  41)		sketch->width = ( (Float)(20) );
+HXLINE(  43)		sketch->colourFunction =  ::Dynamic(new _hx_Closure_0());
+HXLINE(  46)		 ::justPath::transform::TranslationContext translateContext =  ::justPath::transform::TranslationContext_obj::__alloc( HX_CTX ,sketch,( (Float)(50) ),( (Float)(200) ));
+HXLINE(  47)		 ::justPath::SvgPath p =  ::justPath::SvgPath_obj::__alloc( HX_CTX ,translateContext);
+HXLINE(  48)		p->parse(this->cubictest_d);
             	}
 
 
@@ -114,18 +114,18 @@ HX_DEFINE_DYNAMIC_FUNC0(TrilateralSVG_obj,cubicSVG,(void))
 void TrilateralSVG_obj::quadSVG(){
             		HX_BEGIN_LOCAL_FUNC_S0(::hx::LocalFunc,_hx_Closure_0) HXARGC(5)
             		Float _hx_run(Float width,Float x,Float y,Float x_,Float y_){
-            			HX_GC_STACKFRAME(&_hx_pos_fff8ccda04e6eada_54_quadSVG)
-HXLINE(  54)			return (width + ((Float)0.016));
+            			HX_GC_STACKFRAME(&_hx_pos_fff8ccda04e6eada_55_quadSVG)
+HXLINE(  55)			return (width + ((Float)0.016));
             		}
             		HX_END_LOCAL_FUNC5(return)
 
-            	HX_GC_STACKFRAME(&_hx_pos_fff8ccda04e6eada_49_quadSVG)
-HXLINE(  50)		 ::trilateral3::drawing::Sketch sketch =  ::trilateral3::drawing::Sketch_obj::__alloc( HX_CTX ,this->pen,4,3);
-HXLINE(  51)		sketch->width = ( (Float)(5) );
-HXLINE(  53)		sketch->widthFunction =  ::Dynamic(new _hx_Closure_0());
-HXLINE(  56)		 ::justPath::transform::TranslationContext translateContext =  ::justPath::transform::TranslationContext_obj::__alloc( HX_CTX ,sketch,( (Float)(-100) ),( (Float)(300) ));
-HXLINE(  57)		 ::justPath::SvgPath p =  ::justPath::SvgPath_obj::__alloc( HX_CTX ,translateContext);
-HXLINE(  58)		p->parse(this->quadtest_d);
+            	HX_GC_STACKFRAME(&_hx_pos_fff8ccda04e6eada_50_quadSVG)
+HXLINE(  51)		 ::trilateral3::drawing::Sketch sketch =  ::trilateral3::drawing::Sketch_obj::__alloc( HX_CTX ,this->pen,4,3);
+HXLINE(  52)		sketch->width = ( (Float)(5) );
+HXLINE(  54)		sketch->widthFunction =  ::Dynamic(new _hx_Closure_0());
+HXLINE(  57)		 ::justPath::transform::TranslationContext translateContext =  ::justPath::transform::TranslationContext_obj::__alloc( HX_CTX ,sketch,( (Float)(-100) ),( (Float)(300) ));
+HXLINE(  58)		 ::justPath::SvgPath p =  ::justPath::SvgPath_obj::__alloc( HX_CTX ,translateContext);
+HXLINE(  59)		p->parse(this->quadtest_d);
             	}
 
 
@@ -156,7 +156,7 @@ void TrilateralSVG_obj::__Mark(HX_MARK_PARAMS)
 	HX_MARK_MEMBER_NAME(cubictest_d,"cubictest_d");
 	HX_MARK_MEMBER_NAME(pen,"pen");
 	HX_MARK_MEMBER_NAME(penNodule,"penNodule");
-	 ::kitGL::gluon::InterleaveAlterGL_obj::__Mark(HX_MARK_ARG);
+	 ::kitGL::gluon::Ply_obj::__Mark(HX_MARK_ARG);
 	HX_MARK_END_CLASS();
 }
 
@@ -166,7 +166,7 @@ void TrilateralSVG_obj::__Visit(HX_VISIT_PARAMS)
 	HX_VISIT_MEMBER_NAME(cubictest_d,"cubictest_d");
 	HX_VISIT_MEMBER_NAME(pen,"pen");
 	HX_VISIT_MEMBER_NAME(penNodule,"penNodule");
-	 ::kitGL::gluon::InterleaveAlterGL_obj::__Visit(HX_VISIT_ARG);
+	 ::kitGL::gluon::Ply_obj::__Visit(HX_VISIT_ARG);
 }
 
 ::hx::Val TrilateralSVG_obj::__Field(const ::String &inName,::hx::PropertyAccess inCallProp)

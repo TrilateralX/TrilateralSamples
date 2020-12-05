@@ -43,7 +43,7 @@ HX_LOCAL_STACK_FRAME(_hx_pos_6351d8d914bc61da_53_mediumLine,"trilateral3.drawing
 HX_LOCAL_STACK_FRAME(_hx_pos_6351d8d914bc61da_56_mediumOverlapLine,"trilateral3.drawing.Sketch","mediumOverlapLine",0x6ebb9c9b,"trilateral3.drawing.Sketch.mediumOverlapLine","trilateral3/drawing/Sketch.hx",56,0x5aa78a39)
 HX_LOCAL_STACK_FRAME(_hx_pos_6351d8d914bc61da_59_fineLine,"trilateral3.drawing.Sketch","fineLine",0x25e523f9,"trilateral3.drawing.Sketch.fineLine","trilateral3/drawing/Sketch.hx",59,0x5aa78a39)
 HX_LOCAL_STACK_FRAME(_hx_pos_6351d8d914bc61da_62_fineOverlapLine,"trilateral3.drawing.Sketch","fineOverlapLine",0xdef605b6,"trilateral3.drawing.Sketch.fineOverlapLine","trilateral3/drawing/Sketch.hx",62,0x5aa78a39)
-HX_LOCAL_STACK_FRAME(_hx_pos_6351d8d914bc61da_231_moveTo,"trilateral3.drawing.Sketch","moveTo",0x7089acd7,"trilateral3.drawing.Sketch.moveTo","trilateral3/drawing/Sketch.hx",231,0x5aa78a39)
+HX_LOCAL_STACK_FRAME(_hx_pos_6351d8d914bc61da_230_moveTo,"trilateral3.drawing.Sketch","moveTo",0x7089acd7,"trilateral3.drawing.Sketch.moveTo","trilateral3/drawing/Sketch.hx",230,0x5aa78a39)
 namespace trilateral3{
 namespace drawing{
 
@@ -282,13 +282,28 @@ HXDLIN(  44)				if ((color == -1)) {
 HXLINE(  44)					color = _this1->currentColor;
             				}
 HXDLIN(  44)				{
-HXLINE(  44)					_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(dxPrev_) ),( (Float)(dyPrev_) ),0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(exPrev_) ),( (Float)(eyPrev_) ),0);
+HXLINE(  44)					float ax = ( (float)(( (Float)(dxPrev_) )) );
+HXDLIN(  44)					float ay = ( (float)(( (Float)(dyPrev_) )) );
+HXDLIN(  44)					float bx = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  44)					float by = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  44)					float cx = ( (float)(( (Float)(exPrev_) )) );
+HXDLIN(  44)					float cy = ( (float)(( (Float)(eyPrev_) )) );
+HXDLIN(  44)					bool windAdjust = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN(  44)					if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXLINE(  44)						_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXLINE(  44)						_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             					}
-HXDLIN(  44)					_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  44)					if (_this1->useTexture) {
+HXLINE(  44)						ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  44)						ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  44)						bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  44)						by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  44)						cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  44)						cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  44)						_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            					}
             				}
-HXDLIN(  44)				_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  44)				_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  44)				_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             			}
 HXDLIN(  44)			{
 HXLINE(  44)				 ::trilateral3::drawing::Pen _this2 = _this->pen;
@@ -297,13 +312,28 @@ HXDLIN(  44)				if ((color1 == -1)) {
 HXLINE(  44)					color1 = _this2->currentColor;
             				}
 HXDLIN(  44)				{
-HXLINE(  44)					_this2->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(dxPrev_) ),( (Float)(dyPrev_) ),0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->ex) ),( (Float)(_this->ey) ),0);
+HXLINE(  44)					float ax1 = ( (float)(( (Float)(dxPrev_) )) );
+HXDLIN(  44)					float ay1 = ( (float)(( (Float)(dyPrev_) )) );
+HXDLIN(  44)					float bx1 = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  44)					float by1 = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  44)					float cx1 = ( (float)(( (Float)(_this->ex) )) );
+HXDLIN(  44)					float cy1 = ( (float)(( (Float)(_this->ey) )) );
+HXDLIN(  44)					bool windAdjust1 = ( (bool)(_this2->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax1,ay1,0,bx1,by1,0,cx1,cy1,0)) );
 HXDLIN(  44)					if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXLINE(  44)						_this2->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXLINE(  44)						_this2->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             					}
-HXDLIN(  44)					_this2->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  44)					if (_this2->useTexture) {
+HXLINE(  44)						ax1 = ( (float)((( (Float)(ax1) ) / ( (Float)(2000) ))) );
+HXDLIN(  44)						ay1 = ( (float)((( (Float)(ay1) ) / ( (Float)(2000) ))) );
+HXDLIN(  44)						bx1 = ( (float)((( (Float)(bx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  44)						by1 = ( (float)((( (Float)(by1) ) / ( (Float)(2000) ))) );
+HXDLIN(  44)						cx1 = ( (float)((( (Float)(cx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  44)						cy1 = ( (float)((( (Float)(cy1) ) / ( (Float)(2000) ))) );
+HXDLIN(  44)						_this2->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax1,ay1,bx1,by1,cx1,cy1,windAdjust1);
+            					}
             				}
-HXDLIN(  44)				_this2->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  44)				_this2->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  44)				_this2->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             			}
             		}
             	}
@@ -445,13 +475,28 @@ HXDLIN(  47)			if ((color == -1)) {
 HXDLIN(  47)				color = _this1->currentColor;
             			}
 HXDLIN(  47)			{
-HXDLIN(  47)				_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(dxPrev_) ),( (Float)(dyPrev_) ),0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(exPrev_) ),( (Float)(eyPrev_) ),0);
+HXDLIN(  47)				float ax = ( (float)(( (Float)(dxPrev_) )) );
+HXDLIN(  47)				float ay = ( (float)(( (Float)(dyPrev_) )) );
+HXDLIN(  47)				float bx = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  47)				float by = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  47)				float cx = ( (float)(( (Float)(exPrev_) )) );
+HXDLIN(  47)				float cy = ( (float)(( (Float)(eyPrev_) )) );
+HXDLIN(  47)				bool windAdjust = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN(  47)				if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  47)					_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  47)					_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             				}
-HXDLIN(  47)				_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  47)				if (_this1->useTexture) {
+HXDLIN(  47)					ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  47)					ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  47)					bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  47)					by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  47)					cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  47)					cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  47)					_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            				}
             			}
-HXDLIN(  47)			_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  47)			_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  47)			_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             		}
 HXDLIN(  47)		{
 HXDLIN(  47)			 ::trilateral3::drawing::Pen _this2 = _this->pen;
@@ -460,13 +505,28 @@ HXDLIN(  47)			if ((color1 == -1)) {
 HXDLIN(  47)				color1 = _this2->currentColor;
             			}
 HXDLIN(  47)			{
-HXDLIN(  47)				_this2->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(dxPrev_) ),( (Float)(dyPrev_) ),0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->ex) ),( (Float)(_this->ey) ),0);
+HXDLIN(  47)				float ax1 = ( (float)(( (Float)(dxPrev_) )) );
+HXDLIN(  47)				float ay1 = ( (float)(( (Float)(dyPrev_) )) );
+HXDLIN(  47)				float bx1 = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  47)				float by1 = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  47)				float cx1 = ( (float)(( (Float)(_this->ex) )) );
+HXDLIN(  47)				float cy1 = ( (float)(( (Float)(_this->ey) )) );
+HXDLIN(  47)				bool windAdjust1 = ( (bool)(_this2->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax1,ay1,0,bx1,by1,0,cx1,cy1,0)) );
 HXDLIN(  47)				if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  47)					_this2->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  47)					_this2->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             				}
-HXDLIN(  47)				_this2->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  47)				if (_this2->useTexture) {
+HXDLIN(  47)					ax1 = ( (float)((( (Float)(ax1) ) / ( (Float)(2000) ))) );
+HXDLIN(  47)					ay1 = ( (float)((( (Float)(ay1) ) / ( (Float)(2000) ))) );
+HXDLIN(  47)					bx1 = ( (float)((( (Float)(bx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  47)					by1 = ( (float)((( (Float)(by1) ) / ( (Float)(2000) ))) );
+HXDLIN(  47)					cx1 = ( (float)((( (Float)(cx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  47)					cy1 = ( (float)((( (Float)(cy1) ) / ( (Float)(2000) ))) );
+HXDLIN(  47)					_this2->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax1,ay1,bx1,by1,cx1,cy1,windAdjust1);
+            				}
             			}
-HXDLIN(  47)			_this2->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  47)			_this2->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  47)			_this2->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             		}
             	}
 
@@ -612,7 +672,7 @@ HXDLIN(  50)			goto _hx_goto_5;
 HXDLIN(  50)			Float radius = (width_ / ( (Float)(2) ));
 HXDLIN(  50)			Float beta = (-(_this->angle1) - (::Math_obj::PI / ( (Float)(2) )));
 HXDLIN(  50)			Float gamma = ((-(_this->angle1) - (::Math_obj::PI / ( (Float)(2) ))) + ::Math_obj::PI);
-HXDLIN(  50)			 ::Dynamic drawType = _this->pen->drawType;
+HXDLIN(  50)			 ::Dynamic drawType = _this->pen->paintType;
 HXDLIN(  50)			 ::Dynamic sides = 36;
 HXDLIN(  50)			if (::hx::IsNull( sides )) {
 HXDLIN(  50)				sides = 36;
@@ -921,12 +981,19 @@ HXDLIN(  50)					by = cy;
             			}
 HXDLIN(  50)			int len = totalSteps;
 HXDLIN(  50)			{
+HXDLIN(  50)				 ::Dynamic _g2 = _this->pen->paintType;
+HXDLIN(  50)				{
+HXDLIN(  50)					Float v = (( (Float)(_g2->__Field(HX_("get_pos",2b,26,ca,26),::hx::paccDynamic)()) ) - ( (Float)(len) ));
+HXDLIN(  50)					_g2->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
+            				}
+            			}
+HXDLIN(  50)			{
 HXDLIN(  50)				 ::trilateral3::drawing::Pen _this1 = _this->pen;
 HXDLIN(  50)				int color = 0;
 HXDLIN(  50)				if ((color == -1)) {
 HXDLIN(  50)					color = _this1->currentColor;
             				}
-HXDLIN(  50)				_this1->colorType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,len);
+HXDLIN(  50)				_this1->paintType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,len);
             			}
 HXDLIN(  50)			goto _hx_goto_5;
             		}
@@ -934,7 +1001,7 @@ HXDLIN(  50)			goto _hx_goto_5;
 HXDLIN(  50)			Float radius = (width_ / ( (Float)(2) ));
 HXDLIN(  50)			Float beta = (-(_this->angle1) - (::Math_obj::PI / ( (Float)(2) )));
 HXDLIN(  50)			Float gamma = ((-(_this->angle1) - (::Math_obj::PI / ( (Float)(2) ))) - ::Math_obj::PI);
-HXDLIN(  50)			 ::Dynamic drawType = _this->pen->drawType;
+HXDLIN(  50)			 ::Dynamic drawType = _this->pen->paintType;
 HXDLIN(  50)			 ::Dynamic sides = 36;
 HXDLIN(  50)			if (::hx::IsNull( sides )) {
 HXDLIN(  50)				sides = 36;
@@ -1243,12 +1310,19 @@ HXDLIN(  50)					by = cy;
             			}
 HXDLIN(  50)			int len = totalSteps;
 HXDLIN(  50)			{
+HXDLIN(  50)				 ::Dynamic _g2 = _this->pen->paintType;
+HXDLIN(  50)				{
+HXDLIN(  50)					Float v = (( (Float)(_g2->__Field(HX_("get_pos",2b,26,ca,26),::hx::paccDynamic)()) ) - ( (Float)(len) ));
+HXDLIN(  50)					_g2->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
+            				}
+            			}
+HXDLIN(  50)			{
 HXDLIN(  50)				 ::trilateral3::drawing::Pen _this1 = _this->pen;
 HXDLIN(  50)				int color = 0;
 HXDLIN(  50)				if ((color == -1)) {
 HXDLIN(  50)					color = _this1->currentColor;
             				}
-HXDLIN(  50)				_this1->colorType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,len);
+HXDLIN(  50)				_this1->paintType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,len);
             			}
 HXDLIN(  50)			goto _hx_goto_5;
             		}
@@ -1257,7 +1331,7 @@ HXDLIN(  50)			{
 HXDLIN(  50)				Float radius = (width_ / ( (Float)(2) ));
 HXDLIN(  50)				Float beta = (-(_this->angle1) - (::Math_obj::PI / ( (Float)(2) )));
 HXDLIN(  50)				Float gamma = ((-(_this->angle1) - (::Math_obj::PI / ( (Float)(2) ))) + ::Math_obj::PI);
-HXDLIN(  50)				 ::Dynamic drawType = _this->pen->drawType;
+HXDLIN(  50)				 ::Dynamic drawType = _this->pen->paintType;
 HXDLIN(  50)				 ::Dynamic sides = 36;
 HXDLIN(  50)				if (::hx::IsNull( sides )) {
 HXDLIN(  50)					sides = 36;
@@ -1566,19 +1640,26 @@ HXDLIN(  50)						by = cy;
             				}
 HXDLIN(  50)				int len = totalSteps;
 HXDLIN(  50)				{
+HXDLIN(  50)					 ::Dynamic _g2 = _this->pen->paintType;
+HXDLIN(  50)					{
+HXDLIN(  50)						Float v = (( (Float)(_g2->__Field(HX_("get_pos",2b,26,ca,26),::hx::paccDynamic)()) ) - ( (Float)(len) ));
+HXDLIN(  50)						_g2->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
+            					}
+            				}
+HXDLIN(  50)				{
 HXDLIN(  50)					 ::trilateral3::drawing::Pen _this1 = _this->pen;
 HXDLIN(  50)					int color = 0;
 HXDLIN(  50)					if ((color == -1)) {
 HXDLIN(  50)						color = _this1->currentColor;
             					}
-HXDLIN(  50)					_this1->colorType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,len);
+HXDLIN(  50)					_this1->paintType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,len);
             				}
             			}
 HXDLIN(  50)			{
 HXDLIN(  50)				Float radius1 = (width_ / ( (Float)(2) ));
 HXDLIN(  50)				Float beta1 = (-(_this->angle1) - (::Math_obj::PI / ( (Float)(2) )));
 HXDLIN(  50)				Float gamma1 = ((-(_this->angle1) - (::Math_obj::PI / ( (Float)(2) ))) - ::Math_obj::PI);
-HXDLIN(  50)				 ::Dynamic drawType1 = _this->pen->drawType;
+HXDLIN(  50)				 ::Dynamic drawType1 = _this->pen->paintType;
 HXDLIN(  50)				 ::Dynamic sides1 = 36;
 HXDLIN(  50)				if (::hx::IsNull( sides1 )) {
 HXDLIN(  50)					sides1 = 36;
@@ -1865,11 +1946,11 @@ HXDLIN(  50)				Float cy1;
 HXDLIN(  50)				Float bx1 = ( (Float)(0) );
 HXDLIN(  50)				Float by1 = ( (Float)(0) );
 HXDLIN(  50)				{
-HXDLIN(  50)					int _g2 = 0;
-HXDLIN(  50)					int _g3 = (totalSteps1 + 1);
-HXDLIN(  50)					while((_g2 < _g3)){
-HXDLIN(  50)						_g2 = (_g2 + 1);
-HXDLIN(  50)						int i = (_g2 - 1);
+HXDLIN(  50)					int _g3 = 0;
+HXDLIN(  50)					int _g4 = (totalSteps1 + 1);
+HXDLIN(  50)					while((_g3 < _g4)){
+HXDLIN(  50)						_g3 = (_g3 + 1);
+HXDLIN(  50)						int i = (_g3 - 1);
 HXDLIN(  50)						cx1 = (x_ + (radius1 * ::Math_obj::sin(angle1)));
 HXDLIN(  50)						cy1 = (y_ + (radius1 * ::Math_obj::cos(angle1)));
 HXDLIN(  50)						if ((i != 0)) {
@@ -1887,12 +1968,19 @@ HXDLIN(  50)						by1 = cy1;
             				}
 HXDLIN(  50)				int len1 = totalSteps1;
 HXDLIN(  50)				{
+HXDLIN(  50)					 ::Dynamic _g5 = _this->pen->paintType;
+HXDLIN(  50)					{
+HXDLIN(  50)						Float v1 = (( (Float)(_g5->__Field(HX_("get_pos",2b,26,ca,26),::hx::paccDynamic)()) ) - ( (Float)(len1) ));
+HXDLIN(  50)						_g5->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v1);
+            					}
+            				}
+HXDLIN(  50)				{
 HXDLIN(  50)					 ::trilateral3::drawing::Pen _this2 = _this->pen;
 HXDLIN(  50)					int color1 = 0;
 HXDLIN(  50)					if ((color1 == -1)) {
 HXDLIN(  50)						color1 = _this2->currentColor;
             					}
-HXDLIN(  50)					_this2->colorType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color1,len1);
+HXDLIN(  50)					_this2->paintType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color1,len1);
             				}
             			}
 HXDLIN(  50)			goto _hx_goto_5;
@@ -1905,13 +1993,28 @@ HXDLIN(  50)			if ((color == -1)) {
 HXDLIN(  50)				color = _this1->currentColor;
             			}
 HXDLIN(  50)			{
-HXDLIN(  50)				_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(dxPrev_) ),( (Float)(dyPrev_) ),0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(exPrev_) ),( (Float)(eyPrev_) ),0);
+HXDLIN(  50)				float ax = ( (float)(( (Float)(dxPrev_) )) );
+HXDLIN(  50)				float ay = ( (float)(( (Float)(dyPrev_) )) );
+HXDLIN(  50)				float bx = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  50)				float by = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  50)				float cx = ( (float)(( (Float)(exPrev_) )) );
+HXDLIN(  50)				float cy = ( (float)(( (Float)(eyPrev_) )) );
+HXDLIN(  50)				bool windAdjust = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN(  50)				if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  50)					_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  50)					_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             				}
-HXDLIN(  50)				_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  50)				if (_this1->useTexture) {
+HXDLIN(  50)					ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  50)					ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  50)					bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  50)					by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  50)					cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  50)					cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  50)					_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            				}
             			}
-HXDLIN(  50)			_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  50)			_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  50)			_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             		}
 HXDLIN(  50)		{
 HXDLIN(  50)			 ::trilateral3::drawing::Pen _this2 = _this->pen;
@@ -1920,13 +2023,28 @@ HXDLIN(  50)			if ((color1 == -1)) {
 HXDLIN(  50)				color1 = _this2->currentColor;
             			}
 HXDLIN(  50)			{
-HXDLIN(  50)				_this2->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(dxPrev_) ),( (Float)(dyPrev_) ),0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->ex) ),( (Float)(_this->ey) ),0);
+HXDLIN(  50)				float ax1 = ( (float)(( (Float)(dxPrev_) )) );
+HXDLIN(  50)				float ay1 = ( (float)(( (Float)(dyPrev_) )) );
+HXDLIN(  50)				float bx1 = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  50)				float by1 = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  50)				float cx1 = ( (float)(( (Float)(_this->ex) )) );
+HXDLIN(  50)				float cy1 = ( (float)(( (Float)(_this->ey) )) );
+HXDLIN(  50)				bool windAdjust1 = ( (bool)(_this2->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax1,ay1,0,bx1,by1,0,cx1,cy1,0)) );
 HXDLIN(  50)				if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  50)					_this2->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  50)					_this2->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             				}
-HXDLIN(  50)				_this2->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  50)				if (_this2->useTexture) {
+HXDLIN(  50)					ax1 = ( (float)((( (Float)(ax1) ) / ( (Float)(2000) ))) );
+HXDLIN(  50)					ay1 = ( (float)((( (Float)(ay1) ) / ( (Float)(2000) ))) );
+HXDLIN(  50)					bx1 = ( (float)((( (Float)(bx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  50)					by1 = ( (float)((( (Float)(by1) ) / ( (Float)(2000) ))) );
+HXDLIN(  50)					cx1 = ( (float)((( (Float)(cx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  50)					cy1 = ( (float)((( (Float)(cy1) ) / ( (Float)(2000) ))) );
+HXDLIN(  50)					_this2->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax1,ay1,bx1,by1,cx1,cy1,windAdjust1);
+            				}
             			}
-HXDLIN(  50)			_this2->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  50)			_this2->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  50)			_this2->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             		}
             	}
 
@@ -2406,7 +2524,7 @@ HXDLIN(  53)			Float radius = (width_ / ( (Float)(2) ));
 HXDLIN(  53)			Float beta = (-(_this->angle1) - (::Math_obj::PI / ( (Float)(2) )));
 HXDLIN(  53)			Float gamma = ((-(_this->angle1) - (::Math_obj::PI / ( (Float)(2) ))) + ::Math_obj::PI);
 HXDLIN(  53)			::Array< Float > temp = ::Array_obj< Float >::__new();
-HXDLIN(  53)			 ::Dynamic drawType = _this->pen->drawType;
+HXDLIN(  53)			 ::Dynamic drawType = _this->pen->paintType;
 HXDLIN(  53)			 ::Dynamic sides = 36;
 HXDLIN(  53)			if (::hx::IsNull( sides )) {
 HXDLIN(  53)				sides = 36;
@@ -2720,22 +2838,29 @@ HXDLIN(  53)					by = cy;
             			}
 HXDLIN(  53)			int len = totalSteps;
 HXDLIN(  53)			{
+HXDLIN(  53)				 ::Dynamic _g2 = _this->pen->paintType;
+HXDLIN(  53)				{
+HXDLIN(  53)					Float v = (( (Float)(_g2->__Field(HX_("get_pos",2b,26,ca,26),::hx::paccDynamic)()) ) - ( (Float)(len) ));
+HXDLIN(  53)					_g2->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
+            				}
+            			}
+HXDLIN(  53)			{
 HXDLIN(  53)				 ::trilateral3::drawing::Pen _this1 = _this->pen;
 HXDLIN(  53)				int color = -1;
 HXDLIN(  53)				if ((color == -1)) {
 HXDLIN(  53)					color = _this1->currentColor;
             				}
-HXDLIN(  53)				_this1->colorType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,len);
+HXDLIN(  53)				_this1->paintType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,len);
             			}
 HXDLIN(  53)			int pA = _this->pointsAnti->length;
 HXDLIN(  53)			int len1 = ::Std_obj::_hx_int((( (Float)(temp->length) ) / ( (Float)(2) )));
 HXDLIN(  53)			int p4 = ::Std_obj::_hx_int((( (Float)(temp->length) ) / ( (Float)(4) )));
 HXDLIN(  53)			{
-HXDLIN(  53)				int _g2 = 0;
-HXDLIN(  53)				int _g3 = p4;
-HXDLIN(  53)				while((_g2 < _g3)){
-HXDLIN(  53)					_g2 = (_g2 + 1);
-HXDLIN(  53)					int i = (_g2 - 1);
+HXDLIN(  53)				int _g3 = 0;
+HXDLIN(  53)				int _g4 = p4;
+HXDLIN(  53)				while((_g3 < _g4)){
+HXDLIN(  53)					_g3 = (_g3 + 1);
+HXDLIN(  53)					int i = (_g3 - 1);
 HXDLIN(  53)					pA = (pA + 1);
 HXDLIN(  53)					_this->pointsAnti[(pA - 1)] = temp->__get(((len1 - (2 * i)) + 1));
 HXDLIN(  53)					pA = (pA + 1);
@@ -2744,11 +2869,11 @@ HXDLIN(  53)					_this->pointsAnti[(pA - 1)] = temp->__get((len1 - (2 * i)));
             			}
 HXDLIN(  53)			int pC = _this->pointsClock->length;
 HXDLIN(  53)			{
-HXDLIN(  53)				int _g4 = 0;
-HXDLIN(  53)				int _g5 = p4;
-HXDLIN(  53)				while((_g4 < _g5)){
-HXDLIN(  53)					_g4 = (_g4 + 1);
-HXDLIN(  53)					int i = (_g4 - 1);
+HXDLIN(  53)				int _g5 = 0;
+HXDLIN(  53)				int _g6 = p4;
+HXDLIN(  53)				while((_g5 < _g6)){
+HXDLIN(  53)					_g5 = (_g5 + 1);
+HXDLIN(  53)					int i = (_g5 - 1);
 HXDLIN(  53)					pC = (pC + 1);
 HXDLIN(  53)					_this->pointsClock[(pC - 1)] = temp->__get((((i * 2) + len1) + 1));
 HXDLIN(  53)					pC = (pC + 1);
@@ -2764,13 +2889,28 @@ HXDLIN(  53)				if ((color == -1)) {
 HXDLIN(  53)					color = _this1->currentColor;
             				}
 HXDLIN(  53)				{
-HXDLIN(  53)					_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(_this->dxPrev) ),( (Float)(_this->dyPrev) ),0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->ex) ),( (Float)(_this->ey) ),0);
+HXDLIN(  53)					float ax = ( (float)(( (Float)(_this->dxPrev) )) );
+HXDLIN(  53)					float ay = ( (float)(( (Float)(_this->dyPrev) )) );
+HXDLIN(  53)					float bx = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  53)					float by = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  53)					float cx = ( (float)(( (Float)(_this->ex) )) );
+HXDLIN(  53)					float cy = ( (float)(( (Float)(_this->ey) )) );
+HXDLIN(  53)					bool windAdjust = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN(  53)					if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  53)						_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  53)						_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             					}
-HXDLIN(  53)					_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  53)					if (_this1->useTexture) {
+HXDLIN(  53)						ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)						ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)						bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)						by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)						cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)						cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)						_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            					}
             				}
-HXDLIN(  53)				_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  53)				_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  53)				_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             			}
 HXDLIN(  53)			{
 HXDLIN(  53)				 ::trilateral3::drawing::Pen _this2 = _this->pen;
@@ -2779,13 +2919,28 @@ HXDLIN(  53)				if ((color1 == -1)) {
 HXDLIN(  53)					color1 = _this2->currentColor;
             				}
 HXDLIN(  53)				{
-HXDLIN(  53)					_this2->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(_this->dxPrev) ),( (Float)(_this->dyPrev) ),0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->exPrev) ),( (Float)(_this->eyPrev) ),0);
+HXDLIN(  53)					float ax1 = ( (float)(( (Float)(_this->dxPrev) )) );
+HXDLIN(  53)					float ay1 = ( (float)(( (Float)(_this->dyPrev) )) );
+HXDLIN(  53)					float bx1 = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  53)					float by1 = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  53)					float cx1 = ( (float)(( (Float)(_this->exPrev) )) );
+HXDLIN(  53)					float cy1 = ( (float)(( (Float)(_this->eyPrev) )) );
+HXDLIN(  53)					bool windAdjust1 = ( (bool)(_this2->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax1,ay1,0,bx1,by1,0,cx1,cy1,0)) );
 HXDLIN(  53)					if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  53)						_this2->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  53)						_this2->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             					}
-HXDLIN(  53)					_this2->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  53)					if (_this2->useTexture) {
+HXDLIN(  53)						ax1 = ( (float)((( (Float)(ax1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)						ay1 = ( (float)((( (Float)(ay1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)						bx1 = ( (float)((( (Float)(bx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)						by1 = ( (float)((( (Float)(by1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)						cx1 = ( (float)((( (Float)(cx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)						cy1 = ( (float)((( (Float)(cy1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)						_this2->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax1,ay1,bx1,by1,cx1,cy1,windAdjust1);
+            					}
             				}
-HXDLIN(  53)				_this2->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  53)				_this2->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  53)				_this2->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             			}
             		}
             		else {
@@ -2793,7 +2948,7 @@ HXDLIN(  53)			if ((_this->count != 0)) {
 HXDLIN(  53)				_this->addQuads(clockWise,width_);
             			}
 HXDLIN(  53)			{
-HXDLIN(  53)				_this->quadIndex = ( (Float)(_this->pen->drawType->__Field(HX_("get_pos",2b,26,ca,26),::hx::paccDynamic)()) );
+HXDLIN(  53)				_this->quadIndex = ( (Float)(_this->pen->paintType->__Field(HX_("get_pos",2b,26,ca,26),::hx::paccDynamic)()) );
 HXDLIN(  53)				if ((_this->count == 0)) {
 HXDLIN(  53)					_this->penultimateAX = ( (Float)(_this->dxPrev) );
 HXDLIN(  53)					_this->penultimateAY = ( (Float)(_this->dyPrev) );
@@ -2810,13 +2965,28 @@ HXDLIN(  53)						if ((color == -1)) {
 HXDLIN(  53)							color = _this1->currentColor;
             						}
 HXDLIN(  53)						{
-HXDLIN(  53)							_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(_this->dxPrev) ),( (Float)(_this->dyPrev) ),0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->ex) ),( (Float)(_this->ey) ),0);
+HXDLIN(  53)							float ax = ( (float)(( (Float)(_this->dxPrev) )) );
+HXDLIN(  53)							float ay = ( (float)(( (Float)(_this->dyPrev) )) );
+HXDLIN(  53)							float bx = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  53)							float by = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  53)							float cx = ( (float)(( (Float)(_this->ex) )) );
+HXDLIN(  53)							float cy = ( (float)(( (Float)(_this->ey) )) );
+HXDLIN(  53)							bool windAdjust = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN(  53)							if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  53)								_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  53)								_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             							}
-HXDLIN(  53)							_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  53)							if (_this1->useTexture) {
+HXDLIN(  53)								ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)								ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)								bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)								by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)								cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)								cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)								_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            							}
             						}
-HXDLIN(  53)						_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  53)						_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  53)						_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             					}
 HXDLIN(  53)					{
 HXDLIN(  53)						 ::trilateral3::drawing::Pen _this2 = _this->pen;
@@ -2825,13 +2995,28 @@ HXDLIN(  53)						if ((color1 == -1)) {
 HXDLIN(  53)							color1 = _this2->currentColor;
             						}
 HXDLIN(  53)						{
-HXDLIN(  53)							_this2->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(_this->dxPrev) ),( (Float)(_this->dyPrev) ),0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->exPrev) ),( (Float)(_this->eyPrev) ),0);
+HXDLIN(  53)							float ax1 = ( (float)(( (Float)(_this->dxPrev) )) );
+HXDLIN(  53)							float ay1 = ( (float)(( (Float)(_this->dyPrev) )) );
+HXDLIN(  53)							float bx1 = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  53)							float by1 = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  53)							float cx1 = ( (float)(( (Float)(_this->exPrev) )) );
+HXDLIN(  53)							float cy1 = ( (float)(( (Float)(_this->eyPrev) )) );
+HXDLIN(  53)							bool windAdjust1 = ( (bool)(_this2->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax1,ay1,0,bx1,by1,0,cx1,cy1,0)) );
 HXDLIN(  53)							if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  53)								_this2->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  53)								_this2->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             							}
-HXDLIN(  53)							_this2->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  53)							if (_this2->useTexture) {
+HXDLIN(  53)								ax1 = ( (float)((( (Float)(ax1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)								ay1 = ( (float)((( (Float)(ay1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)								bx1 = ( (float)((( (Float)(bx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)								by1 = ( (float)((( (Float)(by1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)								cx1 = ( (float)((( (Float)(cx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)								cy1 = ( (float)((( (Float)(cy1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)								_this2->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax1,ay1,bx1,by1,cx1,cy1,windAdjust1);
+            							}
             						}
-HXDLIN(  53)						_this2->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  53)						_this2->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  53)						_this2->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             					}
             				}
             				else {
@@ -2858,13 +3043,28 @@ HXDLIN(  53)							if ((color == -1)) {
 HXDLIN(  53)								color = _this1->currentColor;
             							}
 HXDLIN(  53)							{
-HXDLIN(  53)								_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(_this->jx,_this->jy,0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->ex) ),( (Float)(_this->ey) ),0);
+HXDLIN(  53)								float ax = ( (float)(_this->jx) );
+HXDLIN(  53)								float ay = ( (float)(_this->jy) );
+HXDLIN(  53)								float bx = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  53)								float by = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  53)								float cx = ( (float)(( (Float)(_this->ex) )) );
+HXDLIN(  53)								float cy = ( (float)(( (Float)(_this->ey) )) );
+HXDLIN(  53)								bool windAdjust = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN(  53)								if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  53)									_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  53)									_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             								}
-HXDLIN(  53)								_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  53)								if (_this1->useTexture) {
+HXDLIN(  53)									ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            								}
             							}
-HXDLIN(  53)							_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  53)							_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  53)							_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             						}
 HXDLIN(  53)						{
 HXDLIN(  53)							 ::trilateral3::drawing::Pen _this2 = _this->pen;
@@ -2873,13 +3073,28 @@ HXDLIN(  53)							if ((color1 == -1)) {
 HXDLIN(  53)								color1 = _this2->currentColor;
             							}
 HXDLIN(  53)							{
-HXDLIN(  53)								_this2->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(_this->jx,_this->jy,0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->exPrev) ),( (Float)(_this->eyPrev) ),0);
+HXDLIN(  53)								float ax1 = ( (float)(_this->jx) );
+HXDLIN(  53)								float ay1 = ( (float)(_this->jy) );
+HXDLIN(  53)								float bx1 = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  53)								float by1 = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  53)								float cx1 = ( (float)(( (Float)(_this->exPrev) )) );
+HXDLIN(  53)								float cy1 = ( (float)(( (Float)(_this->eyPrev) )) );
+HXDLIN(  53)								bool windAdjust1 = ( (bool)(_this2->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax1,ay1,0,bx1,by1,0,cx1,cy1,0)) );
 HXDLIN(  53)								if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  53)									_this2->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  53)									_this2->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             								}
-HXDLIN(  53)								_this2->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  53)								if (_this2->useTexture) {
+HXDLIN(  53)									ax1 = ( (float)((( (Float)(ax1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									ay1 = ( (float)((( (Float)(ay1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									bx1 = ( (float)((( (Float)(bx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									by1 = ( (float)((( (Float)(by1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									cx1 = ( (float)((( (Float)(cx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									cy1 = ( (float)((( (Float)(cy1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									_this2->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax1,ay1,bx1,by1,cx1,cy1,windAdjust1);
+            								}
             							}
-HXDLIN(  53)							_this2->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  53)							_this2->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  53)							_this2->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             						}
             					}
 HXDLIN(  53)					bool _hx_tmp1;
@@ -2905,13 +3120,28 @@ HXDLIN(  53)							if ((color == -1)) {
 HXDLIN(  53)								color = _this1->currentColor;
             							}
 HXDLIN(  53)							{
-HXDLIN(  53)								_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(_this->jx,_this->jy,0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->ex) ),( (Float)(_this->ey) ),0);
+HXDLIN(  53)								float ax = ( (float)(_this->jx) );
+HXDLIN(  53)								float ay = ( (float)(_this->jy) );
+HXDLIN(  53)								float bx = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  53)								float by = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  53)								float cx = ( (float)(( (Float)(_this->ex) )) );
+HXDLIN(  53)								float cy = ( (float)(( (Float)(_this->ey) )) );
+HXDLIN(  53)								bool windAdjust = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN(  53)								if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  53)									_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  53)									_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             								}
-HXDLIN(  53)								_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  53)								if (_this1->useTexture) {
+HXDLIN(  53)									ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            								}
             							}
-HXDLIN(  53)							_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  53)							_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  53)							_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             						}
 HXDLIN(  53)						{
 HXDLIN(  53)							 ::trilateral3::drawing::Pen _this2 = _this->pen;
@@ -2920,13 +3150,28 @@ HXDLIN(  53)							if ((color1 == -1)) {
 HXDLIN(  53)								color1 = _this2->currentColor;
             							}
 HXDLIN(  53)							{
-HXDLIN(  53)								_this2->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(_this->jx,_this->jy,0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->exPrev) ),( (Float)(_this->eyPrev) ),0);
+HXDLIN(  53)								float ax1 = ( (float)(_this->jx) );
+HXDLIN(  53)								float ay1 = ( (float)(_this->jy) );
+HXDLIN(  53)								float bx1 = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  53)								float by1 = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  53)								float cx1 = ( (float)(( (Float)(_this->exPrev) )) );
+HXDLIN(  53)								float cy1 = ( (float)(( (Float)(_this->eyPrev) )) );
+HXDLIN(  53)								bool windAdjust1 = ( (bool)(_this2->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax1,ay1,0,bx1,by1,0,cx1,cy1,0)) );
 HXDLIN(  53)								if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  53)									_this2->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  53)									_this2->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             								}
-HXDLIN(  53)								_this2->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  53)								if (_this2->useTexture) {
+HXDLIN(  53)									ax1 = ( (float)((( (Float)(ax1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									ay1 = ( (float)((( (Float)(ay1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									bx1 = ( (float)((( (Float)(bx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									by1 = ( (float)((( (Float)(by1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									cx1 = ( (float)((( (Float)(cx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									cy1 = ( (float)((( (Float)(cy1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									_this2->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax1,ay1,bx1,by1,cx1,cy1,windAdjust1);
+            								}
             							}
-HXDLIN(  53)							_this2->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  53)							_this2->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  53)							_this2->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             						}
             					}
 HXDLIN(  53)					bool _hx_tmp2;
@@ -2952,13 +3197,28 @@ HXDLIN(  53)							if ((color == -1)) {
 HXDLIN(  53)								color = _this1->currentColor;
             							}
 HXDLIN(  53)							{
-HXDLIN(  53)								_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(_this->dxPrev) ),( (Float)(_this->dyPrev) ),0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,_this->jx,_this->jy,0);
+HXDLIN(  53)								float ax = ( (float)(( (Float)(_this->dxPrev) )) );
+HXDLIN(  53)								float ay = ( (float)(( (Float)(_this->dyPrev) )) );
+HXDLIN(  53)								float bx = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  53)								float by = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  53)								float cx = ( (float)(_this->jx) );
+HXDLIN(  53)								float cy = ( (float)(_this->jy) );
+HXDLIN(  53)								bool windAdjust = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN(  53)								if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  53)									_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  53)									_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             								}
-HXDLIN(  53)								_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  53)								if (_this1->useTexture) {
+HXDLIN(  53)									ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            								}
             							}
-HXDLIN(  53)							_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  53)							_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  53)							_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             						}
 HXDLIN(  53)						{
 HXDLIN(  53)							 ::trilateral3::drawing::Pen _this2 = _this->pen;
@@ -2967,13 +3227,28 @@ HXDLIN(  53)							if ((color1 == -1)) {
 HXDLIN(  53)								color1 = _this2->currentColor;
             							}
 HXDLIN(  53)							{
-HXDLIN(  53)								_this2->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(_this->dxPrev) ),( (Float)(_this->dyPrev) ),0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->ex) ),( (Float)(_this->ey) ),0);
+HXDLIN(  53)								float ax1 = ( (float)(( (Float)(_this->dxPrev) )) );
+HXDLIN(  53)								float ay1 = ( (float)(( (Float)(_this->dyPrev) )) );
+HXDLIN(  53)								float bx1 = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  53)								float by1 = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  53)								float cx1 = ( (float)(( (Float)(_this->ex) )) );
+HXDLIN(  53)								float cy1 = ( (float)(( (Float)(_this->ey) )) );
+HXDLIN(  53)								bool windAdjust1 = ( (bool)(_this2->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax1,ay1,0,bx1,by1,0,cx1,cy1,0)) );
 HXDLIN(  53)								if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  53)									_this2->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  53)									_this2->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             								}
-HXDLIN(  53)								_this2->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  53)								if (_this2->useTexture) {
+HXDLIN(  53)									ax1 = ( (float)((( (Float)(ax1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									ay1 = ( (float)((( (Float)(ay1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									bx1 = ( (float)((( (Float)(bx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									by1 = ( (float)((( (Float)(by1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									cx1 = ( (float)((( (Float)(cx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									cy1 = ( (float)((( (Float)(cy1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									_this2->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax1,ay1,bx1,by1,cx1,cy1,windAdjust1);
+            								}
             							}
-HXDLIN(  53)							_this2->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  53)							_this2->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  53)							_this2->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             						}
             					}
 HXDLIN(  53)					bool _hx_tmp3;
@@ -2999,13 +3274,28 @@ HXDLIN(  53)							if ((color == -1)) {
 HXDLIN(  53)								color = _this1->currentColor;
             							}
 HXDLIN(  53)							{
-HXDLIN(  53)								_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(_this->jx,_this->jy,0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->ex) ),( (Float)(_this->ey) ),0);
+HXDLIN(  53)								float ax = ( (float)(_this->jx) );
+HXDLIN(  53)								float ay = ( (float)(_this->jy) );
+HXDLIN(  53)								float bx = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  53)								float by = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  53)								float cx = ( (float)(( (Float)(_this->ex) )) );
+HXDLIN(  53)								float cy = ( (float)(( (Float)(_this->ey) )) );
+HXDLIN(  53)								bool windAdjust = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN(  53)								if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  53)									_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  53)									_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             								}
-HXDLIN(  53)								_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  53)								if (_this1->useTexture) {
+HXDLIN(  53)									ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            								}
             							}
-HXDLIN(  53)							_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  53)							_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  53)							_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             						}
 HXDLIN(  53)						{
 HXDLIN(  53)							 ::trilateral3::drawing::Pen _this2 = _this->pen;
@@ -3014,13 +3304,28 @@ HXDLIN(  53)							if ((color1 == -1)) {
 HXDLIN(  53)								color1 = _this2->currentColor;
             							}
 HXDLIN(  53)							{
-HXDLIN(  53)								_this2->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(_this->dxPrev) ),( (Float)(_this->dyPrev) ),0,_this->jx,_this->jy,0,( (Float)(_this->ex) ),( (Float)(_this->ey) ),0);
+HXDLIN(  53)								float ax1 = ( (float)(( (Float)(_this->dxPrev) )) );
+HXDLIN(  53)								float ay1 = ( (float)(( (Float)(_this->dyPrev) )) );
+HXDLIN(  53)								float bx1 = ( (float)(_this->jx) );
+HXDLIN(  53)								float by1 = ( (float)(_this->jy) );
+HXDLIN(  53)								float cx1 = ( (float)(( (Float)(_this->ex) )) );
+HXDLIN(  53)								float cy1 = ( (float)(( (Float)(_this->ey) )) );
+HXDLIN(  53)								bool windAdjust1 = ( (bool)(_this2->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax1,ay1,0,bx1,by1,0,cx1,cy1,0)) );
 HXDLIN(  53)								if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  53)									_this2->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  53)									_this2->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             								}
-HXDLIN(  53)								_this2->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  53)								if (_this2->useTexture) {
+HXDLIN(  53)									ax1 = ( (float)((( (Float)(ax1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									ay1 = ( (float)((( (Float)(ay1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									bx1 = ( (float)((( (Float)(bx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									by1 = ( (float)((( (Float)(by1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									cx1 = ( (float)((( (Float)(cx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									cy1 = ( (float)((( (Float)(cy1) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)									_this2->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax1,ay1,bx1,by1,cx1,cy1,windAdjust1);
+            								}
             							}
-HXDLIN(  53)							_this2->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  53)							_this2->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  53)							_this2->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             						}
             					}
             				}
@@ -3035,13 +3340,28 @@ HXDLIN(  53)					if ((color == -1)) {
 HXDLIN(  53)						color = _this1->currentColor;
             					}
 HXDLIN(  53)					{
-HXDLIN(  53)						_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(_this->dxOld) ),( (Float)(_this->dyOld) ),0,( (Float)(_this->exPrev) ),( (Float)(_this->eyPrev) ),0,_this->ax,_this->ay,0);
+HXDLIN(  53)						float ax = ( (float)(( (Float)(_this->dxOld) )) );
+HXDLIN(  53)						float ay = ( (float)(( (Float)(_this->dyOld) )) );
+HXDLIN(  53)						float bx = ( (float)(( (Float)(_this->exPrev) )) );
+HXDLIN(  53)						float by = ( (float)(( (Float)(_this->eyPrev) )) );
+HXDLIN(  53)						float cx = ( (float)(_this->ax) );
+HXDLIN(  53)						float cy = ( (float)(_this->ay) );
+HXDLIN(  53)						bool windAdjust = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN(  53)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  53)							_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  53)							_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             						}
-HXDLIN(  53)						_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  53)						if (_this1->useTexture) {
+HXDLIN(  53)							ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)							ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)							bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)							by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)							cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)							cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)							_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            						}
             					}
-HXDLIN(  53)					_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  53)					_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  53)					_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             				}
             				else {
 HXDLIN(  53)					 ::trilateral3::drawing::Pen _this1 = _this->pen;
@@ -3050,13 +3370,28 @@ HXDLIN(  53)					if ((color == -1)) {
 HXDLIN(  53)						color = _this1->currentColor;
             					}
 HXDLIN(  53)					{
-HXDLIN(  53)						_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(_this->exOld) ),( (Float)(_this->eyOld) ),0,( (Float)(_this->dxPrev) ),( (Float)(_this->dyPrev) ),0,_this->ax,_this->ay,0);
+HXDLIN(  53)						float ax = ( (float)(( (Float)(_this->exOld) )) );
+HXDLIN(  53)						float ay = ( (float)(( (Float)(_this->eyOld) )) );
+HXDLIN(  53)						float bx = ( (float)(( (Float)(_this->dxPrev) )) );
+HXDLIN(  53)						float by = ( (float)(( (Float)(_this->dyPrev) )) );
+HXDLIN(  53)						float cx = ( (float)(_this->ax) );
+HXDLIN(  53)						float cy = ( (float)(_this->ay) );
+HXDLIN(  53)						bool windAdjust = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN(  53)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  53)							_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  53)							_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             						}
-HXDLIN(  53)						_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  53)						if (_this1->useTexture) {
+HXDLIN(  53)							ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)							ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)							bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)							by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)							cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)							cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)							_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            						}
             					}
-HXDLIN(  53)					_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  53)					_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  53)					_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             				}
             			}
             			else {
@@ -3067,13 +3402,28 @@ HXDLIN(  53)					if ((color == -1)) {
 HXDLIN(  53)						color = _this1->currentColor;
             					}
 HXDLIN(  53)					{
-HXDLIN(  53)						_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(_this->dxOld) ),( (Float)(_this->dyOld) ),0,( (Float)(_this->exPrev) ),( (Float)(_this->eyPrev) ),0,_this->jx,_this->jy,0);
+HXDLIN(  53)						float ax = ( (float)(( (Float)(_this->dxOld) )) );
+HXDLIN(  53)						float ay = ( (float)(( (Float)(_this->dyOld) )) );
+HXDLIN(  53)						float bx = ( (float)(( (Float)(_this->exPrev) )) );
+HXDLIN(  53)						float by = ( (float)(( (Float)(_this->eyPrev) )) );
+HXDLIN(  53)						float cx = ( (float)(_this->jx) );
+HXDLIN(  53)						float cy = ( (float)(_this->jy) );
+HXDLIN(  53)						bool windAdjust = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN(  53)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  53)							_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  53)							_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             						}
-HXDLIN(  53)						_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  53)						if (_this1->useTexture) {
+HXDLIN(  53)							ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)							ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)							bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)							by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)							cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)							cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)							_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            						}
             					}
-HXDLIN(  53)					_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  53)					_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  53)					_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             				}
             				else {
 HXDLIN(  53)					 ::trilateral3::drawing::Pen _this1 = _this->pen;
@@ -3082,13 +3432,28 @@ HXDLIN(  53)					if ((color == -1)) {
 HXDLIN(  53)						color = _this1->currentColor;
             					}
 HXDLIN(  53)					{
-HXDLIN(  53)						_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(_this->exOld) ),( (Float)(_this->eyOld) ),0,( (Float)(_this->dxPrev) ),( (Float)(_this->dyPrev) ),0,_this->jx,_this->jy,0);
+HXDLIN(  53)						float ax = ( (float)(( (Float)(_this->exOld) )) );
+HXDLIN(  53)						float ay = ( (float)(( (Float)(_this->eyOld) )) );
+HXDLIN(  53)						float bx = ( (float)(( (Float)(_this->dxPrev) )) );
+HXDLIN(  53)						float by = ( (float)(( (Float)(_this->dyPrev) )) );
+HXDLIN(  53)						float cx = ( (float)(_this->jx) );
+HXDLIN(  53)						float cy = ( (float)(_this->jy) );
+HXDLIN(  53)						bool windAdjust = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN(  53)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  53)							_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  53)							_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             						}
-HXDLIN(  53)						_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  53)						if (_this1->useTexture) {
+HXDLIN(  53)							ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)							ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)							bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)							by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)							cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)							cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  53)							_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            						}
             					}
-HXDLIN(  53)					_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  53)					_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  53)					_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             				}
             			}
             		}
@@ -3546,7 +3911,7 @@ HXDLIN(  56)			Float radius = (width_ / ( (Float)(2) ));
 HXDLIN(  56)			Float beta = (-(_this->angle1) - (::Math_obj::PI / ( (Float)(2) )));
 HXDLIN(  56)			Float gamma = ((-(_this->angle1) - (::Math_obj::PI / ( (Float)(2) ))) + ::Math_obj::PI);
 HXDLIN(  56)			::Array< Float > temp = ::Array_obj< Float >::__new();
-HXDLIN(  56)			 ::Dynamic drawType = _this->pen->drawType;
+HXDLIN(  56)			 ::Dynamic drawType = _this->pen->paintType;
 HXDLIN(  56)			 ::Dynamic sides = 36;
 HXDLIN(  56)			if (::hx::IsNull( sides )) {
 HXDLIN(  56)				sides = 36;
@@ -3860,22 +4225,29 @@ HXDLIN(  56)					by = cy;
             			}
 HXDLIN(  56)			int len = totalSteps;
 HXDLIN(  56)			{
+HXDLIN(  56)				 ::Dynamic _g2 = _this->pen->paintType;
+HXDLIN(  56)				{
+HXDLIN(  56)					Float v = (( (Float)(_g2->__Field(HX_("get_pos",2b,26,ca,26),::hx::paccDynamic)()) ) - ( (Float)(len) ));
+HXDLIN(  56)					_g2->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
+            				}
+            			}
+HXDLIN(  56)			{
 HXDLIN(  56)				 ::trilateral3::drawing::Pen _this1 = _this->pen;
 HXDLIN(  56)				int color = -1;
 HXDLIN(  56)				if ((color == -1)) {
 HXDLIN(  56)					color = _this1->currentColor;
             				}
-HXDLIN(  56)				_this1->colorType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,len);
+HXDLIN(  56)				_this1->paintType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,len);
             			}
 HXDLIN(  56)			int pA = _this->pointsAnti->length;
 HXDLIN(  56)			int len1 = ::Std_obj::_hx_int((( (Float)(temp->length) ) / ( (Float)(2) )));
 HXDLIN(  56)			int p4 = ::Std_obj::_hx_int((( (Float)(temp->length) ) / ( (Float)(4) )));
 HXDLIN(  56)			{
-HXDLIN(  56)				int _g2 = 0;
-HXDLIN(  56)				int _g3 = p4;
-HXDLIN(  56)				while((_g2 < _g3)){
-HXDLIN(  56)					_g2 = (_g2 + 1);
-HXDLIN(  56)					int i = (_g2 - 1);
+HXDLIN(  56)				int _g3 = 0;
+HXDLIN(  56)				int _g4 = p4;
+HXDLIN(  56)				while((_g3 < _g4)){
+HXDLIN(  56)					_g3 = (_g3 + 1);
+HXDLIN(  56)					int i = (_g3 - 1);
 HXDLIN(  56)					pA = (pA + 1);
 HXDLIN(  56)					_this->pointsAnti[(pA - 1)] = temp->__get(((len1 - (2 * i)) + 1));
 HXDLIN(  56)					pA = (pA + 1);
@@ -3884,11 +4256,11 @@ HXDLIN(  56)					_this->pointsAnti[(pA - 1)] = temp->__get((len1 - (2 * i)));
             			}
 HXDLIN(  56)			int pC = _this->pointsClock->length;
 HXDLIN(  56)			{
-HXDLIN(  56)				int _g4 = 0;
-HXDLIN(  56)				int _g5 = p4;
-HXDLIN(  56)				while((_g4 < _g5)){
-HXDLIN(  56)					_g4 = (_g4 + 1);
-HXDLIN(  56)					int i = (_g4 - 1);
+HXDLIN(  56)				int _g5 = 0;
+HXDLIN(  56)				int _g6 = p4;
+HXDLIN(  56)				while((_g5 < _g6)){
+HXDLIN(  56)					_g5 = (_g5 + 1);
+HXDLIN(  56)					int i = (_g5 - 1);
 HXDLIN(  56)					pC = (pC + 1);
 HXDLIN(  56)					_this->pointsClock[(pC - 1)] = temp->__get((((i * 2) + len1) + 1));
 HXDLIN(  56)					pC = (pC + 1);
@@ -3904,13 +4276,28 @@ HXDLIN(  56)				if ((color == -1)) {
 HXDLIN(  56)					color = _this1->currentColor;
             				}
 HXDLIN(  56)				{
-HXDLIN(  56)					_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(_this->dxPrev) ),( (Float)(_this->dyPrev) ),0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->ex) ),( (Float)(_this->ey) ),0);
+HXDLIN(  56)					float ax = ( (float)(( (Float)(_this->dxPrev) )) );
+HXDLIN(  56)					float ay = ( (float)(( (Float)(_this->dyPrev) )) );
+HXDLIN(  56)					float bx = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  56)					float by = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  56)					float cx = ( (float)(( (Float)(_this->ex) )) );
+HXDLIN(  56)					float cy = ( (float)(( (Float)(_this->ey) )) );
+HXDLIN(  56)					bool windAdjust = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN(  56)					if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  56)						_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  56)						_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             					}
-HXDLIN(  56)					_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  56)					if (_this1->useTexture) {
+HXDLIN(  56)						ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  56)						ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  56)						bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  56)						by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  56)						cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  56)						cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  56)						_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            					}
             				}
-HXDLIN(  56)				_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  56)				_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  56)				_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             			}
 HXDLIN(  56)			{
 HXDLIN(  56)				 ::trilateral3::drawing::Pen _this2 = _this->pen;
@@ -3919,13 +4306,28 @@ HXDLIN(  56)				if ((color1 == -1)) {
 HXDLIN(  56)					color1 = _this2->currentColor;
             				}
 HXDLIN(  56)				{
-HXDLIN(  56)					_this2->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(_this->dxPrev) ),( (Float)(_this->dyPrev) ),0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->exPrev) ),( (Float)(_this->eyPrev) ),0);
+HXDLIN(  56)					float ax1 = ( (float)(( (Float)(_this->dxPrev) )) );
+HXDLIN(  56)					float ay1 = ( (float)(( (Float)(_this->dyPrev) )) );
+HXDLIN(  56)					float bx1 = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  56)					float by1 = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  56)					float cx1 = ( (float)(( (Float)(_this->exPrev) )) );
+HXDLIN(  56)					float cy1 = ( (float)(( (Float)(_this->eyPrev) )) );
+HXDLIN(  56)					bool windAdjust1 = ( (bool)(_this2->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax1,ay1,0,bx1,by1,0,cx1,cy1,0)) );
 HXDLIN(  56)					if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  56)						_this2->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  56)						_this2->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             					}
-HXDLIN(  56)					_this2->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  56)					if (_this2->useTexture) {
+HXDLIN(  56)						ax1 = ( (float)((( (Float)(ax1) ) / ( (Float)(2000) ))) );
+HXDLIN(  56)						ay1 = ( (float)((( (Float)(ay1) ) / ( (Float)(2000) ))) );
+HXDLIN(  56)						bx1 = ( (float)((( (Float)(bx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  56)						by1 = ( (float)((( (Float)(by1) ) / ( (Float)(2000) ))) );
+HXDLIN(  56)						cx1 = ( (float)((( (Float)(cx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  56)						cy1 = ( (float)((( (Float)(cy1) ) / ( (Float)(2000) ))) );
+HXDLIN(  56)						_this2->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax1,ay1,bx1,by1,cx1,cy1,windAdjust1);
+            					}
             				}
-HXDLIN(  56)				_this2->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  56)				_this2->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  56)				_this2->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             			}
             		}
 HXDLIN(  56)		if ((_this->count != 0)) {
@@ -3936,13 +4338,28 @@ HXDLIN(  56)				if ((color == -1)) {
 HXDLIN(  56)					color = _this1->currentColor;
             				}
 HXDLIN(  56)				{
-HXDLIN(  56)					_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(_this->dxOld) ),( (Float)(_this->dyOld) ),0,( (Float)(_this->exPrev) ),( (Float)(_this->eyPrev) ),0,_this->ax,_this->ay,0);
+HXDLIN(  56)					float ax = ( (float)(( (Float)(_this->dxOld) )) );
+HXDLIN(  56)					float ay = ( (float)(( (Float)(_this->dyOld) )) );
+HXDLIN(  56)					float bx = ( (float)(( (Float)(_this->exPrev) )) );
+HXDLIN(  56)					float by = ( (float)(( (Float)(_this->eyPrev) )) );
+HXDLIN(  56)					float cx = ( (float)(_this->ax) );
+HXDLIN(  56)					float cy = ( (float)(_this->ay) );
+HXDLIN(  56)					bool windAdjust = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN(  56)					if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  56)						_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  56)						_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             					}
-HXDLIN(  56)					_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  56)					if (_this1->useTexture) {
+HXDLIN(  56)						ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  56)						ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  56)						bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  56)						by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  56)						cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  56)						cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  56)						_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            					}
             				}
-HXDLIN(  56)				_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  56)				_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  56)				_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             			}
             			else {
 HXDLIN(  56)				 ::trilateral3::drawing::Pen _this1 = _this->pen;
@@ -3951,13 +4368,28 @@ HXDLIN(  56)				if ((color == -1)) {
 HXDLIN(  56)					color = _this1->currentColor;
             				}
 HXDLIN(  56)				{
-HXDLIN(  56)					_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(_this->exOld) ),( (Float)(_this->eyOld) ),0,( (Float)(_this->dxPrev) ),( (Float)(_this->dyPrev) ),0,_this->ax,_this->ay,0);
+HXDLIN(  56)					float ax = ( (float)(( (Float)(_this->exOld) )) );
+HXDLIN(  56)					float ay = ( (float)(( (Float)(_this->eyOld) )) );
+HXDLIN(  56)					float bx = ( (float)(( (Float)(_this->dxPrev) )) );
+HXDLIN(  56)					float by = ( (float)(( (Float)(_this->dyPrev) )) );
+HXDLIN(  56)					float cx = ( (float)(_this->ax) );
+HXDLIN(  56)					float cy = ( (float)(_this->ay) );
+HXDLIN(  56)					bool windAdjust = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN(  56)					if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  56)						_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  56)						_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             					}
-HXDLIN(  56)					_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  56)					if (_this1->useTexture) {
+HXDLIN(  56)						ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  56)						ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  56)						bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  56)						by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  56)						cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  56)						cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  56)						_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            					}
             				}
-HXDLIN(  56)				_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  56)				_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  56)				_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             			}
             		}
 HXDLIN(  56)		{
@@ -4452,7 +4884,7 @@ HXDLIN(  59)			Float radius = (width_ / ( (Float)(2) ));
 HXDLIN(  59)			Float beta = (-(_this->angle1) - (::Math_obj::PI / ( (Float)(2) )));
 HXDLIN(  59)			Float gamma = ((-(_this->angle1) - (::Math_obj::PI / ( (Float)(2) ))) + ::Math_obj::PI);
 HXDLIN(  59)			::Array< Float > temp = ::Array_obj< Float >::__new();
-HXDLIN(  59)			 ::Dynamic drawType = _this->pen->drawType;
+HXDLIN(  59)			 ::Dynamic drawType = _this->pen->paintType;
 HXDLIN(  59)			 ::Dynamic sides = 36;
 HXDLIN(  59)			if (::hx::IsNull( sides )) {
 HXDLIN(  59)				sides = 36;
@@ -4766,22 +5198,29 @@ HXDLIN(  59)					by = cy;
             			}
 HXDLIN(  59)			int len = totalSteps;
 HXDLIN(  59)			{
+HXDLIN(  59)				 ::Dynamic _g2 = _this->pen->paintType;
+HXDLIN(  59)				{
+HXDLIN(  59)					Float v = (( (Float)(_g2->__Field(HX_("get_pos",2b,26,ca,26),::hx::paccDynamic)()) ) - ( (Float)(len) ));
+HXDLIN(  59)					_g2->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
+            				}
+            			}
+HXDLIN(  59)			{
 HXDLIN(  59)				 ::trilateral3::drawing::Pen _this1 = _this->pen;
 HXDLIN(  59)				int color = -1;
 HXDLIN(  59)				if ((color == -1)) {
 HXDLIN(  59)					color = _this1->currentColor;
             				}
-HXDLIN(  59)				_this1->colorType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,len);
+HXDLIN(  59)				_this1->paintType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,len);
             			}
 HXDLIN(  59)			int pA = _this->pointsAnti->length;
 HXDLIN(  59)			int len1 = ::Std_obj::_hx_int((( (Float)(temp->length) ) / ( (Float)(2) )));
 HXDLIN(  59)			int p4 = ::Std_obj::_hx_int((( (Float)(temp->length) ) / ( (Float)(4) )));
 HXDLIN(  59)			{
-HXDLIN(  59)				int _g2 = 0;
-HXDLIN(  59)				int _g3 = p4;
-HXDLIN(  59)				while((_g2 < _g3)){
-HXDLIN(  59)					_g2 = (_g2 + 1);
-HXDLIN(  59)					int i = (_g2 - 1);
+HXDLIN(  59)				int _g3 = 0;
+HXDLIN(  59)				int _g4 = p4;
+HXDLIN(  59)				while((_g3 < _g4)){
+HXDLIN(  59)					_g3 = (_g3 + 1);
+HXDLIN(  59)					int i = (_g3 - 1);
 HXDLIN(  59)					pA = (pA + 1);
 HXDLIN(  59)					_this->pointsAnti[(pA - 1)] = temp->__get(((len1 - (2 * i)) + 1));
 HXDLIN(  59)					pA = (pA + 1);
@@ -4790,11 +5229,11 @@ HXDLIN(  59)					_this->pointsAnti[(pA - 1)] = temp->__get((len1 - (2 * i)));
             			}
 HXDLIN(  59)			int pC = _this->pointsClock->length;
 HXDLIN(  59)			{
-HXDLIN(  59)				int _g4 = 0;
-HXDLIN(  59)				int _g5 = p4;
-HXDLIN(  59)				while((_g4 < _g5)){
-HXDLIN(  59)					_g4 = (_g4 + 1);
-HXDLIN(  59)					int i = (_g4 - 1);
+HXDLIN(  59)				int _g5 = 0;
+HXDLIN(  59)				int _g6 = p4;
+HXDLIN(  59)				while((_g5 < _g6)){
+HXDLIN(  59)					_g5 = (_g5 + 1);
+HXDLIN(  59)					int i = (_g5 - 1);
 HXDLIN(  59)					pC = (pC + 1);
 HXDLIN(  59)					_this->pointsClock[(pC - 1)] = temp->__get((((i * 2) + len1) + 1));
 HXDLIN(  59)					pC = (pC + 1);
@@ -4810,13 +5249,28 @@ HXDLIN(  59)				if ((color == -1)) {
 HXDLIN(  59)					color = _this1->currentColor;
             				}
 HXDLIN(  59)				{
-HXDLIN(  59)					_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(_this->dxPrev) ),( (Float)(_this->dyPrev) ),0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->ex) ),( (Float)(_this->ey) ),0);
+HXDLIN(  59)					float ax = ( (float)(( (Float)(_this->dxPrev) )) );
+HXDLIN(  59)					float ay = ( (float)(( (Float)(_this->dyPrev) )) );
+HXDLIN(  59)					float bx = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  59)					float by = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  59)					float cx = ( (float)(( (Float)(_this->ex) )) );
+HXDLIN(  59)					float cy = ( (float)(( (Float)(_this->ey) )) );
+HXDLIN(  59)					bool windAdjust = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN(  59)					if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  59)						_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  59)						_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             					}
-HXDLIN(  59)					_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  59)					if (_this1->useTexture) {
+HXDLIN(  59)						ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)						ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)						bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)						by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)						cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)						cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)						_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            					}
             				}
-HXDLIN(  59)				_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  59)				_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  59)				_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             			}
 HXDLIN(  59)			{
 HXDLIN(  59)				 ::trilateral3::drawing::Pen _this2 = _this->pen;
@@ -4825,13 +5279,28 @@ HXDLIN(  59)				if ((color1 == -1)) {
 HXDLIN(  59)					color1 = _this2->currentColor;
             				}
 HXDLIN(  59)				{
-HXDLIN(  59)					_this2->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(_this->dxPrev) ),( (Float)(_this->dyPrev) ),0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->exPrev) ),( (Float)(_this->eyPrev) ),0);
+HXDLIN(  59)					float ax1 = ( (float)(( (Float)(_this->dxPrev) )) );
+HXDLIN(  59)					float ay1 = ( (float)(( (Float)(_this->dyPrev) )) );
+HXDLIN(  59)					float bx1 = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  59)					float by1 = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  59)					float cx1 = ( (float)(( (Float)(_this->exPrev) )) );
+HXDLIN(  59)					float cy1 = ( (float)(( (Float)(_this->eyPrev) )) );
+HXDLIN(  59)					bool windAdjust1 = ( (bool)(_this2->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax1,ay1,0,bx1,by1,0,cx1,cy1,0)) );
 HXDLIN(  59)					if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  59)						_this2->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  59)						_this2->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             					}
-HXDLIN(  59)					_this2->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  59)					if (_this2->useTexture) {
+HXDLIN(  59)						ax1 = ( (float)((( (Float)(ax1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)						ay1 = ( (float)((( (Float)(ay1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)						bx1 = ( (float)((( (Float)(bx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)						by1 = ( (float)((( (Float)(by1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)						cx1 = ( (float)((( (Float)(cx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)						cy1 = ( (float)((( (Float)(cy1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)						_this2->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax1,ay1,bx1,by1,cx1,cy1,windAdjust1);
+            					}
             				}
-HXDLIN(  59)				_this2->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  59)				_this2->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  59)				_this2->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             			}
             		}
             		else {
@@ -4839,7 +5308,7 @@ HXDLIN(  59)			if ((_this->count != 0)) {
 HXDLIN(  59)				_this->addQuads(clockWise,width_);
             			}
 HXDLIN(  59)			{
-HXDLIN(  59)				_this->quadIndex = ( (Float)(_this->pen->drawType->__Field(HX_("get_pos",2b,26,ca,26),::hx::paccDynamic)()) );
+HXDLIN(  59)				_this->quadIndex = ( (Float)(_this->pen->paintType->__Field(HX_("get_pos",2b,26,ca,26),::hx::paccDynamic)()) );
 HXDLIN(  59)				if ((_this->count == 0)) {
 HXDLIN(  59)					_this->penultimateAX = ( (Float)(_this->dxPrev) );
 HXDLIN(  59)					_this->penultimateAY = ( (Float)(_this->dyPrev) );
@@ -4856,13 +5325,28 @@ HXDLIN(  59)						if ((color == -1)) {
 HXDLIN(  59)							color = _this1->currentColor;
             						}
 HXDLIN(  59)						{
-HXDLIN(  59)							_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(_this->dxPrev) ),( (Float)(_this->dyPrev) ),0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->ex) ),( (Float)(_this->ey) ),0);
+HXDLIN(  59)							float ax = ( (float)(( (Float)(_this->dxPrev) )) );
+HXDLIN(  59)							float ay = ( (float)(( (Float)(_this->dyPrev) )) );
+HXDLIN(  59)							float bx = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  59)							float by = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  59)							float cx = ( (float)(( (Float)(_this->ex) )) );
+HXDLIN(  59)							float cy = ( (float)(( (Float)(_this->ey) )) );
+HXDLIN(  59)							bool windAdjust = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN(  59)							if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  59)								_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  59)								_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             							}
-HXDLIN(  59)							_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  59)							if (_this1->useTexture) {
+HXDLIN(  59)								ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)								ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)								bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)								by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)								cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)								cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)								_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            							}
             						}
-HXDLIN(  59)						_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  59)						_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  59)						_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             					}
 HXDLIN(  59)					{
 HXDLIN(  59)						 ::trilateral3::drawing::Pen _this2 = _this->pen;
@@ -4871,13 +5355,28 @@ HXDLIN(  59)						if ((color1 == -1)) {
 HXDLIN(  59)							color1 = _this2->currentColor;
             						}
 HXDLIN(  59)						{
-HXDLIN(  59)							_this2->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(_this->dxPrev) ),( (Float)(_this->dyPrev) ),0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->exPrev) ),( (Float)(_this->eyPrev) ),0);
+HXDLIN(  59)							float ax1 = ( (float)(( (Float)(_this->dxPrev) )) );
+HXDLIN(  59)							float ay1 = ( (float)(( (Float)(_this->dyPrev) )) );
+HXDLIN(  59)							float bx1 = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  59)							float by1 = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  59)							float cx1 = ( (float)(( (Float)(_this->exPrev) )) );
+HXDLIN(  59)							float cy1 = ( (float)(( (Float)(_this->eyPrev) )) );
+HXDLIN(  59)							bool windAdjust1 = ( (bool)(_this2->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax1,ay1,0,bx1,by1,0,cx1,cy1,0)) );
 HXDLIN(  59)							if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  59)								_this2->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  59)								_this2->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             							}
-HXDLIN(  59)							_this2->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  59)							if (_this2->useTexture) {
+HXDLIN(  59)								ax1 = ( (float)((( (Float)(ax1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)								ay1 = ( (float)((( (Float)(ay1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)								bx1 = ( (float)((( (Float)(bx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)								by1 = ( (float)((( (Float)(by1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)								cx1 = ( (float)((( (Float)(cx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)								cy1 = ( (float)((( (Float)(cy1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)								_this2->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax1,ay1,bx1,by1,cx1,cy1,windAdjust1);
+            							}
             						}
-HXDLIN(  59)						_this2->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  59)						_this2->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  59)						_this2->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             					}
             				}
             				else {
@@ -4904,13 +5403,28 @@ HXDLIN(  59)							if ((color == -1)) {
 HXDLIN(  59)								color = _this1->currentColor;
             							}
 HXDLIN(  59)							{
-HXDLIN(  59)								_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(_this->jx,_this->jy,0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->ex) ),( (Float)(_this->ey) ),0);
+HXDLIN(  59)								float ax = ( (float)(_this->jx) );
+HXDLIN(  59)								float ay = ( (float)(_this->jy) );
+HXDLIN(  59)								float bx = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  59)								float by = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  59)								float cx = ( (float)(( (Float)(_this->ex) )) );
+HXDLIN(  59)								float cy = ( (float)(( (Float)(_this->ey) )) );
+HXDLIN(  59)								bool windAdjust = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN(  59)								if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  59)									_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  59)									_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             								}
-HXDLIN(  59)								_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  59)								if (_this1->useTexture) {
+HXDLIN(  59)									ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            								}
             							}
-HXDLIN(  59)							_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  59)							_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  59)							_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             						}
 HXDLIN(  59)						{
 HXDLIN(  59)							 ::trilateral3::drawing::Pen _this2 = _this->pen;
@@ -4919,13 +5433,28 @@ HXDLIN(  59)							if ((color1 == -1)) {
 HXDLIN(  59)								color1 = _this2->currentColor;
             							}
 HXDLIN(  59)							{
-HXDLIN(  59)								_this2->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(_this->jx,_this->jy,0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->exPrev) ),( (Float)(_this->eyPrev) ),0);
+HXDLIN(  59)								float ax1 = ( (float)(_this->jx) );
+HXDLIN(  59)								float ay1 = ( (float)(_this->jy) );
+HXDLIN(  59)								float bx1 = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  59)								float by1 = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  59)								float cx1 = ( (float)(( (Float)(_this->exPrev) )) );
+HXDLIN(  59)								float cy1 = ( (float)(( (Float)(_this->eyPrev) )) );
+HXDLIN(  59)								bool windAdjust1 = ( (bool)(_this2->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax1,ay1,0,bx1,by1,0,cx1,cy1,0)) );
 HXDLIN(  59)								if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  59)									_this2->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  59)									_this2->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             								}
-HXDLIN(  59)								_this2->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  59)								if (_this2->useTexture) {
+HXDLIN(  59)									ax1 = ( (float)((( (Float)(ax1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									ay1 = ( (float)((( (Float)(ay1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									bx1 = ( (float)((( (Float)(bx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									by1 = ( (float)((( (Float)(by1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									cx1 = ( (float)((( (Float)(cx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									cy1 = ( (float)((( (Float)(cy1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									_this2->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax1,ay1,bx1,by1,cx1,cy1,windAdjust1);
+            								}
             							}
-HXDLIN(  59)							_this2->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  59)							_this2->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  59)							_this2->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             						}
             					}
 HXDLIN(  59)					bool _hx_tmp1;
@@ -4951,13 +5480,28 @@ HXDLIN(  59)							if ((color == -1)) {
 HXDLIN(  59)								color = _this1->currentColor;
             							}
 HXDLIN(  59)							{
-HXDLIN(  59)								_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(_this->jx,_this->jy,0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->ex) ),( (Float)(_this->ey) ),0);
+HXDLIN(  59)								float ax = ( (float)(_this->jx) );
+HXDLIN(  59)								float ay = ( (float)(_this->jy) );
+HXDLIN(  59)								float bx = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  59)								float by = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  59)								float cx = ( (float)(( (Float)(_this->ex) )) );
+HXDLIN(  59)								float cy = ( (float)(( (Float)(_this->ey) )) );
+HXDLIN(  59)								bool windAdjust = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN(  59)								if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  59)									_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  59)									_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             								}
-HXDLIN(  59)								_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  59)								if (_this1->useTexture) {
+HXDLIN(  59)									ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            								}
             							}
-HXDLIN(  59)							_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  59)							_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  59)							_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             						}
 HXDLIN(  59)						{
 HXDLIN(  59)							 ::trilateral3::drawing::Pen _this2 = _this->pen;
@@ -4966,13 +5510,28 @@ HXDLIN(  59)							if ((color1 == -1)) {
 HXDLIN(  59)								color1 = _this2->currentColor;
             							}
 HXDLIN(  59)							{
-HXDLIN(  59)								_this2->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(_this->jx,_this->jy,0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->exPrev) ),( (Float)(_this->eyPrev) ),0);
+HXDLIN(  59)								float ax1 = ( (float)(_this->jx) );
+HXDLIN(  59)								float ay1 = ( (float)(_this->jy) );
+HXDLIN(  59)								float bx1 = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  59)								float by1 = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  59)								float cx1 = ( (float)(( (Float)(_this->exPrev) )) );
+HXDLIN(  59)								float cy1 = ( (float)(( (Float)(_this->eyPrev) )) );
+HXDLIN(  59)								bool windAdjust1 = ( (bool)(_this2->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax1,ay1,0,bx1,by1,0,cx1,cy1,0)) );
 HXDLIN(  59)								if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  59)									_this2->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  59)									_this2->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             								}
-HXDLIN(  59)								_this2->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  59)								if (_this2->useTexture) {
+HXDLIN(  59)									ax1 = ( (float)((( (Float)(ax1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									ay1 = ( (float)((( (Float)(ay1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									bx1 = ( (float)((( (Float)(bx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									by1 = ( (float)((( (Float)(by1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									cx1 = ( (float)((( (Float)(cx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									cy1 = ( (float)((( (Float)(cy1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									_this2->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax1,ay1,bx1,by1,cx1,cy1,windAdjust1);
+            								}
             							}
-HXDLIN(  59)							_this2->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  59)							_this2->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  59)							_this2->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             						}
             					}
 HXDLIN(  59)					bool _hx_tmp2;
@@ -4998,13 +5557,28 @@ HXDLIN(  59)							if ((color == -1)) {
 HXDLIN(  59)								color = _this1->currentColor;
             							}
 HXDLIN(  59)							{
-HXDLIN(  59)								_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(_this->dxPrev) ),( (Float)(_this->dyPrev) ),0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,_this->jx,_this->jy,0);
+HXDLIN(  59)								float ax = ( (float)(( (Float)(_this->dxPrev) )) );
+HXDLIN(  59)								float ay = ( (float)(( (Float)(_this->dyPrev) )) );
+HXDLIN(  59)								float bx = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  59)								float by = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  59)								float cx = ( (float)(_this->jx) );
+HXDLIN(  59)								float cy = ( (float)(_this->jy) );
+HXDLIN(  59)								bool windAdjust = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN(  59)								if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  59)									_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  59)									_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             								}
-HXDLIN(  59)								_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  59)								if (_this1->useTexture) {
+HXDLIN(  59)									ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            								}
             							}
-HXDLIN(  59)							_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  59)							_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  59)							_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             						}
 HXDLIN(  59)						{
 HXDLIN(  59)							 ::trilateral3::drawing::Pen _this2 = _this->pen;
@@ -5013,13 +5587,28 @@ HXDLIN(  59)							if ((color1 == -1)) {
 HXDLIN(  59)								color1 = _this2->currentColor;
             							}
 HXDLIN(  59)							{
-HXDLIN(  59)								_this2->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(_this->dxPrev) ),( (Float)(_this->dyPrev) ),0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->ex) ),( (Float)(_this->ey) ),0);
+HXDLIN(  59)								float ax1 = ( (float)(( (Float)(_this->dxPrev) )) );
+HXDLIN(  59)								float ay1 = ( (float)(( (Float)(_this->dyPrev) )) );
+HXDLIN(  59)								float bx1 = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  59)								float by1 = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  59)								float cx1 = ( (float)(( (Float)(_this->ex) )) );
+HXDLIN(  59)								float cy1 = ( (float)(( (Float)(_this->ey) )) );
+HXDLIN(  59)								bool windAdjust1 = ( (bool)(_this2->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax1,ay1,0,bx1,by1,0,cx1,cy1,0)) );
 HXDLIN(  59)								if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  59)									_this2->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  59)									_this2->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             								}
-HXDLIN(  59)								_this2->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  59)								if (_this2->useTexture) {
+HXDLIN(  59)									ax1 = ( (float)((( (Float)(ax1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									ay1 = ( (float)((( (Float)(ay1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									bx1 = ( (float)((( (Float)(bx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									by1 = ( (float)((( (Float)(by1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									cx1 = ( (float)((( (Float)(cx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									cy1 = ( (float)((( (Float)(cy1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									_this2->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax1,ay1,bx1,by1,cx1,cy1,windAdjust1);
+            								}
             							}
-HXDLIN(  59)							_this2->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  59)							_this2->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  59)							_this2->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             						}
             					}
 HXDLIN(  59)					bool _hx_tmp3;
@@ -5045,13 +5634,28 @@ HXDLIN(  59)							if ((color == -1)) {
 HXDLIN(  59)								color = _this1->currentColor;
             							}
 HXDLIN(  59)							{
-HXDLIN(  59)								_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(_this->jx,_this->jy,0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->ex) ),( (Float)(_this->ey) ),0);
+HXDLIN(  59)								float ax = ( (float)(_this->jx) );
+HXDLIN(  59)								float ay = ( (float)(_this->jy) );
+HXDLIN(  59)								float bx = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  59)								float by = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  59)								float cx = ( (float)(( (Float)(_this->ex) )) );
+HXDLIN(  59)								float cy = ( (float)(( (Float)(_this->ey) )) );
+HXDLIN(  59)								bool windAdjust = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN(  59)								if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  59)									_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  59)									_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             								}
-HXDLIN(  59)								_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  59)								if (_this1->useTexture) {
+HXDLIN(  59)									ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            								}
             							}
-HXDLIN(  59)							_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  59)							_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  59)							_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             						}
 HXDLIN(  59)						{
 HXDLIN(  59)							 ::trilateral3::drawing::Pen _this2 = _this->pen;
@@ -5060,20 +5664,35 @@ HXDLIN(  59)							if ((color1 == -1)) {
 HXDLIN(  59)								color1 = _this2->currentColor;
             							}
 HXDLIN(  59)							{
-HXDLIN(  59)								_this2->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(_this->dxPrev) ),( (Float)(_this->dyPrev) ),0,_this->jx,_this->jy,0,( (Float)(_this->ex) ),( (Float)(_this->ey) ),0);
+HXDLIN(  59)								float ax1 = ( (float)(( (Float)(_this->dxPrev) )) );
+HXDLIN(  59)								float ay1 = ( (float)(( (Float)(_this->dyPrev) )) );
+HXDLIN(  59)								float bx1 = ( (float)(_this->jx) );
+HXDLIN(  59)								float by1 = ( (float)(_this->jy) );
+HXDLIN(  59)								float cx1 = ( (float)(( (Float)(_this->ex) )) );
+HXDLIN(  59)								float cy1 = ( (float)(( (Float)(_this->ey) )) );
+HXDLIN(  59)								bool windAdjust1 = ( (bool)(_this2->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax1,ay1,0,bx1,by1,0,cx1,cy1,0)) );
 HXDLIN(  59)								if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  59)									_this2->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  59)									_this2->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             								}
-HXDLIN(  59)								_this2->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  59)								if (_this2->useTexture) {
+HXDLIN(  59)									ax1 = ( (float)((( (Float)(ax1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									ay1 = ( (float)((( (Float)(ay1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									bx1 = ( (float)((( (Float)(bx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									by1 = ( (float)((( (Float)(by1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									cx1 = ( (float)((( (Float)(cx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									cy1 = ( (float)((( (Float)(cy1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)									_this2->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax1,ay1,bx1,by1,cx1,cy1,windAdjust1);
+            								}
             							}
-HXDLIN(  59)							_this2->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  59)							_this2->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  59)							_this2->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             						}
             					}
             				}
             			}
             		}
 HXDLIN(  59)		if (clockWise) {
-HXDLIN(  59)			 ::Dynamic drawType = _this->pen->drawType;
+HXDLIN(  59)			 ::Dynamic drawType = _this->pen->paintType;
 HXDLIN(  59)			Float radius = (width_ / ( (Float)(2) ));
 HXDLIN(  59)			::Array< Float > edgePoly = _this->pointsClock;
 HXDLIN(  59)			Float pi = ::Math_obj::PI;
@@ -5119,11 +5738,11 @@ HXDLIN(  59)				int color = -1;
 HXDLIN(  59)				if ((color == -1)) {
 HXDLIN(  59)					color = _this1->currentColor;
             				}
-HXDLIN(  59)				_this1->colorType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,len);
+HXDLIN(  59)				_this1->paintType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,len);
             			}
             		}
             		else {
-HXDLIN(  59)			 ::Dynamic drawType = _this->pen->drawType;
+HXDLIN(  59)			 ::Dynamic drawType = _this->pen->paintType;
 HXDLIN(  59)			Float radius = (width_ / ( (Float)(2) ));
 HXDLIN(  59)			::Array< Float > edgePoly = _this->pointsAnti;
 HXDLIN(  59)			Float pi = ::Math_obj::PI;
@@ -5169,7 +5788,7 @@ HXDLIN(  59)				int color = -1;
 HXDLIN(  59)				if ((color == -1)) {
 HXDLIN(  59)					color = _this1->currentColor;
             				}
-HXDLIN(  59)				_this1->colorType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,len);
+HXDLIN(  59)				_this1->paintType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,len);
             			}
             		}
 HXDLIN(  59)		{
@@ -5198,13 +5817,28 @@ HXDLIN(  59)					if ((color == -1)) {
 HXDLIN(  59)						color = _this1->currentColor;
             					}
 HXDLIN(  59)					{
-HXDLIN(  59)						_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(_this->ax,_this->ay,0,( (Float)(_this->dxOld) ),( (Float)(_this->dyOld) ),0,_this->jx,_this->jy,0);
+HXDLIN(  59)						float ax = ( (float)(_this->ax) );
+HXDLIN(  59)						float ay = ( (float)(_this->ay) );
+HXDLIN(  59)						float bx = ( (float)(( (Float)(_this->dxOld) )) );
+HXDLIN(  59)						float by = ( (float)(( (Float)(_this->dyOld) )) );
+HXDLIN(  59)						float cx = ( (float)(_this->jx) );
+HXDLIN(  59)						float cy = ( (float)(_this->jy) );
+HXDLIN(  59)						bool windAdjust = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN(  59)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  59)							_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  59)							_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             						}
-HXDLIN(  59)						_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  59)						if (_this1->useTexture) {
+HXDLIN(  59)							ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)							ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)							bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)							by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)							cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)							cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)							_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            						}
             					}
-HXDLIN(  59)					_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  59)					_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  59)					_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             				}
 HXDLIN(  59)				{
 HXDLIN(  59)					 ::trilateral3::drawing::Pen _this2 = _this->pen;
@@ -5213,13 +5847,28 @@ HXDLIN(  59)					if ((color1 == -1)) {
 HXDLIN(  59)						color1 = _this2->currentColor;
             					}
 HXDLIN(  59)					{
-HXDLIN(  59)						_this2->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(_this->ax,_this->ay,0,( (Float)(_this->exPrev) ),( (Float)(_this->eyPrev) ),0,_this->jx,_this->jy,0);
+HXDLIN(  59)						float ax1 = ( (float)(_this->ax) );
+HXDLIN(  59)						float ay1 = ( (float)(_this->ay) );
+HXDLIN(  59)						float bx1 = ( (float)(( (Float)(_this->exPrev) )) );
+HXDLIN(  59)						float by1 = ( (float)(( (Float)(_this->eyPrev) )) );
+HXDLIN(  59)						float cx1 = ( (float)(_this->jx) );
+HXDLIN(  59)						float cy1 = ( (float)(_this->jy) );
+HXDLIN(  59)						bool windAdjust1 = ( (bool)(_this2->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax1,ay1,0,bx1,by1,0,cx1,cy1,0)) );
 HXDLIN(  59)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  59)							_this2->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  59)							_this2->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             						}
-HXDLIN(  59)						_this2->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  59)						if (_this2->useTexture) {
+HXDLIN(  59)							ax1 = ( (float)((( (Float)(ax1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)							ay1 = ( (float)((( (Float)(ay1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)							bx1 = ( (float)((( (Float)(bx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)							by1 = ( (float)((( (Float)(by1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)							cx1 = ( (float)((( (Float)(cx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)							cy1 = ( (float)((( (Float)(cy1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)							_this2->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax1,ay1,bx1,by1,cx1,cy1,windAdjust1);
+            						}
             					}
-HXDLIN(  59)					_this2->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  59)					_this2->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  59)					_this2->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             				}
             			}
             			else {
@@ -5230,13 +5879,28 @@ HXDLIN(  59)					if ((color == -1)) {
 HXDLIN(  59)						color = _this1->currentColor;
             					}
 HXDLIN(  59)					{
-HXDLIN(  59)						_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(_this->ax,_this->ay,0,( (Float)(_this->exOld) ),( (Float)(_this->eyOld) ),0,_this->jx,_this->jy,0);
+HXDLIN(  59)						float ax = ( (float)(_this->ax) );
+HXDLIN(  59)						float ay = ( (float)(_this->ay) );
+HXDLIN(  59)						float bx = ( (float)(( (Float)(_this->exOld) )) );
+HXDLIN(  59)						float by = ( (float)(( (Float)(_this->eyOld) )) );
+HXDLIN(  59)						float cx = ( (float)(_this->jx) );
+HXDLIN(  59)						float cy = ( (float)(_this->jy) );
+HXDLIN(  59)						bool windAdjust = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN(  59)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  59)							_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  59)							_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             						}
-HXDLIN(  59)						_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  59)						if (_this1->useTexture) {
+HXDLIN(  59)							ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)							ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)							bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)							by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)							cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)							cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)							_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            						}
             					}
-HXDLIN(  59)					_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  59)					_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  59)					_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             				}
 HXDLIN(  59)				{
 HXDLIN(  59)					 ::trilateral3::drawing::Pen _this2 = _this->pen;
@@ -5245,13 +5909,28 @@ HXDLIN(  59)					if ((color1 == -1)) {
 HXDLIN(  59)						color1 = _this2->currentColor;
             					}
 HXDLIN(  59)					{
-HXDLIN(  59)						_this2->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(_this->ax,_this->ay,0,( (Float)(_this->dxPrev) ),( (Float)(_this->dyPrev) ),0,_this->jx,_this->jy,0);
+HXDLIN(  59)						float ax1 = ( (float)(_this->ax) );
+HXDLIN(  59)						float ay1 = ( (float)(_this->ay) );
+HXDLIN(  59)						float bx1 = ( (float)(( (Float)(_this->dxPrev) )) );
+HXDLIN(  59)						float by1 = ( (float)(( (Float)(_this->dyPrev) )) );
+HXDLIN(  59)						float cx1 = ( (float)(_this->jx) );
+HXDLIN(  59)						float cy1 = ( (float)(_this->jy) );
+HXDLIN(  59)						bool windAdjust1 = ( (bool)(_this2->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax1,ay1,0,bx1,by1,0,cx1,cy1,0)) );
 HXDLIN(  59)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  59)							_this2->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  59)							_this2->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             						}
-HXDLIN(  59)						_this2->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  59)						if (_this2->useTexture) {
+HXDLIN(  59)							ax1 = ( (float)((( (Float)(ax1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)							ay1 = ( (float)((( (Float)(ay1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)							bx1 = ( (float)((( (Float)(bx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)							by1 = ( (float)((( (Float)(by1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)							cx1 = ( (float)((( (Float)(cx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)							cy1 = ( (float)((( (Float)(cy1) ) / ( (Float)(2000) ))) );
+HXDLIN(  59)							_this2->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax1,ay1,bx1,by1,cx1,cy1,windAdjust1);
+            						}
             					}
-HXDLIN(  59)					_this2->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  59)					_this2->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  59)					_this2->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             				}
             			}
             		}
@@ -5699,7 +6378,7 @@ HXDLIN(  62)			Float radius = (width_ / ( (Float)(2) ));
 HXDLIN(  62)			Float beta = (-(_this->angle1) - (::Math_obj::PI / ( (Float)(2) )));
 HXDLIN(  62)			Float gamma = ((-(_this->angle1) - (::Math_obj::PI / ( (Float)(2) ))) + ::Math_obj::PI);
 HXDLIN(  62)			::Array< Float > temp = ::Array_obj< Float >::__new();
-HXDLIN(  62)			 ::Dynamic drawType = _this->pen->drawType;
+HXDLIN(  62)			 ::Dynamic drawType = _this->pen->paintType;
 HXDLIN(  62)			 ::Dynamic sides = 36;
 HXDLIN(  62)			if (::hx::IsNull( sides )) {
 HXDLIN(  62)				sides = 36;
@@ -6013,22 +6692,29 @@ HXDLIN(  62)					by = cy;
             			}
 HXDLIN(  62)			int len = totalSteps;
 HXDLIN(  62)			{
+HXDLIN(  62)				 ::Dynamic _g2 = _this->pen->paintType;
+HXDLIN(  62)				{
+HXDLIN(  62)					Float v = (( (Float)(_g2->__Field(HX_("get_pos",2b,26,ca,26),::hx::paccDynamic)()) ) - ( (Float)(len) ));
+HXDLIN(  62)					_g2->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
+            				}
+            			}
+HXDLIN(  62)			{
 HXDLIN(  62)				 ::trilateral3::drawing::Pen _this1 = _this->pen;
 HXDLIN(  62)				int color = -1;
 HXDLIN(  62)				if ((color == -1)) {
 HXDLIN(  62)					color = _this1->currentColor;
             				}
-HXDLIN(  62)				_this1->colorType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,len);
+HXDLIN(  62)				_this1->paintType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,len);
             			}
 HXDLIN(  62)			int pA = _this->pointsAnti->length;
 HXDLIN(  62)			int len1 = ::Std_obj::_hx_int((( (Float)(temp->length) ) / ( (Float)(2) )));
 HXDLIN(  62)			int p4 = ::Std_obj::_hx_int((( (Float)(temp->length) ) / ( (Float)(4) )));
 HXDLIN(  62)			{
-HXDLIN(  62)				int _g2 = 0;
-HXDLIN(  62)				int _g3 = p4;
-HXDLIN(  62)				while((_g2 < _g3)){
-HXDLIN(  62)					_g2 = (_g2 + 1);
-HXDLIN(  62)					int i = (_g2 - 1);
+HXDLIN(  62)				int _g3 = 0;
+HXDLIN(  62)				int _g4 = p4;
+HXDLIN(  62)				while((_g3 < _g4)){
+HXDLIN(  62)					_g3 = (_g3 + 1);
+HXDLIN(  62)					int i = (_g3 - 1);
 HXDLIN(  62)					pA = (pA + 1);
 HXDLIN(  62)					_this->pointsAnti[(pA - 1)] = temp->__get(((len1 - (2 * i)) + 1));
 HXDLIN(  62)					pA = (pA + 1);
@@ -6037,11 +6723,11 @@ HXDLIN(  62)					_this->pointsAnti[(pA - 1)] = temp->__get((len1 - (2 * i)));
             			}
 HXDLIN(  62)			int pC = _this->pointsClock->length;
 HXDLIN(  62)			{
-HXDLIN(  62)				int _g4 = 0;
-HXDLIN(  62)				int _g5 = p4;
-HXDLIN(  62)				while((_g4 < _g5)){
-HXDLIN(  62)					_g4 = (_g4 + 1);
-HXDLIN(  62)					int i = (_g4 - 1);
+HXDLIN(  62)				int _g5 = 0;
+HXDLIN(  62)				int _g6 = p4;
+HXDLIN(  62)				while((_g5 < _g6)){
+HXDLIN(  62)					_g5 = (_g5 + 1);
+HXDLIN(  62)					int i = (_g5 - 1);
 HXDLIN(  62)					pC = (pC + 1);
 HXDLIN(  62)					_this->pointsClock[(pC - 1)] = temp->__get((((i * 2) + len1) + 1));
 HXDLIN(  62)					pC = (pC + 1);
@@ -6057,13 +6743,28 @@ HXDLIN(  62)				if ((color == -1)) {
 HXDLIN(  62)					color = _this1->currentColor;
             				}
 HXDLIN(  62)				{
-HXDLIN(  62)					_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(_this->dxPrev) ),( (Float)(_this->dyPrev) ),0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->ex) ),( (Float)(_this->ey) ),0);
+HXDLIN(  62)					float ax = ( (float)(( (Float)(_this->dxPrev) )) );
+HXDLIN(  62)					float ay = ( (float)(( (Float)(_this->dyPrev) )) );
+HXDLIN(  62)					float bx = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  62)					float by = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  62)					float cx = ( (float)(( (Float)(_this->ex) )) );
+HXDLIN(  62)					float cy = ( (float)(( (Float)(_this->ey) )) );
+HXDLIN(  62)					bool windAdjust = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN(  62)					if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  62)						_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  62)						_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             					}
-HXDLIN(  62)					_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  62)					if (_this1->useTexture) {
+HXDLIN(  62)						ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN(  62)						ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN(  62)						bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN(  62)						by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN(  62)						cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN(  62)						cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN(  62)						_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            					}
             				}
-HXDLIN(  62)				_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  62)				_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN(  62)				_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             			}
 HXDLIN(  62)			{
 HXDLIN(  62)				 ::trilateral3::drawing::Pen _this2 = _this->pen;
@@ -6072,17 +6773,32 @@ HXDLIN(  62)				if ((color1 == -1)) {
 HXDLIN(  62)					color1 = _this2->currentColor;
             				}
 HXDLIN(  62)				{
-HXDLIN(  62)					_this2->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(( (Float)(_this->dxPrev) ),( (Float)(_this->dyPrev) ),0,( (Float)(_this->dx) ),( (Float)(_this->dy) ),0,( (Float)(_this->exPrev) ),( (Float)(_this->eyPrev) ),0);
+HXDLIN(  62)					float ax1 = ( (float)(( (Float)(_this->dxPrev) )) );
+HXDLIN(  62)					float ay1 = ( (float)(( (Float)(_this->dyPrev) )) );
+HXDLIN(  62)					float bx1 = ( (float)(( (Float)(_this->dx) )) );
+HXDLIN(  62)					float by1 = ( (float)(( (Float)(_this->dy) )) );
+HXDLIN(  62)					float cx1 = ( (float)(( (Float)(_this->exPrev) )) );
+HXDLIN(  62)					float cy1 = ( (float)(( (Float)(_this->eyPrev) )) );
+HXDLIN(  62)					bool windAdjust1 = ( (bool)(_this2->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax1,ay1,0,bx1,by1,0,cx1,cy1,0)) );
 HXDLIN(  62)					if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXDLIN(  62)						_this2->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN(  62)						_this2->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             					}
-HXDLIN(  62)					_this2->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN(  62)					if (_this2->useTexture) {
+HXDLIN(  62)						ax1 = ( (float)((( (Float)(ax1) ) / ( (Float)(2000) ))) );
+HXDLIN(  62)						ay1 = ( (float)((( (Float)(ay1) ) / ( (Float)(2000) ))) );
+HXDLIN(  62)						bx1 = ( (float)((( (Float)(bx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  62)						by1 = ( (float)((( (Float)(by1) ) / ( (Float)(2000) ))) );
+HXDLIN(  62)						cx1 = ( (float)((( (Float)(cx1) ) / ( (Float)(2000) ))) );
+HXDLIN(  62)						cy1 = ( (float)((( (Float)(cy1) ) / ( (Float)(2000) ))) );
+HXDLIN(  62)						_this2->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax1,ay1,bx1,by1,cx1,cy1,windAdjust1);
+            					}
             				}
-HXDLIN(  62)				_this2->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  62)				_this2->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN(  62)				_this2->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             			}
             		}
 HXDLIN(  62)		if (clockWise) {
-HXDLIN(  62)			 ::Dynamic drawType = _this->pen->drawType;
+HXDLIN(  62)			 ::Dynamic drawType = _this->pen->paintType;
 HXDLIN(  62)			Float radius = (width_ / ( (Float)(2) ));
 HXDLIN(  62)			::Array< Float > edgePoly = _this->pointsClock;
 HXDLIN(  62)			Float pi = ::Math_obj::PI;
@@ -6128,11 +6844,11 @@ HXDLIN(  62)				int color = -1;
 HXDLIN(  62)				if ((color == -1)) {
 HXDLIN(  62)					color = _this1->currentColor;
             				}
-HXDLIN(  62)				_this1->colorType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,len);
+HXDLIN(  62)				_this1->paintType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,len);
             			}
             		}
             		else {
-HXDLIN(  62)			 ::Dynamic drawType = _this->pen->drawType;
+HXDLIN(  62)			 ::Dynamic drawType = _this->pen->paintType;
 HXDLIN(  62)			Float radius = (width_ / ( (Float)(2) ));
 HXDLIN(  62)			::Array< Float > edgePoly = _this->pointsAnti;
 HXDLIN(  62)			Float pi = ::Math_obj::PI;
@@ -6178,7 +6894,7 @@ HXDLIN(  62)				int color = -1;
 HXDLIN(  62)				if ((color == -1)) {
 HXDLIN(  62)					color = _this1->currentColor;
             				}
-HXDLIN(  62)				_this1->colorType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,len);
+HXDLIN(  62)				_this1->paintType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,len);
             			}
             		}
 HXDLIN(  62)		{
@@ -6201,402 +6917,409 @@ HXDLIN(  62)		_this->count++;
 HX_DEFINE_DYNAMIC_FUNC2(Sketch_obj,fineOverlapLine,(void))
 
 void Sketch_obj::moveTo(Float x_,Float y_){
-            	HX_STACKFRAME(&_hx_pos_6351d8d914bc61da_231_moveTo)
-HXLINE( 232)		bool _hx_tmp;
-HXDLIN( 232)		if ((this->endLine != 2)) {
-HXLINE( 232)			_hx_tmp = (this->endLine == 3);
+            	HX_STACKFRAME(&_hx_pos_6351d8d914bc61da_230_moveTo)
+HXLINE( 231)		bool _hx_tmp;
+HXDLIN( 231)		if ((this->endLine != 2)) {
+HXLINE( 231)			_hx_tmp = (this->endLine == 3);
             		}
             		else {
-HXLINE( 232)			_hx_tmp = true;
+HXLINE( 231)			_hx_tmp = true;
             		}
-HXDLIN( 232)		if (_hx_tmp) {
-HXLINE( 232)			 ::trilateral3::drawing::Contour _this = this->contour;
-HXDLIN( 232)			Float width_ = this->width;
-HXDLIN( 232)			_this->endEdges();
-HXDLIN( 232)			if ((_this->count != 0)) {
-HXLINE( 232)				Float ax = _this->bx;
-HXDLIN( 232)				Float ay = _this->by;
-HXDLIN( 232)				Float radius = (width_ / ( (Float)(2) ));
-HXDLIN( 232)				Float beta = (-(_this->angle1) - (::Math_obj::PI / ( (Float)(2) )));
-HXDLIN( 232)				Float gamma = ((-(_this->angle1) - (::Math_obj::PI / ( (Float)(2) ))) - ::Math_obj::PI);
-HXDLIN( 232)				::Array< Float > temp = ::Array_obj< Float >::__new();
-HXDLIN( 232)				 ::Dynamic drawType = _this->pen->drawType;
-HXDLIN( 232)				 ::Dynamic sides = 36;
-HXDLIN( 232)				if (::hx::IsNull( sides )) {
-HXLINE( 232)					sides = 36;
+HXDLIN( 231)		if (_hx_tmp) {
+HXLINE( 231)			 ::trilateral3::drawing::Contour _this = this->contour;
+HXDLIN( 231)			Float width_ = this->width;
+HXDLIN( 231)			_this->endEdges();
+HXDLIN( 231)			if ((_this->count != 0)) {
+HXLINE( 231)				Float ax = _this->bx;
+HXDLIN( 231)				Float ay = _this->by;
+HXDLIN( 231)				Float radius = (width_ / ( (Float)(2) ));
+HXDLIN( 231)				Float beta = (-(_this->angle1) - (::Math_obj::PI / ( (Float)(2) )));
+HXDLIN( 231)				Float gamma = ((-(_this->angle1) - (::Math_obj::PI / ( (Float)(2) ))) - ::Math_obj::PI);
+HXDLIN( 231)				::Array< Float > temp = ::Array_obj< Float >::__new();
+HXDLIN( 231)				 ::Dynamic drawType = _this->pen->paintType;
+HXDLIN( 231)				 ::Dynamic sides = 36;
+HXDLIN( 231)				if (::hx::IsNull( sides )) {
+HXLINE( 231)					sides = 36;
             				}
-HXDLIN( 232)				Float pi = ::Math_obj::PI;
-HXDLIN( 232)				Float step = ((pi * ( (Float)(2) )) / ( (Float)(sides) ));
-HXDLIN( 232)				Float dif;
-HXDLIN( 232)				switch((int)(::fracs::DifferencePreference_obj::SMALL_dyn()->_hx_getIndex())){
+HXDLIN( 231)				Float pi = ::Math_obj::PI;
+HXDLIN( 231)				Float step = ((pi * ( (Float)(2) )) / ( (Float)(sides) ));
+HXDLIN( 231)				Float dif;
+HXDLIN( 231)				switch((int)(::fracs::DifferencePreference_obj::SMALL_dyn()->_hx_getIndex())){
             					case (int)0: {
-HXLINE( 232)						Float f;
-HXDLIN( 232)						bool f1;
-HXDLIN( 232)						if ((beta >= 0)) {
-HXLINE( 232)							f1 = (beta > ::Math_obj::PI);
+HXLINE( 231)						Float f;
+HXDLIN( 231)						bool f1;
+HXDLIN( 231)						if ((beta >= 0)) {
+HXLINE( 231)							f1 = (beta > ::Math_obj::PI);
             						}
             						else {
-HXLINE( 232)							f1 = false;
+HXLINE( 231)							f1 = false;
             						}
-HXDLIN( 232)						if (f1) {
-HXLINE( 232)							f = beta;
+HXDLIN( 231)						if (f1) {
+HXLINE( 231)							f = beta;
             						}
             						else {
-HXLINE( 232)							Float a = ::hx::Mod(beta,(( (Float)(2) ) * ::Math_obj::PI));
-HXDLIN( 232)							if ((a >= 0)) {
-HXLINE( 232)								f = a;
+HXLINE( 231)							Float a = ::hx::Mod(beta,(( (Float)(2) ) * ::Math_obj::PI));
+HXDLIN( 231)							if ((a >= 0)) {
+HXLINE( 231)								f = a;
             							}
             							else {
-HXLINE( 232)								f = (a + (( (Float)(2) ) * ::Math_obj::PI));
+HXLINE( 231)								f = (a + (( (Float)(2) ) * ::Math_obj::PI));
             							}
             						}
-HXDLIN( 232)						Float this1 = f;
-HXDLIN( 232)						Float za = this1;
-HXDLIN( 232)						Float f2;
-HXDLIN( 232)						bool f3;
-HXDLIN( 232)						if ((gamma >= 0)) {
-HXLINE( 232)							f3 = (gamma > ::Math_obj::PI);
+HXDLIN( 231)						Float this1 = f;
+HXDLIN( 231)						Float za = this1;
+HXDLIN( 231)						Float f2;
+HXDLIN( 231)						bool f3;
+HXDLIN( 231)						if ((gamma >= 0)) {
+HXLINE( 231)							f3 = (gamma > ::Math_obj::PI);
             						}
             						else {
-HXLINE( 232)							f3 = false;
+HXLINE( 231)							f3 = false;
             						}
-HXDLIN( 232)						if (f3) {
-HXLINE( 232)							f2 = gamma;
+HXDLIN( 231)						if (f3) {
+HXLINE( 231)							f2 = gamma;
             						}
             						else {
-HXLINE( 232)							Float a = ::hx::Mod(gamma,(( (Float)(2) ) * ::Math_obj::PI));
-HXDLIN( 232)							if ((a >= 0)) {
-HXLINE( 232)								f2 = a;
+HXLINE( 231)							Float a = ::hx::Mod(gamma,(( (Float)(2) ) * ::Math_obj::PI));
+HXDLIN( 231)							if ((a >= 0)) {
+HXLINE( 231)								f2 = a;
             							}
             							else {
-HXLINE( 232)								f2 = (a + (( (Float)(2) ) * ::Math_obj::PI));
+HXLINE( 231)								f2 = (a + (( (Float)(2) ) * ::Math_obj::PI));
             							}
             						}
-HXDLIN( 232)						Float this2 = f2;
-HXDLIN( 232)						Float zb = this2;
-HXDLIN( 232)						Float fa = za;
-HXDLIN( 232)						Float fb = zb;
-HXDLIN( 232)						Float theta = ::Math_obj::abs((fa - fb));
-HXDLIN( 232)						bool clockwise = (fa < fb);
-HXDLIN( 232)						Float dif1;
-HXDLIN( 232)						if (clockwise) {
-HXLINE( 232)							dif1 = theta;
+HXDLIN( 231)						Float this2 = f2;
+HXDLIN( 231)						Float zb = this2;
+HXDLIN( 231)						Float fa = za;
+HXDLIN( 231)						Float fb = zb;
+HXDLIN( 231)						Float theta = ::Math_obj::abs((fa - fb));
+HXDLIN( 231)						bool clockwise = (fa < fb);
+HXDLIN( 231)						Float dif1;
+HXDLIN( 231)						if (clockwise) {
+HXLINE( 231)							dif1 = theta;
             						}
             						else {
-HXLINE( 232)							dif1 = -(theta);
+HXLINE( 231)							dif1 = -(theta);
             						}
-HXDLIN( 232)						if ((dif1 > 0)) {
-HXLINE( 232)							dif = dif1;
+HXDLIN( 231)						if ((dif1 > 0)) {
+HXLINE( 231)							dif = dif1;
             						}
             						else {
-HXLINE( 232)							dif = ((( (Float)(2) ) * ::Math_obj::PI) + dif1);
+HXLINE( 231)							dif = ((( (Float)(2) ) * ::Math_obj::PI) + dif1);
             						}
             					}
             					break;
             					case (int)1: {
-HXLINE( 232)						Float f;
-HXDLIN( 232)						bool f1;
-HXDLIN( 232)						if ((beta >= 0)) {
-HXLINE( 232)							f1 = (beta > ::Math_obj::PI);
+HXLINE( 231)						Float f;
+HXDLIN( 231)						bool f1;
+HXDLIN( 231)						if ((beta >= 0)) {
+HXLINE( 231)							f1 = (beta > ::Math_obj::PI);
             						}
             						else {
-HXLINE( 232)							f1 = false;
+HXLINE( 231)							f1 = false;
             						}
-HXDLIN( 232)						if (f1) {
-HXLINE( 232)							f = beta;
+HXDLIN( 231)						if (f1) {
+HXLINE( 231)							f = beta;
             						}
             						else {
-HXLINE( 232)							Float a = ::hx::Mod(beta,(( (Float)(2) ) * ::Math_obj::PI));
-HXDLIN( 232)							if ((a >= 0)) {
-HXLINE( 232)								f = a;
+HXLINE( 231)							Float a = ::hx::Mod(beta,(( (Float)(2) ) * ::Math_obj::PI));
+HXDLIN( 231)							if ((a >= 0)) {
+HXLINE( 231)								f = a;
             							}
             							else {
-HXLINE( 232)								f = (a + (( (Float)(2) ) * ::Math_obj::PI));
+HXLINE( 231)								f = (a + (( (Float)(2) ) * ::Math_obj::PI));
             							}
             						}
-HXDLIN( 232)						Float this1 = f;
-HXDLIN( 232)						Float za = this1;
-HXDLIN( 232)						Float f2;
-HXDLIN( 232)						bool f3;
-HXDLIN( 232)						if ((gamma >= 0)) {
-HXLINE( 232)							f3 = (gamma > ::Math_obj::PI);
+HXDLIN( 231)						Float this1 = f;
+HXDLIN( 231)						Float za = this1;
+HXDLIN( 231)						Float f2;
+HXDLIN( 231)						bool f3;
+HXDLIN( 231)						if ((gamma >= 0)) {
+HXLINE( 231)							f3 = (gamma > ::Math_obj::PI);
             						}
             						else {
-HXLINE( 232)							f3 = false;
+HXLINE( 231)							f3 = false;
             						}
-HXDLIN( 232)						if (f3) {
-HXLINE( 232)							f2 = gamma;
+HXDLIN( 231)						if (f3) {
+HXLINE( 231)							f2 = gamma;
             						}
             						else {
-HXLINE( 232)							Float a = ::hx::Mod(gamma,(( (Float)(2) ) * ::Math_obj::PI));
-HXDLIN( 232)							if ((a >= 0)) {
-HXLINE( 232)								f2 = a;
+HXLINE( 231)							Float a = ::hx::Mod(gamma,(( (Float)(2) ) * ::Math_obj::PI));
+HXDLIN( 231)							if ((a >= 0)) {
+HXLINE( 231)								f2 = a;
             							}
             							else {
-HXLINE( 232)								f2 = (a + (( (Float)(2) ) * ::Math_obj::PI));
+HXLINE( 231)								f2 = (a + (( (Float)(2) ) * ::Math_obj::PI));
             							}
             						}
-HXDLIN( 232)						Float this2 = f2;
-HXDLIN( 232)						Float zb = this2;
-HXDLIN( 232)						Float fa = za;
-HXDLIN( 232)						Float fb = zb;
-HXDLIN( 232)						Float theta = ::Math_obj::abs((fa - fb));
-HXDLIN( 232)						bool clockwise = (fa < fb);
-HXDLIN( 232)						Float dif1;
-HXDLIN( 232)						if (clockwise) {
-HXLINE( 232)							dif1 = theta;
+HXDLIN( 231)						Float this2 = f2;
+HXDLIN( 231)						Float zb = this2;
+HXDLIN( 231)						Float fa = za;
+HXDLIN( 231)						Float fb = zb;
+HXDLIN( 231)						Float theta = ::Math_obj::abs((fa - fb));
+HXDLIN( 231)						bool clockwise = (fa < fb);
+HXDLIN( 231)						Float dif1;
+HXDLIN( 231)						if (clockwise) {
+HXLINE( 231)							dif1 = theta;
             						}
             						else {
-HXLINE( 232)							dif1 = -(theta);
+HXLINE( 231)							dif1 = -(theta);
             						}
-HXDLIN( 232)						if ((dif1 < 0)) {
-HXLINE( 232)							dif = dif1;
+HXDLIN( 231)						if ((dif1 < 0)) {
+HXLINE( 231)							dif = dif1;
             						}
             						else {
-HXLINE( 232)							dif = ((( (Float)(-2) ) * ::Math_obj::PI) + dif1);
+HXLINE( 231)							dif = ((( (Float)(-2) ) * ::Math_obj::PI) + dif1);
             						}
             					}
             					break;
             					case (int)2: {
-HXLINE( 232)						Float f;
-HXDLIN( 232)						bool f1;
-HXDLIN( 232)						if ((beta >= 0)) {
-HXLINE( 232)							f1 = (beta > ::Math_obj::PI);
+HXLINE( 231)						Float f;
+HXDLIN( 231)						bool f1;
+HXDLIN( 231)						if ((beta >= 0)) {
+HXLINE( 231)							f1 = (beta > ::Math_obj::PI);
             						}
             						else {
-HXLINE( 232)							f1 = false;
+HXLINE( 231)							f1 = false;
             						}
-HXDLIN( 232)						if (f1) {
-HXLINE( 232)							f = beta;
+HXDLIN( 231)						if (f1) {
+HXLINE( 231)							f = beta;
             						}
             						else {
-HXLINE( 232)							Float a = ::hx::Mod(beta,(( (Float)(2) ) * ::Math_obj::PI));
-HXDLIN( 232)							if ((a >= 0)) {
-HXLINE( 232)								f = a;
+HXLINE( 231)							Float a = ::hx::Mod(beta,(( (Float)(2) ) * ::Math_obj::PI));
+HXDLIN( 231)							if ((a >= 0)) {
+HXLINE( 231)								f = a;
             							}
             							else {
-HXLINE( 232)								f = (a + (( (Float)(2) ) * ::Math_obj::PI));
+HXLINE( 231)								f = (a + (( (Float)(2) ) * ::Math_obj::PI));
             							}
             						}
-HXDLIN( 232)						Float this1 = f;
-HXDLIN( 232)						Float za = this1;
-HXDLIN( 232)						Float f2;
-HXDLIN( 232)						bool f3;
-HXDLIN( 232)						if ((gamma >= 0)) {
-HXLINE( 232)							f3 = (gamma > ::Math_obj::PI);
+HXDLIN( 231)						Float this1 = f;
+HXDLIN( 231)						Float za = this1;
+HXDLIN( 231)						Float f2;
+HXDLIN( 231)						bool f3;
+HXDLIN( 231)						if ((gamma >= 0)) {
+HXLINE( 231)							f3 = (gamma > ::Math_obj::PI);
             						}
             						else {
-HXLINE( 232)							f3 = false;
+HXLINE( 231)							f3 = false;
             						}
-HXDLIN( 232)						if (f3) {
-HXLINE( 232)							f2 = gamma;
-            						}
-            						else {
-HXLINE( 232)							Float a = ::hx::Mod(gamma,(( (Float)(2) ) * ::Math_obj::PI));
-HXDLIN( 232)							if ((a >= 0)) {
-HXLINE( 232)								f2 = a;
-            							}
-            							else {
-HXLINE( 232)								f2 = (a + (( (Float)(2) ) * ::Math_obj::PI));
-            							}
-            						}
-HXDLIN( 232)						Float this2 = f2;
-HXDLIN( 232)						Float zb = this2;
-HXDLIN( 232)						Float fa = za;
-HXDLIN( 232)						Float fb = zb;
-HXDLIN( 232)						Float theta = ::Math_obj::abs((fa - fb));
-HXDLIN( 232)						bool smallest = (theta <= ::Math_obj::PI);
-HXDLIN( 232)						bool clockwise = (fa < fb);
-HXDLIN( 232)						Float dif1;
-HXDLIN( 232)						if (clockwise) {
-HXLINE( 232)							dif1 = theta;
+HXDLIN( 231)						if (f3) {
+HXLINE( 231)							f2 = gamma;
             						}
             						else {
-HXLINE( 232)							dif1 = -(theta);
-            						}
-HXDLIN( 232)						if (smallest) {
-HXLINE( 232)							dif = dif1;
-            						}
-            						else {
-HXLINE( 232)							if (clockwise) {
-HXLINE( 232)								dif = -(((( (Float)(2) ) * ::Math_obj::PI) - theta));
+HXLINE( 231)							Float a = ::hx::Mod(gamma,(( (Float)(2) ) * ::Math_obj::PI));
+HXDLIN( 231)							if ((a >= 0)) {
+HXLINE( 231)								f2 = a;
             							}
             							else {
-HXLINE( 232)								dif = ((( (Float)(2) ) * ::Math_obj::PI) - theta);
+HXLINE( 231)								f2 = (a + (( (Float)(2) ) * ::Math_obj::PI));
+            							}
+            						}
+HXDLIN( 231)						Float this2 = f2;
+HXDLIN( 231)						Float zb = this2;
+HXDLIN( 231)						Float fa = za;
+HXDLIN( 231)						Float fb = zb;
+HXDLIN( 231)						Float theta = ::Math_obj::abs((fa - fb));
+HXDLIN( 231)						bool smallest = (theta <= ::Math_obj::PI);
+HXDLIN( 231)						bool clockwise = (fa < fb);
+HXDLIN( 231)						Float dif1;
+HXDLIN( 231)						if (clockwise) {
+HXLINE( 231)							dif1 = theta;
+            						}
+            						else {
+HXLINE( 231)							dif1 = -(theta);
+            						}
+HXDLIN( 231)						if (smallest) {
+HXLINE( 231)							dif = dif1;
+            						}
+            						else {
+HXLINE( 231)							if (clockwise) {
+HXLINE( 231)								dif = -(((( (Float)(2) ) * ::Math_obj::PI) - theta));
+            							}
+            							else {
+HXLINE( 231)								dif = ((( (Float)(2) ) * ::Math_obj::PI) - theta);
             							}
             						}
             					}
             					break;
             					case (int)3: {
-HXLINE( 232)						Float f;
-HXDLIN( 232)						bool f1;
-HXDLIN( 232)						if ((beta >= 0)) {
-HXLINE( 232)							f1 = (beta > ::Math_obj::PI);
+HXLINE( 231)						Float f;
+HXDLIN( 231)						bool f1;
+HXDLIN( 231)						if ((beta >= 0)) {
+HXLINE( 231)							f1 = (beta > ::Math_obj::PI);
             						}
             						else {
-HXLINE( 232)							f1 = false;
+HXLINE( 231)							f1 = false;
             						}
-HXDLIN( 232)						if (f1) {
-HXLINE( 232)							f = beta;
+HXDLIN( 231)						if (f1) {
+HXLINE( 231)							f = beta;
             						}
             						else {
-HXLINE( 232)							Float a = ::hx::Mod(beta,(( (Float)(2) ) * ::Math_obj::PI));
-HXDLIN( 232)							if ((a >= 0)) {
-HXLINE( 232)								f = a;
+HXLINE( 231)							Float a = ::hx::Mod(beta,(( (Float)(2) ) * ::Math_obj::PI));
+HXDLIN( 231)							if ((a >= 0)) {
+HXLINE( 231)								f = a;
             							}
             							else {
-HXLINE( 232)								f = (a + (( (Float)(2) ) * ::Math_obj::PI));
+HXLINE( 231)								f = (a + (( (Float)(2) ) * ::Math_obj::PI));
             							}
             						}
-HXDLIN( 232)						Float this1 = f;
-HXDLIN( 232)						Float za = this1;
-HXDLIN( 232)						Float f2;
-HXDLIN( 232)						bool f3;
-HXDLIN( 232)						if ((gamma >= 0)) {
-HXLINE( 232)							f3 = (gamma > ::Math_obj::PI);
+HXDLIN( 231)						Float this1 = f;
+HXDLIN( 231)						Float za = this1;
+HXDLIN( 231)						Float f2;
+HXDLIN( 231)						bool f3;
+HXDLIN( 231)						if ((gamma >= 0)) {
+HXLINE( 231)							f3 = (gamma > ::Math_obj::PI);
             						}
             						else {
-HXLINE( 232)							f3 = false;
+HXLINE( 231)							f3 = false;
             						}
-HXDLIN( 232)						if (f3) {
-HXLINE( 232)							f2 = gamma;
-            						}
-            						else {
-HXLINE( 232)							Float a = ::hx::Mod(gamma,(( (Float)(2) ) * ::Math_obj::PI));
-HXDLIN( 232)							if ((a >= 0)) {
-HXLINE( 232)								f2 = a;
-            							}
-            							else {
-HXLINE( 232)								f2 = (a + (( (Float)(2) ) * ::Math_obj::PI));
-            							}
-            						}
-HXDLIN( 232)						Float this2 = f2;
-HXDLIN( 232)						Float zb = this2;
-HXDLIN( 232)						Float fa = za;
-HXDLIN( 232)						Float fb = zb;
-HXDLIN( 232)						Float theta = ::Math_obj::abs((fa - fb));
-HXDLIN( 232)						bool largest = (theta > ::Math_obj::PI);
-HXDLIN( 232)						bool clockwise = (fa < fb);
-HXDLIN( 232)						Float dif1;
-HXDLIN( 232)						if (clockwise) {
-HXLINE( 232)							dif1 = theta;
+HXDLIN( 231)						if (f3) {
+HXLINE( 231)							f2 = gamma;
             						}
             						else {
-HXLINE( 232)							dif1 = -(theta);
-            						}
-HXDLIN( 232)						if (largest) {
-HXLINE( 232)							dif = dif1;
-            						}
-            						else {
-HXLINE( 232)							if (clockwise) {
-HXLINE( 232)								dif = -(((( (Float)(2) ) * ::Math_obj::PI) - theta));
+HXLINE( 231)							Float a = ::hx::Mod(gamma,(( (Float)(2) ) * ::Math_obj::PI));
+HXDLIN( 231)							if ((a >= 0)) {
+HXLINE( 231)								f2 = a;
             							}
             							else {
-HXLINE( 232)								dif = ((( (Float)(2) ) * ::Math_obj::PI) - theta);
+HXLINE( 231)								f2 = (a + (( (Float)(2) ) * ::Math_obj::PI));
+            							}
+            						}
+HXDLIN( 231)						Float this2 = f2;
+HXDLIN( 231)						Float zb = this2;
+HXDLIN( 231)						Float fa = za;
+HXDLIN( 231)						Float fb = zb;
+HXDLIN( 231)						Float theta = ::Math_obj::abs((fa - fb));
+HXDLIN( 231)						bool largest = (theta > ::Math_obj::PI);
+HXDLIN( 231)						bool clockwise = (fa < fb);
+HXDLIN( 231)						Float dif1;
+HXDLIN( 231)						if (clockwise) {
+HXLINE( 231)							dif1 = theta;
+            						}
+            						else {
+HXLINE( 231)							dif1 = -(theta);
+            						}
+HXDLIN( 231)						if (largest) {
+HXLINE( 231)							dif = dif1;
+            						}
+            						else {
+HXLINE( 231)							if (clockwise) {
+HXLINE( 231)								dif = -(((( (Float)(2) ) * ::Math_obj::PI) - theta));
+            							}
+            							else {
+HXLINE( 231)								dif = ((( (Float)(2) ) * ::Math_obj::PI) - theta);
             							}
             						}
             					}
             					break;
             				}
-HXDLIN( 232)				bool positive = (dif >= 0);
-HXDLIN( 232)				int totalSteps = ::Math_obj::ceil((::Math_obj::abs(dif) / step));
-HXDLIN( 232)				Float step1 = (dif / ( (Float)(totalSteps) ));
-HXDLIN( 232)				Float angle = beta;
-HXDLIN( 232)				Float cx;
-HXDLIN( 232)				Float cy;
-HXDLIN( 232)				Float bx = ( (Float)(0) );
-HXDLIN( 232)				Float by = ( (Float)(0) );
-HXDLIN( 232)				int p2 = temp->length;
-HXDLIN( 232)				{
-HXLINE( 232)					int _g = 0;
-HXDLIN( 232)					int _g1 = (totalSteps + 1);
-HXDLIN( 232)					while((_g < _g1)){
-HXLINE( 232)						_g = (_g + 1);
-HXDLIN( 232)						int i = (_g - 1);
-HXDLIN( 232)						cx = (ax + (radius * ::Math_obj::sin(angle)));
-HXDLIN( 232)						cy = (ay + (radius * ::Math_obj::cos(angle)));
-HXDLIN( 232)						p2 = (p2 + 1);
-HXDLIN( 232)						temp[(p2 - 1)] = cx;
-HXDLIN( 232)						p2 = (p2 + 1);
-HXDLIN( 232)						temp[(p2 - 1)] = cy;
-HXDLIN( 232)						if ((i != 0)) {
-HXLINE( 232)							drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0);
-HXDLIN( 232)							 ::trilateral3::matrix::MatrixDozen m = ::trilateral3::Trilateral_obj::transformMatrix;
-HXDLIN( 232)							if (::hx::IsNotNull( m )) {
-HXLINE( 232)								drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(m);
+HXDLIN( 231)				bool positive = (dif >= 0);
+HXDLIN( 231)				int totalSteps = ::Math_obj::ceil((::Math_obj::abs(dif) / step));
+HXDLIN( 231)				Float step1 = (dif / ( (Float)(totalSteps) ));
+HXDLIN( 231)				Float angle = beta;
+HXDLIN( 231)				Float cx;
+HXDLIN( 231)				Float cy;
+HXDLIN( 231)				Float bx = ( (Float)(0) );
+HXDLIN( 231)				Float by = ( (Float)(0) );
+HXDLIN( 231)				int p2 = temp->length;
+HXDLIN( 231)				{
+HXLINE( 231)					int _g = 0;
+HXDLIN( 231)					int _g1 = (totalSteps + 1);
+HXDLIN( 231)					while((_g < _g1)){
+HXLINE( 231)						_g = (_g + 1);
+HXDLIN( 231)						int i = (_g - 1);
+HXDLIN( 231)						cx = (ax + (radius * ::Math_obj::sin(angle)));
+HXDLIN( 231)						cy = (ay + (radius * ::Math_obj::cos(angle)));
+HXDLIN( 231)						p2 = (p2 + 1);
+HXDLIN( 231)						temp[(p2 - 1)] = cx;
+HXDLIN( 231)						p2 = (p2 + 1);
+HXDLIN( 231)						temp[(p2 - 1)] = cy;
+HXDLIN( 231)						if ((i != 0)) {
+HXLINE( 231)							drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0);
+HXDLIN( 231)							 ::trilateral3::matrix::MatrixDozen m = ::trilateral3::Trilateral_obj::transformMatrix;
+HXDLIN( 231)							if (::hx::IsNotNull( m )) {
+HXLINE( 231)								drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(m);
             							}
-HXDLIN( 232)							drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+HXDLIN( 231)							drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             						}
-HXDLIN( 232)						angle = (angle + step1);
-HXDLIN( 232)						bx = cx;
-HXDLIN( 232)						by = cy;
+HXDLIN( 231)						angle = (angle + step1);
+HXDLIN( 231)						bx = cx;
+HXDLIN( 231)						by = cy;
             					}
             				}
-HXDLIN( 232)				int len = totalSteps;
-HXDLIN( 232)				{
-HXLINE( 232)					 ::trilateral3::drawing::Pen _this1 = _this->pen;
-HXDLIN( 232)					int color = 0;
-HXDLIN( 232)					if ((color == -1)) {
-HXLINE( 232)						color = _this1->currentColor;
-            					}
-HXDLIN( 232)					_this1->colorType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,len);
-            				}
-HXDLIN( 232)				int pA = _this->pointsAnti->length;
-HXDLIN( 232)				int len1 = ::Std_obj::_hx_int((( (Float)(temp->length) ) / ( (Float)(2) )));
-HXDLIN( 232)				{
-HXLINE( 232)					int _g2 = 0;
-HXDLIN( 232)					int _g3 = (len1 + 2);
-HXDLIN( 232)					while((_g2 < _g3)){
-HXLINE( 232)						_g2 = (_g2 + 1);
-HXDLIN( 232)						int i = (_g2 - 1);
-HXDLIN( 232)						pA = (pA + 1);
-HXDLIN( 232)						_this->pointsAnti[(pA - 1)] = temp->__get(i);
+HXDLIN( 231)				int len = totalSteps;
+HXDLIN( 231)				{
+HXLINE( 231)					 ::Dynamic _g2 = _this->pen->paintType;
+HXDLIN( 231)					{
+HXLINE( 231)						Float v = (( (Float)(_g2->__Field(HX_("get_pos",2b,26,ca,26),::hx::paccDynamic)()) ) - ( (Float)(len) ));
+HXDLIN( 231)						_g2->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
             					}
             				}
-HXDLIN( 232)				int pC = _this->pointsClock->length;
-HXDLIN( 232)				{
-HXLINE( 232)					int _g4 = 1;
-HXDLIN( 232)					int _g5 = ::Std_obj::_hx_int(((( (Float)(len1) ) / ( (Float)(2) )) + 1));
-HXDLIN( 232)					while((_g4 < _g5)){
-HXLINE( 232)						_g4 = (_g4 + 1);
-HXDLIN( 232)						int i = (_g4 - 1);
-HXDLIN( 232)						pC = (pC + 1);
-HXDLIN( 232)						_this->pointsClock[(pC - 1)] = temp->__get((temp->length - (2 * i)));
-HXDLIN( 232)						pC = (pC + 1);
-HXDLIN( 232)						_this->pointsClock[(pC - 1)] = temp->__get(((temp->length - (2 * i)) - 1));
+HXDLIN( 231)				{
+HXLINE( 231)					 ::trilateral3::drawing::Pen _this1 = _this->pen;
+HXDLIN( 231)					int color = 0;
+HXDLIN( 231)					if ((color == -1)) {
+HXLINE( 231)						color = _this1->currentColor;
+            					}
+HXDLIN( 231)					_this1->paintType->__Field(HX_("colorTriangles",c8,da,ed,e6),::hx::paccDynamic)(color,len);
+            				}
+HXDLIN( 231)				int pA = _this->pointsAnti->length;
+HXDLIN( 231)				int len1 = ::Std_obj::_hx_int((( (Float)(temp->length) ) / ( (Float)(2) )));
+HXDLIN( 231)				{
+HXLINE( 231)					int _g3 = 0;
+HXDLIN( 231)					int _g4 = (len1 + 2);
+HXDLIN( 231)					while((_g3 < _g4)){
+HXLINE( 231)						_g3 = (_g3 + 1);
+HXDLIN( 231)						int i = (_g3 - 1);
+HXDLIN( 231)						pA = (pA + 1);
+HXDLIN( 231)						_this->pointsAnti[(pA - 1)] = temp->__get(i);
+            					}
+            				}
+HXDLIN( 231)				int pC = _this->pointsClock->length;
+HXDLIN( 231)				{
+HXLINE( 231)					int _g5 = 1;
+HXDLIN( 231)					int _g6 = ::Std_obj::_hx_int(((( (Float)(len1) ) / ( (Float)(2) )) + 1));
+HXDLIN( 231)					while((_g5 < _g6)){
+HXLINE( 231)						_g5 = (_g5 + 1);
+HXDLIN( 231)						int i = (_g5 - 1);
+HXDLIN( 231)						pC = (pC + 1);
+HXDLIN( 231)						_this->pointsClock[(pC - 1)] = temp->__get((temp->length - (2 * i)));
+HXDLIN( 231)						pC = (pC + 1);
+HXDLIN( 231)						_this->pointsClock[(pC - 1)] = temp->__get(((temp->length - (2 * i)) - 1));
             					}
             				}
             			}
             		}
-HXLINE( 233)		this->x = x_;
-HXLINE( 234)		this->y = y_;
-HXLINE( 235)		int l = this->points->length;
-HXLINE( 236)		this->points[l] = ::Array_obj< Float >::__new();
-HXLINE( 237)		this->points->__get(l).StaticCast< ::Array< Float > >()[0] = x_;
-HXLINE( 238)		this->points->__get(l).StaticCast< ::Array< Float > >()[1] = y_;
-HXLINE( 241)		this->pointsClock[this->pointsClock->length] = this->contour->pointsClock->copy();
-HXLINE( 242)		this->pointsAnti[this->pointsAnti->length] = this->contour->pointsAnti->copy();
-HXLINE( 244)		this->dim[this->dim->length] =  ::Dynamic(::hx::Anon_obj::Create(4)
+HXLINE( 232)		this->x = x_;
+HXLINE( 233)		this->y = y_;
+HXLINE( 234)		int l = this->points->length;
+HXLINE( 235)		this->points[l] = ::Array_obj< Float >::__new();
+HXLINE( 236)		this->points->__get(l).StaticCast< ::Array< Float > >()[0] = x_;
+HXLINE( 237)		this->points->__get(l).StaticCast< ::Array< Float > >()[1] = y_;
+HXLINE( 240)		this->pointsClock[this->pointsClock->length] = this->contour->pointsClock->copy();
+HXLINE( 241)		this->pointsAnti[this->pointsAnti->length] = this->contour->pointsAnti->copy();
+HXLINE( 243)		this->dim[this->dim->length] =  ::Dynamic(::hx::Anon_obj::Create(4)
             			->setFixed(0,HX_("maxX",34,45,56,48),::Math_obj::NEGATIVE_INFINITY)
             			->setFixed(1,HX_("maxY",35,45,56,48),::Math_obj::NEGATIVE_INFINITY)
             			->setFixed(2,HX_("minX",86,4e,5c,48),::Math_obj::POSITIVE_INFINITY)
             			->setFixed(3,HX_("minY",87,4e,5c,48),::Math_obj::POSITIVE_INFINITY));
-HXLINE( 245)		{
-HXLINE( 245)			 ::Dynamic d = this->dim->__get((this->dim->length - 1));
-HXDLIN( 245)			if (::hx::IsLess( x_,d->__Field(HX_("minX",86,4e,5c,48),::hx::paccDynamic) )) {
-HXLINE( 245)				d->__SetField(HX_("minX",86,4e,5c,48),x_,::hx::paccDynamic);
+HXLINE( 244)		{
+HXLINE( 244)			 ::Dynamic d = this->dim->__get((this->dim->length - 1));
+HXDLIN( 244)			if (::hx::IsLess( x_,d->__Field(HX_("minX",86,4e,5c,48),::hx::paccDynamic) )) {
+HXLINE( 244)				d->__SetField(HX_("minX",86,4e,5c,48),x_,::hx::paccDynamic);
             			}
-HXDLIN( 245)			if (::hx::IsGreater( x_,d->__Field(HX_("maxX",34,45,56,48),::hx::paccDynamic) )) {
-HXLINE( 245)				d->__SetField(HX_("maxX",34,45,56,48),x_,::hx::paccDynamic);
+HXDLIN( 244)			if (::hx::IsGreater( x_,d->__Field(HX_("maxX",34,45,56,48),::hx::paccDynamic) )) {
+HXLINE( 244)				d->__SetField(HX_("maxX",34,45,56,48),x_,::hx::paccDynamic);
             			}
-HXDLIN( 245)			if (::hx::IsLess( y_,d->__Field(HX_("minY",87,4e,5c,48),::hx::paccDynamic) )) {
-HXLINE( 245)				d->__SetField(HX_("minY",87,4e,5c,48),y_,::hx::paccDynamic);
+HXDLIN( 244)			if (::hx::IsLess( y_,d->__Field(HX_("minY",87,4e,5c,48),::hx::paccDynamic) )) {
+HXLINE( 244)				d->__SetField(HX_("minY",87,4e,5c,48),y_,::hx::paccDynamic);
             			}
-HXDLIN( 245)			if (::hx::IsGreater( y_,d->__Field(HX_("maxY",35,45,56,48),::hx::paccDynamic) )) {
-HXLINE( 245)				d->__SetField(HX_("maxY",35,45,56,48),y_,::hx::paccDynamic);
+HXDLIN( 244)			if (::hx::IsGreater( y_,d->__Field(HX_("maxY",35,45,56,48),::hx::paccDynamic) )) {
+HXLINE( 244)				d->__SetField(HX_("maxY",35,45,56,48),y_,::hx::paccDynamic);
             			}
             		}
-HXLINE( 246)		this->contour->reset();
+HXLINE( 245)		this->contour->reset();
             	}
 
 

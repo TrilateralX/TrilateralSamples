@@ -44,6 +44,7 @@ HX_LOCAL_STACK_FRAME(_hx_pos_5399da44140645b8_87_get_by,"dsHelper.flatInterleave
 HX_LOCAL_STACK_FRAME(_hx_pos_5399da44140645b8_89_set_by,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_","set_by",0xc436f11e,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_.set_by","dsHelper/flatInterleave/FloatColorTriangles.hx",89,0x64596be3)
 HX_LOCAL_STACK_FRAME(_hx_pos_5399da44140645b8_95_get_bz,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_","get_bz",0xf7ee9cab,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_.get_bz","dsHelper/flatInterleave/FloatColorTriangles.hx",95,0x64596be3)
 HX_LOCAL_STACK_FRAME(_hx_pos_5399da44140645b8_97_set_bz,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_","set_bz",0xc436f11f,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_.set_bz","dsHelper/flatInterleave/FloatColorTriangles.hx",97,0x64596be3)
+HX_LOCAL_STACK_FRAME(_hx_pos_5399da44140645b8_104_get_redB,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_","get_redB",0xd0d32f64,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_.get_redB","dsHelper/flatInterleave/FloatColorTriangles.hx",104,0x64596be3)
 HX_LOCAL_STACK_FRAME(_hx_pos_5399da44140645b8_106_set_redB,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_","set_redB",0x7f3088d8,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_.set_redB","dsHelper/flatInterleave/FloatColorTriangles.hx",106,0x64596be3)
 HX_LOCAL_STACK_FRAME(_hx_pos_5399da44140645b8_144_get_cx,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_","get_cx",0xf7ee9d88,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_.get_cx","dsHelper/flatInterleave/FloatColorTriangles.hx",144,0x64596be3)
 HX_LOCAL_STACK_FRAME(_hx_pos_5399da44140645b8_146_set_cx,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_","set_cx",0xc436f1fc,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_.set_cx","dsHelper/flatInterleave/FloatColorTriangles.hx",146,0x64596be3)
@@ -51,6 +52,7 @@ HX_LOCAL_STACK_FRAME(_hx_pos_5399da44140645b8_152_get_cy,"dsHelper.flatInterleav
 HX_LOCAL_STACK_FRAME(_hx_pos_5399da44140645b8_154_set_cy,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_","set_cy",0xc436f1fd,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_.set_cy","dsHelper/flatInterleave/FloatColorTriangles.hx",154,0x64596be3)
 HX_LOCAL_STACK_FRAME(_hx_pos_5399da44140645b8_160_get_cz,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_","get_cz",0xf7ee9d8a,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_.get_cz","dsHelper/flatInterleave/FloatColorTriangles.hx",160,0x64596be3)
 HX_LOCAL_STACK_FRAME(_hx_pos_5399da44140645b8_162_set_cz,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_","set_cz",0xc436f1fe,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_.set_cz","dsHelper/flatInterleave/FloatColorTriangles.hx",162,0x64596be3)
+HX_LOCAL_STACK_FRAME(_hx_pos_5399da44140645b8_169_get_redC,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_","get_redC",0xd0d32f65,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_.get_redC","dsHelper/flatInterleave/FloatColorTriangles.hx",169,0x64596be3)
 HX_LOCAL_STACK_FRAME(_hx_pos_5399da44140645b8_171_set_redC,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_","set_redC",0x7f3088d9,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_.set_redC","dsHelper/flatInterleave/FloatColorTriangles.hx",171,0x64596be3)
 HX_LOCAL_STACK_FRAME(_hx_pos_5399da44140645b8_209_triangle,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_","triangle",0x9336e4d2,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_.triangle","dsHelper/flatInterleave/FloatColorTriangles.hx",209,0x64596be3)
 HX_LOCAL_STACK_FRAME(_hx_pos_5399da44140645b8_232_adjustWinding,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_","adjustWinding",0xee1d9a01,"dsHelper.flatInterleave._FloatColorTriangles.FloatColorTriangles_Impl_.adjustWinding","dsHelper/flatInterleave/FloatColorTriangles.hx",232,0x64596be3)
@@ -462,6 +464,30 @@ HXLINE(  99)		return v;
 
 STATIC_HX_DEFINE_DYNAMIC_FUNC2(FloatColorTriangles_Impl__obj,set_bz,return )
 
+Float FloatColorTriangles_Impl__obj::get_redB( ::typedarray::Float32ArrayImpl this1){
+            	HX_STACKFRAME(&_hx_pos_5399da44140645b8_104_get_redB)
+HXDLIN( 104)		if ((0 >= this1->length)) {
+HXDLIN( 104)			HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            		}
+HXDLIN( 104)		int p = this1->byteOffset;
+HXDLIN( 104)		int i = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(this1->buffer->b,p)) )) * 21) + 10) + 2);
+HXDLIN( 104)		bool _hx_tmp;
+HXDLIN( 104)		if ((i >= 0)) {
+HXDLIN( 104)			_hx_tmp = (i >= this1->length);
+            		}
+            		else {
+HXDLIN( 104)			_hx_tmp = true;
+            		}
+HXDLIN( 104)		if (_hx_tmp) {
+HXDLIN( 104)			HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            		}
+HXDLIN( 104)		int p1 = ((i * 4) + this1->byteOffset);
+HXDLIN( 104)		return ( (Float)( ::__hxcpp_memory_get_float(this1->buffer->b,p1)) );
+            	}
+
+
+STATIC_HX_DEFINE_DYNAMIC_FUNC1(FloatColorTriangles_Impl__obj,get_redB,return )
+
 Float FloatColorTriangles_Impl__obj::set_redB( ::typedarray::Float32ArrayImpl this1,Float v){
             	HX_STACKFRAME(&_hx_pos_5399da44140645b8_106_set_redB)
 HXLINE( 107)		{
@@ -657,6 +683,30 @@ HXLINE( 164)		return v;
 
 
 STATIC_HX_DEFINE_DYNAMIC_FUNC2(FloatColorTriangles_Impl__obj,set_cz,return )
+
+Float FloatColorTriangles_Impl__obj::get_redC( ::typedarray::Float32ArrayImpl this1){
+            	HX_STACKFRAME(&_hx_pos_5399da44140645b8_169_get_redC)
+HXDLIN( 169)		if ((0 >= this1->length)) {
+HXDLIN( 169)			HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            		}
+HXDLIN( 169)		int p = this1->byteOffset;
+HXDLIN( 169)		int i = (((::Std_obj::_hx_int(( (Float)( ::__hxcpp_memory_get_float(this1->buffer->b,p)) )) * 21) + 17) + 2);
+HXDLIN( 169)		bool _hx_tmp;
+HXDLIN( 169)		if ((i >= 0)) {
+HXDLIN( 169)			_hx_tmp = (i >= this1->length);
+            		}
+            		else {
+HXDLIN( 169)			_hx_tmp = true;
+            		}
+HXDLIN( 169)		if (_hx_tmp) {
+HXDLIN( 169)			HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(::haxe::io::Error_obj::OutsideBounds_dyn()));
+            		}
+HXDLIN( 169)		int p1 = ((i * 4) + this1->byteOffset);
+HXDLIN( 169)		return ( (Float)( ::__hxcpp_memory_get_float(this1->buffer->b,p1)) );
+            	}
+
+
+STATIC_HX_DEFINE_DYNAMIC_FUNC1(FloatColorTriangles_Impl__obj,get_redC,return )
 
 Float FloatColorTriangles_Impl__obj::set_redC( ::typedarray::Float32ArrayImpl this1,Float v){
             	HX_STACKFRAME(&_hx_pos_5399da44140645b8_171_set_redC)
@@ -859,7 +909,9 @@ bool FloatColorTriangles_Impl__obj::__GetStatic(const ::String &inName, Dynamic 
 	case 8:
 		if (HX_FIELD_EQ(inName,"get_redA") ) { outValue = get_redA_dyn(); return true; }
 		if (HX_FIELD_EQ(inName,"set_redA") ) { outValue = set_redA_dyn(); return true; }
+		if (HX_FIELD_EQ(inName,"get_redB") ) { outValue = get_redB_dyn(); return true; }
 		if (HX_FIELD_EQ(inName,"set_redB") ) { outValue = set_redB_dyn(); return true; }
+		if (HX_FIELD_EQ(inName,"get_redC") ) { outValue = get_redC_dyn(); return true; }
 		if (HX_FIELD_EQ(inName,"set_redC") ) { outValue = set_redC_dyn(); return true; }
 		if (HX_FIELD_EQ(inName,"triangle") ) { outValue = triangle_dyn(); return true; }
 		break;
@@ -894,6 +946,7 @@ static ::String FloatColorTriangles_Impl__obj_sStaticFields[] = {
 	HX_("set_by",94,41,78,6f),
 	HX_("get_bz",21,ed,2f,a3),
 	HX_("set_bz",95,41,78,6f),
+	HX_("get_redB",5a,09,62,cb),
 	HX_("set_redB",ce,62,bf,79),
 	HX_("get_cx",fe,ed,2f,a3),
 	HX_("set_cx",72,42,78,6f),
@@ -901,6 +954,7 @@ static ::String FloatColorTriangles_Impl__obj_sStaticFields[] = {
 	HX_("set_cy",73,42,78,6f),
 	HX_("get_cz",00,ee,2f,a3),
 	HX_("set_cz",74,42,78,6f),
+	HX_("get_redC",5b,09,62,cb),
 	HX_("set_redC",cf,62,bf,79),
 	HX_("triangle",c8,be,c5,8d),
 	HX_("adjustWinding",4b,e4,e6,bd),

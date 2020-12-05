@@ -48,8 +48,8 @@
 #ifndef INCLUDED_kitGL_gluon_Glwrapper
 #include <kitGL/gluon/Glwrapper.h>
 #endif
-#ifndef INCLUDED_kitGL_gluon_InterleaveAlterGL
-#include <kitGL/gluon/InterleaveAlterGL.h>
+#ifndef INCLUDED_kitGL_gluon_Ply
+#include <kitGL/gluon/Ply.h>
 #endif
 #ifndef INCLUDED_typedarray_ArrayBufferView
 #include <typedarray/ArrayBufferView.h>
@@ -90,7 +90,7 @@ HXLINE(   5)		 ::kitGL::gluon::Animate animate =  ::kitGL::gluon::Animate_obj::_
 HXLINE(   6)		 ::kitGL::gluon::Glwrapper glWrapper =  ::kitGL::gluon::Glwrapper_obj::__alloc( HX_CTX );
 HXLINE(   7)		 ::TrilateralTriangle trilateralTri =  ::TrilateralTriangle_obj::__alloc( HX_CTX ,glWrapper->gl);
 HXLINE(   8)		{
-HXLINE(   8)			::haxe::Log_obj::trace(HX_("MinimalGL created",6e,7c,ab,19),::hx::SourceInfo(HX_("kitGL/gluon/InterleaveAlterGL.hx",12,e6,0f,2c),28,HX_("kitGL.gluon.InterleaveAlterGL",2e,f1,7f,af),HX_("setup",7d,ae,2f,7a)));
+HXLINE(   8)			::haxe::Log_obj::trace(HX_("MinimalGL created",6e,7c,ab,19),::hx::SourceInfo(HX_("kitGL/gluon/Ply.hx",95,ce,cc,6f),28,HX_("kitGL.gluon.Ply",4b,09,0b,9d),HX_("setup",7d,ae,2f,7a)));
 HXDLIN(   8)			 ::gluon::webgl::native::GLContext gl = trilateralTri->gl;
 HXDLIN(   8)			 ::gluon::webgl::native::GLContext this1 = gl;
 HXDLIN(   8)			unsigned int ref = glCreateProgram();
@@ -196,7 +196,7 @@ HXDLIN(   8)			trilateralTri->program = program;
 HXDLIN(   8)			trilateralTri->draw();
 HXDLIN(   8)			 ::gluon::webgl::native::GLContext gl1 = trilateralTri->gl;
 HXDLIN(   8)			 ::gluon::webgl::native::GLProgram program1 = trilateralTri->program;
-HXDLIN(   8)			 ::typedarray::Float32ArrayImpl data = ( ( ::typedarray::Float32ArrayImpl)(trilateralTri->interleaveDataGL->__Field(HX_("get_data",b3,11,1e,c2),::hx::paccDynamic)()) );
+HXDLIN(   8)			 ::typedarray::Float32ArrayImpl data = ( ( ::typedarray::Float32ArrayImpl)(trilateralTri->dataGL->__Field(HX_("get_data",b3,11,1e,c2),::hx::paccDynamic)()) );
 HXDLIN(   8)			 ::Dynamic isDynamic = true;
 HXDLIN(   8)			if (::hx::IsNull( isDynamic )) {
 HXLINE(   8)				isDynamic = false;

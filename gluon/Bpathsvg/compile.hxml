@@ -6,6 +6,7 @@
 -lib hxPolyK
 -lib poly2trihx 
 -lib kitGL
+-lib hxGeomAlgo
 
 -lib gluon
 -lib linc_glfw

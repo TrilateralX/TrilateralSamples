@@ -198,6 +198,131 @@
   <file name="src/justPath/EllipseArc.cpp" >
    <depend name="include/justPath/EllipseArc.h"/>
   </file>
+  <file name="src/hxGeomAlgo/Tesselator.cpp" >
+   <depend name="include/hxGeomAlgo/Debug.h"/>
+   <depend name="include/hxGeomAlgo/ResultType.h"/>
+   <depend name="include/hxGeomAlgo/Tesselator.h"/>
+   <depend name="include/hxGeomAlgo/WindingRule.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/Dict.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/Geom.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/PriorityQ.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/Sweep.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/TessFace.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/TessHalfEdge.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/TessMesh.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/TessVertex.h"/>
+  </file>
+  <file name="src/hxGeomAlgo/_Tess2/Sweep.cpp" >
+   <depend name="include/hxGeomAlgo/Debug.h"/>
+   <depend name="include/hxGeomAlgo/Tesselator.h"/>
+   <depend name="include/hxGeomAlgo/WindingRule.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/ActiveRegion.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/Dict.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/DictNode.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/Geom.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/PriorityQ.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/Sweep.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/TessFace.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/TessHalfEdge.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/TessMesh.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/TessVertex.h"/>
+  </file>
+  <file name="src/hxGeomAlgo/_Tess2/ActiveRegion.cpp" >
+   <depend name="include/hxGeomAlgo/_Tess2/ActiveRegion.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/DictNode.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/TessHalfEdge.h"/>
+  </file>
+  <file name="src/hxGeomAlgo/_Tess2/PriorityQ.cpp" >
+   <depend name="include/hxGeomAlgo/Debug.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/PQHandleElem.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/PQNode.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/PriorityQ.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/TessVertex.h"/>
+  </file>
+  <file name="src/hxGeomAlgo/_Tess2/PQHandleElem.cpp" >
+   <depend name="include/hxGeomAlgo/_Tess2/PQHandleElem.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/TessVertex.h"/>
+  </file>
+  <file name="src/hxGeomAlgo/_Tess2/PQNode.cpp" >
+   <depend name="include/hxGeomAlgo/_Tess2/PQNode.h"/>
+  </file>
+  <file name="src/hxGeomAlgo/_Tess2/Dict.cpp" >
+   <depend name="include/hxGeomAlgo/Tesselator.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/ActiveRegion.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/Dict.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/DictNode.h"/>
+  </file>
+  <file name="src/hxGeomAlgo/_Tess2/DictNode.cpp" >
+   <depend name="include/hxGeomAlgo/_Tess2/ActiveRegion.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/DictNode.h"/>
+  </file>
+  <file name="src/hxGeomAlgo/_Tess2/Geom.cpp" >
+   <depend name="include/hxGeomAlgo/Debug.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/Geom.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/TessFace.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/TessHalfEdge.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/TessVertex.h"/>
+  </file>
+  <file name="src/hxGeomAlgo/_Tess2/TessMesh.cpp" >
+   <depend name="include/hxGeomAlgo/Debug.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/ActiveRegion.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/Geom.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/TessFace.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/TessHalfEdge.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/TessMesh.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/TessVertex.h"/>
+  </file>
+  <file name="src/hxGeomAlgo/_Tess2/TessHalfEdge.cpp" >
+   <depend name="include/hxGeomAlgo/_Tess2/ActiveRegion.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/TessFace.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/TessHalfEdge.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/TessVertex.h"/>
+  </file>
+  <file name="src/hxGeomAlgo/_Tess2/TessFace.cpp" >
+   <depend name="include/hxGeomAlgo/_Tess2/TessFace.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/TessHalfEdge.h"/>
+  </file>
+  <file name="src/hxGeomAlgo/_Tess2/TessVertex.cpp" >
+   <depend name="include/hxGeomAlgo/_Tess2/TessHalfEdge.h"/>
+   <depend name="include/hxGeomAlgo/_Tess2/TessVertex.h"/>
+  </file>
+  <file name="src/hxGeomAlgo/Tess2.cpp" >
+   <depend name="include/hxGeomAlgo/Debug.h"/>
+   <depend name="include/hxGeomAlgo/HxPointData.h"/>
+   <depend name="include/hxGeomAlgo/PolyTools.h"/>
+   <depend name="include/hxGeomAlgo/ResultType.h"/>
+   <depend name="include/hxGeomAlgo/Tess2.h"/>
+   <depend name="include/hxGeomAlgo/Tesselator.h"/>
+   <depend name="include/hxGeomAlgo/WindingRule.h"/>
+   <depend name="include/hxGeomAlgo/_HxPoint/HxPoint_Impl_.h"/>
+  </file>
+  <file name="src/hxGeomAlgo/ResultType.cpp" >
+   <depend name="include/hxGeomAlgo/ResultType.h"/>
+  </file>
+  <file name="src/hxGeomAlgo/WindingRule.cpp" >
+   <depend name="include/hxGeomAlgo/WindingRule.h"/>
+  </file>
+  <file name="src/hxGeomAlgo/PolyTools.cpp" >
+   <depend name="include/hxGeomAlgo/Debug.h"/>
+   <depend name="include/hxGeomAlgo/HomogCoord.h"/>
+   <depend name="include/hxGeomAlgo/HxPointData.h"/>
+   <depend name="include/hxGeomAlgo/PolyTools.h"/>
+   <depend name="include/hxGeomAlgo/_HxPoint/HxPoint_Impl_.h"/>
+  </file>
+  <file name="src/hxGeomAlgo/_HxPoint/HxPoint_Impl_.cpp" >
+   <depend name="include/hxGeomAlgo/HxPointData.h"/>
+   <depend name="include/hxGeomAlgo/_HxPoint/HxPoint_Impl_.h"/>
+  </file>
+  <file name="src/hxGeomAlgo/HxPointData.cpp" >
+   <depend name="include/hxGeomAlgo/HxPointData.h"/>
+  </file>
+  <file name="src/hxGeomAlgo/HomogCoord.cpp" >
+   <depend name="include/hxGeomAlgo/HomogCoord.h"/>
+  </file>
+  <file name="src/hxGeomAlgo/Debug.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/hxGeomAlgo/Debug.h"/>
+  </file>
   <file name="src/haxe/iterators/ArrayIterator.cpp" >
    <depend name="include/haxe/iterators/ArrayIterator.h"/>
   </file>
@@ -379,7 +504,7 @@
    <depend name="include/justPath/IPathContext.h"/>
    <depend name="include/justPath/SvgPath.h"/>
    <depend name="include/justPath/transform/TranslationContext.h"/>
-   <depend name="include/kitGL/gluon/InterleaveAlterGL.h"/>
+   <depend name="include/kitGL/gluon/Ply.h"/>
    <depend name="include/trilateral3/drawing/Pen.h"/>
    <depend name="include/trilateral3/drawing/Sketch.h"/>
    <depend name="include/trilateral3/nodule/PenNodule.h"/>
@@ -387,14 +512,14 @@
    <depend name="include/typedarray/ArrayBufferViewBase.h"/>
    <depend name="include/typedarray/Float32ArrayImpl.h"/>
   </file>
-  <file name="src/kitGL/gluon/InterleaveAlterGL.cpp" >
+  <file name="src/kitGL/gluon/Ply.cpp" >
    <depend name="include/gluon/webgl/_GLContext/GLContext_Impl_.h"/>
    <depend name="include/gluon/webgl/native/GLBuffer.h"/>
    <depend name="include/gluon/webgl/native/GLContext.h"/>
    <depend name="include/gluon/webgl/native/GLObject.h"/>
    <depend name="include/gluon/webgl/native/GLProgram.h"/>
    <depend name="include/haxe/io/Bytes.h"/>
-   <depend name="include/kitGL/gluon/InterleaveAlterGL.h"/>
+   <depend name="include/kitGL/gluon/Ply.h"/>
    <depend name="include/typedarray/ArrayBufferView.h"/>
    <depend name="include/typedarray/ArrayBufferViewBase.h"/>
    <depend name="include/typedarray/Float32ArrayImpl.h"/>
@@ -417,7 +542,7 @@
    <depend name="include/haxe/io/Bytes.h"/>
    <depend name="include/kitGL/gluon/Animate.h"/>
    <depend name="include/kitGL/gluon/Glwrapper.h"/>
-   <depend name="include/kitGL/gluon/InterleaveAlterGL.h"/>
+   <depend name="include/kitGL/gluon/Ply.h"/>
    <depend name="include/typedarray/ArrayBufferView.h"/>
    <depend name="include/typedarray/ArrayBufferViewBase.h"/>
    <depend name="include/typedarray/Float32ArrayImpl.h"/>
@@ -425,12 +550,16 @@
   </file>
   <file name="src/__boot__.cpp" >
    <depend name="include/typedarray/_BufferSource/BufferSourceType.h"/>
+   <depend name="include/hxGeomAlgo/ResultType.h"/>
+   <depend name="include/hxGeomAlgo/WindingRule.h"/>
    <depend name="include/haxe/io/Error.h"/>
    <depend name="include/haxe/StackItem.h"/>
    <depend name="include/fracs/DifferencePreference.h"/>
    <depend name="include/trilateral3/nodule/PenNodule.h"/>
    <depend name="include/trilateral3/math/_Algebra/Algebra_Fields_.h"/>
    <depend name="include/trilateral3/Trilateral.h"/>
+   <depend name="include/hxGeomAlgo/PolyTools.h"/>
+   <depend name="include/hxGeomAlgo/_HxPoint/HxPoint_Impl_.h"/>
    <depend name="include/haxe/Log.h"/>
    <depend name="include/haxe/EntryPoint.h"/>
    <depend name="include/glfw/GLFWWindowSizeHandler.h"/>

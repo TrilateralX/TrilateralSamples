@@ -97,6 +97,9 @@ class HXCPP_CLASS_ATTRIBUTES FloatColorTriangles_Impl__obj : public ::hx::Object
 		static Float set_bz( ::typedarray::Float32ArrayImpl this1,Float v);
 		static ::Dynamic set_bz_dyn();
 
+		static Float get_redB( ::typedarray::Float32ArrayImpl this1);
+		static ::Dynamic get_redB_dyn();
+
 		static Float set_redB( ::typedarray::Float32ArrayImpl this1,Float v);
 		static ::Dynamic set_redB_dyn();
 
@@ -117,6 +120,9 @@ class HXCPP_CLASS_ATTRIBUTES FloatColorTriangles_Impl__obj : public ::hx::Object
 
 		static Float set_cz( ::typedarray::Float32ArrayImpl this1,Float v);
 		static ::Dynamic set_cz_dyn();
+
+		static Float get_redC( ::typedarray::Float32ArrayImpl this1);
+		static ::Dynamic get_redC_dyn();
 
 		static Float set_redC( ::typedarray::Float32ArrayImpl this1,Float v);
 		static ::Dynamic set_redC_dyn();

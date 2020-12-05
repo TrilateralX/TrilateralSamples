@@ -1,6 +1,6 @@
 package;
-import kitGL.glWeb.InterleaveAlterGL;
-import kitGL.glWeb.InterleaveDataGL;
+import kitGL.glWeb.Ply;
+import kitGL.glWeb.DataGL;
 
 // Sketching
 import trilateral3.drawing.Pen;

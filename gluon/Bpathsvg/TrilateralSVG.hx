@@ -1,7 +1,7 @@
 package;
 import gluon.webgl.GLContext;
-import kitGL.gluon.InterleaveAlterGL;
-import kitGL.gluon.InterleaveDataGL;
+import kitGL.gluon.Ply;
+import kitGL.gluon.DataGL;
 // Color pallettes
 import pallette.simple.QuickARGB;
 // SVG path parser
@@ -18,7 +18,7 @@ import trilateral3.drawing.Pen;
 import trilateral3.geom.FlatColorTriangles;
 import trilateral3.nodule.PenNodule;
 
-class TrilateralSVG extends InterleaveAlterGL {
+class TrilateralSVG extends Ply {
 	var quadtest_d = "M200,300 Q400,50 600,300 T1000,300";
     var cubictest_d = "M100,200 C100,100 250,100 250,200S400,300 400,200";
     public var pen: Pen;
@@ -28,8 +28,9 @@ class TrilateralSVG extends InterleaveAlterGL {
     }
     override
     public function draw(){
-        interleaveDataGL = { get_data: penNodule.get_data, get_size: penNodule.get_size };
-        pen = penNodule.pen;
+        dataGL           = { get_data: penNodule.get_data
+                           , get_size: penNodule.get_size };
+        pen              = penNodule.pen;
         pen.currentColor = Blue;
         cubicSVG();
         pen.currentColor = Blue;

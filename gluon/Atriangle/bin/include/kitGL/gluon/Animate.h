@@ -45,6 +45,7 @@ class HXCPP_CLASS_ATTRIBUTES Animate_obj : public ::hx::Object
 		bool _hx_isInstanceOf(int inClassId);
 		::String __ToString() const { return HX_("Animate",81,02,9e,47); }
 
+		Float speedDelta;
 		 ::Dynamic onEnterFrame;
 		Dynamic onEnterFrame_dyn() { return onEnterFrame;}
 		 ::Dynamic onStop;

@@ -16,8 +16,8 @@
 
 HX_DEFINE_STACK_FRAME(_hx_pos_1447c0490ddb3cc5_15_new,"trilateral3.drawing.Contour","new",0xd76c2ab5,"trilateral3.drawing.Contour.new","trilateral3/drawing/Contour.hx",15,0xb719e1dd)
 HX_LOCAL_STACK_FRAME(_hx_pos_1447c0490ddb3cc5_97_reset,"trilateral3.drawing.Contour","reset",0xf86ba364,"trilateral3.drawing.Contour.reset","trilateral3/drawing/Contour.hx",97,0xb719e1dd)
-HX_LOCAL_STACK_FRAME(_hx_pos_1447c0490ddb3cc5_548_endEdges,"trilateral3.drawing.Contour","endEdges",0xf4951146,"trilateral3.drawing.Contour.endEdges","trilateral3/drawing/Contour.hx",548,0xb719e1dd)
-HX_LOCAL_STACK_FRAME(_hx_pos_1447c0490ddb3cc5_574_addQuads,"trilateral3.drawing.Contour","addQuads",0x63fbad76,"trilateral3.drawing.Contour.addQuads","trilateral3/drawing/Contour.hx",574,0xb719e1dd)
+HX_LOCAL_STACK_FRAME(_hx_pos_1447c0490ddb3cc5_562_endEdges,"trilateral3.drawing.Contour","endEdges",0xf4951146,"trilateral3.drawing.Contour.endEdges","trilateral3/drawing/Contour.hx",562,0xb719e1dd)
+HX_LOCAL_STACK_FRAME(_hx_pos_1447c0490ddb3cc5_588_addQuads,"trilateral3.drawing.Contour","addQuads",0x63fbad76,"trilateral3.drawing.Contour.addQuads","trilateral3/drawing/Contour.hx",588,0xb719e1dd)
 namespace trilateral3{
 namespace drawing{
 
@@ -76,351 +76,414 @@ HXLINE( 129)		this->pointsAnti->resize(0);
 HX_DEFINE_DYNAMIC_FUNC0(Contour_obj,reset,(void))
 
 void Contour_obj::endEdges(){
-            	HX_STACKFRAME(&_hx_pos_1447c0490ddb3cc5_548_endEdges)
-HXLINE( 549)		int pC = this->pointsClock->length;
-HXLINE( 550)		int pA = this->pointsAnti->length;
-HXLINE( 551)		pC = (pC + 1);
-HXDLIN( 551)		this->pointsClock[(pC - 1)] = this->penultimateCX;
-HXLINE( 552)		pC = (pC + 1);
-HXDLIN( 552)		this->pointsClock[(pC - 1)] = this->penultimateCY;
-HXLINE( 553)		pC = (pC + 1);
-HXDLIN( 553)		this->pointsClock[(pC - 1)] = this->lastClockX;
-HXLINE( 554)		pC = (pC + 1);
-HXDLIN( 554)		this->pointsClock[(pC - 1)] = this->lastClockY;
-HXLINE( 555)		pA = (pA + 1);
-HXDLIN( 555)		this->pointsAnti[(pA - 1)] = this->penultimateAX;
-HXLINE( 556)		pA = (pA + 1);
-HXDLIN( 556)		this->pointsAnti[(pA - 1)] = this->penultimateAY;
-HXLINE( 557)		pA = (pA + 1);
-HXDLIN( 557)		this->pointsAnti[(pA - 1)] = this->lastAntiX;
-HXLINE( 558)		pA = (pA + 1);
-HXDLIN( 558)		this->pointsAnti[(pA - 1)] = this->lastAntiY;
+            	HX_STACKFRAME(&_hx_pos_1447c0490ddb3cc5_562_endEdges)
+HXLINE( 563)		int pC = this->pointsClock->length;
+HXLINE( 564)		int pA = this->pointsAnti->length;
+HXLINE( 565)		pC = (pC + 1);
+HXDLIN( 565)		this->pointsClock[(pC - 1)] = this->penultimateCX;
+HXLINE( 566)		pC = (pC + 1);
+HXDLIN( 566)		this->pointsClock[(pC - 1)] = this->penultimateCY;
+HXLINE( 567)		pC = (pC + 1);
+HXDLIN( 567)		this->pointsClock[(pC - 1)] = this->lastClockX;
+HXLINE( 568)		pC = (pC + 1);
+HXDLIN( 568)		this->pointsClock[(pC - 1)] = this->lastClockY;
+HXLINE( 569)		pA = (pA + 1);
+HXDLIN( 569)		this->pointsAnti[(pA - 1)] = this->penultimateAX;
+HXLINE( 570)		pA = (pA + 1);
+HXDLIN( 570)		this->pointsAnti[(pA - 1)] = this->penultimateAY;
+HXLINE( 571)		pA = (pA + 1);
+HXDLIN( 571)		this->pointsAnti[(pA - 1)] = this->lastAntiX;
+HXLINE( 572)		pA = (pA + 1);
+HXDLIN( 572)		this->pointsAnti[(pA - 1)] = this->lastAntiY;
             	}
 
 
 HX_DEFINE_DYNAMIC_FUNC0(Contour_obj,endEdges,(void))
 
 void Contour_obj::addQuads(bool clockWise,Float width_){
-            	HX_STACKFRAME(&_hx_pos_1447c0490ddb3cc5_574_addQuads)
-HXLINE( 580)		Float currQuadIndex = ( (Float)(this->pen->drawType->__Field(HX_("get_pos",2b,26,ca,26),::hx::paccDynamic)()) );
-HXLINE( 582)		int pC = 0;
-HXLINE( 583)		int pA = 0;
-HXLINE( 584)		bool _hx_tmp;
-HXDLIN( 584)		if (clockWise) {
-HXLINE( 584)			_hx_tmp = !(this->lastClock);
+            	HX_STACKFRAME(&_hx_pos_1447c0490ddb3cc5_588_addQuads)
+HXLINE( 594)		Float currQuadIndex = ( (Float)(this->pen->paintType->__Field(HX_("get_pos",2b,26,ca,26),::hx::paccDynamic)()) );
+HXLINE( 596)		int pC = 0;
+HXLINE( 597)		int pA = 0;
+HXLINE( 598)		bool _hx_tmp;
+HXDLIN( 598)		if (clockWise) {
+HXLINE( 598)			_hx_tmp = !(this->lastClock);
             		}
             		else {
-HXLINE( 584)			_hx_tmp = false;
+HXLINE( 598)			_hx_tmp = false;
             		}
-HXDLIN( 584)		if (_hx_tmp) {
-HXLINE( 585)			if ((this->count == 1)) {
-HXLINE( 586)				pA = this->pointsAnti->length;
-HXLINE( 587)				pA = (pA + 1);
-HXDLIN( 587)				this->pointsAnti[(pA - 1)] = this->kax;
-HXLINE( 588)				pA = (pA + 1);
-HXDLIN( 588)				this->pointsAnti[(pA - 1)] = this->kay;
-HXLINE( 589)				pA = (pA + 1);
-HXDLIN( 589)				this->pointsAnti[(pA - 1)] = this->jx;
-HXLINE( 590)				pA = (pA + 1);
-HXDLIN( 590)				this->pointsAnti[(pA - 1)] = this->jy;
-HXLINE( 591)				pC = this->pointsClock->length;
-HXLINE( 592)				pC = (pC + 1);
-HXDLIN( 592)				this->pointsClock[(pC - 1)] = this->kbx;
-HXLINE( 593)				pC = (pC + 1);
-HXDLIN( 593)				this->pointsClock[(pC - 1)] = this->kby;
-HXLINE( 594)				pC = (pC + 1);
-HXDLIN( 594)				this->pointsClock[(pC - 1)] = this->ncx;
-HXLINE( 595)				pC = (pC + 1);
-HXDLIN( 595)				this->pointsClock[(pC - 1)] = this->ncy;
-HXLINE( 597)				{
-HXLINE( 597)					 ::trilateral3::drawing::Pen _this = this->pen;
-HXDLIN( 597)					Float v = (this->quadIndex + 1);
-HXDLIN( 597)					_this->drawType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
-HXDLIN( 597)					_this->colorType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
-            				}
-HXLINE( 598)				{
-HXLINE( 598)					 ::trilateral3::drawing::Pen _this1 = this->pen;
-HXDLIN( 598)					int color = -1;
-HXDLIN( 598)					if ((color == -1)) {
-HXLINE( 598)						color = _this1->currentColor;
-            					}
-HXDLIN( 598)					{
-HXLINE( 598)						_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(this->kax,this->kay,0,this->kbx,this->kby,0,this->ncx,this->ncy,0);
-HXDLIN( 598)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXLINE( 598)							_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
-            						}
-HXDLIN( 598)						_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
-            					}
-HXDLIN( 598)					_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
-            				}
-            			}
-            			else {
-HXLINE( 602)				pA = this->pointsAnti->length;
+HXDLIN( 598)		if (_hx_tmp) {
+HXLINE( 599)			if ((this->count == 1)) {
+HXLINE( 600)				pA = this->pointsAnti->length;
+HXLINE( 601)				pA = (pA + 1);
+HXDLIN( 601)				this->pointsAnti[(pA - 1)] = this->kax;
+HXLINE( 602)				pA = (pA + 1);
+HXDLIN( 602)				this->pointsAnti[(pA - 1)] = this->kay;
 HXLINE( 603)				pA = (pA + 1);
-HXDLIN( 603)				this->pointsAnti[(pA - 1)] = this->kax;
+HXDLIN( 603)				this->pointsAnti[(pA - 1)] = this->jx;
 HXLINE( 604)				pA = (pA + 1);
-HXDLIN( 604)				this->pointsAnti[(pA - 1)] = this->kay;
-HXLINE( 605)				pA = (pA + 1);
-HXDLIN( 605)				this->pointsAnti[(pA - 1)] = this->jx;
-HXLINE( 606)				pA = (pA + 1);
-HXDLIN( 606)				this->pointsAnti[(pA - 1)] = this->jy;
-HXLINE( 607)				pC = this->pointsClock->length;
+HXDLIN( 604)				this->pointsAnti[(pA - 1)] = this->jy;
+HXLINE( 605)				pC = this->pointsClock->length;
+HXLINE( 606)				pC = (pC + 1);
+HXDLIN( 606)				this->pointsClock[(pC - 1)] = this->kbx;
+HXLINE( 607)				pC = (pC + 1);
+HXDLIN( 607)				this->pointsClock[(pC - 1)] = this->kby;
 HXLINE( 608)				pC = (pC + 1);
-HXDLIN( 608)				this->pointsClock[(pC - 1)] = this->jxOld;
+HXDLIN( 608)				this->pointsClock[(pC - 1)] = this->ncx;
 HXLINE( 609)				pC = (pC + 1);
-HXDLIN( 609)				this->pointsClock[(pC - 1)] = this->jyOld;
-HXLINE( 610)				pC = (pC + 1);
-HXDLIN( 610)				this->pointsClock[(pC - 1)] = this->kbx;
-HXLINE( 611)				pC = (pC + 1);
-HXDLIN( 611)				this->pointsClock[(pC - 1)] = this->kby;
-HXLINE( 613)				{
-HXLINE( 613)					 ::trilateral3::drawing::Pen _this = this->pen;
-HXDLIN( 613)					Float v = (this->quadIndex + 1);
-HXDLIN( 613)					_this->drawType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
-HXDLIN( 613)					_this->colorType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
+HXDLIN( 609)				this->pointsClock[(pC - 1)] = this->ncy;
+HXLINE( 611)				{
+HXLINE( 611)					Float v = (this->quadIndex + 1);
+HXDLIN( 611)					this->pen->paintType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
             				}
-HXLINE( 614)				{
-HXLINE( 614)					 ::trilateral3::drawing::Pen _this1 = this->pen;
-HXDLIN( 614)					int color = -1;
-HXDLIN( 614)					if ((color == -1)) {
-HXLINE( 614)						color = _this1->currentColor;
+HXLINE( 612)				{
+HXLINE( 612)					 ::trilateral3::drawing::Pen _this = this->pen;
+HXDLIN( 612)					int color = -1;
+HXDLIN( 612)					if ((color == -1)) {
+HXLINE( 612)						color = _this->currentColor;
             					}
-HXDLIN( 614)					{
-HXLINE( 614)						_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(this->kax,this->kay,0,this->kbx,this->kby,0,this->jxOld,this->jyOld,0);
-HXDLIN( 614)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXLINE( 614)							_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN( 612)					{
+HXLINE( 612)						float ax = ( (float)(this->kax) );
+HXDLIN( 612)						float ay = ( (float)(this->kay) );
+HXDLIN( 612)						float bx = ( (float)(this->kbx) );
+HXDLIN( 612)						float by = ( (float)(this->kby) );
+HXDLIN( 612)						float cx = ( (float)(this->ncx) );
+HXDLIN( 612)						float cy = ( (float)(this->ncy) );
+HXDLIN( 612)						bool windAdjust = ( (bool)(_this->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
+HXDLIN( 612)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
+HXLINE( 612)							_this->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             						}
-HXDLIN( 614)						_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
-            					}
-HXDLIN( 614)					_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
-            				}
-            			}
-HXLINE( 618)			{
-HXLINE( 618)				 ::trilateral3::drawing::Pen _this = this->pen;
-HXDLIN( 618)				Float v = this->quadIndex;
-HXDLIN( 618)				_this->drawType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
-HXDLIN( 618)				_this->colorType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
-            			}
-HXLINE( 619)			{
-HXLINE( 619)				 ::trilateral3::drawing::Pen _this1 = this->pen;
-HXDLIN( 619)				int color = -1;
-HXDLIN( 619)				if ((color == -1)) {
-HXLINE( 619)					color = _this1->currentColor;
-            				}
-HXDLIN( 619)				{
-HXLINE( 619)					_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(this->kax,this->kay,0,this->kbx,this->kby,0,this->jx,this->jy,0);
-HXDLIN( 619)					if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXLINE( 619)						_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
-            					}
-HXDLIN( 619)					_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
-            				}
-HXDLIN( 619)				_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
-            			}
-            		}
-HXLINE( 623)		bool _hx_tmp1;
-HXDLIN( 623)		if (clockWise) {
-HXLINE( 623)			_hx_tmp1 = this->lastClock;
-            		}
-            		else {
-HXLINE( 623)			_hx_tmp1 = false;
-            		}
-HXDLIN( 623)		if (_hx_tmp1) {
-HXLINE( 624)			if ((this->count == 1)) {
-HXLINE( 626)				pA = this->pointsAnti->length;
-HXLINE( 627)				pA = (pA + 1);
-HXDLIN( 627)				this->pointsAnti[(pA - 1)] = this->jx;
-HXLINE( 628)				pA = (pA + 1);
-HXDLIN( 628)				this->pointsAnti[(pA - 1)] = this->jy;
-HXLINE( 629)				pA = (pA + 1);
-HXDLIN( 629)				this->pointsAnti[(pA - 1)] = this->kbx;
-HXLINE( 630)				pA = (pA + 1);
-HXDLIN( 630)				this->pointsAnti[(pA - 1)] = this->kby;
-HXLINE( 631)				pC = this->pointsClock->length;
-HXLINE( 632)				pC = (pC + 1);
-HXDLIN( 632)				this->pointsClock[(pC - 1)] = this->kax;
-HXLINE( 633)				pC = (pC + 1);
-HXDLIN( 633)				this->pointsClock[(pC - 1)] = this->kay;
-HXLINE( 634)				pC = (pC + 1);
-HXDLIN( 634)				this->pointsClock[(pC - 1)] = this->kbx;
-HXLINE( 635)				pC = (pC + 1);
-HXDLIN( 635)				this->pointsClock[(pC - 1)] = this->kby;
-HXLINE( 637)				{
-HXLINE( 637)					 ::trilateral3::drawing::Pen _this = this->pen;
-HXDLIN( 637)					Float v = this->quadIndex;
-HXDLIN( 637)					_this->drawType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
-HXDLIN( 637)					_this->colorType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
-            				}
-HXLINE( 638)				{
-HXLINE( 638)					 ::trilateral3::drawing::Pen _this1 = this->pen;
-HXDLIN( 638)					int color = -1;
-HXDLIN( 638)					if ((color == -1)) {
-HXLINE( 638)						color = _this1->currentColor;
-            					}
-HXDLIN( 638)					{
-HXLINE( 638)						_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(this->kax,this->kay,0,this->kbx,this->kby,0,this->jx,this->jy,0);
-HXDLIN( 638)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXLINE( 638)							_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN( 612)						if (_this->useTexture) {
+HXLINE( 612)							ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN( 612)							ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN( 612)							bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN( 612)							by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN( 612)							cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN( 612)							cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN( 612)							_this->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
             						}
-HXDLIN( 638)						_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             					}
-HXDLIN( 638)					_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
-            				}
-HXLINE( 639)				{
-HXLINE( 639)					 ::trilateral3::drawing::Pen _this2 = this->pen;
-HXDLIN( 639)					Float v1 = (this->quadIndex + 1);
-HXDLIN( 639)					_this2->drawType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v1);
-HXDLIN( 639)					_this2->colorType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v1);
-            				}
-HXLINE( 640)				{
-HXLINE( 640)					 ::trilateral3::drawing::Pen _this3 = this->pen;
-HXDLIN( 640)					int color1 = -1;
-HXDLIN( 640)					if ((color1 == -1)) {
-HXLINE( 640)						color1 = _this3->currentColor;
-            					}
-HXDLIN( 640)					{
-HXLINE( 640)						_this3->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(this->kax,this->kay,0,this->kbx,this->kby,0,this->ncx,this->ncy,0);
-HXDLIN( 640)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXLINE( 640)							_this3->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
-            						}
-HXDLIN( 640)						_this3->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
-            					}
-HXDLIN( 640)					_this3->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN( 612)					_this->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN( 612)					_this->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             				}
             			}
             			else {
-HXLINE( 643)				pA = this->pointsAnti->length;
+HXLINE( 616)				pA = this->pointsAnti->length;
+HXLINE( 617)				pA = (pA + 1);
+HXDLIN( 617)				this->pointsAnti[(pA - 1)] = this->kax;
+HXLINE( 618)				pA = (pA + 1);
+HXDLIN( 618)				this->pointsAnti[(pA - 1)] = this->kay;
+HXLINE( 619)				pA = (pA + 1);
+HXDLIN( 619)				this->pointsAnti[(pA - 1)] = this->jx;
+HXLINE( 620)				pA = (pA + 1);
+HXDLIN( 620)				this->pointsAnti[(pA - 1)] = this->jy;
+HXLINE( 621)				pC = this->pointsClock->length;
+HXLINE( 622)				pC = (pC + 1);
+HXDLIN( 622)				this->pointsClock[(pC - 1)] = this->jxOld;
+HXLINE( 623)				pC = (pC + 1);
+HXDLIN( 623)				this->pointsClock[(pC - 1)] = this->jyOld;
+HXLINE( 624)				pC = (pC + 1);
+HXDLIN( 624)				this->pointsClock[(pC - 1)] = this->kbx;
+HXLINE( 625)				pC = (pC + 1);
+HXDLIN( 625)				this->pointsClock[(pC - 1)] = this->kby;
+HXLINE( 627)				{
+HXLINE( 627)					Float v = (this->quadIndex + 1);
+HXDLIN( 627)					this->pen->paintType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
+            				}
+HXLINE( 628)				{
+HXLINE( 628)					 ::trilateral3::drawing::Pen _this = this->pen;
+HXDLIN( 628)					int color = -1;
+HXDLIN( 628)					if ((color == -1)) {
+HXLINE( 628)						color = _this->currentColor;
+            					}
+HXDLIN( 628)					{
+HXLINE( 628)						float ax = ( (float)(this->kax) );
+HXDLIN( 628)						float ay = ( (float)(this->kay) );
+HXDLIN( 628)						float bx = ( (float)(this->kbx) );
+HXDLIN( 628)						float by = ( (float)(this->kby) );
+HXDLIN( 628)						float cx = ( (float)(this->jxOld) );
+HXDLIN( 628)						float cy = ( (float)(this->jyOld) );
+HXDLIN( 628)						bool windAdjust = ( (bool)(_this->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
+HXDLIN( 628)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
+HXLINE( 628)							_this->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+            						}
+HXDLIN( 628)						if (_this->useTexture) {
+HXLINE( 628)							ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN( 628)							ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN( 628)							bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN( 628)							by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN( 628)							cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN( 628)							cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN( 628)							_this->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            						}
+            					}
+HXDLIN( 628)					_this->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN( 628)					_this->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+            				}
+            			}
+HXLINE( 632)			{
+HXLINE( 632)				Float v = this->quadIndex;
+HXDLIN( 632)				this->pen->paintType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
+            			}
+HXLINE( 633)			{
+HXLINE( 633)				 ::trilateral3::drawing::Pen _this = this->pen;
+HXDLIN( 633)				int color = -1;
+HXDLIN( 633)				if ((color == -1)) {
+HXLINE( 633)					color = _this->currentColor;
+            				}
+HXDLIN( 633)				{
+HXLINE( 633)					float ax = ( (float)(this->kax) );
+HXDLIN( 633)					float ay = ( (float)(this->kay) );
+HXDLIN( 633)					float bx = ( (float)(this->kbx) );
+HXDLIN( 633)					float by = ( (float)(this->kby) );
+HXDLIN( 633)					float cx = ( (float)(this->jx) );
+HXDLIN( 633)					float cy = ( (float)(this->jy) );
+HXDLIN( 633)					bool windAdjust = ( (bool)(_this->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
+HXDLIN( 633)					if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
+HXLINE( 633)						_this->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+            					}
+HXDLIN( 633)					if (_this->useTexture) {
+HXLINE( 633)						ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN( 633)						ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN( 633)						bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN( 633)						by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN( 633)						cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN( 633)						cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN( 633)						_this->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            					}
+            				}
+HXDLIN( 633)				_this->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN( 633)				_this->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+            			}
+            		}
+HXLINE( 637)		bool _hx_tmp1;
+HXDLIN( 637)		if (clockWise) {
+HXLINE( 637)			_hx_tmp1 = this->lastClock;
+            		}
+            		else {
+HXLINE( 637)			_hx_tmp1 = false;
+            		}
+HXDLIN( 637)		if (_hx_tmp1) {
+HXLINE( 638)			if ((this->count == 1)) {
+HXLINE( 640)				pA = this->pointsAnti->length;
+HXLINE( 641)				pA = (pA + 1);
+HXDLIN( 641)				this->pointsAnti[(pA - 1)] = this->jx;
+HXLINE( 642)				pA = (pA + 1);
+HXDLIN( 642)				this->pointsAnti[(pA - 1)] = this->jy;
+HXLINE( 643)				pA = (pA + 1);
+HXDLIN( 643)				this->pointsAnti[(pA - 1)] = this->kbx;
 HXLINE( 644)				pA = (pA + 1);
-HXDLIN( 644)				this->pointsAnti[(pA - 1)] = this->jxOld;
-HXLINE( 645)				pA = (pA + 1);
-HXDLIN( 645)				this->pointsAnti[(pA - 1)] = this->jyOld;
-HXLINE( 646)				pA = (pA + 1);
-HXDLIN( 646)				this->pointsAnti[(pA - 1)] = this->jx;
-HXLINE( 647)				pA = (pA + 1);
-HXDLIN( 647)				this->pointsAnti[(pA - 1)] = this->jy;
-HXLINE( 648)				pC = this->pointsClock->length;
+HXDLIN( 644)				this->pointsAnti[(pA - 1)] = this->kby;
+HXLINE( 645)				pC = this->pointsClock->length;
+HXLINE( 646)				pC = (pC + 1);
+HXDLIN( 646)				this->pointsClock[(pC - 1)] = this->kax;
+HXLINE( 647)				pC = (pC + 1);
+HXDLIN( 647)				this->pointsClock[(pC - 1)] = this->kay;
+HXLINE( 648)				pC = (pC + 1);
+HXDLIN( 648)				this->pointsClock[(pC - 1)] = this->kbx;
 HXLINE( 649)				pC = (pC + 1);
-HXDLIN( 649)				this->pointsClock[(pC - 1)] = this->ncx;
-HXLINE( 650)				pC = (pC + 1);
-HXDLIN( 650)				this->pointsClock[(pC - 1)] = this->ncy;
-HXLINE( 651)				pC = (pC + 1);
-HXDLIN( 651)				this->pointsClock[(pC - 1)] = this->kbx;
-HXLINE( 652)				pC = (pC + 1);
-HXDLIN( 652)				this->pointsClock[(pC - 1)] = this->kby;
+HXDLIN( 649)				this->pointsClock[(pC - 1)] = this->kby;
+HXLINE( 651)				{
+HXLINE( 651)					Float v = this->quadIndex;
+HXDLIN( 651)					this->pen->paintType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
+            				}
+HXLINE( 652)				{
+HXLINE( 652)					 ::trilateral3::drawing::Pen _this = this->pen;
+HXDLIN( 652)					int color = -1;
+HXDLIN( 652)					if ((color == -1)) {
+HXLINE( 652)						color = _this->currentColor;
+            					}
+HXDLIN( 652)					{
+HXLINE( 652)						float ax = ( (float)(this->kax) );
+HXDLIN( 652)						float ay = ( (float)(this->kay) );
+HXDLIN( 652)						float bx = ( (float)(this->kbx) );
+HXDLIN( 652)						float by = ( (float)(this->kby) );
+HXDLIN( 652)						float cx = ( (float)(this->jx) );
+HXDLIN( 652)						float cy = ( (float)(this->jy) );
+HXDLIN( 652)						bool windAdjust = ( (bool)(_this->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
+HXDLIN( 652)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
+HXLINE( 652)							_this->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+            						}
+HXDLIN( 652)						if (_this->useTexture) {
+HXLINE( 652)							ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN( 652)							ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN( 652)							bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN( 652)							by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN( 652)							cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN( 652)							cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN( 652)							_this->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            						}
+            					}
+HXDLIN( 652)					_this->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN( 652)					_this->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+            				}
+HXLINE( 653)				{
+HXLINE( 653)					Float v1 = (this->quadIndex + 1);
+HXDLIN( 653)					this->pen->paintType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v1);
+            				}
 HXLINE( 654)				{
-HXLINE( 654)					 ::trilateral3::drawing::Pen _this = this->pen;
-HXDLIN( 654)					Float v = this->quadIndex;
-HXDLIN( 654)					_this->drawType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
-HXDLIN( 654)					_this->colorType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
-            				}
-HXLINE( 655)				{
-HXLINE( 655)					 ::trilateral3::drawing::Pen _this1 = this->pen;
-HXDLIN( 655)					int color = -1;
-HXDLIN( 655)					if ((color == -1)) {
-HXLINE( 655)						color = _this1->currentColor;
+HXLINE( 654)					 ::trilateral3::drawing::Pen _this1 = this->pen;
+HXDLIN( 654)					int color1 = -1;
+HXDLIN( 654)					if ((color1 == -1)) {
+HXLINE( 654)						color1 = _this1->currentColor;
             					}
-HXDLIN( 655)					{
-HXLINE( 655)						_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(this->jxOld,this->jyOld,0,this->kbx,this->kby,0,this->jx,this->jy,0);
-HXDLIN( 655)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXLINE( 655)							_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN( 654)					{
+HXLINE( 654)						float ax1 = ( (float)(this->kax) );
+HXDLIN( 654)						float ay1 = ( (float)(this->kay) );
+HXDLIN( 654)						float bx1 = ( (float)(this->kbx) );
+HXDLIN( 654)						float by1 = ( (float)(this->kby) );
+HXDLIN( 654)						float cx1 = ( (float)(this->ncx) );
+HXDLIN( 654)						float cy1 = ( (float)(this->ncy) );
+HXDLIN( 654)						bool windAdjust1 = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax1,ay1,0,bx1,by1,0,cx1,cy1,0)) );
+HXDLIN( 654)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
+HXLINE( 654)							_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             						}
-HXDLIN( 655)						_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
-            					}
-HXDLIN( 655)					_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
-            				}
-HXLINE( 657)				{
-HXLINE( 657)					 ::trilateral3::drawing::Pen _this2 = this->pen;
-HXDLIN( 657)					Float v1 = (this->quadIndex + 1);
-HXDLIN( 657)					_this2->drawType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v1);
-HXDLIN( 657)					_this2->colorType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v1);
-            				}
-HXLINE( 658)				{
-HXLINE( 658)					 ::trilateral3::drawing::Pen _this3 = this->pen;
-HXDLIN( 658)					int color1 = -1;
-HXDLIN( 658)					if ((color1 == -1)) {
-HXLINE( 658)						color1 = _this3->currentColor;
-            					}
-HXDLIN( 658)					{
-HXLINE( 658)						_this3->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(this->jxOld,this->jyOld,0,this->kbx,this->kby,0,this->ncx,this->ncy,0);
-HXDLIN( 658)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXLINE( 658)							_this3->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN( 654)						if (_this1->useTexture) {
+HXLINE( 654)							ax1 = ( (float)((( (Float)(ax1) ) / ( (Float)(2000) ))) );
+HXDLIN( 654)							ay1 = ( (float)((( (Float)(ay1) ) / ( (Float)(2000) ))) );
+HXDLIN( 654)							bx1 = ( (float)((( (Float)(bx1) ) / ( (Float)(2000) ))) );
+HXDLIN( 654)							by1 = ( (float)((( (Float)(by1) ) / ( (Float)(2000) ))) );
+HXDLIN( 654)							cx1 = ( (float)((( (Float)(cx1) ) / ( (Float)(2000) ))) );
+HXDLIN( 654)							cy1 = ( (float)((( (Float)(cy1) ) / ( (Float)(2000) ))) );
+HXDLIN( 654)							_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax1,ay1,bx1,by1,cx1,cy1,windAdjust1);
             						}
-HXDLIN( 658)						_this3->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             					}
-HXDLIN( 658)					_this3->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
-            				}
-            			}
-            		}
-HXLINE( 666)		bool _hx_tmp2;
-HXDLIN( 666)		if (!(clockWise)) {
-HXLINE( 666)			_hx_tmp2 = !(this->lastClock);
-            		}
-            		else {
-HXLINE( 666)			_hx_tmp2 = false;
-            		}
-HXDLIN( 666)		if (_hx_tmp2) {
-HXLINE( 668)			{
-HXLINE( 668)				 ::trilateral3::drawing::Pen _this = this->pen;
-HXDLIN( 668)				Float v = this->quadIndex;
-HXDLIN( 668)				_this->drawType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
-HXDLIN( 668)				_this->colorType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
-            			}
-HXLINE( 669)			{
-HXLINE( 669)				 ::trilateral3::drawing::Pen _this1 = this->pen;
-HXDLIN( 669)				int color = -1;
-HXDLIN( 669)				if ((color == -1)) {
-HXLINE( 669)					color = _this1->currentColor;
-            				}
-HXDLIN( 669)				{
-HXLINE( 669)					_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(this->kax,this->kay,0,this->jx,this->jy,0,this->kcx,this->kcy,0);
-HXDLIN( 669)					if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXLINE( 669)						_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
-            					}
-HXDLIN( 669)					_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
-            				}
-HXDLIN( 669)				_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
-            			}
-HXLINE( 672)			if ((this->count == 1)) {
-HXLINE( 673)				pA = this->pointsAnti->length;
-HXLINE( 674)				pA = (pA + 1);
-HXDLIN( 674)				this->pointsAnti[(pA - 1)] = this->kax;
-HXLINE( 675)				pA = (pA + 1);
-HXDLIN( 675)				this->pointsAnti[(pA - 1)] = this->kay;
-HXLINE( 676)				pA = (pA + 1);
-HXDLIN( 676)				this->pointsAnti[(pA - 1)] = this->kcx;
-HXLINE( 677)				pA = (pA + 1);
-HXDLIN( 677)				this->pointsAnti[(pA - 1)] = this->kcy;
-HXLINE( 678)				pC = this->pointsClock->length;
-HXLINE( 679)				pC = (pC + 1);
-HXDLIN( 679)				this->pointsClock[(pC - 1)] = this->ncx;
-HXLINE( 680)				pC = (pC + 1);
-HXDLIN( 680)				this->pointsClock[(pC - 1)] = this->ncy;
-HXLINE( 681)				pC = (pC + 1);
-HXDLIN( 681)				this->pointsClock[(pC - 1)] = this->jx;
-HXLINE( 682)				pC = (pC + 1);
-HXDLIN( 682)				this->pointsClock[(pC - 1)] = this->jy;
-HXLINE( 683)				{
-HXLINE( 683)					 ::trilateral3::drawing::Pen _this = this->pen;
-HXDLIN( 683)					Float v = (this->quadIndex + 1);
-HXDLIN( 683)					_this->drawType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
-HXDLIN( 683)					_this->colorType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
-            				}
-HXLINE( 684)				{
-HXLINE( 684)					 ::trilateral3::drawing::Pen _this1 = this->pen;
-HXDLIN( 684)					int color = -1;
-HXDLIN( 684)					if ((color == -1)) {
-HXLINE( 684)						color = _this1->currentColor;
-            					}
-HXDLIN( 684)					{
-HXLINE( 684)						_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(this->kax,this->kay,0,this->jx,this->jy,0,this->ncx,this->ncy,0);
-HXDLIN( 684)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXLINE( 684)							_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
-            						}
-HXDLIN( 684)						_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
-            					}
-HXDLIN( 684)					_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN( 654)					_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN( 654)					_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             				}
             			}
             			else {
+HXLINE( 657)				pA = this->pointsAnti->length;
+HXLINE( 658)				pA = (pA + 1);
+HXDLIN( 658)				this->pointsAnti[(pA - 1)] = this->jxOld;
+HXLINE( 659)				pA = (pA + 1);
+HXDLIN( 659)				this->pointsAnti[(pA - 1)] = this->jyOld;
+HXLINE( 660)				pA = (pA + 1);
+HXDLIN( 660)				this->pointsAnti[(pA - 1)] = this->jx;
+HXLINE( 661)				pA = (pA + 1);
+HXDLIN( 661)				this->pointsAnti[(pA - 1)] = this->jy;
+HXLINE( 662)				pC = this->pointsClock->length;
+HXLINE( 663)				pC = (pC + 1);
+HXDLIN( 663)				this->pointsClock[(pC - 1)] = this->ncx;
+HXLINE( 664)				pC = (pC + 1);
+HXDLIN( 664)				this->pointsClock[(pC - 1)] = this->ncy;
+HXLINE( 665)				pC = (pC + 1);
+HXDLIN( 665)				this->pointsClock[(pC - 1)] = this->kbx;
+HXLINE( 666)				pC = (pC + 1);
+HXDLIN( 666)				this->pointsClock[(pC - 1)] = this->kby;
+HXLINE( 668)				{
+HXLINE( 668)					Float v = this->quadIndex;
+HXDLIN( 668)					this->pen->paintType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
+            				}
+HXLINE( 669)				{
+HXLINE( 669)					 ::trilateral3::drawing::Pen _this = this->pen;
+HXDLIN( 669)					int color = -1;
+HXDLIN( 669)					if ((color == -1)) {
+HXLINE( 669)						color = _this->currentColor;
+            					}
+HXDLIN( 669)					{
+HXLINE( 669)						float ax = ( (float)(this->jxOld) );
+HXDLIN( 669)						float ay = ( (float)(this->jyOld) );
+HXDLIN( 669)						float bx = ( (float)(this->kbx) );
+HXDLIN( 669)						float by = ( (float)(this->kby) );
+HXDLIN( 669)						float cx = ( (float)(this->jx) );
+HXDLIN( 669)						float cy = ( (float)(this->jy) );
+HXDLIN( 669)						bool windAdjust = ( (bool)(_this->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
+HXDLIN( 669)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
+HXLINE( 669)							_this->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+            						}
+HXDLIN( 669)						if (_this->useTexture) {
+HXLINE( 669)							ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN( 669)							ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN( 669)							bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN( 669)							by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN( 669)							cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN( 669)							cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN( 669)							_this->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            						}
+            					}
+HXDLIN( 669)					_this->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN( 669)					_this->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+            				}
+HXLINE( 671)				{
+HXLINE( 671)					Float v1 = (this->quadIndex + 1);
+HXDLIN( 671)					this->pen->paintType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v1);
+            				}
+HXLINE( 672)				{
+HXLINE( 672)					 ::trilateral3::drawing::Pen _this1 = this->pen;
+HXDLIN( 672)					int color1 = -1;
+HXDLIN( 672)					if ((color1 == -1)) {
+HXLINE( 672)						color1 = _this1->currentColor;
+            					}
+HXDLIN( 672)					{
+HXLINE( 672)						float ax1 = ( (float)(this->jxOld) );
+HXDLIN( 672)						float ay1 = ( (float)(this->jyOld) );
+HXDLIN( 672)						float bx1 = ( (float)(this->kbx) );
+HXDLIN( 672)						float by1 = ( (float)(this->kby) );
+HXDLIN( 672)						float cx1 = ( (float)(this->ncx) );
+HXDLIN( 672)						float cy1 = ( (float)(this->ncy) );
+HXDLIN( 672)						bool windAdjust1 = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax1,ay1,0,bx1,by1,0,cx1,cy1,0)) );
+HXDLIN( 672)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
+HXLINE( 672)							_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+            						}
+HXDLIN( 672)						if (_this1->useTexture) {
+HXLINE( 672)							ax1 = ( (float)((( (Float)(ax1) ) / ( (Float)(2000) ))) );
+HXDLIN( 672)							ay1 = ( (float)((( (Float)(ay1) ) / ( (Float)(2000) ))) );
+HXDLIN( 672)							bx1 = ( (float)((( (Float)(bx1) ) / ( (Float)(2000) ))) );
+HXDLIN( 672)							by1 = ( (float)((( (Float)(by1) ) / ( (Float)(2000) ))) );
+HXDLIN( 672)							cx1 = ( (float)((( (Float)(cx1) ) / ( (Float)(2000) ))) );
+HXDLIN( 672)							cy1 = ( (float)((( (Float)(cy1) ) / ( (Float)(2000) ))) );
+HXDLIN( 672)							_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax1,ay1,bx1,by1,cx1,cy1,windAdjust1);
+            						}
+            					}
+HXDLIN( 672)					_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN( 672)					_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+            				}
+            			}
+            		}
+HXLINE( 680)		bool _hx_tmp2;
+HXDLIN( 680)		if (!(clockWise)) {
+HXLINE( 680)			_hx_tmp2 = !(this->lastClock);
+            		}
+            		else {
+HXLINE( 680)			_hx_tmp2 = false;
+            		}
+HXDLIN( 680)		if (_hx_tmp2) {
+HXLINE( 682)			{
+HXLINE( 682)				Float v = this->quadIndex;
+HXDLIN( 682)				this->pen->paintType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
+            			}
+HXLINE( 683)			{
+HXLINE( 683)				 ::trilateral3::drawing::Pen _this = this->pen;
+HXDLIN( 683)				int color = -1;
+HXDLIN( 683)				if ((color == -1)) {
+HXLINE( 683)					color = _this->currentColor;
+            				}
+HXDLIN( 683)				{
+HXLINE( 683)					float ax = ( (float)(this->kax) );
+HXDLIN( 683)					float ay = ( (float)(this->kay) );
+HXDLIN( 683)					float bx = ( (float)(this->jx) );
+HXDLIN( 683)					float by = ( (float)(this->jy) );
+HXDLIN( 683)					float cx = ( (float)(this->kcx) );
+HXDLIN( 683)					float cy = ( (float)(this->kcy) );
+HXDLIN( 683)					bool windAdjust = ( (bool)(_this->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
+HXDLIN( 683)					if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
+HXLINE( 683)						_this->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+            					}
+HXDLIN( 683)					if (_this->useTexture) {
+HXLINE( 683)						ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN( 683)						ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN( 683)						bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN( 683)						by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN( 683)						cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN( 683)						cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN( 683)						_this->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            					}
+            				}
+HXDLIN( 683)				_this->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN( 683)				_this->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+            			}
+HXLINE( 686)			if ((this->count == 1)) {
 HXLINE( 687)				pA = this->pointsAnti->length;
 HXLINE( 688)				pA = (pA + 1);
 HXDLIN( 688)				this->pointsAnti[(pA - 1)] = this->kax;
@@ -432,174 +495,289 @@ HXLINE( 691)				pA = (pA + 1);
 HXDLIN( 691)				this->pointsAnti[(pA - 1)] = this->kcy;
 HXLINE( 692)				pC = this->pointsClock->length;
 HXLINE( 693)				pC = (pC + 1);
-HXDLIN( 693)				this->pointsClock[(pC - 1)] = this->jxOld;
+HXDLIN( 693)				this->pointsClock[(pC - 1)] = this->ncx;
 HXLINE( 694)				pC = (pC + 1);
-HXDLIN( 694)				this->pointsClock[(pC - 1)] = this->jyOld;
+HXDLIN( 694)				this->pointsClock[(pC - 1)] = this->ncy;
 HXLINE( 695)				pC = (pC + 1);
 HXDLIN( 695)				this->pointsClock[(pC - 1)] = this->jx;
 HXLINE( 696)				pC = (pC + 1);
 HXDLIN( 696)				this->pointsClock[(pC - 1)] = this->jy;
 HXLINE( 697)				{
-HXLINE( 697)					 ::trilateral3::drawing::Pen _this = this->pen;
-HXDLIN( 697)					Float v = (this->quadIndex + 1);
-HXDLIN( 697)					_this->drawType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
-HXDLIN( 697)					_this->colorType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
+HXLINE( 697)					Float v = (this->quadIndex + 1);
+HXDLIN( 697)					this->pen->paintType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
             				}
 HXLINE( 698)				{
-HXLINE( 698)					 ::trilateral3::drawing::Pen _this1 = this->pen;
+HXLINE( 698)					 ::trilateral3::drawing::Pen _this = this->pen;
 HXDLIN( 698)					int color = -1;
 HXDLIN( 698)					if ((color == -1)) {
-HXLINE( 698)						color = _this1->currentColor;
+HXLINE( 698)						color = _this->currentColor;
             					}
 HXDLIN( 698)					{
-HXLINE( 698)						_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(this->kax,this->kay,0,this->jx,this->jy,0,this->jxOld,this->jyOld,0);
+HXLINE( 698)						float ax = ( (float)(this->kax) );
+HXDLIN( 698)						float ay = ( (float)(this->kay) );
+HXDLIN( 698)						float bx = ( (float)(this->jx) );
+HXDLIN( 698)						float by = ( (float)(this->jy) );
+HXDLIN( 698)						float cx = ( (float)(this->ncx) );
+HXDLIN( 698)						float cy = ( (float)(this->ncy) );
+HXDLIN( 698)						bool windAdjust = ( (bool)(_this->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
 HXDLIN( 698)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXLINE( 698)							_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXLINE( 698)							_this->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             						}
-HXDLIN( 698)						_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
-            					}
-HXDLIN( 698)					_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
-            				}
-            			}
-            		}
-HXLINE( 703)		bool _hx_tmp3;
-HXDLIN( 703)		if (!(clockWise)) {
-HXLINE( 703)			_hx_tmp3 = this->lastClock;
-            		}
-            		else {
-HXLINE( 703)			_hx_tmp3 = false;
-            		}
-HXDLIN( 703)		if (_hx_tmp3) {
-HXLINE( 704)			if ((this->count == 1)) {
-HXLINE( 705)				pA = this->pointsAnti->length;
-HXLINE( 706)				pA = (pA + 1);
-HXDLIN( 706)				this->pointsAnti[(pA - 1)] = this->kay;
-HXLINE( 707)				pA = (pA + 1);
-HXDLIN( 707)				this->pointsAnti[(pA - 1)] = this->kax;
-HXLINE( 708)				pA = (pA + 1);
-HXDLIN( 708)				this->pointsAnti[(pA - 1)] = this->kcx;
-HXLINE( 709)				pA = (pA + 1);
-HXDLIN( 709)				this->pointsAnti[(pA - 1)] = this->kcy;
-HXLINE( 710)				pC = this->pointsClock->length;
-HXLINE( 711)				pC = (pC + 1);
-HXDLIN( 711)				this->pointsClock[(pC - 1)] = this->jx;
-HXLINE( 712)				pC = (pC + 1);
-HXDLIN( 712)				this->pointsClock[(pC - 1)] = this->jy;
-HXLINE( 713)				pC = (pC + 1);
-HXDLIN( 713)				this->pointsClock[(pC - 1)] = this->ncx;
-HXLINE( 714)				pC = (pC + 1);
-HXDLIN( 714)				this->pointsClock[(pC - 1)] = this->ncy;
-HXLINE( 715)				{
-HXLINE( 715)					 ::trilateral3::drawing::Pen _this = this->pen;
-HXDLIN( 715)					Float v = this->quadIndex;
-HXDLIN( 715)					_this->drawType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
-HXDLIN( 715)					_this->colorType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
-            				}
-HXLINE( 716)				{
-HXLINE( 716)					 ::trilateral3::drawing::Pen _this1 = this->pen;
-HXDLIN( 716)					int color = -1;
-HXDLIN( 716)					if ((color == -1)) {
-HXLINE( 716)						color = _this1->currentColor;
-            					}
-HXDLIN( 716)					{
-HXLINE( 716)						_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(this->kax,this->kay,0,this->jx,this->jy,0,this->kcx,this->kcy,0);
-HXDLIN( 716)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXLINE( 716)							_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN( 698)						if (_this->useTexture) {
+HXLINE( 698)							ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN( 698)							ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN( 698)							bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN( 698)							by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN( 698)							cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN( 698)							cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN( 698)							_this->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
             						}
-HXDLIN( 716)						_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             					}
-HXDLIN( 716)					_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
-            				}
-HXLINE( 717)				{
-HXLINE( 717)					 ::trilateral3::drawing::Pen _this2 = this->pen;
-HXDLIN( 717)					Float v1 = (this->quadIndex + 1);
-HXDLIN( 717)					_this2->drawType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v1);
-HXDLIN( 717)					_this2->colorType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v1);
-            				}
-HXLINE( 718)				{
-HXLINE( 718)					 ::trilateral3::drawing::Pen _this3 = this->pen;
-HXDLIN( 718)					int color1 = -1;
-HXDLIN( 718)					if ((color1 == -1)) {
-HXLINE( 718)						color1 = _this3->currentColor;
-            					}
-HXDLIN( 718)					{
-HXLINE( 718)						_this3->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(this->kax,this->kay,0,this->jx,this->jy,0,this->ncx,this->ncy,0);
-HXDLIN( 718)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXLINE( 718)							_this3->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
-            						}
-HXDLIN( 718)						_this3->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
-            					}
-HXDLIN( 718)					_this3->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN( 698)					_this->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN( 698)					_this->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             				}
             			}
             			else {
-HXLINE( 720)				pA = this->pointsAnti->length;
-HXLINE( 721)				pA = (pA + 1);
-HXDLIN( 721)				this->pointsAnti[(pA - 1)] = this->jxOld;
-HXLINE( 722)				pA = (pA + 1);
-HXDLIN( 722)				this->pointsAnti[(pA - 1)] = this->jyOld;
-HXLINE( 723)				pA = (pA + 1);
-HXDLIN( 723)				this->pointsAnti[(pA - 1)] = this->kcx;
-HXLINE( 724)				pA = (pA + 1);
-HXDLIN( 724)				this->pointsAnti[(pA - 1)] = this->kcy;
-HXLINE( 725)				pC = this->pointsClock->length;
-HXLINE( 726)				pC = (pC + 1);
-HXDLIN( 726)				this->pointsClock[(pC - 1)] = this->jx;
-HXLINE( 727)				pC = (pC + 1);
-HXDLIN( 727)				this->pointsClock[(pC - 1)] = this->jy;
-HXLINE( 728)				pC = (pC + 1);
-HXDLIN( 728)				this->pointsClock[(pC - 1)] = this->ncx;
-HXLINE( 729)				pC = (pC + 1);
-HXDLIN( 729)				this->pointsClock[(pC - 1)] = this->ncy;
-HXLINE( 730)				{
-HXLINE( 730)					 ::trilateral3::drawing::Pen _this = this->pen;
-HXDLIN( 730)					Float v = this->quadIndex;
-HXDLIN( 730)					_this->drawType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
-HXDLIN( 730)					_this->colorType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
+HXLINE( 701)				pA = this->pointsAnti->length;
+HXLINE( 702)				pA = (pA + 1);
+HXDLIN( 702)				this->pointsAnti[(pA - 1)] = this->kax;
+HXLINE( 703)				pA = (pA + 1);
+HXDLIN( 703)				this->pointsAnti[(pA - 1)] = this->kay;
+HXLINE( 704)				pA = (pA + 1);
+HXDLIN( 704)				this->pointsAnti[(pA - 1)] = this->kcx;
+HXLINE( 705)				pA = (pA + 1);
+HXDLIN( 705)				this->pointsAnti[(pA - 1)] = this->kcy;
+HXLINE( 706)				pC = this->pointsClock->length;
+HXLINE( 707)				pC = (pC + 1);
+HXDLIN( 707)				this->pointsClock[(pC - 1)] = this->jxOld;
+HXLINE( 708)				pC = (pC + 1);
+HXDLIN( 708)				this->pointsClock[(pC - 1)] = this->jyOld;
+HXLINE( 709)				pC = (pC + 1);
+HXDLIN( 709)				this->pointsClock[(pC - 1)] = this->jx;
+HXLINE( 710)				pC = (pC + 1);
+HXDLIN( 710)				this->pointsClock[(pC - 1)] = this->jy;
+HXLINE( 711)				{
+HXLINE( 711)					Float v = (this->quadIndex + 1);
+HXDLIN( 711)					this->pen->paintType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
             				}
-HXLINE( 731)				{
-HXLINE( 731)					 ::trilateral3::drawing::Pen _this1 = this->pen;
-HXDLIN( 731)					int color = -1;
-HXDLIN( 731)					if ((color == -1)) {
-HXLINE( 731)						color = _this1->currentColor;
+HXLINE( 712)				{
+HXLINE( 712)					 ::trilateral3::drawing::Pen _this = this->pen;
+HXDLIN( 712)					int color = -1;
+HXDLIN( 712)					if ((color == -1)) {
+HXLINE( 712)						color = _this->currentColor;
             					}
-HXDLIN( 731)					{
-HXLINE( 731)						_this1->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(this->jxOld,this->jyOld,0,this->jx,this->jy,0,this->kcx,this->kcy,0);
-HXDLIN( 731)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXLINE( 731)							_this1->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN( 712)					{
+HXLINE( 712)						float ax = ( (float)(this->kax) );
+HXDLIN( 712)						float ay = ( (float)(this->kay) );
+HXDLIN( 712)						float bx = ( (float)(this->jx) );
+HXDLIN( 712)						float by = ( (float)(this->jy) );
+HXDLIN( 712)						float cx = ( (float)(this->jxOld) );
+HXDLIN( 712)						float cy = ( (float)(this->jyOld) );
+HXDLIN( 712)						bool windAdjust = ( (bool)(_this->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
+HXDLIN( 712)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
+HXLINE( 712)							_this->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
             						}
-HXDLIN( 731)						_this1->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
-            					}
-HXDLIN( 731)					_this1->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
-            				}
-HXLINE( 732)				{
-HXLINE( 732)					 ::trilateral3::drawing::Pen _this2 = this->pen;
-HXDLIN( 732)					Float v1 = (this->quadIndex + 1);
-HXDLIN( 732)					_this2->drawType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v1);
-HXDLIN( 732)					_this2->colorType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v1);
-            				}
-HXLINE( 733)				{
-HXLINE( 733)					 ::trilateral3::drawing::Pen _this3 = this->pen;
-HXDLIN( 733)					int color1 = -1;
-HXDLIN( 733)					if ((color1 == -1)) {
-HXLINE( 733)						color1 = _this3->currentColor;
-            					}
-HXDLIN( 733)					{
-HXLINE( 733)						_this3->drawType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(this->jxOld,this->jyOld,0,this->jx,this->jy,0,this->ncx,this->ncy,0);
-HXDLIN( 733)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
-HXLINE( 733)							_this3->drawType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+HXDLIN( 712)						if (_this->useTexture) {
+HXLINE( 712)							ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN( 712)							ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN( 712)							bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN( 712)							by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN( 712)							cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN( 712)							cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN( 712)							_this->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
             						}
-HXDLIN( 733)						_this3->drawType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             					}
-HXDLIN( 733)					_this3->colorType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN( 712)					_this->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN( 712)					_this->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
             				}
             			}
             		}
-HXLINE( 737)		{
-HXLINE( 737)			 ::trilateral3::drawing::Pen _this = this->pen;
-HXDLIN( 737)			_this->drawType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(currQuadIndex);
-HXDLIN( 737)			_this->colorType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(currQuadIndex);
+HXLINE( 717)		bool _hx_tmp3;
+HXDLIN( 717)		if (!(clockWise)) {
+HXLINE( 717)			_hx_tmp3 = this->lastClock;
             		}
+            		else {
+HXLINE( 717)			_hx_tmp3 = false;
+            		}
+HXDLIN( 717)		if (_hx_tmp3) {
+HXLINE( 718)			if ((this->count == 1)) {
+HXLINE( 719)				pA = this->pointsAnti->length;
+HXLINE( 720)				pA = (pA + 1);
+HXDLIN( 720)				this->pointsAnti[(pA - 1)] = this->kay;
+HXLINE( 721)				pA = (pA + 1);
+HXDLIN( 721)				this->pointsAnti[(pA - 1)] = this->kax;
+HXLINE( 722)				pA = (pA + 1);
+HXDLIN( 722)				this->pointsAnti[(pA - 1)] = this->kcx;
+HXLINE( 723)				pA = (pA + 1);
+HXDLIN( 723)				this->pointsAnti[(pA - 1)] = this->kcy;
+HXLINE( 724)				pC = this->pointsClock->length;
+HXLINE( 725)				pC = (pC + 1);
+HXDLIN( 725)				this->pointsClock[(pC - 1)] = this->jx;
+HXLINE( 726)				pC = (pC + 1);
+HXDLIN( 726)				this->pointsClock[(pC - 1)] = this->jy;
+HXLINE( 727)				pC = (pC + 1);
+HXDLIN( 727)				this->pointsClock[(pC - 1)] = this->ncx;
+HXLINE( 728)				pC = (pC + 1);
+HXDLIN( 728)				this->pointsClock[(pC - 1)] = this->ncy;
+HXLINE( 729)				{
+HXLINE( 729)					Float v = this->quadIndex;
+HXDLIN( 729)					this->pen->paintType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
+            				}
+HXLINE( 730)				{
+HXLINE( 730)					 ::trilateral3::drawing::Pen _this = this->pen;
+HXDLIN( 730)					int color = -1;
+HXDLIN( 730)					if ((color == -1)) {
+HXLINE( 730)						color = _this->currentColor;
+            					}
+HXDLIN( 730)					{
+HXLINE( 730)						float ax = ( (float)(this->kax) );
+HXDLIN( 730)						float ay = ( (float)(this->kay) );
+HXDLIN( 730)						float bx = ( (float)(this->jx) );
+HXDLIN( 730)						float by = ( (float)(this->jy) );
+HXDLIN( 730)						float cx = ( (float)(this->kcx) );
+HXDLIN( 730)						float cy = ( (float)(this->kcy) );
+HXDLIN( 730)						bool windAdjust = ( (bool)(_this->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
+HXDLIN( 730)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
+HXLINE( 730)							_this->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+            						}
+HXDLIN( 730)						if (_this->useTexture) {
+HXLINE( 730)							ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN( 730)							ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN( 730)							bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN( 730)							by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN( 730)							cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN( 730)							cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN( 730)							_this->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            						}
+            					}
+HXDLIN( 730)					_this->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN( 730)					_this->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+            				}
+HXLINE( 731)				{
+HXLINE( 731)					Float v1 = (this->quadIndex + 1);
+HXDLIN( 731)					this->pen->paintType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v1);
+            				}
+HXLINE( 732)				{
+HXLINE( 732)					 ::trilateral3::drawing::Pen _this1 = this->pen;
+HXDLIN( 732)					int color1 = -1;
+HXDLIN( 732)					if ((color1 == -1)) {
+HXLINE( 732)						color1 = _this1->currentColor;
+            					}
+HXDLIN( 732)					{
+HXLINE( 732)						float ax1 = ( (float)(this->kax) );
+HXDLIN( 732)						float ay1 = ( (float)(this->kay) );
+HXDLIN( 732)						float bx1 = ( (float)(this->jx) );
+HXDLIN( 732)						float by1 = ( (float)(this->jy) );
+HXDLIN( 732)						float cx1 = ( (float)(this->ncx) );
+HXDLIN( 732)						float cy1 = ( (float)(this->ncy) );
+HXDLIN( 732)						bool windAdjust1 = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax1,ay1,0,bx1,by1,0,cx1,cy1,0)) );
+HXDLIN( 732)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
+HXLINE( 732)							_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+            						}
+HXDLIN( 732)						if (_this1->useTexture) {
+HXLINE( 732)							ax1 = ( (float)((( (Float)(ax1) ) / ( (Float)(2000) ))) );
+HXDLIN( 732)							ay1 = ( (float)((( (Float)(ay1) ) / ( (Float)(2000) ))) );
+HXDLIN( 732)							bx1 = ( (float)((( (Float)(bx1) ) / ( (Float)(2000) ))) );
+HXDLIN( 732)							by1 = ( (float)((( (Float)(by1) ) / ( (Float)(2000) ))) );
+HXDLIN( 732)							cx1 = ( (float)((( (Float)(cx1) ) / ( (Float)(2000) ))) );
+HXDLIN( 732)							cy1 = ( (float)((( (Float)(cy1) ) / ( (Float)(2000) ))) );
+HXDLIN( 732)							_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax1,ay1,bx1,by1,cx1,cy1,windAdjust1);
+            						}
+            					}
+HXDLIN( 732)					_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN( 732)					_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+            				}
+            			}
+            			else {
+HXLINE( 734)				pA = this->pointsAnti->length;
+HXLINE( 735)				pA = (pA + 1);
+HXDLIN( 735)				this->pointsAnti[(pA - 1)] = this->jxOld;
+HXLINE( 736)				pA = (pA + 1);
+HXDLIN( 736)				this->pointsAnti[(pA - 1)] = this->jyOld;
+HXLINE( 737)				pA = (pA + 1);
+HXDLIN( 737)				this->pointsAnti[(pA - 1)] = this->kcx;
+HXLINE( 738)				pA = (pA + 1);
+HXDLIN( 738)				this->pointsAnti[(pA - 1)] = this->kcy;
+HXLINE( 739)				pC = this->pointsClock->length;
+HXLINE( 740)				pC = (pC + 1);
+HXDLIN( 740)				this->pointsClock[(pC - 1)] = this->jx;
+HXLINE( 741)				pC = (pC + 1);
+HXDLIN( 741)				this->pointsClock[(pC - 1)] = this->jy;
+HXLINE( 742)				pC = (pC + 1);
+HXDLIN( 742)				this->pointsClock[(pC - 1)] = this->ncx;
+HXLINE( 743)				pC = (pC + 1);
+HXDLIN( 743)				this->pointsClock[(pC - 1)] = this->ncy;
+HXLINE( 744)				{
+HXLINE( 744)					Float v = this->quadIndex;
+HXDLIN( 744)					this->pen->paintType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v);
+            				}
+HXLINE( 745)				{
+HXLINE( 745)					 ::trilateral3::drawing::Pen _this = this->pen;
+HXDLIN( 745)					int color = -1;
+HXDLIN( 745)					if ((color == -1)) {
+HXLINE( 745)						color = _this->currentColor;
+            					}
+HXDLIN( 745)					{
+HXLINE( 745)						float ax = ( (float)(this->jxOld) );
+HXDLIN( 745)						float ay = ( (float)(this->jyOld) );
+HXDLIN( 745)						float bx = ( (float)(this->jx) );
+HXDLIN( 745)						float by = ( (float)(this->jy) );
+HXDLIN( 745)						float cx = ( (float)(this->kcx) );
+HXDLIN( 745)						float cy = ( (float)(this->kcy) );
+HXDLIN( 745)						bool windAdjust = ( (bool)(_this->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax,ay,0,bx,by,0,cx,cy,0)) );
+HXDLIN( 745)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
+HXLINE( 745)							_this->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+            						}
+HXDLIN( 745)						if (_this->useTexture) {
+HXLINE( 745)							ax = ( (float)((( (Float)(ax) ) / ( (Float)(2000) ))) );
+HXDLIN( 745)							ay = ( (float)((( (Float)(ay) ) / ( (Float)(2000) ))) );
+HXDLIN( 745)							bx = ( (float)((( (Float)(bx) ) / ( (Float)(2000) ))) );
+HXDLIN( 745)							by = ( (float)((( (Float)(by) ) / ( (Float)(2000) ))) );
+HXDLIN( 745)							cx = ( (float)((( (Float)(cx) ) / ( (Float)(2000) ))) );
+HXDLIN( 745)							cy = ( (float)((( (Float)(cy) ) / ( (Float)(2000) ))) );
+HXDLIN( 745)							_this->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax,ay,bx,by,cx,cy,windAdjust);
+            						}
+            					}
+HXDLIN( 745)					_this->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color,color,color);
+HXDLIN( 745)					_this->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+            				}
+HXLINE( 746)				{
+HXLINE( 746)					Float v1 = (this->quadIndex + 1);
+HXDLIN( 746)					this->pen->paintType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(v1);
+            				}
+HXLINE( 747)				{
+HXLINE( 747)					 ::trilateral3::drawing::Pen _this1 = this->pen;
+HXDLIN( 747)					int color1 = -1;
+HXDLIN( 747)					if ((color1 == -1)) {
+HXLINE( 747)						color1 = _this1->currentColor;
+            					}
+HXDLIN( 747)					{
+HXLINE( 747)						float ax1 = ( (float)(this->jxOld) );
+HXDLIN( 747)						float ay1 = ( (float)(this->jyOld) );
+HXDLIN( 747)						float bx1 = ( (float)(this->jx) );
+HXDLIN( 747)						float by1 = ( (float)(this->jy) );
+HXDLIN( 747)						float cx1 = ( (float)(this->ncx) );
+HXDLIN( 747)						float cy1 = ( (float)(this->ncy) );
+HXDLIN( 747)						bool windAdjust1 = ( (bool)(_this1->paintType->__Field(HX_("triangle",c8,be,c5,8d),::hx::paccDynamic)(ax1,ay1,0,bx1,by1,0,cx1,cy1,0)) );
+HXDLIN( 747)						if (::hx::IsNotNull( ::trilateral3::Trilateral_obj::transformMatrix )) {
+HXLINE( 747)							_this1->paintType->__Field(HX_("transform",6c,2d,93,45),::hx::paccDynamic)(::trilateral3::Trilateral_obj::transformMatrix);
+            						}
+HXDLIN( 747)						if (_this1->useTexture) {
+HXLINE( 747)							ax1 = ( (float)((( (Float)(ax1) ) / ( (Float)(2000) ))) );
+HXDLIN( 747)							ay1 = ( (float)((( (Float)(ay1) ) / ( (Float)(2000) ))) );
+HXDLIN( 747)							bx1 = ( (float)((( (Float)(bx1) ) / ( (Float)(2000) ))) );
+HXDLIN( 747)							by1 = ( (float)((( (Float)(by1) ) / ( (Float)(2000) ))) );
+HXDLIN( 747)							cx1 = ( (float)((( (Float)(cx1) ) / ( (Float)(2000) ))) );
+HXDLIN( 747)							cy1 = ( (float)((( (Float)(cy1) ) / ( (Float)(2000) ))) );
+HXDLIN( 747)							_this1->paintType->__Field(HX_("triangleUV",29,4b,c9,d9),::hx::paccDynamic)(ax1,ay1,bx1,by1,cx1,cy1,windAdjust1);
+            						}
+            					}
+HXDLIN( 747)					_this1->paintType->__Field(HX_("cornerColors",65,87,ed,a2),::hx::paccDynamic)(color1,color1,color1);
+HXDLIN( 747)					_this1->paintType->__Field(HX_("next",f3,84,02,49),::hx::paccDynamic)();
+            				}
+            			}
+            		}
+HXLINE( 751)		this->pen->paintType->__Field(HX_("set_pos",37,b7,cb,19),::hx::paccDynamic)(currQuadIndex);
             	}
 
 

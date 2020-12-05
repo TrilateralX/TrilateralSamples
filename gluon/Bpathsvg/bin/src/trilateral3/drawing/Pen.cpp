@@ -5,15 +5,15 @@
 #include <trilateral3/drawing/Pen.h>
 #endif
 
-HX_DEFINE_STACK_FRAME(_hx_pos_bf2a6fc66f3165af_16_new,"trilateral3.drawing.Pen","new",0x0b5158b4,"trilateral3.drawing.Pen.new","trilateral3/drawing/Pen.hx",16,0xcfd64fbe)
+HX_DEFINE_STACK_FRAME(_hx_pos_bf2a6fc66f3165af_17_new,"trilateral3.drawing.Pen","new",0x0b5158b4,"trilateral3.drawing.Pen.new","trilateral3/drawing/Pen.hx",17,0xcfd64fbe)
 namespace trilateral3{
 namespace drawing{
 
-void Pen_obj::__construct( ::Dynamic drawType_, ::Dynamic colorType_){
-            	HX_STACKFRAME(&_hx_pos_bf2a6fc66f3165af_16_new)
-HXLINE(  19)		this->currentColor = 16435934;
-HXLINE(  30)		this->drawType = drawType_;
-HXLINE(  31)		this->colorType = colorType_;
+void Pen_obj::__construct( ::Dynamic paintType_){
+            	HX_STACKFRAME(&_hx_pos_bf2a6fc66f3165af_17_new)
+HXLINE(  23)		this->currentColor = 16435934;
+HXLINE(  18)		this->useTexture = false;
+HXLINE(  34)		this->paintType = paintType_;
             	}
 
 Dynamic Pen_obj::__CreateEmpty() { return new Pen_obj; }
@@ -23,7 +23,7 @@ void *Pen_obj::_hx_vtable = 0;
 Dynamic Pen_obj::__Create(::hx::DynamicArray inArgs)
 {
 	::hx::ObjectPtr< Pen_obj > _hx_result = new Pen_obj();
-	_hx_result->__construct(inArgs[0],inArgs[1]);
+	_hx_result->__construct(inArgs[0]);
 	return _hx_result;
 }
 
@@ -39,27 +39,27 @@ Pen_obj::Pen_obj()
 void Pen_obj::__Mark(HX_MARK_PARAMS)
 {
 	HX_MARK_BEGIN_CLASS(Pen);
+	HX_MARK_MEMBER_NAME(useTexture,"useTexture");
 	HX_MARK_MEMBER_NAME(currentColor,"currentColor");
-	HX_MARK_MEMBER_NAME(drawType,"drawType");
-	HX_MARK_MEMBER_NAME(colorType,"colorType");
+	HX_MARK_MEMBER_NAME(paintType,"paintType");
 	HX_MARK_END_CLASS();
 }
 
 void Pen_obj::__Visit(HX_VISIT_PARAMS)
 {
+	HX_VISIT_MEMBER_NAME(useTexture,"useTexture");
 	HX_VISIT_MEMBER_NAME(currentColor,"currentColor");
-	HX_VISIT_MEMBER_NAME(drawType,"drawType");
-	HX_VISIT_MEMBER_NAME(colorType,"colorType");
+	HX_VISIT_MEMBER_NAME(paintType,"paintType");
 }
 
 ::hx::Val Pen_obj::__Field(const ::String &inName,::hx::PropertyAccess inCallProp)
 {
 	switch(inName.length) {
-	case 8:
-		if (HX_FIELD_EQ(inName,"drawType") ) { return ::hx::Val( drawType ); }
-		break;
 	case 9:
-		if (HX_FIELD_EQ(inName,"colorType") ) { return ::hx::Val( colorType ); }
+		if (HX_FIELD_EQ(inName,"paintType") ) { return ::hx::Val( paintType ); }
+		break;
+	case 10:
+		if (HX_FIELD_EQ(inName,"useTexture") ) { return ::hx::Val( useTexture ); }
 		break;
 	case 12:
 		if (HX_FIELD_EQ(inName,"currentColor") ) { return ::hx::Val( currentColor ); }
@@ -70,11 +70,11 @@ void Pen_obj::__Visit(HX_VISIT_PARAMS)
 ::hx::Val Pen_obj::__SetField(const ::String &inName,const ::hx::Val &inValue,::hx::PropertyAccess inCallProp)
 {
 	switch(inName.length) {
-	case 8:
-		if (HX_FIELD_EQ(inName,"drawType") ) { drawType=inValue.Cast<  ::Dynamic >(); return inValue; }
-		break;
 	case 9:
-		if (HX_FIELD_EQ(inName,"colorType") ) { colorType=inValue.Cast<  ::Dynamic >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"paintType") ) { paintType=inValue.Cast<  ::Dynamic >(); return inValue; }
+		break;
+	case 10:
+		if (HX_FIELD_EQ(inName,"useTexture") ) { useTexture=inValue.Cast< bool >(); return inValue; }
 		break;
 	case 12:
 		if (HX_FIELD_EQ(inName,"currentColor") ) { currentColor=inValue.Cast< int >(); return inValue; }
@@ -84,26 +84,26 @@ void Pen_obj::__Visit(HX_VISIT_PARAMS)
 
 void Pen_obj::__GetFields(Array< ::String> &outFields)
 {
+	outFields->push(HX_("useTexture",54,eb,93,a1));
 	outFields->push(HX_("currentColor",6a,56,68,91));
-	outFields->push(HX_("drawType",de,9c,72,61));
-	outFields->push(HX_("colorType",bd,7d,76,28));
+	outFields->push(HX_("paintType",78,fd,a7,01));
 	super::__GetFields(outFields);
 };
 
 #ifdef HXCPP_SCRIPTABLE
 static ::hx::StorageInfo Pen_obj_sMemberStorageInfo[] = {
+	{::hx::fsBool,(int)offsetof(Pen_obj,useTexture),HX_("useTexture",54,eb,93,a1)},
 	{::hx::fsInt,(int)offsetof(Pen_obj,currentColor),HX_("currentColor",6a,56,68,91)},
-	{::hx::fsObject /*  ::Dynamic */ ,(int)offsetof(Pen_obj,drawType),HX_("drawType",de,9c,72,61)},
-	{::hx::fsObject /*  ::Dynamic */ ,(int)offsetof(Pen_obj,colorType),HX_("colorType",bd,7d,76,28)},
+	{::hx::fsObject /*  ::Dynamic */ ,(int)offsetof(Pen_obj,paintType),HX_("paintType",78,fd,a7,01)},
 	{ ::hx::fsUnknown, 0, null()}
 };
 static ::hx::StaticInfo *Pen_obj_sStaticStorageInfo = 0;
 #endif
 
 static ::String Pen_obj_sMemberFields[] = {
+	HX_("useTexture",54,eb,93,a1),
 	HX_("currentColor",6a,56,68,91),
-	HX_("drawType",de,9c,72,61),
-	HX_("colorType",bd,7d,76,28),
+	HX_("paintType",78,fd,a7,01),
 	::String(null()) };
 
 ::hx::Class Pen_obj::__mClass;

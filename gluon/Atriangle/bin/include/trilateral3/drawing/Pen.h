@@ -6,7 +6,7 @@
 #include <hxcpp.h>
 #endif
 
-HX_DECLARE_STACK_FRAME(_hx_pos_bf2a6fc66f3165af_16_new)
+HX_DECLARE_STACK_FRAME(_hx_pos_bf2a6fc66f3165af_17_new)
 HX_DECLARE_CLASS2(trilateral3,drawing,Pen)
 
 namespace trilateral3{
@@ -23,26 +23,26 @@ class HXCPP_CLASS_ATTRIBUTES Pen_obj : public ::hx::Object
 	public:
 		enum { _hx_ClassId = 0x33d0c03e };
 
-		void __construct( ::Dynamic drawType_, ::Dynamic colorType_);
+		void __construct( ::Dynamic paintType_);
 		inline void *operator new(size_t inSize, bool inContainer=true,const char *inName="trilateral3.drawing.Pen")
 			{ return ::hx::Object::operator new(inSize,inContainer,inName); }
 		inline void *operator new(size_t inSize, int extra)
 			{ return ::hx::Object::operator new(inSize+extra,true,"trilateral3.drawing.Pen"); }
 
-		inline static ::hx::ObjectPtr< Pen_obj > __new( ::Dynamic drawType_, ::Dynamic colorType_) {
+		inline static ::hx::ObjectPtr< Pen_obj > __new( ::Dynamic paintType_) {
 			::hx::ObjectPtr< Pen_obj > __this = new Pen_obj();
-			__this->__construct(drawType_,colorType_);
+			__this->__construct(paintType_);
 			return __this;
 		}
 
-		inline static ::hx::ObjectPtr< Pen_obj > __alloc(::hx::Ctx *_hx_ctx, ::Dynamic drawType_, ::Dynamic colorType_) {
+		inline static ::hx::ObjectPtr< Pen_obj > __alloc(::hx::Ctx *_hx_ctx, ::Dynamic paintType_) {
 			Pen_obj *__this = (Pen_obj*)(::hx::Ctx::alloc(_hx_ctx, sizeof(Pen_obj), true, "trilateral3.drawing.Pen"));
 			*(void **)__this = Pen_obj::_hx_vtable;
 {
-            	HX_STACKFRAME(&_hx_pos_bf2a6fc66f3165af_16_new)
-HXLINE(  19)		( ( ::trilateral3::drawing::Pen)(__this) )->currentColor = 16435934;
-HXLINE(  30)		( ( ::trilateral3::drawing::Pen)(__this) )->drawType = drawType_;
-HXLINE(  31)		( ( ::trilateral3::drawing::Pen)(__this) )->colorType = colorType_;
+            	HX_STACKFRAME(&_hx_pos_bf2a6fc66f3165af_17_new)
+HXLINE(  23)		( ( ::trilateral3::drawing::Pen)(__this) )->currentColor = 16435934;
+HXLINE(  18)		( ( ::trilateral3::drawing::Pen)(__this) )->useTexture = false;
+HXLINE(  34)		( ( ::trilateral3::drawing::Pen)(__this) )->paintType = paintType_;
             	}
 		
 			return __this;
@@ -63,9 +63,9 @@ HXLINE(  31)		( ( ::trilateral3::drawing::Pen)(__this) )->colorType = colorType_
 		bool _hx_isInstanceOf(int inClassId);
 		::String __ToString() const { return HX_("Pen",b9,0c,3d,00); }
 
+		bool useTexture;
 		int currentColor;
-		 ::Dynamic drawType;
-		 ::Dynamic colorType;
+		 ::Dynamic paintType;
 };
 
 } // end namespace trilateral3

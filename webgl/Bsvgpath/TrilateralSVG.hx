@@ -1,8 +1,8 @@
 package;
 // Color pallettes
 import pallette.simple.QuickARGB;
-import kitGL.glWeb.InterleaveAlterGL;
-import kitGL.glWeb.InterleaveDataGL;
+import kitGL.glWeb.Ply;
+import kitGL.glWeb.DataGL;
 // SVG path parser
 import justPath.*;
 import justPath.transform.ScaleContext;
@@ -24,7 +24,7 @@ function main(){
     var divertTrace = new DivertTrace();
     trace("TrilateralSVG example");
 }
-class TrilateralSVG extends InterleaveAlterGL {
+class TrilateralSVG extends Ply {
     var quadtest_d = "M200,300 Q400,50 600,300 T1000,300";
     var cubictest_d = "M100,200 C100,100 250,100 250,200S400,300 400,200";
     public var pen: Pen;
@@ -34,12 +34,12 @@ class TrilateralSVG extends InterleaveAlterGL {
     }
     override
     public function draw(){
-        interleaveDataGL = { get_data: penNodule.get_data, get_size: penNodule.get_size };
+        dataGL = { get_data: penNodule.get_data, get_size: penNodule.get_size };
         pen = penNodule.pen;
         pen.currentColor = Blue;
         cubicSVG();
         pen.currentColor = Blue;
-        quadSVG(    );
+        quadSVG();
     }
     function cubicSVG(){
         var sketch = new Sketch( pen, StyleSketch.Fine, StyleEndLine.both );
