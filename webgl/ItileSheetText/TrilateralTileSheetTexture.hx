@@ -26,8 +26,6 @@ import trilateral3.drawing.Color3Abstract;
 import trilateral3.drawing.Nymph;
 import trilateral3.shape.IndexRange;
 import trilateral3.Trilateral;
-import trilateral3.reShape.NineShaper;
-
 
 import dsHelper.flatInterleave.FloatColorTrianglesUV;
 
@@ -59,7 +57,6 @@ class TrilateralTextureBasic extends PlyUV {
     public var nymphLetters:     Nymph;
     public var pen: Pen;
     public var allRange:         IndexRange;
-    public var nineRange:        IndexRange;
     public var penPaint = new PenPaint();
     public function new( width: Int, height: Int ){
         super( width, height );
@@ -83,6 +80,9 @@ class TrilateralTextureBasic extends PlyUV {
         var start = pen.pos;
         pen.useTexture   = true;
         pen.currentColor = 0xff000000;//
+        
+        var sketch       = new Sketch( pen, StyleSketch.Fine, StyleEndLine.no );
+        sketch.width     = 8;
         pen.z2D = -0.1;
         allRange = { start: Std.int( pen.pos ), end: 0 };
         nymphLetters = new Nymph( pen, allRange );
@@ -100,12 +100,6 @@ class TrilateralTextureBasic extends PlyUV {
              val = 500;
              curr.y = -(val-1000)/1000;
         }
-        nineRange = { start: Std.int( pen.pos ), end: 0 };
-        pen.nineSliceFill( 100, 100, 200, 200, 50, 50, 50, 50
-                          , 0xFFFF0000, 0xFFFFF000, 0xFFFF00F0 
-                          , 0xFF00FFF0, 0xFFF0FF00, 0xFF00FF00
-                          , 0xFF0000FF, 0xFF00f0ff, 0xfff000ff );
-        nineRange.end = Std.int( pen.pos - 1 );
         transformUV( gl, program, uvTransform, [ 2.,0.,0.
                                                , 0.,2.,0.
                                                , 0.,0.,1.] );
@@ -123,7 +117,6 @@ class TrilateralTextureBasic extends PlyUV {
              theta += Math.PI/10;
         }
         drawShape( allRange.start, allRange.end, 0 );// 0x0f000000 );
-        drawShape( nineRange.start, nineRange.end, 0 );
     }
     inline
     function letterGrid( img: Image, letter: String ){
@@ -138,15 +131,16 @@ class TrilateralTextureBasic extends PlyUV {
             var col           = id - row*noH;
             var dx = col*dw - 6;
             var dy = row*dw - 6; // dw here seems wrong needs more effort.
-            var ax = dx;
-            var ay = dy;
-            var bx = dx + dw;
-            var by = dy;
-            var cx = dx + dw;
-            var cy = dy + dh - 4;
-            var dx = dx;
-            var dy = dy + dh - 4;
-            pen.quad2DFillclockwise( ax, ay, bx, by, cx, cy, dx, dy );
+            //   A   B
+            //   D   C
+            // A B D
+            // B C D
+            var A = { x: dx,         y: dy };
+            var B = { x: dx + dw, y: dy };
+            var C = { x: dx + dw, y: dy + dh - 4 };
+            var D = { x: dx,         y: dy + dh - 4}
+            pen.triangle2DFill( A.x, A.y, B.x, B.y, D.x, D.y );
+            pen.triangle2DFill( B.x, B.y, C.x, C.y, D.x, D.y );
         }
     }
 }

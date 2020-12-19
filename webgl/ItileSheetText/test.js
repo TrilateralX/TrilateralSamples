@@ -510,6 +510,8 @@ kitGL_glWeb_PlyUV.prototype = {
 	,height: null
 	,buf: null
 	,mainSheet: null
+	,img: null
+	,tex: null
 	,indices: null
 	,vertexPosition: null
 	,vertexColor: null
@@ -517,8 +519,6 @@ kitGL_glWeb_PlyUV.prototype = {
 	,uniformImage: null
 	,uniformColor: null
 	,uvTransform: null
-	,tex: null
-	,img: null
 	,setup: function() {
 		var gl = this.gl;
 		var program = gl.createProgram();
@@ -566,15 +566,35 @@ kitGL_glWeb_PlyUV.prototype = {
 		this.draw();
 		var gl = this.gl;
 		var image = this.img;
-		var midMap = false;
 		var _2D = 3553;
 		var texture = gl.createTexture();
 		gl.bindTexture(_2D,texture);
 		var pixel = new Uint8Array([255,255,255,255]);
 		var _2D1 = 3553;
 		gl.texImage2D(_2D1,0,6408,1,1,0,6408,5121,pixel);
+		var midMap;
+		var value = image.width;
+		if((value & value - 1) == 0) {
+			var value = image.height;
+			midMap = (value & value - 1) == 0;
+		} else {
+			midMap = false;
+		}
+		if(!midMap) {
+			var _2D1 = 3553;
+			var linear = 9729;
+			var mag = 10240;
+			var min = 10241;
+			gl.texParameteri(_2D1,mag,linear);
+			gl.texParameteri(_2D1,min,linear);
+			var _2D1 = 3553;
+			var clamp = 33071;
+			var _S = 10242;
+			var _T = 10243;
+			gl.texParameteri(_2D1,_S,clamp);
+			gl.texParameteri(_2D1,_T,clamp);
+		}
 		gl.texImage2D(3553,0,6408,6408,5121,image);
-		midMap = true;
 		if(midMap) {
 			gl.generateMipmap(_2D);
 		}
@@ -588,6 +608,7 @@ kitGL_glWeb_PlyUV.prototype = {
 		gl.enable(2929);
 		gl.enable(3042);
 		gl.blendFunc(770,771);
+		gl.depthMask(false);
 		gl.disable(2884);
 		var gl = this.gl;
 		var a = 1.;
@@ -649,7 +670,7 @@ kitGL_glWeb_PlyUV.prototype = {
 		gl.vertexAttribPointer(inp,2,fp,false,strideBytes,offBytes);
 		gl.enableVertexAttribArray(inp);
 		this.buf = vbo;
-		haxe_Log.trace(" buffer interleave",{ fileName : "kitGL/glWeb/PlyUV.js.hx", lineNumber : 71, className : "kitGL.glWeb.PlyUV", methodName : "setup"});
+		haxe_Log.trace(" buffer interleave",{ fileName : "kitGL/glWeb/PlyUV.js.hx", lineNumber : 72, className : "kitGL.glWeb.PlyUV", methodName : "setup"});
 		var count = 0;
 		var _g = 0;
 		var _g1 = this.dataGL.get_size();
@@ -689,7 +710,7 @@ kitGL_glWeb_PlyUV.prototype = {
 		};
 	}
 	,draw: function() {
-		haxe_Log.trace("parent draw",{ fileName : "kitGL/glWeb/PlyUV.js.hx", lineNumber : 86, className : "kitGL.glWeb.PlyUV", methodName : "draw"});
+		haxe_Log.trace("parent draw",{ fileName : "kitGL/glWeb/PlyUV.js.hx", lineNumber : 89, className : "kitGL.glWeb.PlyUV", methodName : "draw"});
 	}
 	,drawShape: function(start,end,bgColor) {
 		var gl = this.gl;
@@ -718,7 +739,7 @@ var TrilateralTextureBasic = function(width,height) {
 	this.theta = 0.;
 	this.penPaint = new trilateral3_nodule_PenPaint();
 	kitGL_glWeb_PlyUV.call(this,width,height);
-	haxe_Log.trace("draw",{ fileName : "TrilateralTileSheetTexture.hx", lineNumber : 66, className : "TrilateralTextureBasic", methodName : "new"});
+	haxe_Log.trace("draw",{ fileName : "TrilateralTileSheetTexture.hx", lineNumber : 63, className : "TrilateralTextureBasic", methodName : "new"});
 	this.imageLoader.loadEncoded(["font1AlphaWhite.png"],["font1AlphaWhite"]);
 };
 $hxClasses["TrilateralTextureBasic"] = TrilateralTextureBasic;
@@ -728,7 +749,6 @@ TrilateralTextureBasic.prototype = $extend(kitGL_glWeb_PlyUV.prototype,{
 	nymphLetters: null
 	,pen: null
 	,allRange: null
-	,nineRange: null
 	,penPaint: null
 	,draw: function() {
 		this.img = this.imageLoader.imageArr[0];
@@ -739,6 +759,8 @@ TrilateralTextureBasic.prototype = $extend(kitGL_glWeb_PlyUV.prototype,{
 		var start = this.pen.paintType.get_pos();
 		this.pen.useTexture = true;
 		this.pen.currentColor = -16777216;
+		var sketch = new trilateral3_drawing_Sketch(this.pen,4,0);
+		sketch.width = 8;
 		this.pen.z2D = -0.1;
 		this.allRange = new trilateral3_structure_StartEnd(this.pen.paintType.get_pos() | 0,0);
 		this.nymphLetters = new trilateral3_drawing_Nymph(this.pen,this.allRange);
@@ -758,71 +780,66 @@ TrilateralTextureBasic.prototype = $extend(kitGL_glWeb_PlyUV.prototype,{
 			var col = id - row * noH;
 			var dx = col * dw - 6;
 			var dy = row * dw - 6;
-			var ax = dx;
-			var ay = dy;
-			var bx = dx + dw;
-			var by = dy;
-			var cx = dx + dw;
-			var cy = dy + dh - 4;
-			var dx1 = dx;
-			var dy1 = dy + dh - 4;
+			var A_x = dx;
+			var A_y = dy;
+			var B_x = dx + dw;
+			var B_y = dy;
+			var C_x = dx + dw;
+			var C_y = dy + dh - 4;
+			var D_x = dx;
+			var D_y = dy + dh - 4;
 			var _this = this.pen;
 			var color = -1;
-			if(color == null) {
-				color = -1;
-			}
 			if(color == -1) {
 				color = _this.currentColor;
 			}
-			var ax1 = ax;
-			var ay1 = ay;
-			var bx1 = bx;
-			var by1 = by;
-			var cx1 = dx1;
-			var cy1 = dy1;
-			var windAdjust = _this.paintType.triangle(ax1,ay1,_this.z2D,bx1,by1,_this.z2D,cx1,cy1,_this.z2D);
+			var ax = A_x;
+			var ay = A_y;
+			var bx = B_x;
+			var by = B_y;
+			var cx = D_x;
+			var cy = D_y;
+			var windAdjust = _this.paintType.triangle(ax,ay,_this.z2D,bx,by,_this.z2D,cx,cy,_this.z2D);
 			if(trilateral3_Trilateral.transformMatrix != null) {
 				_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
 			}
 			if(_this.useTexture) {
+				ax /= 2000;
+				ay /= 2000;
+				bx /= 2000;
+				by /= 2000;
+				cx /= 2000;
+				cy /= 2000;
+				_this.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+			}
+			_this.paintType.cornerColors(color,color,color);
+			_this.paintType.next();
+			var _this1 = this.pen;
+			var color1 = -1;
+			if(color1 == -1) {
+				color1 = _this1.currentColor;
+			}
+			var ax1 = B_x;
+			var ay1 = B_y;
+			var bx1 = C_x;
+			var by1 = C_y;
+			var cx1 = D_x;
+			var cy1 = D_y;
+			var windAdjust1 = _this1.paintType.triangle(ax1,ay1,_this1.z2D,bx1,by1,_this1.z2D,cx1,cy1,_this1.z2D);
+			if(trilateral3_Trilateral.transformMatrix != null) {
+				_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+			}
+			if(_this1.useTexture) {
 				ax1 /= 2000;
 				ay1 /= 2000;
 				bx1 /= 2000;
 				by1 /= 2000;
 				cx1 /= 2000;
 				cy1 /= 2000;
-				_this.paintType.triangleUV(ax1,ay1,bx1,by1,cx1,cy1,windAdjust);
+				_this1.paintType.triangleUV(ax1,ay1,bx1,by1,cx1,cy1,windAdjust1);
 			}
-			_this.paintType.cornerColors(color,color,color);
-			_this.paintType.next();
-			var color1 = -1;
-			if(color1 == null) {
-				color1 = -1;
-			}
-			if(color1 == -1) {
-				color1 = _this.currentColor;
-			}
-			var ax2 = bx;
-			var ay2 = by;
-			var bx2 = cx;
-			var by2 = cy;
-			var cx2 = dx1;
-			var cy2 = dy1;
-			var windAdjust1 = _this.paintType.triangle(ax2,ay2,_this.z2D,bx2,by2,_this.z2D,cx2,cy2,_this.z2D);
-			if(trilateral3_Trilateral.transformMatrix != null) {
-				_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
-			}
-			if(_this.useTexture) {
-				ax2 /= 2000;
-				ay2 /= 2000;
-				bx2 /= 2000;
-				by2 /= 2000;
-				cx2 /= 2000;
-				cy2 /= 2000;
-				_this.paintType.triangleUV(ax2,ay2,bx2,by2,cx2,cy2,windAdjust1);
-			}
-			_this.paintType.cornerColors(color1,color1,color1);
-			_this.paintType.next();
+			_this1.paintType.cornerColors(color1,color1,color1);
+			_this1.paintType.next();
 		}
 		var tmp = this.pen.paintType.get_pos() | 0;
 		this.allRange.end = tmp;
@@ -840,652 +857,6 @@ TrilateralTextureBasic.prototype = $extend(kitGL_glWeb_PlyUV.prototype,{
 			val = 500;
 			curr.set_y(-(val - 1000) / 1000);
 		}
-		this.nineRange = new trilateral3_structure_StartEnd(this.pen.paintType.get_pos() | 0,0);
-		var _this = this.pen;
-		var color0 = -65536;
-		var color1 = -4096;
-		var color2 = -65296;
-		var color3 = -16711696;
-		var color4 = -983296;
-		var color5 = -16711936;
-		var color6 = -16776961;
-		var color7 = -16715521;
-		var color8 = -1048321;
-		if(color8 == null) {
-			color8 = -1;
-		}
-		if(color7 == null) {
-			color7 = -1;
-		}
-		if(color6 == null) {
-			color6 = -1;
-		}
-		if(color5 == null) {
-			color5 = -1;
-		}
-		if(color4 == null) {
-			color4 = -1;
-		}
-		if(color3 == null) {
-			color3 = -1;
-		}
-		if(color2 == null) {
-			color2 = -1;
-		}
-		if(color1 == null) {
-			color1 = -1;
-		}
-		if(color0 == null) {
-			color0 = -1;
-		}
-		var color = color0;
-		if(color == null) {
-			color = -1;
-		}
-		var bx = 150;
-		var dy = 150;
-		var color9 = color;
-		if(color9 == null) {
-			color9 = -1;
-		}
-		var color = color9;
-		if(color == null) {
-			color = -1;
-		}
-		if(color == -1) {
-			color = _this.currentColor;
-		}
-		var ax = 100;
-		var ay = 100;
-		var bx1 = bx;
-		var by = 100;
-		var cx = 100;
-		var cy = dy;
-		var windAdjust = _this.paintType.triangle(ax,ay,_this.z2D,bx1,by,_this.z2D,cx,cy,_this.z2D);
-		if(trilateral3_Trilateral.transformMatrix != null) {
-			_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
-		}
-		if(_this.useTexture) {
-			ax /= 2000;
-			ay /= 2000;
-			bx1 /= 2000;
-			by /= 2000;
-			cx /= 2000;
-			cy /= 2000;
-			_this.paintType.triangleUV(ax,ay,bx1,by,cx,cy,windAdjust);
-		}
-		_this.paintType.cornerColors(color,color,color);
-		_this.paintType.next();
-		var color = color9;
-		if(color == null) {
-			color = -1;
-		}
-		if(color == -1) {
-			color = _this.currentColor;
-		}
-		var ax = bx;
-		var ay = 100;
-		var bx = 150;
-		var by = 150;
-		var cx = 100;
-		var cy = dy;
-		var windAdjust = _this.paintType.triangle(ax,ay,_this.z2D,bx,by,_this.z2D,cx,cy,_this.z2D);
-		if(trilateral3_Trilateral.transformMatrix != null) {
-			_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
-		}
-		if(_this.useTexture) {
-			ax /= 2000;
-			ay /= 2000;
-			bx /= 2000;
-			by /= 2000;
-			cx /= 2000;
-			cy /= 2000;
-			_this.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
-		}
-		_this.paintType.cornerColors(color,color,color);
-		_this.paintType.next();
-		var middleW = 100;
-		var ax = 150;
-		var color = color1;
-		if(color == null) {
-			color = -1;
-		}
-		var bx = ax + middleW;
-		var dy = 150;
-		var color1 = color;
-		if(color1 == null) {
-			color1 = -1;
-		}
-		var color = color1;
-		if(color == null) {
-			color = -1;
-		}
-		if(color == -1) {
-			color = _this.currentColor;
-		}
-		var ax1 = ax;
-		var ay = 100;
-		var bx1 = bx;
-		var by = 100;
-		var cx = ax;
-		var cy = dy;
-		var windAdjust = _this.paintType.triangle(ax1,ay,_this.z2D,bx1,by,_this.z2D,cx,cy,_this.z2D);
-		if(trilateral3_Trilateral.transformMatrix != null) {
-			_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
-		}
-		if(_this.useTexture) {
-			ax1 /= 2000;
-			ay /= 2000;
-			bx1 /= 2000;
-			by /= 2000;
-			cx /= 2000;
-			cy /= 2000;
-			_this.paintType.triangleUV(ax1,ay,bx1,by,cx,cy,windAdjust);
-		}
-		_this.paintType.cornerColors(color,color,color);
-		_this.paintType.next();
-		var color = color1;
-		if(color == null) {
-			color = -1;
-		}
-		if(color == -1) {
-			color = _this.currentColor;
-		}
-		var ax1 = bx;
-		var ay = 100;
-		var bx = ax + middleW;
-		var by = 150;
-		var cx = ax;
-		var cy = dy;
-		var windAdjust = _this.paintType.triangle(ax1,ay,_this.z2D,bx,by,_this.z2D,cx,cy,_this.z2D);
-		if(trilateral3_Trilateral.transformMatrix != null) {
-			_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
-		}
-		if(_this.useTexture) {
-			ax1 /= 2000;
-			ay /= 2000;
-			bx /= 2000;
-			by /= 2000;
-			cx /= 2000;
-			cy /= 2000;
-			_this.paintType.triangleUV(ax1,ay,bx,by,cx,cy,windAdjust);
-		}
-		_this.paintType.cornerColors(color,color,color);
-		_this.paintType.next();
-		var ax = 100 + middleW;
-		var color = color2;
-		if(color == null) {
-			color = -1;
-		}
-		var bx = ax + 50;
-		var dy = 150;
-		var color1 = color;
-		if(color1 == null) {
-			color1 = -1;
-		}
-		var color = color1;
-		if(color == null) {
-			color = -1;
-		}
-		if(color == -1) {
-			color = _this.currentColor;
-		}
-		var ax1 = ax;
-		var ay = 100;
-		var bx1 = bx;
-		var by = 100;
-		var cx = ax;
-		var cy = dy;
-		var windAdjust = _this.paintType.triangle(ax1,ay,_this.z2D,bx1,by,_this.z2D,cx,cy,_this.z2D);
-		if(trilateral3_Trilateral.transformMatrix != null) {
-			_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
-		}
-		if(_this.useTexture) {
-			ax1 /= 2000;
-			ay /= 2000;
-			bx1 /= 2000;
-			by /= 2000;
-			cx /= 2000;
-			cy /= 2000;
-			_this.paintType.triangleUV(ax1,ay,bx1,by,cx,cy,windAdjust);
-		}
-		_this.paintType.cornerColors(color,color,color);
-		_this.paintType.next();
-		var color = color1;
-		if(color == null) {
-			color = -1;
-		}
-		if(color == -1) {
-			color = _this.currentColor;
-		}
-		var ax1 = bx;
-		var ay = 100;
-		var bx = ax + 50;
-		var by = 150;
-		var cx = ax;
-		var cy = dy;
-		var windAdjust = _this.paintType.triangle(ax1,ay,_this.z2D,bx,by,_this.z2D,cx,cy,_this.z2D);
-		if(trilateral3_Trilateral.transformMatrix != null) {
-			_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
-		}
-		if(_this.useTexture) {
-			ax1 /= 2000;
-			ay /= 2000;
-			bx /= 2000;
-			by /= 2000;
-			cx /= 2000;
-			cy /= 2000;
-			_this.paintType.triangleUV(ax1,ay,bx,by,cx,cy,windAdjust);
-		}
-		_this.paintType.cornerColors(color,color,color);
-		_this.paintType.next();
-		var middleH = 100;
-		var ay = 150;
-		var color = color3;
-		if(color == null) {
-			color = -1;
-		}
-		var bx = 150;
-		var dy = ay + middleH;
-		var color1 = color;
-		if(color1 == null) {
-			color1 = -1;
-		}
-		var color = color1;
-		if(color == null) {
-			color = -1;
-		}
-		if(color == -1) {
-			color = _this.currentColor;
-		}
-		var ax = 100;
-		var ay1 = ay;
-		var bx1 = bx;
-		var by = ay;
-		var cx = 100;
-		var cy = dy;
-		var windAdjust = _this.paintType.triangle(ax,ay1,_this.z2D,bx1,by,_this.z2D,cx,cy,_this.z2D);
-		if(trilateral3_Trilateral.transformMatrix != null) {
-			_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
-		}
-		if(_this.useTexture) {
-			ax /= 2000;
-			ay1 /= 2000;
-			bx1 /= 2000;
-			by /= 2000;
-			cx /= 2000;
-			cy /= 2000;
-			_this.paintType.triangleUV(ax,ay1,bx1,by,cx,cy,windAdjust);
-		}
-		_this.paintType.cornerColors(color,color,color);
-		_this.paintType.next();
-		var color = color1;
-		if(color == null) {
-			color = -1;
-		}
-		if(color == -1) {
-			color = _this.currentColor;
-		}
-		var ax = bx;
-		var ay1 = ay;
-		var bx = 150;
-		var by = ay + middleH;
-		var cx = 100;
-		var cy = dy;
-		var windAdjust = _this.paintType.triangle(ax,ay1,_this.z2D,bx,by,_this.z2D,cx,cy,_this.z2D);
-		if(trilateral3_Trilateral.transformMatrix != null) {
-			_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
-		}
-		if(_this.useTexture) {
-			ax /= 2000;
-			ay1 /= 2000;
-			bx /= 2000;
-			by /= 2000;
-			cx /= 2000;
-			cy /= 2000;
-			_this.paintType.triangleUV(ax,ay1,bx,by,cx,cy,windAdjust);
-		}
-		_this.paintType.cornerColors(color,color,color);
-		_this.paintType.next();
-		var ax = 150;
-		var ay = 150;
-		var color = color4;
-		if(color == null) {
-			color = -1;
-		}
-		var bx = ax + middleW;
-		var dy = ay + middleH;
-		var color1 = color;
-		if(color1 == null) {
-			color1 = -1;
-		}
-		var color = color1;
-		if(color == null) {
-			color = -1;
-		}
-		if(color == -1) {
-			color = _this.currentColor;
-		}
-		var ax1 = ax;
-		var ay1 = ay;
-		var bx1 = bx;
-		var by = ay;
-		var cx = ax;
-		var cy = dy;
-		var windAdjust = _this.paintType.triangle(ax1,ay1,_this.z2D,bx1,by,_this.z2D,cx,cy,_this.z2D);
-		if(trilateral3_Trilateral.transformMatrix != null) {
-			_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
-		}
-		if(_this.useTexture) {
-			ax1 /= 2000;
-			ay1 /= 2000;
-			bx1 /= 2000;
-			by /= 2000;
-			cx /= 2000;
-			cy /= 2000;
-			_this.paintType.triangleUV(ax1,ay1,bx1,by,cx,cy,windAdjust);
-		}
-		_this.paintType.cornerColors(color,color,color);
-		_this.paintType.next();
-		var color = color1;
-		if(color == null) {
-			color = -1;
-		}
-		if(color == -1) {
-			color = _this.currentColor;
-		}
-		var ax1 = bx;
-		var ay1 = ay;
-		var bx = ax + middleW;
-		var by = ay + middleH;
-		var cx = ax;
-		var cy = dy;
-		var windAdjust = _this.paintType.triangle(ax1,ay1,_this.z2D,bx,by,_this.z2D,cx,cy,_this.z2D);
-		if(trilateral3_Trilateral.transformMatrix != null) {
-			_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
-		}
-		if(_this.useTexture) {
-			ax1 /= 2000;
-			ay1 /= 2000;
-			bx /= 2000;
-			by /= 2000;
-			cx /= 2000;
-			cy /= 2000;
-			_this.paintType.triangleUV(ax1,ay1,bx,by,cx,cy,windAdjust);
-		}
-		_this.paintType.cornerColors(color,color,color);
-		_this.paintType.next();
-		var ax = 100 + middleW;
-		var ay = 150;
-		var color = color5;
-		if(color == null) {
-			color = -1;
-		}
-		var bx = ax + 50;
-		var dy = ay + middleH;
-		var color1 = color;
-		if(color1 == null) {
-			color1 = -1;
-		}
-		var color = color1;
-		if(color == null) {
-			color = -1;
-		}
-		if(color == -1) {
-			color = _this.currentColor;
-		}
-		var ax1 = ax;
-		var ay1 = ay;
-		var bx1 = bx;
-		var by = ay;
-		var cx = ax;
-		var cy = dy;
-		var windAdjust = _this.paintType.triangle(ax1,ay1,_this.z2D,bx1,by,_this.z2D,cx,cy,_this.z2D);
-		if(trilateral3_Trilateral.transformMatrix != null) {
-			_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
-		}
-		if(_this.useTexture) {
-			ax1 /= 2000;
-			ay1 /= 2000;
-			bx1 /= 2000;
-			by /= 2000;
-			cx /= 2000;
-			cy /= 2000;
-			_this.paintType.triangleUV(ax1,ay1,bx1,by,cx,cy,windAdjust);
-		}
-		_this.paintType.cornerColors(color,color,color);
-		_this.paintType.next();
-		var color = color1;
-		if(color == null) {
-			color = -1;
-		}
-		if(color == -1) {
-			color = _this.currentColor;
-		}
-		var ax1 = bx;
-		var ay1 = ay;
-		var bx = ax + 50;
-		var by = ay + middleH;
-		var cx = ax;
-		var cy = dy;
-		var windAdjust = _this.paintType.triangle(ax1,ay1,_this.z2D,bx,by,_this.z2D,cx,cy,_this.z2D);
-		if(trilateral3_Trilateral.transformMatrix != null) {
-			_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
-		}
-		if(_this.useTexture) {
-			ax1 /= 2000;
-			ay1 /= 2000;
-			bx /= 2000;
-			by /= 2000;
-			cx /= 2000;
-			cy /= 2000;
-			_this.paintType.triangleUV(ax1,ay1,bx,by,cx,cy,windAdjust);
-		}
-		_this.paintType.cornerColors(color,color,color);
-		_this.paintType.next();
-		var bottomH = 250;
-		var color = color6;
-		if(color == null) {
-			color = -1;
-		}
-		var bx = 150;
-		var dy = bottomH + 50;
-		var color1 = color;
-		if(color1 == null) {
-			color1 = -1;
-		}
-		var color = color1;
-		if(color == null) {
-			color = -1;
-		}
-		if(color == -1) {
-			color = _this.currentColor;
-		}
-		var ax = 100;
-		var ay = bottomH;
-		var bx1 = bx;
-		var by = bottomH;
-		var cx = 100;
-		var cy = dy;
-		var windAdjust = _this.paintType.triangle(ax,ay,_this.z2D,bx1,by,_this.z2D,cx,cy,_this.z2D);
-		if(trilateral3_Trilateral.transformMatrix != null) {
-			_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
-		}
-		if(_this.useTexture) {
-			ax /= 2000;
-			ay /= 2000;
-			bx1 /= 2000;
-			by /= 2000;
-			cx /= 2000;
-			cy /= 2000;
-			_this.paintType.triangleUV(ax,ay,bx1,by,cx,cy,windAdjust);
-		}
-		_this.paintType.cornerColors(color,color,color);
-		_this.paintType.next();
-		var color = color1;
-		if(color == null) {
-			color = -1;
-		}
-		if(color == -1) {
-			color = _this.currentColor;
-		}
-		var ax = bx;
-		var ay = bottomH;
-		var bx = 150;
-		var by = bottomH + 50;
-		var cx = 100;
-		var cy = dy;
-		var windAdjust = _this.paintType.triangle(ax,ay,_this.z2D,bx,by,_this.z2D,cx,cy,_this.z2D);
-		if(trilateral3_Trilateral.transformMatrix != null) {
-			_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
-		}
-		if(_this.useTexture) {
-			ax /= 2000;
-			ay /= 2000;
-			bx /= 2000;
-			by /= 2000;
-			cx /= 2000;
-			cy /= 2000;
-			_this.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
-		}
-		_this.paintType.cornerColors(color,color,color);
-		_this.paintType.next();
-		var ax = 150;
-		var color = color7;
-		if(color == null) {
-			color = -1;
-		}
-		var bx = ax + middleW;
-		var dy = bottomH + 50;
-		var color1 = color;
-		if(color1 == null) {
-			color1 = -1;
-		}
-		var color = color1;
-		if(color == null) {
-			color = -1;
-		}
-		if(color == -1) {
-			color = _this.currentColor;
-		}
-		var ax1 = ax;
-		var ay = bottomH;
-		var bx1 = bx;
-		var by = bottomH;
-		var cx = ax;
-		var cy = dy;
-		var windAdjust = _this.paintType.triangle(ax1,ay,_this.z2D,bx1,by,_this.z2D,cx,cy,_this.z2D);
-		if(trilateral3_Trilateral.transformMatrix != null) {
-			_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
-		}
-		if(_this.useTexture) {
-			ax1 /= 2000;
-			ay /= 2000;
-			bx1 /= 2000;
-			by /= 2000;
-			cx /= 2000;
-			cy /= 2000;
-			_this.paintType.triangleUV(ax1,ay,bx1,by,cx,cy,windAdjust);
-		}
-		_this.paintType.cornerColors(color,color,color);
-		_this.paintType.next();
-		var color = color1;
-		if(color == null) {
-			color = -1;
-		}
-		if(color == -1) {
-			color = _this.currentColor;
-		}
-		var ax1 = bx;
-		var ay = bottomH;
-		var bx = ax + middleW;
-		var by = bottomH + 50;
-		var cx = ax;
-		var cy = dy;
-		var windAdjust = _this.paintType.triangle(ax1,ay,_this.z2D,bx,by,_this.z2D,cx,cy,_this.z2D);
-		if(trilateral3_Trilateral.transformMatrix != null) {
-			_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
-		}
-		if(_this.useTexture) {
-			ax1 /= 2000;
-			ay /= 2000;
-			bx /= 2000;
-			by /= 2000;
-			cx /= 2000;
-			cy /= 2000;
-			_this.paintType.triangleUV(ax1,ay,bx,by,cx,cy,windAdjust);
-		}
-		_this.paintType.cornerColors(color,color,color);
-		_this.paintType.next();
-		var ax = 100 + middleW;
-		var color = color8;
-		if(color == null) {
-			color = -1;
-		}
-		var bx = ax + 50;
-		var dy = bottomH + 50;
-		var color1 = color;
-		if(color1 == null) {
-			color1 = -1;
-		}
-		var color = color1;
-		if(color == null) {
-			color = -1;
-		}
-		if(color == -1) {
-			color = _this.currentColor;
-		}
-		var ax1 = ax;
-		var ay = bottomH;
-		var bx1 = bx;
-		var by = bottomH;
-		var cx = ax;
-		var cy = dy;
-		var windAdjust = _this.paintType.triangle(ax1,ay,_this.z2D,bx1,by,_this.z2D,cx,cy,_this.z2D);
-		if(trilateral3_Trilateral.transformMatrix != null) {
-			_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
-		}
-		if(_this.useTexture) {
-			ax1 /= 2000;
-			ay /= 2000;
-			bx1 /= 2000;
-			by /= 2000;
-			cx /= 2000;
-			cy /= 2000;
-			_this.paintType.triangleUV(ax1,ay,bx1,by,cx,cy,windAdjust);
-		}
-		_this.paintType.cornerColors(color,color,color);
-		_this.paintType.next();
-		var color = color1;
-		if(color == null) {
-			color = -1;
-		}
-		if(color == -1) {
-			color = _this.currentColor;
-		}
-		var ax1 = bx;
-		var ay = bottomH;
-		var bx = ax + 50;
-		var by = bottomH + 50;
-		var cx = ax;
-		var cy = dy;
-		var windAdjust = _this.paintType.triangle(ax1,ay,_this.z2D,bx,by,_this.z2D,cx,cy,_this.z2D);
-		if(trilateral3_Trilateral.transformMatrix != null) {
-			_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
-		}
-		if(_this.useTexture) {
-			ax1 /= 2000;
-			ay /= 2000;
-			bx /= 2000;
-			by /= 2000;
-			cx /= 2000;
-			cy /= 2000;
-			_this.paintType.triangleUV(ax1,ay,bx,by,cx,cy,windAdjust);
-		}
-		_this.paintType.cornerColors(color,color,color);
-		_this.paintType.next();
-		var tmp = this.pen.paintType.get_pos() - 1 | 0;
-		this.nineRange.end = tmp;
 		var gl = this.gl;
 		var val = [2.,0.,0.,0.,2.,0.,0.,0.,1.];
 		var uvTransform = gl.getUniformLocation(this.program,this.uvTransform);
@@ -1509,7 +880,6 @@ TrilateralTextureBasic.prototype = $extend(kitGL_glWeb_PlyUV.prototype,{
 			this.theta += Math.PI / 10;
 		}
 		this.drawShape(this.allRange.start,this.allRange.end,0);
-		this.drawShape(this.nineRange.start,this.nineRange.end,0);
 	}
 	,__class__: TrilateralTextureBasic
 });
@@ -1887,6 +1257,13 @@ dsHelper_flatInterleave_FloatColorTrianglesUV.moveDeltaUV = function(this1,du,dv
 	var v = _g[(_g[0] | 0) * 27 + 26 + 2] + dv;
 	_g[(_g[0] | 0) * 27 + 26 + 2] = v;
 };
+var fracs_DifferencePreference = $hxEnums["fracs.DifferencePreference"] = { __ename__:"fracs.DifferencePreference",__constructs__:null
+	,CLOCKWISE: {_hx_name:"CLOCKWISE",_hx_index:0,__enum__:"fracs.DifferencePreference",toString:$estr}
+	,ANTICLOCKWISE: {_hx_name:"ANTICLOCKWISE",_hx_index:1,__enum__:"fracs.DifferencePreference",toString:$estr}
+	,SMALL: {_hx_name:"SMALL",_hx_index:2,__enum__:"fracs.DifferencePreference",toString:$estr}
+	,LARGE: {_hx_name:"LARGE",_hx_index:3,__enum__:"fracs.DifferencePreference",toString:$estr}
+};
+fracs_DifferencePreference.__constructs__ = [fracs_DifferencePreference.CLOCKWISE,fracs_DifferencePreference.ANTICLOCKWISE,fracs_DifferencePreference.SMALL,fracs_DifferencePreference.LARGE];
 var haxe_StackItem = $hxEnums["haxe.StackItem"] = { __ename__:"haxe.StackItem",__constructs__:null
 	,CFunction: {_hx_name:"CFunction",_hx_index:0,__enum__:"haxe.StackItem",toString:$estr}
 	,Module: ($_=function(m) { return {_hx_index:1,m:m,__enum__:"haxe.StackItem",toString:$estr}; },$_._hx_name="Module",$_.__params__ = ["m"],$_)
@@ -33187,6 +32564,10 @@ js_Boot.__isNativeObj = function(o) {
 js_Boot.__resolveNativeClass = function(name) {
 	return $global[name];
 };
+var justPath_IPathContext = function() { };
+$hxClasses["justPath.IPathContext"] = justPath_IPathContext;
+justPath_IPathContext.__name__ = "justPath.IPathContext";
+justPath_IPathContext.__isInterface__ = true;
 var kitGL_glWeb_AnimateTimer = function() { };
 $hxClasses["kitGL.glWeb.AnimateTimer"] = kitGL_glWeb_AnimateTimer;
 kitGL_glWeb_AnimateTimer.__name__ = "kitGL.glWeb.AnimateTimer";
@@ -33388,6 +32769,610 @@ kitGL_glWeb_Sheet.prototype = {
 var trilateral3_Trilateral = function() { };
 $hxClasses["trilateral3.Trilateral"] = trilateral3_Trilateral;
 trilateral3_Trilateral.__name__ = "trilateral3.Trilateral";
+var trilateral3_drawing_Contour = function(pen_,endLine_) {
+	if(endLine_ == null) {
+		endLine_ = 0;
+	}
+	this.count = 0;
+	this.pointsAnti = [];
+	this.pointsClock = [];
+	this.pen = pen_;
+	this.endLine = endLine_;
+};
+$hxClasses["trilateral3.drawing.Contour"] = trilateral3_drawing_Contour;
+trilateral3_drawing_Contour.__name__ = "trilateral3.drawing.Contour";
+trilateral3_drawing_Contour.prototype = {
+	pointsClock: null
+	,pointsAnti: null
+	,penultimateCX: null
+	,penultimateCY: null
+	,lastClockX: null
+	,lastClockY: null
+	,penultimateAX: null
+	,penultimateAY: null
+	,lastAntiX: null
+	,lastAntiY: null
+	,pen: null
+	,endLine: null
+	,ax: null
+	,ay: null
+	,bx: null
+	,by: null
+	,dx: null
+	,dy: null
+	,ex: null
+	,ey: null
+	,dxPrev: null
+	,dyPrev: null
+	,exPrev: null
+	,eyPrev: null
+	,dxOld: null
+	,dyOld: null
+	,exOld: null
+	,eyOld: null
+	,jx: null
+	,jy: null
+	,lastClock: null
+	,jxOld: null
+	,jyOld: null
+	,kax: null
+	,kay: null
+	,kbx: null
+	,kby: null
+	,kcx: null
+	,kcy: null
+	,ncx: null
+	,ncy: null
+	,quadIndex: null
+	,halfA: null
+	,beta: null
+	,r: null
+	,theta: null
+	,angle1: null
+	,angle2: null
+	,count: null
+	,addQuads: function(clockWise,width_) {
+		var currQuadIndex = this.pen.paintType.get_pos();
+		var pC = 0;
+		var pA = 0;
+		if(clockWise && !this.lastClock) {
+			if(this.count == 1) {
+				pA = this.pointsAnti.length;
+				this.pointsAnti[pA++] = this.kax;
+				this.pointsAnti[pA++] = this.kay;
+				this.pointsAnti[pA++] = this.jx;
+				this.pointsAnti[pA++] = this.jy;
+				pC = this.pointsClock.length;
+				this.pointsClock[pC++] = this.kbx;
+				this.pointsClock[pC++] = this.kby;
+				this.pointsClock[pC++] = this.ncx;
+				this.pointsClock[pC++] = this.ncy;
+				var v = this.quadIndex + 1;
+				this.pen.paintType.set_pos(v);
+				var _this = this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this.currentColor;
+				}
+				var ax = this.kax;
+				var ay = this.kay;
+				var bx = this.kbx;
+				var by = this.kby;
+				var cx = this.ncx;
+				var cy = this.ncy;
+				var windAdjust = _this.paintType.triangle(ax,ay,_this.z2D,bx,by,_this.z2D,cx,cy,_this.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this.paintType.cornerColors(color,color,color);
+				_this.paintType.next();
+			} else {
+				pA = this.pointsAnti.length;
+				this.pointsAnti[pA++] = this.kax;
+				this.pointsAnti[pA++] = this.kay;
+				this.pointsAnti[pA++] = this.jx;
+				this.pointsAnti[pA++] = this.jy;
+				pC = this.pointsClock.length;
+				this.pointsClock[pC++] = this.jxOld;
+				this.pointsClock[pC++] = this.jyOld;
+				this.pointsClock[pC++] = this.kbx;
+				this.pointsClock[pC++] = this.kby;
+				var v = this.quadIndex + 1;
+				this.pen.paintType.set_pos(v);
+				var _this = this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this.currentColor;
+				}
+				var ax = this.kax;
+				var ay = this.kay;
+				var bx = this.kbx;
+				var by = this.kby;
+				var cx = this.jxOld;
+				var cy = this.jyOld;
+				var windAdjust = _this.paintType.triangle(ax,ay,_this.z2D,bx,by,_this.z2D,cx,cy,_this.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this.paintType.cornerColors(color,color,color);
+				_this.paintType.next();
+			}
+			var v = this.quadIndex;
+			this.pen.paintType.set_pos(v);
+			var _this = this.pen;
+			var color = -1;
+			if(color == null) {
+				color = -1;
+			}
+			if(color == -1) {
+				color = _this.currentColor;
+			}
+			var ax = this.kax;
+			var ay = this.kay;
+			var bx = this.kbx;
+			var by = this.kby;
+			var cx = this.jx;
+			var cy = this.jy;
+			var windAdjust = _this.paintType.triangle(ax,ay,_this.z2D,bx,by,_this.z2D,cx,cy,_this.z2D);
+			if(trilateral3_Trilateral.transformMatrix != null) {
+				_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
+			}
+			if(_this.useTexture) {
+				ax /= 2000;
+				ay /= 2000;
+				bx /= 2000;
+				by /= 2000;
+				cx /= 2000;
+				cy /= 2000;
+				_this.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+			}
+			_this.paintType.cornerColors(color,color,color);
+			_this.paintType.next();
+		}
+		if(clockWise && this.lastClock) {
+			if(this.count == 1) {
+				pA = this.pointsAnti.length;
+				this.pointsAnti[pA++] = this.jx;
+				this.pointsAnti[pA++] = this.jy;
+				this.pointsAnti[pA++] = this.kbx;
+				this.pointsAnti[pA++] = this.kby;
+				pC = this.pointsClock.length;
+				this.pointsClock[pC++] = this.kax;
+				this.pointsClock[pC++] = this.kay;
+				this.pointsClock[pC++] = this.kbx;
+				this.pointsClock[pC++] = this.kby;
+				var v = this.quadIndex;
+				this.pen.paintType.set_pos(v);
+				var _this = this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this.currentColor;
+				}
+				var ax = this.kax;
+				var ay = this.kay;
+				var bx = this.kbx;
+				var by = this.kby;
+				var cx = this.jx;
+				var cy = this.jy;
+				var windAdjust = _this.paintType.triangle(ax,ay,_this.z2D,bx,by,_this.z2D,cx,cy,_this.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this.paintType.cornerColors(color,color,color);
+				_this.paintType.next();
+				var v = this.quadIndex + 1;
+				this.pen.paintType.set_pos(v);
+				var _this = this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this.currentColor;
+				}
+				var ax = this.kax;
+				var ay = this.kay;
+				var bx = this.kbx;
+				var by = this.kby;
+				var cx = this.ncx;
+				var cy = this.ncy;
+				var windAdjust = _this.paintType.triangle(ax,ay,_this.z2D,bx,by,_this.z2D,cx,cy,_this.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this.paintType.cornerColors(color,color,color);
+				_this.paintType.next();
+			} else {
+				pA = this.pointsAnti.length;
+				this.pointsAnti[pA++] = this.jxOld;
+				this.pointsAnti[pA++] = this.jyOld;
+				this.pointsAnti[pA++] = this.jx;
+				this.pointsAnti[pA++] = this.jy;
+				pC = this.pointsClock.length;
+				this.pointsClock[pC++] = this.ncx;
+				this.pointsClock[pC++] = this.ncy;
+				this.pointsClock[pC++] = this.kbx;
+				this.pointsClock[pC++] = this.kby;
+				var v = this.quadIndex;
+				this.pen.paintType.set_pos(v);
+				var _this = this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this.currentColor;
+				}
+				var ax = this.jxOld;
+				var ay = this.jyOld;
+				var bx = this.kbx;
+				var by = this.kby;
+				var cx = this.jx;
+				var cy = this.jy;
+				var windAdjust = _this.paintType.triangle(ax,ay,_this.z2D,bx,by,_this.z2D,cx,cy,_this.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this.paintType.cornerColors(color,color,color);
+				_this.paintType.next();
+				var v = this.quadIndex + 1;
+				this.pen.paintType.set_pos(v);
+				var _this = this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this.currentColor;
+				}
+				var ax = this.jxOld;
+				var ay = this.jyOld;
+				var bx = this.kbx;
+				var by = this.kby;
+				var cx = this.ncx;
+				var cy = this.ncy;
+				var windAdjust = _this.paintType.triangle(ax,ay,_this.z2D,bx,by,_this.z2D,cx,cy,_this.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this.paintType.cornerColors(color,color,color);
+				_this.paintType.next();
+			}
+		}
+		if(!clockWise && !this.lastClock) {
+			var v = this.quadIndex;
+			this.pen.paintType.set_pos(v);
+			var _this = this.pen;
+			var color = -1;
+			if(color == null) {
+				color = -1;
+			}
+			if(color == -1) {
+				color = _this.currentColor;
+			}
+			var ax = this.kax;
+			var ay = this.kay;
+			var bx = this.jx;
+			var by = this.jy;
+			var cx = this.kcx;
+			var cy = this.kcy;
+			var windAdjust = _this.paintType.triangle(ax,ay,_this.z2D,bx,by,_this.z2D,cx,cy,_this.z2D);
+			if(trilateral3_Trilateral.transformMatrix != null) {
+				_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
+			}
+			if(_this.useTexture) {
+				ax /= 2000;
+				ay /= 2000;
+				bx /= 2000;
+				by /= 2000;
+				cx /= 2000;
+				cy /= 2000;
+				_this.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+			}
+			_this.paintType.cornerColors(color,color,color);
+			_this.paintType.next();
+			if(this.count == 1) {
+				pA = this.pointsAnti.length;
+				this.pointsAnti[pA++] = this.kax;
+				this.pointsAnti[pA++] = this.kay;
+				this.pointsAnti[pA++] = this.kcx;
+				this.pointsAnti[pA++] = this.kcy;
+				pC = this.pointsClock.length;
+				this.pointsClock[pC++] = this.ncx;
+				this.pointsClock[pC++] = this.ncy;
+				this.pointsClock[pC++] = this.jx;
+				this.pointsClock[pC++] = this.jy;
+				var v = this.quadIndex + 1;
+				this.pen.paintType.set_pos(v);
+				var _this = this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this.currentColor;
+				}
+				var ax = this.kax;
+				var ay = this.kay;
+				var bx = this.jx;
+				var by = this.jy;
+				var cx = this.ncx;
+				var cy = this.ncy;
+				var windAdjust = _this.paintType.triangle(ax,ay,_this.z2D,bx,by,_this.z2D,cx,cy,_this.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this.paintType.cornerColors(color,color,color);
+				_this.paintType.next();
+			} else {
+				pA = this.pointsAnti.length;
+				this.pointsAnti[pA++] = this.kax;
+				this.pointsAnti[pA++] = this.kay;
+				this.pointsAnti[pA++] = this.kcx;
+				this.pointsAnti[pA++] = this.kcy;
+				pC = this.pointsClock.length;
+				this.pointsClock[pC++] = this.jxOld;
+				this.pointsClock[pC++] = this.jyOld;
+				this.pointsClock[pC++] = this.jx;
+				this.pointsClock[pC++] = this.jy;
+				var v = this.quadIndex + 1;
+				this.pen.paintType.set_pos(v);
+				var _this = this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this.currentColor;
+				}
+				var ax = this.kax;
+				var ay = this.kay;
+				var bx = this.jx;
+				var by = this.jy;
+				var cx = this.jxOld;
+				var cy = this.jyOld;
+				var windAdjust = _this.paintType.triangle(ax,ay,_this.z2D,bx,by,_this.z2D,cx,cy,_this.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this.paintType.cornerColors(color,color,color);
+				_this.paintType.next();
+			}
+		}
+		if(!clockWise && this.lastClock) {
+			if(this.count == 1) {
+				pA = this.pointsAnti.length;
+				this.pointsAnti[pA++] = this.kay;
+				this.pointsAnti[pA++] = this.kax;
+				this.pointsAnti[pA++] = this.kcx;
+				this.pointsAnti[pA++] = this.kcy;
+				pC = this.pointsClock.length;
+				this.pointsClock[pC++] = this.jx;
+				this.pointsClock[pC++] = this.jy;
+				this.pointsClock[pC++] = this.ncx;
+				this.pointsClock[pC++] = this.ncy;
+				var v = this.quadIndex;
+				this.pen.paintType.set_pos(v);
+				var _this = this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this.currentColor;
+				}
+				var ax = this.kax;
+				var ay = this.kay;
+				var bx = this.jx;
+				var by = this.jy;
+				var cx = this.kcx;
+				var cy = this.kcy;
+				var windAdjust = _this.paintType.triangle(ax,ay,_this.z2D,bx,by,_this.z2D,cx,cy,_this.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this.paintType.cornerColors(color,color,color);
+				_this.paintType.next();
+				var v = this.quadIndex + 1;
+				this.pen.paintType.set_pos(v);
+				var _this = this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this.currentColor;
+				}
+				var ax = this.kax;
+				var ay = this.kay;
+				var bx = this.jx;
+				var by = this.jy;
+				var cx = this.ncx;
+				var cy = this.ncy;
+				var windAdjust = _this.paintType.triangle(ax,ay,_this.z2D,bx,by,_this.z2D,cx,cy,_this.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this.paintType.cornerColors(color,color,color);
+				_this.paintType.next();
+			} else {
+				pA = this.pointsAnti.length;
+				this.pointsAnti[pA++] = this.jxOld;
+				this.pointsAnti[pA++] = this.jyOld;
+				this.pointsAnti[pA++] = this.kcx;
+				this.pointsAnti[pA++] = this.kcy;
+				pC = this.pointsClock.length;
+				this.pointsClock[pC++] = this.jx;
+				this.pointsClock[pC++] = this.jy;
+				this.pointsClock[pC++] = this.ncx;
+				this.pointsClock[pC++] = this.ncy;
+				var v = this.quadIndex;
+				this.pen.paintType.set_pos(v);
+				var _this = this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this.currentColor;
+				}
+				var ax = this.jxOld;
+				var ay = this.jyOld;
+				var bx = this.jx;
+				var by = this.jy;
+				var cx = this.kcx;
+				var cy = this.kcy;
+				var windAdjust = _this.paintType.triangle(ax,ay,_this.z2D,bx,by,_this.z2D,cx,cy,_this.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this.paintType.cornerColors(color,color,color);
+				_this.paintType.next();
+				var v = this.quadIndex + 1;
+				this.pen.paintType.set_pos(v);
+				var _this = this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this.currentColor;
+				}
+				var ax = this.jxOld;
+				var ay = this.jyOld;
+				var bx = this.jx;
+				var by = this.jy;
+				var cx = this.ncx;
+				var cy = this.ncy;
+				var windAdjust = _this.paintType.triangle(ax,ay,_this.z2D,bx,by,_this.z2D,cx,cy,_this.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this.paintType.cornerColors(color,color,color);
+				_this.paintType.next();
+			}
+		}
+		this.pen.paintType.set_pos(currQuadIndex);
+	}
+	,__class__: trilateral3_drawing_Contour
+};
 var trilateral3_drawing_Nymph = function(pen,indexRange) {
 	this._argb = -1;
 	this.sv = [];
@@ -33462,6 +33447,5685 @@ trilateral3_drawing_Pen.prototype = {
 	,currentColor: null
 	,paintType: null
 	,__class__: trilateral3_drawing_Pen
+};
+var trilateral3_drawing_Sketch = function(pen_,sketchForm_,endLine_) {
+	if(endLine_ == null) {
+		endLine_ = 0;
+	}
+	this.width = 0.01;
+	this.y = 0.;
+	this.x = 0.;
+	this.contour = new trilateral3_drawing_Contour(pen_,endLine_);
+	this.pen = pen_;
+	this.endLine = endLine_;
+	this.sketchForm = sketchForm_;
+	switch(sketchForm_) {
+	case 0:
+		this.line = $bind(this,this.tracerLine);
+		break;
+	case 1:
+		this.line = $bind(this,this.baseLine);
+		break;
+	case 2:
+		this.line = $bind(this,this.crudeLine);
+		break;
+	case 3:
+		this.line = $bind(this,this.fillOnlyLine);
+		break;
+	case 4:
+		this.line = $bind(this,this.fineLine);
+		break;
+	case 5:
+		this.line = $bind(this,this.fineOverlapLine);
+		break;
+	case 6:
+		this.line = $bind(this,this.mediumLine);
+		break;
+	case 7:
+		this.line = $bind(this,this.mediumOverlapLine);
+		break;
+	case 8:
+		this.line = $bind(this,this.roundEndLine);
+		break;
+	}
+	this.points = [];
+	this.pointsClock = [];
+	this.pointsAnti = [];
+	this.points[0] = [];
+	this.dim = [];
+};
+$hxClasses["trilateral3.drawing.Sketch"] = trilateral3_drawing_Sketch;
+trilateral3_drawing_Sketch.__name__ = "trilateral3.drawing.Sketch";
+trilateral3_drawing_Sketch.__interfaces__ = [justPath_IPathContext];
+trilateral3_drawing_Sketch.prototype = {
+	x: null
+	,y: null
+	,width: null
+	,contour: null
+	,pen: null
+	,endLine: null
+	,sketchForm: null
+	,points: null
+	,pointsClock: null
+	,pointsAnti: null
+	,dim: null
+	,tracerLine: function(x_,y_) {
+		haxe_Log.trace("lineTo( " + this.x + ", " + this.y + ", " + x_ + ", " + y_ + ", width )",{ fileName : "trilateral3/drawing/Sketch.hx", lineNumber : 38, className : "trilateral3.drawing.Sketch", methodName : "tracerLine"});
+	}
+	,fillOnlyLine: function(x_,y_) {
+	}
+	,baseLine: function(x_,y_) {
+		haxe_Log.trace("lineTo( " + this.x + ", " + this.y + ", " + x_ + ", " + y_ + ", width )",{ fileName : "trilateral3/drawing/Sketch.hx", lineNumber : 38, className : "trilateral3.drawing.Sketch", methodName : "tracerLine"});
+		var _this = this.contour;
+		var ax_ = this.x;
+		var ay_ = this.y;
+		var width_ = this.width;
+		_this.ax = x_;
+		_this.ay = y_;
+		_this.bx = ax_;
+		_this.by = ay_;
+		_this.halfA = Math.PI / 2;
+		_this.beta = Math.PI / 2 - _this.halfA;
+		_this.r = width_ / 2 * Math.cos(_this.beta);
+		_this.theta = Math.atan2(_this.ay - _this.by,_this.ax - _this.bx);
+		if(_this.theta > 0) {
+			if(_this.halfA < 0) {
+				_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+				_this.angle1 = _this.theta - _this.halfA;
+			} else {
+				_this.angle1 = _this.theta + _this.halfA - Math.PI;
+				_this.angle2 = _this.theta + _this.halfA;
+			}
+		} else if(_this.halfA > 0) {
+			_this.angle1 = _this.theta + _this.halfA - Math.PI;
+			_this.angle2 = _this.theta + _this.halfA;
+		} else {
+			_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+			_this.angle1 = _this.theta - _this.halfA;
+		}
+		if(_this.dxPrev != null) {
+			_this.dxOld = _this.dxPrev;
+		}
+		if(_this.dyPrev != null) {
+			_this.dyOld = _this.dyPrev;
+		}
+		if(_this.exPrev != null) {
+			_this.exOld = _this.exPrev;
+		}
+		if(_this.eyPrev != null) {
+			_this.eyOld = _this.eyPrev;
+		}
+		if(_this.dx != null) {
+			_this.dxPrev = _this.dx;
+		}
+		if(_this.dy != null) {
+			_this.dyPrev = _this.dy;
+		}
+		if(_this.ex != null) {
+			_this.exPrev = _this.ex;
+		}
+		if(_this.ey != null) {
+			_this.eyPrev = _this.ey;
+		}
+		_this.dx = _this.bx + _this.r * Math.cos(_this.angle1);
+		_this.dy = _this.by + _this.r * Math.sin(_this.angle1);
+		_this.ex = _this.bx + _this.r * Math.cos(_this.angle2);
+		_this.ey = _this.by + _this.r * Math.sin(_this.angle2);
+		var dxPrev_ = _this.dx;
+		var dyPrev_ = _this.dy;
+		var exPrev_ = _this.ex;
+		var eyPrev_ = _this.ey;
+		_this.ax = ax_;
+		_this.ay = ay_;
+		_this.bx = x_;
+		_this.by = y_;
+		_this.theta = Math.atan2(_this.ay - _this.by,_this.ax - _this.bx);
+		if(_this.theta > 0) {
+			if(_this.halfA < 0) {
+				_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+				_this.angle1 = _this.theta - _this.halfA;
+			} else {
+				_this.angle1 = _this.theta + _this.halfA - Math.PI;
+				_this.angle2 = _this.theta + _this.halfA;
+			}
+		} else if(_this.halfA > 0) {
+			_this.angle1 = _this.theta + _this.halfA - Math.PI;
+			_this.angle2 = _this.theta + _this.halfA;
+		} else {
+			_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+			_this.angle1 = _this.theta - _this.halfA;
+		}
+		if(_this.dxPrev != null) {
+			_this.dxOld = _this.dxPrev;
+		}
+		if(_this.dyPrev != null) {
+			_this.dyOld = _this.dyPrev;
+		}
+		if(_this.exPrev != null) {
+			_this.exOld = _this.exPrev;
+		}
+		if(_this.eyPrev != null) {
+			_this.eyOld = _this.eyPrev;
+		}
+		if(_this.dx != null) {
+			_this.dxPrev = _this.dx;
+		}
+		if(_this.dy != null) {
+			_this.dyPrev = _this.dy;
+		}
+		if(_this.ex != null) {
+			_this.exPrev = _this.ex;
+		}
+		if(_this.ey != null) {
+			_this.eyPrev = _this.ey;
+		}
+		_this.dx = _this.bx + _this.r * Math.cos(_this.angle1);
+		_this.dy = _this.by + _this.r * Math.sin(_this.angle1);
+		_this.ex = _this.bx + _this.r * Math.cos(_this.angle2);
+		_this.ey = _this.by + _this.r * Math.sin(_this.angle2);
+		var _this1 = _this.pen;
+		var color = -1;
+		if(color == null) {
+			color = -1;
+		}
+		if(color == -1) {
+			color = _this1.currentColor;
+		}
+		var ax = dxPrev_;
+		var ay = dyPrev_;
+		var bx = _this.dx;
+		var by = _this.dy;
+		var cx = exPrev_;
+		var cy = eyPrev_;
+		var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+		if(trilateral3_Trilateral.transformMatrix != null) {
+			_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+		}
+		if(_this1.useTexture) {
+			ax /= 2000;
+			ay /= 2000;
+			bx /= 2000;
+			by /= 2000;
+			cx /= 2000;
+			cy /= 2000;
+			_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+		}
+		_this1.paintType.cornerColors(color,color,color);
+		_this1.paintType.next();
+		var _this1 = _this.pen;
+		var color = -1;
+		if(color == null) {
+			color = -1;
+		}
+		if(color == -1) {
+			color = _this1.currentColor;
+		}
+		var ax = dxPrev_;
+		var ay = dyPrev_;
+		var bx = _this.dx;
+		var by = _this.dy;
+		var cx = _this.ex;
+		var cy = _this.ey;
+		var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+		if(trilateral3_Trilateral.transformMatrix != null) {
+			_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+		}
+		if(_this1.useTexture) {
+			ax /= 2000;
+			ay /= 2000;
+			bx /= 2000;
+			by /= 2000;
+			cx /= 2000;
+			cy /= 2000;
+			_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+		}
+		_this1.paintType.cornerColors(color,color,color);
+		_this1.paintType.next();
+	}
+	,crudeLine: function(x_,y_) {
+		var _this = this.contour;
+		var ax_ = this.x;
+		var ay_ = this.y;
+		var width_ = this.width;
+		_this.ax = x_;
+		_this.ay = y_;
+		_this.bx = ax_;
+		_this.by = ay_;
+		_this.halfA = Math.PI / 2;
+		_this.beta = Math.PI / 2 - _this.halfA;
+		_this.r = width_ / 2 * Math.cos(_this.beta);
+		_this.theta = Math.atan2(_this.ay - _this.by,_this.ax - _this.bx);
+		if(_this.theta > 0) {
+			if(_this.halfA < 0) {
+				_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+				_this.angle1 = _this.theta - _this.halfA;
+			} else {
+				_this.angle1 = _this.theta + _this.halfA - Math.PI;
+				_this.angle2 = _this.theta + _this.halfA;
+			}
+		} else if(_this.halfA > 0) {
+			_this.angle1 = _this.theta + _this.halfA - Math.PI;
+			_this.angle2 = _this.theta + _this.halfA;
+		} else {
+			_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+			_this.angle1 = _this.theta - _this.halfA;
+		}
+		if(_this.dxPrev != null) {
+			_this.dxOld = _this.dxPrev;
+		}
+		if(_this.dyPrev != null) {
+			_this.dyOld = _this.dyPrev;
+		}
+		if(_this.exPrev != null) {
+			_this.exOld = _this.exPrev;
+		}
+		if(_this.eyPrev != null) {
+			_this.eyOld = _this.eyPrev;
+		}
+		if(_this.dx != null) {
+			_this.dxPrev = _this.dx;
+		}
+		if(_this.dy != null) {
+			_this.dyPrev = _this.dy;
+		}
+		if(_this.ex != null) {
+			_this.exPrev = _this.ex;
+		}
+		if(_this.ey != null) {
+			_this.eyPrev = _this.ey;
+		}
+		_this.dx = _this.bx + _this.r * Math.cos(_this.angle1);
+		_this.dy = _this.by + _this.r * Math.sin(_this.angle1);
+		_this.ex = _this.bx + _this.r * Math.cos(_this.angle2);
+		_this.ey = _this.by + _this.r * Math.sin(_this.angle2);
+		var dxPrev_ = _this.dx;
+		var dyPrev_ = _this.dy;
+		var exPrev_ = _this.ex;
+		var eyPrev_ = _this.ey;
+		_this.ax = ax_;
+		_this.ay = ay_;
+		_this.bx = x_;
+		_this.by = y_;
+		_this.theta = Math.atan2(_this.ay - _this.by,_this.ax - _this.bx);
+		if(_this.theta > 0) {
+			if(_this.halfA < 0) {
+				_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+				_this.angle1 = _this.theta - _this.halfA;
+			} else {
+				_this.angle1 = _this.theta + _this.halfA - Math.PI;
+				_this.angle2 = _this.theta + _this.halfA;
+			}
+		} else if(_this.halfA > 0) {
+			_this.angle1 = _this.theta + _this.halfA - Math.PI;
+			_this.angle2 = _this.theta + _this.halfA;
+		} else {
+			_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+			_this.angle1 = _this.theta - _this.halfA;
+		}
+		if(_this.dxPrev != null) {
+			_this.dxOld = _this.dxPrev;
+		}
+		if(_this.dyPrev != null) {
+			_this.dyOld = _this.dyPrev;
+		}
+		if(_this.exPrev != null) {
+			_this.exOld = _this.exPrev;
+		}
+		if(_this.eyPrev != null) {
+			_this.eyOld = _this.eyPrev;
+		}
+		if(_this.dx != null) {
+			_this.dxPrev = _this.dx;
+		}
+		if(_this.dy != null) {
+			_this.dyPrev = _this.dy;
+		}
+		if(_this.ex != null) {
+			_this.exPrev = _this.ex;
+		}
+		if(_this.ey != null) {
+			_this.eyPrev = _this.ey;
+		}
+		_this.dx = _this.bx + _this.r * Math.cos(_this.angle1);
+		_this.dy = _this.by + _this.r * Math.sin(_this.angle1);
+		_this.ex = _this.bx + _this.r * Math.cos(_this.angle2);
+		_this.ey = _this.by + _this.r * Math.sin(_this.angle2);
+		var _this1 = _this.pen;
+		var color = -1;
+		if(color == null) {
+			color = -1;
+		}
+		if(color == -1) {
+			color = _this1.currentColor;
+		}
+		var ax = dxPrev_;
+		var ay = dyPrev_;
+		var bx = _this.dx;
+		var by = _this.dy;
+		var cx = exPrev_;
+		var cy = eyPrev_;
+		var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+		if(trilateral3_Trilateral.transformMatrix != null) {
+			_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+		}
+		if(_this1.useTexture) {
+			ax /= 2000;
+			ay /= 2000;
+			bx /= 2000;
+			by /= 2000;
+			cx /= 2000;
+			cy /= 2000;
+			_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+		}
+		_this1.paintType.cornerColors(color,color,color);
+		_this1.paintType.next();
+		var _this1 = _this.pen;
+		var color = -1;
+		if(color == null) {
+			color = -1;
+		}
+		if(color == -1) {
+			color = _this1.currentColor;
+		}
+		var ax = dxPrev_;
+		var ay = dyPrev_;
+		var bx = _this.dx;
+		var by = _this.dy;
+		var cx = _this.ex;
+		var cy = _this.ey;
+		var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+		if(trilateral3_Trilateral.transformMatrix != null) {
+			_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+		}
+		if(_this1.useTexture) {
+			ax /= 2000;
+			ay /= 2000;
+			bx /= 2000;
+			by /= 2000;
+			cx /= 2000;
+			cy /= 2000;
+			_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+		}
+		_this1.paintType.cornerColors(color,color,color);
+		_this1.paintType.next();
+	}
+	,roundEndLine: function(x_,y_) {
+		var _this = this.contour;
+		var ax_ = this.x;
+		var ay_ = this.y;
+		var width_ = this.width;
+		var endLineCurve = 3;
+		if(endLineCurve == null) {
+			endLineCurve = 0;
+		}
+		_this.ax = x_;
+		_this.ay = y_;
+		_this.bx = ax_;
+		_this.by = ay_;
+		_this.halfA = Math.PI / 2;
+		_this.beta = Math.PI / 2 - _this.halfA;
+		_this.r = width_ / 2 * Math.cos(_this.beta);
+		_this.theta = Math.atan2(_this.ay - _this.by,_this.ax - _this.bx);
+		if(_this.theta > 0) {
+			if(_this.halfA < 0) {
+				_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+				_this.angle1 = _this.theta - _this.halfA;
+			} else {
+				_this.angle1 = _this.theta + _this.halfA - Math.PI;
+				_this.angle2 = _this.theta + _this.halfA;
+			}
+		} else if(_this.halfA > 0) {
+			_this.angle1 = _this.theta + _this.halfA - Math.PI;
+			_this.angle2 = _this.theta + _this.halfA;
+		} else {
+			_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+			_this.angle1 = _this.theta - _this.halfA;
+		}
+		if(_this.dxPrev != null) {
+			_this.dxOld = _this.dxPrev;
+		}
+		if(_this.dyPrev != null) {
+			_this.dyOld = _this.dyPrev;
+		}
+		if(_this.exPrev != null) {
+			_this.exOld = _this.exPrev;
+		}
+		if(_this.eyPrev != null) {
+			_this.eyOld = _this.eyPrev;
+		}
+		if(_this.dx != null) {
+			_this.dxPrev = _this.dx;
+		}
+		if(_this.dy != null) {
+			_this.dyPrev = _this.dy;
+		}
+		if(_this.ex != null) {
+			_this.exPrev = _this.ex;
+		}
+		if(_this.ey != null) {
+			_this.eyPrev = _this.ey;
+		}
+		_this.dx = _this.bx + _this.r * Math.cos(_this.angle1);
+		_this.dy = _this.by + _this.r * Math.sin(_this.angle1);
+		_this.ex = _this.bx + _this.r * Math.cos(_this.angle2);
+		_this.ey = _this.by + _this.r * Math.sin(_this.angle2);
+		var dxPrev_ = _this.dx;
+		var dyPrev_ = _this.dy;
+		var exPrev_ = _this.ex;
+		var eyPrev_ = _this.ey;
+		_this.ax = ax_;
+		_this.ay = ay_;
+		_this.bx = x_;
+		_this.by = y_;
+		_this.theta = Math.atan2(_this.ay - _this.by,_this.ax - _this.bx);
+		if(_this.theta > 0) {
+			if(_this.halfA < 0) {
+				_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+				_this.angle1 = _this.theta - _this.halfA;
+			} else {
+				_this.angle1 = _this.theta + _this.halfA - Math.PI;
+				_this.angle2 = _this.theta + _this.halfA;
+			}
+		} else if(_this.halfA > 0) {
+			_this.angle1 = _this.theta + _this.halfA - Math.PI;
+			_this.angle2 = _this.theta + _this.halfA;
+		} else {
+			_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+			_this.angle1 = _this.theta - _this.halfA;
+		}
+		if(_this.dxPrev != null) {
+			_this.dxOld = _this.dxPrev;
+		}
+		if(_this.dyPrev != null) {
+			_this.dyOld = _this.dyPrev;
+		}
+		if(_this.exPrev != null) {
+			_this.exOld = _this.exPrev;
+		}
+		if(_this.eyPrev != null) {
+			_this.eyOld = _this.eyPrev;
+		}
+		if(_this.dx != null) {
+			_this.dxPrev = _this.dx;
+		}
+		if(_this.dy != null) {
+			_this.dyPrev = _this.dy;
+		}
+		if(_this.ex != null) {
+			_this.exPrev = _this.ex;
+		}
+		if(_this.ey != null) {
+			_this.eyPrev = _this.ey;
+		}
+		_this.dx = _this.bx + _this.r * Math.cos(_this.angle1);
+		_this.dy = _this.by + _this.r * Math.sin(_this.angle1);
+		_this.ex = _this.bx + _this.r * Math.cos(_this.angle2);
+		_this.ey = _this.by + _this.r * Math.sin(_this.angle2);
+		switch(endLineCurve) {
+		case 0:
+			break;
+		case 1:
+			var radius = width_ / 2;
+			var beta = -_this.angle1 - Math.PI / 2;
+			var gamma = -_this.angle1 - Math.PI / 2 + Math.PI;
+			var drawType = _this.pen.paintType;
+			var sides = 36;
+			if(sides == null) {
+				sides = 36;
+			}
+			var pi = Math.PI;
+			var step = pi * 2 / sides;
+			var dif;
+			switch(fracs_DifferencePreference.SMALL._hx_index) {
+			case 0:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var clockwise = fa < fb;
+				var dif1 = clockwise ? theta : -theta;
+				dif = dif1 > 0 ? dif1 : 2 * Math.PI + dif1;
+				break;
+			case 1:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var clockwise = fa < fb;
+				var dif1 = clockwise ? theta : -theta;
+				dif = dif1 < 0 ? dif1 : -2 * Math.PI + dif1;
+				break;
+			case 2:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var smallest = theta <= Math.PI;
+				var clockwise = fa < fb;
+				var dif1 = clockwise ? theta : -theta;
+				dif = smallest ? dif1 : clockwise ? -(2 * Math.PI - theta) : 2 * Math.PI - theta;
+				break;
+			case 3:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var largest = theta > Math.PI;
+				var clockwise = fa < fb;
+				var dif1 = clockwise ? theta : -theta;
+				dif = largest ? dif1 : clockwise ? -(2 * Math.PI - theta) : 2 * Math.PI - theta;
+				break;
+			}
+			var positive = dif >= 0;
+			var totalSteps = Math.ceil(Math.abs(dif) / step);
+			var step = dif / totalSteps;
+			var angle = beta;
+			var cx;
+			var cy;
+			var bx = 0;
+			var by = 0;
+			var _g = 0;
+			var _g1 = totalSteps + 1;
+			while(_g < _g1) {
+				var i = _g++;
+				cx = ax_ + radius * Math.sin(angle);
+				cy = ay_ + radius * Math.cos(angle);
+				if(i != 0) {
+					drawType.triangle(ax_,ay_,0,bx,by,0,cx,cy,0);
+					var m = trilateral3_Trilateral.transformMatrix;
+					if(m != null) {
+						drawType.transform(m);
+					}
+					drawType.next();
+				}
+				angle += step;
+				bx = cx;
+				by = cy;
+			}
+			var len = totalSteps;
+			var _g = _this.pen.paintType;
+			var v = _g.get_pos() - len;
+			_g.set_pos(v);
+			var _this1 = _this.pen;
+			var color = 0;
+			if(color == -1) {
+				color = _this1.currentColor;
+			}
+			_this1.paintType.colorTriangles(color,len);
+			break;
+		case 2:
+			var radius = width_ / 2;
+			var beta = -_this.angle1 - Math.PI / 2;
+			var gamma = -_this.angle1 - Math.PI / 2 - Math.PI;
+			var drawType = _this.pen.paintType;
+			var sides = 36;
+			if(sides == null) {
+				sides = 36;
+			}
+			var pi = Math.PI;
+			var step = pi * 2 / sides;
+			var dif;
+			switch(fracs_DifferencePreference.SMALL._hx_index) {
+			case 0:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var clockwise = fa < fb;
+				var dif1 = clockwise ? theta : -theta;
+				dif = dif1 > 0 ? dif1 : 2 * Math.PI + dif1;
+				break;
+			case 1:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var clockwise = fa < fb;
+				var dif1 = clockwise ? theta : -theta;
+				dif = dif1 < 0 ? dif1 : -2 * Math.PI + dif1;
+				break;
+			case 2:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var smallest = theta <= Math.PI;
+				var clockwise = fa < fb;
+				var dif1 = clockwise ? theta : -theta;
+				dif = smallest ? dif1 : clockwise ? -(2 * Math.PI - theta) : 2 * Math.PI - theta;
+				break;
+			case 3:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var largest = theta > Math.PI;
+				var clockwise = fa < fb;
+				var dif1 = clockwise ? theta : -theta;
+				dif = largest ? dif1 : clockwise ? -(2 * Math.PI - theta) : 2 * Math.PI - theta;
+				break;
+			}
+			var positive = dif >= 0;
+			var totalSteps = Math.ceil(Math.abs(dif) / step);
+			var step = dif / totalSteps;
+			var angle = beta;
+			var cx;
+			var cy;
+			var bx = 0;
+			var by = 0;
+			var _g = 0;
+			var _g1 = totalSteps + 1;
+			while(_g < _g1) {
+				var i = _g++;
+				cx = x_ + radius * Math.sin(angle);
+				cy = y_ + radius * Math.cos(angle);
+				if(i != 0) {
+					drawType.triangle(x_,y_,0,bx,by,0,cx,cy,0);
+					var m = trilateral3_Trilateral.transformMatrix;
+					if(m != null) {
+						drawType.transform(m);
+					}
+					drawType.next();
+				}
+				angle += step;
+				bx = cx;
+				by = cy;
+			}
+			var len = totalSteps;
+			var _g = _this.pen.paintType;
+			var v = _g.get_pos() - len;
+			_g.set_pos(v);
+			var _this1 = _this.pen;
+			var color = 0;
+			if(color == -1) {
+				color = _this1.currentColor;
+			}
+			_this1.paintType.colorTriangles(color,len);
+			break;
+		case 3:
+			var radius = width_ / 2;
+			var beta = -_this.angle1 - Math.PI / 2;
+			var gamma = -_this.angle1 - Math.PI / 2 + Math.PI;
+			var drawType = _this.pen.paintType;
+			var sides = 36;
+			if(sides == null) {
+				sides = 36;
+			}
+			var pi = Math.PI;
+			var step = pi * 2 / sides;
+			var dif;
+			switch(fracs_DifferencePreference.SMALL._hx_index) {
+			case 0:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var clockwise = fa < fb;
+				var dif1 = clockwise ? theta : -theta;
+				dif = dif1 > 0 ? dif1 : 2 * Math.PI + dif1;
+				break;
+			case 1:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var clockwise = fa < fb;
+				var dif1 = clockwise ? theta : -theta;
+				dif = dif1 < 0 ? dif1 : -2 * Math.PI + dif1;
+				break;
+			case 2:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var smallest = theta <= Math.PI;
+				var clockwise = fa < fb;
+				var dif1 = clockwise ? theta : -theta;
+				dif = smallest ? dif1 : clockwise ? -(2 * Math.PI - theta) : 2 * Math.PI - theta;
+				break;
+			case 3:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var largest = theta > Math.PI;
+				var clockwise = fa < fb;
+				var dif1 = clockwise ? theta : -theta;
+				dif = largest ? dif1 : clockwise ? -(2 * Math.PI - theta) : 2 * Math.PI - theta;
+				break;
+			}
+			var positive = dif >= 0;
+			var totalSteps = Math.ceil(Math.abs(dif) / step);
+			var step = dif / totalSteps;
+			var angle = beta;
+			var cx;
+			var cy;
+			var bx = 0;
+			var by = 0;
+			var _g = 0;
+			var _g1 = totalSteps + 1;
+			while(_g < _g1) {
+				var i = _g++;
+				cx = ax_ + radius * Math.sin(angle);
+				cy = ay_ + radius * Math.cos(angle);
+				if(i != 0) {
+					drawType.triangle(ax_,ay_,0,bx,by,0,cx,cy,0);
+					var m = trilateral3_Trilateral.transformMatrix;
+					if(m != null) {
+						drawType.transform(m);
+					}
+					drawType.next();
+				}
+				angle += step;
+				bx = cx;
+				by = cy;
+			}
+			var len = totalSteps;
+			var _g = _this.pen.paintType;
+			var v = _g.get_pos() - len;
+			_g.set_pos(v);
+			var _this1 = _this.pen;
+			var color = 0;
+			if(color == -1) {
+				color = _this1.currentColor;
+			}
+			_this1.paintType.colorTriangles(color,len);
+			var radius = width_ / 2;
+			var beta = -_this.angle1 - Math.PI / 2;
+			var gamma = -_this.angle1 - Math.PI / 2 - Math.PI;
+			var drawType = _this.pen.paintType;
+			var sides = 36;
+			if(sides == null) {
+				sides = 36;
+			}
+			var pi = Math.PI;
+			var step = pi * 2 / sides;
+			var dif;
+			switch(fracs_DifferencePreference.SMALL._hx_index) {
+			case 0:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var clockwise = fa < fb;
+				var dif1 = clockwise ? theta : -theta;
+				dif = dif1 > 0 ? dif1 : 2 * Math.PI + dif1;
+				break;
+			case 1:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var clockwise = fa < fb;
+				var dif1 = clockwise ? theta : -theta;
+				dif = dif1 < 0 ? dif1 : -2 * Math.PI + dif1;
+				break;
+			case 2:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var smallest = theta <= Math.PI;
+				var clockwise = fa < fb;
+				var dif1 = clockwise ? theta : -theta;
+				dif = smallest ? dif1 : clockwise ? -(2 * Math.PI - theta) : 2 * Math.PI - theta;
+				break;
+			case 3:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var largest = theta > Math.PI;
+				var clockwise = fa < fb;
+				var dif1 = clockwise ? theta : -theta;
+				dif = largest ? dif1 : clockwise ? -(2 * Math.PI - theta) : 2 * Math.PI - theta;
+				break;
+			}
+			var positive = dif >= 0;
+			var totalSteps = Math.ceil(Math.abs(dif) / step);
+			var step = dif / totalSteps;
+			var angle = beta;
+			var cx;
+			var cy;
+			var bx = 0;
+			var by = 0;
+			var _g = 0;
+			var _g1 = totalSteps + 1;
+			while(_g < _g1) {
+				var i = _g++;
+				cx = x_ + radius * Math.sin(angle);
+				cy = y_ + radius * Math.cos(angle);
+				if(i != 0) {
+					drawType.triangle(x_,y_,0,bx,by,0,cx,cy,0);
+					var m = trilateral3_Trilateral.transformMatrix;
+					if(m != null) {
+						drawType.transform(m);
+					}
+					drawType.next();
+				}
+				angle += step;
+				bx = cx;
+				by = cy;
+			}
+			var len = totalSteps;
+			var _g = _this.pen.paintType;
+			var v = _g.get_pos() - len;
+			_g.set_pos(v);
+			var _this1 = _this.pen;
+			var color = 0;
+			if(color == -1) {
+				color = _this1.currentColor;
+			}
+			_this1.paintType.colorTriangles(color,len);
+			break;
+		}
+		var _this1 = _this.pen;
+		var color = -1;
+		if(color == null) {
+			color = -1;
+		}
+		if(color == -1) {
+			color = _this1.currentColor;
+		}
+		var ax = dxPrev_;
+		var ay = dyPrev_;
+		var bx = _this.dx;
+		var by = _this.dy;
+		var cx = exPrev_;
+		var cy = eyPrev_;
+		var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+		if(trilateral3_Trilateral.transformMatrix != null) {
+			_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+		}
+		if(_this1.useTexture) {
+			ax /= 2000;
+			ay /= 2000;
+			bx /= 2000;
+			by /= 2000;
+			cx /= 2000;
+			cy /= 2000;
+			_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+		}
+		_this1.paintType.cornerColors(color,color,color);
+		_this1.paintType.next();
+		var _this1 = _this.pen;
+		var color = -1;
+		if(color == null) {
+			color = -1;
+		}
+		if(color == -1) {
+			color = _this1.currentColor;
+		}
+		var ax = dxPrev_;
+		var ay = dyPrev_;
+		var bx = _this.dx;
+		var by = _this.dy;
+		var cx = _this.ex;
+		var cy = _this.ey;
+		var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+		if(trilateral3_Trilateral.transformMatrix != null) {
+			_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+		}
+		if(_this1.useTexture) {
+			ax /= 2000;
+			ay /= 2000;
+			bx /= 2000;
+			by /= 2000;
+			cx /= 2000;
+			cy /= 2000;
+			_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+		}
+		_this1.paintType.cornerColors(color,color,color);
+		_this1.paintType.next();
+	}
+	,mediumLine: function(x_,y_) {
+		var _this = this.contour;
+		var ax_ = this.x;
+		var ay_ = this.y;
+		var width_ = this.width;
+		var curveEnds = false;
+		if(curveEnds == null) {
+			curveEnds = false;
+		}
+		var oldAngle = _this.dx != null ? _this.angle1 : null;
+		_this.halfA = Math.PI / 2;
+		_this.ax = x_;
+		_this.ay = y_;
+		_this.bx = ax_;
+		_this.by = ay_;
+		_this.beta = Math.PI / 2 - _this.halfA;
+		_this.r = width_ / 2 * Math.cos(_this.beta);
+		_this.theta = Math.atan2(_this.ay - _this.by,_this.ax - _this.bx);
+		if(_this.theta > 0) {
+			if(_this.halfA < 0) {
+				_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+				_this.angle1 = _this.theta - _this.halfA;
+			} else {
+				_this.angle1 = _this.theta + _this.halfA - Math.PI;
+				_this.angle2 = _this.theta + _this.halfA;
+			}
+		} else if(_this.halfA > 0) {
+			_this.angle1 = _this.theta + _this.halfA - Math.PI;
+			_this.angle2 = _this.theta + _this.halfA;
+		} else {
+			_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+			_this.angle1 = _this.theta - _this.halfA;
+		}
+		if(_this.dxPrev != null) {
+			_this.dxOld = _this.dxPrev;
+		}
+		if(_this.dyPrev != null) {
+			_this.dyOld = _this.dyPrev;
+		}
+		if(_this.exPrev != null) {
+			_this.exOld = _this.exPrev;
+		}
+		if(_this.eyPrev != null) {
+			_this.eyOld = _this.eyPrev;
+		}
+		if(_this.dx != null) {
+			_this.dxPrev = _this.dx;
+		}
+		if(_this.dy != null) {
+			_this.dyPrev = _this.dy;
+		}
+		if(_this.ex != null) {
+			_this.exPrev = _this.ex;
+		}
+		if(_this.ey != null) {
+			_this.eyPrev = _this.ey;
+		}
+		_this.dx = _this.bx + _this.r * Math.cos(_this.angle1);
+		_this.dy = _this.by + _this.r * Math.sin(_this.angle1);
+		_this.ex = _this.bx + _this.r * Math.cos(_this.angle2);
+		_this.ey = _this.by + _this.r * Math.sin(_this.angle2);
+		_this.ax = ax_;
+		_this.ay = ay_;
+		_this.bx = x_;
+		_this.by = y_;
+		_this.theta = Math.atan2(_this.ay - _this.by,_this.ax - _this.bx);
+		if(_this.theta > 0) {
+			if(_this.halfA < 0) {
+				_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+				_this.angle1 = _this.theta - _this.halfA;
+			} else {
+				_this.angle1 = _this.theta + _this.halfA - Math.PI;
+				_this.angle2 = _this.theta + _this.halfA;
+			}
+		} else if(_this.halfA > 0) {
+			_this.angle1 = _this.theta + _this.halfA - Math.PI;
+			_this.angle2 = _this.theta + _this.halfA;
+		} else {
+			_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+			_this.angle1 = _this.theta - _this.halfA;
+		}
+		if(_this.dxPrev != null) {
+			_this.dxOld = _this.dxPrev;
+		}
+		if(_this.dyPrev != null) {
+			_this.dyOld = _this.dyPrev;
+		}
+		if(_this.exPrev != null) {
+			_this.exOld = _this.exPrev;
+		}
+		if(_this.eyPrev != null) {
+			_this.eyOld = _this.eyPrev;
+		}
+		if(_this.dx != null) {
+			_this.dxPrev = _this.dx;
+		}
+		if(_this.dy != null) {
+			_this.dyPrev = _this.dy;
+		}
+		if(_this.ex != null) {
+			_this.exPrev = _this.ex;
+		}
+		if(_this.ey != null) {
+			_this.eyPrev = _this.ey;
+		}
+		_this.dx = _this.bx + _this.r * Math.cos(_this.angle1);
+		_this.dy = _this.by + _this.r * Math.sin(_this.angle1);
+		_this.ex = _this.bx + _this.r * Math.cos(_this.angle2);
+		_this.ey = _this.by + _this.r * Math.sin(_this.angle2);
+		var x = _this.dxOld - x_;
+		var y = _this.dyOld - y_;
+		var x1 = _this.exOld - x_;
+		var y1 = _this.eyOld - y_;
+		var clockWise = x * x + y * y > x1 * x1 + y1 * y1;
+		var theta0;
+		var theta1;
+		if(clockWise) {
+			theta0 = -Math.atan2(_this.ay - _this.dyOld,_this.ax - _this.dxOld) - Math.PI / 2;
+			theta1 = -Math.atan2(_this.ay - _this.eyPrev,_this.ax - _this.exPrev) - Math.PI / 2;
+		} else {
+			theta0 = -Math.atan2(_this.ay - _this.eyOld,_this.ax - _this.exOld) - Math.PI / 2;
+			theta1 = -Math.atan2(_this.ay - _this.dyPrev,_this.ax - _this.dxPrev) - Math.PI / 2;
+		}
+		var dif;
+		switch(fracs_DifferencePreference.SMALL._hx_index) {
+		case 0:
+			var f;
+			if(theta0 >= 0 && theta0 > Math.PI) {
+				f = theta0;
+			} else {
+				var a = theta0 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var za = this1;
+			var f;
+			if(theta1 >= 0 && theta1 > Math.PI) {
+				f = theta1;
+			} else {
+				var a = theta1 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var zb = this1;
+			var fa = za;
+			var fb = zb;
+			var theta = Math.abs(fa - fb);
+			var clockwise = fa < fb;
+			var dif1 = clockwise ? theta : -theta;
+			dif = dif1 > 0 ? dif1 : 2 * Math.PI + dif1;
+			break;
+		case 1:
+			var f;
+			if(theta0 >= 0 && theta0 > Math.PI) {
+				f = theta0;
+			} else {
+				var a = theta0 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var za = this1;
+			var f;
+			if(theta1 >= 0 && theta1 > Math.PI) {
+				f = theta1;
+			} else {
+				var a = theta1 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var zb = this1;
+			var fa = za;
+			var fb = zb;
+			var theta = Math.abs(fa - fb);
+			var clockwise = fa < fb;
+			var dif1 = clockwise ? theta : -theta;
+			dif = dif1 < 0 ? dif1 : -2 * Math.PI + dif1;
+			break;
+		case 2:
+			var f;
+			if(theta0 >= 0 && theta0 > Math.PI) {
+				f = theta0;
+			} else {
+				var a = theta0 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var za = this1;
+			var f;
+			if(theta1 >= 0 && theta1 > Math.PI) {
+				f = theta1;
+			} else {
+				var a = theta1 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var zb = this1;
+			var fa = za;
+			var fb = zb;
+			var theta = Math.abs(fa - fb);
+			var smallest = theta <= Math.PI;
+			var clockwise = fa < fb;
+			var dif1 = clockwise ? theta : -theta;
+			dif = smallest ? dif1 : clockwise ? -(2 * Math.PI - theta) : 2 * Math.PI - theta;
+			break;
+		case 3:
+			var f;
+			if(theta0 >= 0 && theta0 > Math.PI) {
+				f = theta0;
+			} else {
+				var a = theta0 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var za = this1;
+			var f;
+			if(theta1 >= 0 && theta1 > Math.PI) {
+				f = theta1;
+			} else {
+				var a = theta1 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var zb = this1;
+			var fa = za;
+			var fb = zb;
+			var theta = Math.abs(fa - fb);
+			var largest = theta > Math.PI;
+			var clockwise = fa < fb;
+			var dif1 = clockwise ? theta : -theta;
+			dif = largest ? dif1 : clockwise ? -(2 * Math.PI - theta) : 2 * Math.PI - theta;
+			break;
+		}
+		if(_this.count != 0) {
+			var gamma = Math.abs(dif) / 2;
+			var h = width_ / 2 / Math.cos(gamma);
+			var f;
+			if(theta0 <= Math.PI && theta0 > -Math.PI) {
+				f = theta0;
+			} else {
+				var a = (theta0 + Math.PI) % (2 * Math.PI);
+				f = a >= 0 ? a - Math.PI : a + Math.PI;
+			}
+			var this1 = f;
+			var start = this1;
+			var start2 = start;
+			var delta = start2 + dif / 2 + Math.PI;
+			_this.jx = _this.ax + h * Math.sin(delta);
+			_this.jy = _this.ay + h * Math.cos(delta);
+		}
+		if(_this.count == 0 && (_this.endLine == 1 || _this.endLine == 3)) {
+			var ax = _this.ax;
+			var ay = _this.ay;
+			var radius = width_ / 2;
+			var beta = -_this.angle1 - Math.PI / 2;
+			var gamma = -_this.angle1 - Math.PI / 2 + Math.PI;
+			var temp = [];
+			var drawType = _this.pen.paintType;
+			var sides = 36;
+			if(sides == null) {
+				sides = 36;
+			}
+			var pi = Math.PI;
+			var step = pi * 2 / sides;
+			var dif1;
+			switch(fracs_DifferencePreference.SMALL._hx_index) {
+			case 0:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var clockwise = fa < fb;
+				var dif2 = clockwise ? theta : -theta;
+				dif1 = dif2 > 0 ? dif2 : 2 * Math.PI + dif2;
+				break;
+			case 1:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var clockwise = fa < fb;
+				var dif2 = clockwise ? theta : -theta;
+				dif1 = dif2 < 0 ? dif2 : -2 * Math.PI + dif2;
+				break;
+			case 2:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var smallest = theta <= Math.PI;
+				var clockwise = fa < fb;
+				var dif2 = clockwise ? theta : -theta;
+				dif1 = smallest ? dif2 : clockwise ? -(2 * Math.PI - theta) : 2 * Math.PI - theta;
+				break;
+			case 3:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var largest = theta > Math.PI;
+				var clockwise = fa < fb;
+				var dif2 = clockwise ? theta : -theta;
+				dif1 = largest ? dif2 : clockwise ? -(2 * Math.PI - theta) : 2 * Math.PI - theta;
+				break;
+			}
+			var positive = dif1 >= 0;
+			var totalSteps = Math.ceil(Math.abs(dif1) / step);
+			var step = dif1 / totalSteps;
+			var angle = beta;
+			var cx;
+			var cy;
+			var bx = 0;
+			var by = 0;
+			var p2 = temp.length;
+			var _g = 0;
+			var _g1 = totalSteps + 1;
+			while(_g < _g1) {
+				var i = _g++;
+				cx = ax + radius * Math.sin(angle);
+				cy = ay + radius * Math.cos(angle);
+				temp[p2++] = cx;
+				temp[p2++] = cy;
+				if(i != 0) {
+					drawType.triangle(ax,ay,0,bx,by,0,cx,cy,0);
+					var m = trilateral3_Trilateral.transformMatrix;
+					if(m != null) {
+						drawType.transform(m);
+					}
+					drawType.next();
+				}
+				angle += step;
+				bx = cx;
+				by = cy;
+			}
+			var len = totalSteps;
+			var _g = _this.pen.paintType;
+			var v = _g.get_pos() - len;
+			_g.set_pos(v);
+			var _this1 = _this.pen;
+			var color = -1;
+			if(color == -1) {
+				color = _this1.currentColor;
+			}
+			_this1.paintType.colorTriangles(color,len);
+			var pA = _this.pointsAnti.length;
+			var len = temp.length / 2 | 0;
+			var p4 = temp.length / 4 | 0;
+			var _g = 0;
+			var _g1 = p4;
+			while(_g < _g1) {
+				var i = _g++;
+				_this.pointsAnti[pA++] = temp[len - 2 * i + 1];
+				_this.pointsAnti[pA++] = temp[len - 2 * i];
+			}
+			var pC = _this.pointsClock.length;
+			var _g = 0;
+			var _g1 = p4;
+			while(_g < _g1) {
+				var i = _g++;
+				_this.pointsClock[pC++] = temp[i * 2 + len + 1];
+				_this.pointsClock[pC++] = temp[i * 2 + len];
+			}
+		}
+		if(_this.count != 0) {
+			_this.addQuads(clockWise,width_);
+		}
+		_this.quadIndex = _this.pen.paintType.get_pos();
+		if(_this.count == 0) {
+			_this.penultimateAX = _this.dxPrev;
+			_this.penultimateAY = _this.dyPrev;
+			_this.lastAntiX = _this.ex;
+			_this.lastAntiY = _this.ey;
+			_this.penultimateCX = _this.dx;
+			_this.penultimateCY = _this.dy;
+			_this.lastClockX = _this.exPrev;
+			_this.lastClockY = _this.eyPrev;
+			var _this1 = _this.pen;
+			var color = -1;
+			if(color == null) {
+				color = -1;
+			}
+			if(color == -1) {
+				color = _this1.currentColor;
+			}
+			var ax = _this.dxPrev;
+			var ay = _this.dyPrev;
+			var bx = _this.dx;
+			var by = _this.dy;
+			var cx = _this.ex;
+			var cy = _this.ey;
+			var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+			if(trilateral3_Trilateral.transformMatrix != null) {
+				_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+			}
+			if(_this1.useTexture) {
+				ax /= 2000;
+				ay /= 2000;
+				bx /= 2000;
+				by /= 2000;
+				cx /= 2000;
+				cy /= 2000;
+				_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+			}
+			_this1.paintType.cornerColors(color,color,color);
+			_this1.paintType.next();
+			var _this1 = _this.pen;
+			var color = -1;
+			if(color == null) {
+				color = -1;
+			}
+			if(color == -1) {
+				color = _this1.currentColor;
+			}
+			var ax = _this.dxPrev;
+			var ay = _this.dyPrev;
+			var bx = _this.dx;
+			var by = _this.dy;
+			var cx = _this.exPrev;
+			var cy = _this.eyPrev;
+			var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+			if(trilateral3_Trilateral.transformMatrix != null) {
+				_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+			}
+			if(_this1.useTexture) {
+				ax /= 2000;
+				ay /= 2000;
+				bx /= 2000;
+				by /= 2000;
+				cx /= 2000;
+				cy /= 2000;
+				_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+			}
+			_this1.paintType.cornerColors(color,color,color);
+			_this1.paintType.next();
+		} else {
+			if(clockWise && !_this.lastClock) {
+				_this.penultimateAX = _this.jx;
+				_this.penultimateAY = _this.jy;
+				_this.lastAntiX = _this.ex;
+				_this.lastAntiY = _this.ey;
+				_this.penultimateCX = _this.dx;
+				_this.penultimateCY = _this.dy;
+				_this.lastClockX = _this.exPrev;
+				_this.lastClockY = _this.eyPrev;
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.jx;
+				var ay = _this.jy;
+				var bx = _this.dx;
+				var by = _this.dy;
+				var cx = _this.ex;
+				var cy = _this.ey;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.jx;
+				var ay = _this.jy;
+				var bx = _this.dx;
+				var by = _this.dy;
+				var cx = _this.exPrev;
+				var cy = _this.eyPrev;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			}
+			if(clockWise && _this.lastClock) {
+				_this.penultimateAX = _this.jx;
+				_this.penultimateAY = _this.jy;
+				_this.lastAntiX = _this.ex;
+				_this.lastAntiY = _this.ey;
+				_this.penultimateCX = _this.dx;
+				_this.penultimateCY = _this.dy;
+				_this.lastClockX = _this.exPrev;
+				_this.lastClockY = _this.eyPrev;
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.jx;
+				var ay = _this.jy;
+				var bx = _this.dx;
+				var by = _this.dy;
+				var cx = _this.ex;
+				var cy = _this.ey;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.jx;
+				var ay = _this.jy;
+				var bx = _this.dx;
+				var by = _this.dy;
+				var cx = _this.exPrev;
+				var cy = _this.eyPrev;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			}
+			if(!clockWise && !_this.lastClock) {
+				_this.penultimateCX = _this.dx;
+				_this.penultimateCY = _this.dy;
+				_this.lastClockX = _this.jx;
+				_this.lastClockY = _this.jy;
+				_this.penultimateAX = _this.dxPrev;
+				_this.penultimateAY = _this.dyPrev;
+				_this.lastAntiX = _this.ex;
+				_this.lastAntiY = _this.ey;
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.dxPrev;
+				var ay = _this.dyPrev;
+				var bx = _this.dx;
+				var by = _this.dy;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.dxPrev;
+				var ay = _this.dyPrev;
+				var bx = _this.dx;
+				var by = _this.dy;
+				var cx = _this.ex;
+				var cy = _this.ey;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			}
+			if(!clockWise && _this.lastClock) {
+				_this.penultimateAX = _this.dxPrev;
+				_this.penultimateAY = _this.dyPrev;
+				_this.lastAntiX = _this.ex;
+				_this.lastAntiY = _this.ey;
+				_this.penultimateCX = _this.jx;
+				_this.penultimateCY = _this.jy;
+				_this.lastClockX = _this.dx;
+				_this.lastClockY = _this.dy;
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.jx;
+				var ay = _this.jy;
+				var bx = _this.dx;
+				var by = _this.dy;
+				var cx = _this.ex;
+				var cy = _this.ey;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.dxPrev;
+				var ay = _this.dyPrev;
+				var bx = _this.jx;
+				var by = _this.jy;
+				var cx = _this.ex;
+				var cy = _this.ey;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			}
+		}
+		if(curveEnds) {
+			if(clockWise) {
+				var drawType = _this.pen.paintType;
+				var radius = width_ / 2;
+				var edgePoly = _this.pointsClock;
+				var pi = Math.PI;
+				var step = pi * 2 / 36;
+				var positive = dif >= 0;
+				var totalSteps = Math.ceil(Math.abs(dif) / step);
+				var step = dif / totalSteps;
+				var angle = theta0;
+				var cx;
+				var cy;
+				var bx = 0;
+				var by = 0;
+				var p2 = edgePoly.length;
+				var _g = 0;
+				var _g1 = totalSteps + 1;
+				while(_g < _g1) {
+					var i = _g++;
+					cx = ax_ + radius * Math.sin(angle);
+					cy = ay_ + radius * Math.cos(angle);
+					edgePoly[p2++] = cx;
+					edgePoly[p2++] = cy;
+					if(i != 0) {
+						drawType.triangle(ax_,ay_,0,bx,by,0,cx,cy,0);
+						var m = trilateral3_Trilateral.transformMatrix;
+						if(m != null) {
+							drawType.transform(m);
+						}
+						drawType.next();
+					}
+					angle += step;
+					bx = cx;
+					by = cy;
+				}
+				var len = totalSteps;
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				_this1.paintType.colorTriangles(color,len);
+			} else {
+				var drawType = _this.pen.paintType;
+				var radius = width_ / 2;
+				var edgePoly = _this.pointsAnti;
+				var pi = Math.PI;
+				var step = pi * 2 / 36;
+				var positive = dif >= 0;
+				var totalSteps = Math.ceil(Math.abs(dif) / step);
+				var step = dif / totalSteps;
+				var angle = theta0;
+				var cx;
+				var cy;
+				var bx = 0;
+				var by = 0;
+				var p2 = edgePoly.length;
+				var _g = 0;
+				var _g1 = totalSteps + 1;
+				while(_g < _g1) {
+					var i = _g++;
+					cx = ax_ + radius * Math.sin(angle);
+					cy = ay_ + radius * Math.cos(angle);
+					edgePoly[p2++] = cx;
+					edgePoly[p2++] = cy;
+					if(i != 0) {
+						drawType.triangle(ax_,ay_,0,bx,by,0,cx,cy,0);
+						var m = trilateral3_Trilateral.transformMatrix;
+						if(m != null) {
+							drawType.transform(m);
+						}
+						drawType.next();
+					}
+					angle += step;
+					bx = cx;
+					by = cy;
+				}
+				var len = totalSteps;
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				_this1.paintType.colorTriangles(color,len);
+			}
+		} else if(_this.count != 0) {
+			if(clockWise) {
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.dxOld;
+				var ay = _this.dyOld;
+				var bx = _this.exPrev;
+				var by = _this.eyPrev;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			} else {
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.exOld;
+				var ay = _this.eyOld;
+				var bx = _this.dxPrev;
+				var by = _this.dyPrev;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			}
+		}
+		_this.kax = _this.dxPrev;
+		_this.kay = _this.dyPrev;
+		_this.kbx = _this.dx;
+		_this.kby = _this.dy;
+		_this.ncx = _this.exPrev;
+		_this.ncy = _this.eyPrev;
+		_this.kcx = _this.ex;
+		_this.kcy = _this.ey;
+		if(curveEnds && _this.count != 0) {
+			if(clockWise) {
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.ax;
+				var ay = _this.ay;
+				var bx = _this.dxOld;
+				var by = _this.dyOld;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.ax;
+				var ay = _this.ay;
+				var bx = _this.exPrev;
+				var by = _this.eyPrev;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			} else {
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.ax;
+				var ay = _this.ay;
+				var bx = _this.exOld;
+				var by = _this.eyOld;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.ax;
+				var ay = _this.ay;
+				var bx = _this.dxPrev;
+				var by = _this.dyPrev;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			}
+		}
+		_this.jxOld = _this.jx;
+		_this.jyOld = _this.jy;
+		_this.lastClock = clockWise;
+		_this.count++;
+	}
+	,mediumOverlapLine: function(x_,y_) {
+		var _this = this.contour;
+		var ax_ = this.x;
+		var ay_ = this.y;
+		var width_ = this.width;
+		var curveEnds = false;
+		var overlap = true;
+		if(overlap == null) {
+			overlap = false;
+		}
+		if(curveEnds == null) {
+			curveEnds = false;
+		}
+		var oldAngle = _this.dx != null ? _this.angle1 : null;
+		_this.halfA = Math.PI / 2;
+		_this.ax = x_;
+		_this.ay = y_;
+		_this.bx = ax_;
+		_this.by = ay_;
+		_this.beta = Math.PI / 2 - _this.halfA;
+		_this.r = width_ / 2 * Math.cos(_this.beta);
+		_this.theta = Math.atan2(_this.ay - _this.by,_this.ax - _this.bx);
+		if(_this.theta > 0) {
+			if(_this.halfA < 0) {
+				_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+				_this.angle1 = _this.theta - _this.halfA;
+			} else {
+				_this.angle1 = _this.theta + _this.halfA - Math.PI;
+				_this.angle2 = _this.theta + _this.halfA;
+			}
+		} else if(_this.halfA > 0) {
+			_this.angle1 = _this.theta + _this.halfA - Math.PI;
+			_this.angle2 = _this.theta + _this.halfA;
+		} else {
+			_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+			_this.angle1 = _this.theta - _this.halfA;
+		}
+		if(_this.dxPrev != null) {
+			_this.dxOld = _this.dxPrev;
+		}
+		if(_this.dyPrev != null) {
+			_this.dyOld = _this.dyPrev;
+		}
+		if(_this.exPrev != null) {
+			_this.exOld = _this.exPrev;
+		}
+		if(_this.eyPrev != null) {
+			_this.eyOld = _this.eyPrev;
+		}
+		if(_this.dx != null) {
+			_this.dxPrev = _this.dx;
+		}
+		if(_this.dy != null) {
+			_this.dyPrev = _this.dy;
+		}
+		if(_this.ex != null) {
+			_this.exPrev = _this.ex;
+		}
+		if(_this.ey != null) {
+			_this.eyPrev = _this.ey;
+		}
+		_this.dx = _this.bx + _this.r * Math.cos(_this.angle1);
+		_this.dy = _this.by + _this.r * Math.sin(_this.angle1);
+		_this.ex = _this.bx + _this.r * Math.cos(_this.angle2);
+		_this.ey = _this.by + _this.r * Math.sin(_this.angle2);
+		_this.ax = ax_;
+		_this.ay = ay_;
+		_this.bx = x_;
+		_this.by = y_;
+		_this.theta = Math.atan2(_this.ay - _this.by,_this.ax - _this.bx);
+		if(_this.theta > 0) {
+			if(_this.halfA < 0) {
+				_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+				_this.angle1 = _this.theta - _this.halfA;
+			} else {
+				_this.angle1 = _this.theta + _this.halfA - Math.PI;
+				_this.angle2 = _this.theta + _this.halfA;
+			}
+		} else if(_this.halfA > 0) {
+			_this.angle1 = _this.theta + _this.halfA - Math.PI;
+			_this.angle2 = _this.theta + _this.halfA;
+		} else {
+			_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+			_this.angle1 = _this.theta - _this.halfA;
+		}
+		if(_this.dxPrev != null) {
+			_this.dxOld = _this.dxPrev;
+		}
+		if(_this.dyPrev != null) {
+			_this.dyOld = _this.dyPrev;
+		}
+		if(_this.exPrev != null) {
+			_this.exOld = _this.exPrev;
+		}
+		if(_this.eyPrev != null) {
+			_this.eyOld = _this.eyPrev;
+		}
+		if(_this.dx != null) {
+			_this.dxPrev = _this.dx;
+		}
+		if(_this.dy != null) {
+			_this.dyPrev = _this.dy;
+		}
+		if(_this.ex != null) {
+			_this.exPrev = _this.ex;
+		}
+		if(_this.ey != null) {
+			_this.eyPrev = _this.ey;
+		}
+		_this.dx = _this.bx + _this.r * Math.cos(_this.angle1);
+		_this.dy = _this.by + _this.r * Math.sin(_this.angle1);
+		_this.ex = _this.bx + _this.r * Math.cos(_this.angle2);
+		_this.ey = _this.by + _this.r * Math.sin(_this.angle2);
+		var x = _this.dxOld - x_;
+		var y = _this.dyOld - y_;
+		var x1 = _this.exOld - x_;
+		var y1 = _this.eyOld - y_;
+		var clockWise = x * x + y * y > x1 * x1 + y1 * y1;
+		var theta0;
+		var theta1;
+		if(clockWise) {
+			theta0 = -Math.atan2(_this.ay - _this.dyOld,_this.ax - _this.dxOld) - Math.PI / 2;
+			theta1 = -Math.atan2(_this.ay - _this.eyPrev,_this.ax - _this.exPrev) - Math.PI / 2;
+		} else {
+			theta0 = -Math.atan2(_this.ay - _this.eyOld,_this.ax - _this.exOld) - Math.PI / 2;
+			theta1 = -Math.atan2(_this.ay - _this.dyPrev,_this.ax - _this.dxPrev) - Math.PI / 2;
+		}
+		var dif;
+		switch(fracs_DifferencePreference.SMALL._hx_index) {
+		case 0:
+			var f;
+			if(theta0 >= 0 && theta0 > Math.PI) {
+				f = theta0;
+			} else {
+				var a = theta0 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var za = this1;
+			var f;
+			if(theta1 >= 0 && theta1 > Math.PI) {
+				f = theta1;
+			} else {
+				var a = theta1 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var zb = this1;
+			var fa = za;
+			var fb = zb;
+			var theta = Math.abs(fa - fb);
+			var clockwise = fa < fb;
+			var dif1 = clockwise ? theta : -theta;
+			dif = dif1 > 0 ? dif1 : 2 * Math.PI + dif1;
+			break;
+		case 1:
+			var f;
+			if(theta0 >= 0 && theta0 > Math.PI) {
+				f = theta0;
+			} else {
+				var a = theta0 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var za = this1;
+			var f;
+			if(theta1 >= 0 && theta1 > Math.PI) {
+				f = theta1;
+			} else {
+				var a = theta1 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var zb = this1;
+			var fa = za;
+			var fb = zb;
+			var theta = Math.abs(fa - fb);
+			var clockwise = fa < fb;
+			var dif1 = clockwise ? theta : -theta;
+			dif = dif1 < 0 ? dif1 : -2 * Math.PI + dif1;
+			break;
+		case 2:
+			var f;
+			if(theta0 >= 0 && theta0 > Math.PI) {
+				f = theta0;
+			} else {
+				var a = theta0 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var za = this1;
+			var f;
+			if(theta1 >= 0 && theta1 > Math.PI) {
+				f = theta1;
+			} else {
+				var a = theta1 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var zb = this1;
+			var fa = za;
+			var fb = zb;
+			var theta = Math.abs(fa - fb);
+			var smallest = theta <= Math.PI;
+			var clockwise = fa < fb;
+			var dif1 = clockwise ? theta : -theta;
+			dif = smallest ? dif1 : clockwise ? -(2 * Math.PI - theta) : 2 * Math.PI - theta;
+			break;
+		case 3:
+			var f;
+			if(theta0 >= 0 && theta0 > Math.PI) {
+				f = theta0;
+			} else {
+				var a = theta0 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var za = this1;
+			var f;
+			if(theta1 >= 0 && theta1 > Math.PI) {
+				f = theta1;
+			} else {
+				var a = theta1 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var zb = this1;
+			var fa = za;
+			var fb = zb;
+			var theta = Math.abs(fa - fb);
+			var largest = theta > Math.PI;
+			var clockwise = fa < fb;
+			var dif1 = clockwise ? theta : -theta;
+			dif = largest ? dif1 : clockwise ? -(2 * Math.PI - theta) : 2 * Math.PI - theta;
+			break;
+		}
+		if(!overlap && _this.count != 0) {
+			var gamma = Math.abs(dif) / 2;
+			var h = width_ / 2 / Math.cos(gamma);
+			var f;
+			if(theta0 <= Math.PI && theta0 > -Math.PI) {
+				f = theta0;
+			} else {
+				var a = (theta0 + Math.PI) % (2 * Math.PI);
+				f = a >= 0 ? a - Math.PI : a + Math.PI;
+			}
+			var this1 = f;
+			var start = this1;
+			var start2 = start;
+			var delta = start2 + dif / 2 + Math.PI;
+			_this.jx = _this.ax + h * Math.sin(delta);
+			_this.jy = _this.ay + h * Math.cos(delta);
+		}
+		if(_this.count == 0 && (_this.endLine == 1 || _this.endLine == 3)) {
+			var ax = _this.ax;
+			var ay = _this.ay;
+			var radius = width_ / 2;
+			var beta = -_this.angle1 - Math.PI / 2;
+			var gamma = -_this.angle1 - Math.PI / 2 + Math.PI;
+			var temp = [];
+			var drawType = _this.pen.paintType;
+			var sides = 36;
+			if(sides == null) {
+				sides = 36;
+			}
+			var pi = Math.PI;
+			var step = pi * 2 / sides;
+			var dif1;
+			switch(fracs_DifferencePreference.SMALL._hx_index) {
+			case 0:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var clockwise = fa < fb;
+				var dif2 = clockwise ? theta : -theta;
+				dif1 = dif2 > 0 ? dif2 : 2 * Math.PI + dif2;
+				break;
+			case 1:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var clockwise = fa < fb;
+				var dif2 = clockwise ? theta : -theta;
+				dif1 = dif2 < 0 ? dif2 : -2 * Math.PI + dif2;
+				break;
+			case 2:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var smallest = theta <= Math.PI;
+				var clockwise = fa < fb;
+				var dif2 = clockwise ? theta : -theta;
+				dif1 = smallest ? dif2 : clockwise ? -(2 * Math.PI - theta) : 2 * Math.PI - theta;
+				break;
+			case 3:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var largest = theta > Math.PI;
+				var clockwise = fa < fb;
+				var dif2 = clockwise ? theta : -theta;
+				dif1 = largest ? dif2 : clockwise ? -(2 * Math.PI - theta) : 2 * Math.PI - theta;
+				break;
+			}
+			var positive = dif1 >= 0;
+			var totalSteps = Math.ceil(Math.abs(dif1) / step);
+			var step = dif1 / totalSteps;
+			var angle = beta;
+			var cx;
+			var cy;
+			var bx = 0;
+			var by = 0;
+			var p2 = temp.length;
+			var _g = 0;
+			var _g1 = totalSteps + 1;
+			while(_g < _g1) {
+				var i = _g++;
+				cx = ax + radius * Math.sin(angle);
+				cy = ay + radius * Math.cos(angle);
+				temp[p2++] = cx;
+				temp[p2++] = cy;
+				if(i != 0) {
+					drawType.triangle(ax,ay,0,bx,by,0,cx,cy,0);
+					var m = trilateral3_Trilateral.transformMatrix;
+					if(m != null) {
+						drawType.transform(m);
+					}
+					drawType.next();
+				}
+				angle += step;
+				bx = cx;
+				by = cy;
+			}
+			var len = totalSteps;
+			var _g = _this.pen.paintType;
+			var v = _g.get_pos() - len;
+			_g.set_pos(v);
+			var _this1 = _this.pen;
+			var color = -1;
+			if(color == -1) {
+				color = _this1.currentColor;
+			}
+			_this1.paintType.colorTriangles(color,len);
+			var pA = _this.pointsAnti.length;
+			var len = temp.length / 2 | 0;
+			var p4 = temp.length / 4 | 0;
+			var _g = 0;
+			var _g1 = p4;
+			while(_g < _g1) {
+				var i = _g++;
+				_this.pointsAnti[pA++] = temp[len - 2 * i + 1];
+				_this.pointsAnti[pA++] = temp[len - 2 * i];
+			}
+			var pC = _this.pointsClock.length;
+			var _g = 0;
+			var _g1 = p4;
+			while(_g < _g1) {
+				var i = _g++;
+				_this.pointsClock[pC++] = temp[i * 2 + len + 1];
+				_this.pointsClock[pC++] = temp[i * 2 + len];
+			}
+		}
+		if(overlap) {
+			var _this1 = _this.pen;
+			var color = -1;
+			if(color == -1) {
+				color = _this1.currentColor;
+			}
+			var ax = _this.dxPrev;
+			var ay = _this.dyPrev;
+			var bx = _this.dx;
+			var by = _this.dy;
+			var cx = _this.ex;
+			var cy = _this.ey;
+			var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+			if(trilateral3_Trilateral.transformMatrix != null) {
+				_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+			}
+			if(_this1.useTexture) {
+				ax /= 2000;
+				ay /= 2000;
+				bx /= 2000;
+				by /= 2000;
+				cx /= 2000;
+				cy /= 2000;
+				_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+			}
+			_this1.paintType.cornerColors(color,color,color);
+			_this1.paintType.next();
+			var _this1 = _this.pen;
+			var color = -1;
+			if(color == -1) {
+				color = _this1.currentColor;
+			}
+			var ax = _this.dxPrev;
+			var ay = _this.dyPrev;
+			var bx = _this.dx;
+			var by = _this.dy;
+			var cx = _this.exPrev;
+			var cy = _this.eyPrev;
+			var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+			if(trilateral3_Trilateral.transformMatrix != null) {
+				_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+			}
+			if(_this1.useTexture) {
+				ax /= 2000;
+				ay /= 2000;
+				bx /= 2000;
+				by /= 2000;
+				cx /= 2000;
+				cy /= 2000;
+				_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+			}
+			_this1.paintType.cornerColors(color,color,color);
+			_this1.paintType.next();
+		} else {
+			if(_this.count != 0) {
+				_this.addQuads(clockWise,width_);
+			}
+			_this.quadIndex = _this.pen.paintType.get_pos();
+			if(_this.count == 0) {
+				_this.penultimateAX = _this.dxPrev;
+				_this.penultimateAY = _this.dyPrev;
+				_this.lastAntiX = _this.ex;
+				_this.lastAntiY = _this.ey;
+				_this.penultimateCX = _this.dx;
+				_this.penultimateCY = _this.dy;
+				_this.lastClockX = _this.exPrev;
+				_this.lastClockY = _this.eyPrev;
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.dxPrev;
+				var ay = _this.dyPrev;
+				var bx = _this.dx;
+				var by = _this.dy;
+				var cx = _this.ex;
+				var cy = _this.ey;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.dxPrev;
+				var ay = _this.dyPrev;
+				var bx = _this.dx;
+				var by = _this.dy;
+				var cx = _this.exPrev;
+				var cy = _this.eyPrev;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			} else {
+				if(clockWise && !_this.lastClock) {
+					_this.penultimateAX = _this.jx;
+					_this.penultimateAY = _this.jy;
+					_this.lastAntiX = _this.ex;
+					_this.lastAntiY = _this.ey;
+					_this.penultimateCX = _this.dx;
+					_this.penultimateCY = _this.dy;
+					_this.lastClockX = _this.exPrev;
+					_this.lastClockY = _this.eyPrev;
+					var _this1 = _this.pen;
+					var color = -1;
+					if(color == null) {
+						color = -1;
+					}
+					if(color == -1) {
+						color = _this1.currentColor;
+					}
+					var ax = _this.jx;
+					var ay = _this.jy;
+					var bx = _this.dx;
+					var by = _this.dy;
+					var cx = _this.ex;
+					var cy = _this.ey;
+					var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+					if(trilateral3_Trilateral.transformMatrix != null) {
+						_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+					}
+					if(_this1.useTexture) {
+						ax /= 2000;
+						ay /= 2000;
+						bx /= 2000;
+						by /= 2000;
+						cx /= 2000;
+						cy /= 2000;
+						_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+					}
+					_this1.paintType.cornerColors(color,color,color);
+					_this1.paintType.next();
+					var _this1 = _this.pen;
+					var color = -1;
+					if(color == null) {
+						color = -1;
+					}
+					if(color == -1) {
+						color = _this1.currentColor;
+					}
+					var ax = _this.jx;
+					var ay = _this.jy;
+					var bx = _this.dx;
+					var by = _this.dy;
+					var cx = _this.exPrev;
+					var cy = _this.eyPrev;
+					var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+					if(trilateral3_Trilateral.transformMatrix != null) {
+						_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+					}
+					if(_this1.useTexture) {
+						ax /= 2000;
+						ay /= 2000;
+						bx /= 2000;
+						by /= 2000;
+						cx /= 2000;
+						cy /= 2000;
+						_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+					}
+					_this1.paintType.cornerColors(color,color,color);
+					_this1.paintType.next();
+				}
+				if(clockWise && _this.lastClock) {
+					_this.penultimateAX = _this.jx;
+					_this.penultimateAY = _this.jy;
+					_this.lastAntiX = _this.ex;
+					_this.lastAntiY = _this.ey;
+					_this.penultimateCX = _this.dx;
+					_this.penultimateCY = _this.dy;
+					_this.lastClockX = _this.exPrev;
+					_this.lastClockY = _this.eyPrev;
+					var _this1 = _this.pen;
+					var color = -1;
+					if(color == null) {
+						color = -1;
+					}
+					if(color == -1) {
+						color = _this1.currentColor;
+					}
+					var ax = _this.jx;
+					var ay = _this.jy;
+					var bx = _this.dx;
+					var by = _this.dy;
+					var cx = _this.ex;
+					var cy = _this.ey;
+					var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+					if(trilateral3_Trilateral.transformMatrix != null) {
+						_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+					}
+					if(_this1.useTexture) {
+						ax /= 2000;
+						ay /= 2000;
+						bx /= 2000;
+						by /= 2000;
+						cx /= 2000;
+						cy /= 2000;
+						_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+					}
+					_this1.paintType.cornerColors(color,color,color);
+					_this1.paintType.next();
+					var _this1 = _this.pen;
+					var color = -1;
+					if(color == null) {
+						color = -1;
+					}
+					if(color == -1) {
+						color = _this1.currentColor;
+					}
+					var ax = _this.jx;
+					var ay = _this.jy;
+					var bx = _this.dx;
+					var by = _this.dy;
+					var cx = _this.exPrev;
+					var cy = _this.eyPrev;
+					var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+					if(trilateral3_Trilateral.transformMatrix != null) {
+						_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+					}
+					if(_this1.useTexture) {
+						ax /= 2000;
+						ay /= 2000;
+						bx /= 2000;
+						by /= 2000;
+						cx /= 2000;
+						cy /= 2000;
+						_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+					}
+					_this1.paintType.cornerColors(color,color,color);
+					_this1.paintType.next();
+				}
+				if(!clockWise && !_this.lastClock) {
+					_this.penultimateCX = _this.dx;
+					_this.penultimateCY = _this.dy;
+					_this.lastClockX = _this.jx;
+					_this.lastClockY = _this.jy;
+					_this.penultimateAX = _this.dxPrev;
+					_this.penultimateAY = _this.dyPrev;
+					_this.lastAntiX = _this.ex;
+					_this.lastAntiY = _this.ey;
+					var _this1 = _this.pen;
+					var color = -1;
+					if(color == null) {
+						color = -1;
+					}
+					if(color == -1) {
+						color = _this1.currentColor;
+					}
+					var ax = _this.dxPrev;
+					var ay = _this.dyPrev;
+					var bx = _this.dx;
+					var by = _this.dy;
+					var cx = _this.jx;
+					var cy = _this.jy;
+					var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+					if(trilateral3_Trilateral.transformMatrix != null) {
+						_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+					}
+					if(_this1.useTexture) {
+						ax /= 2000;
+						ay /= 2000;
+						bx /= 2000;
+						by /= 2000;
+						cx /= 2000;
+						cy /= 2000;
+						_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+					}
+					_this1.paintType.cornerColors(color,color,color);
+					_this1.paintType.next();
+					var _this1 = _this.pen;
+					var color = -1;
+					if(color == null) {
+						color = -1;
+					}
+					if(color == -1) {
+						color = _this1.currentColor;
+					}
+					var ax = _this.dxPrev;
+					var ay = _this.dyPrev;
+					var bx = _this.dx;
+					var by = _this.dy;
+					var cx = _this.ex;
+					var cy = _this.ey;
+					var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+					if(trilateral3_Trilateral.transformMatrix != null) {
+						_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+					}
+					if(_this1.useTexture) {
+						ax /= 2000;
+						ay /= 2000;
+						bx /= 2000;
+						by /= 2000;
+						cx /= 2000;
+						cy /= 2000;
+						_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+					}
+					_this1.paintType.cornerColors(color,color,color);
+					_this1.paintType.next();
+				}
+				if(!clockWise && _this.lastClock) {
+					_this.penultimateAX = _this.dxPrev;
+					_this.penultimateAY = _this.dyPrev;
+					_this.lastAntiX = _this.ex;
+					_this.lastAntiY = _this.ey;
+					_this.penultimateCX = _this.jx;
+					_this.penultimateCY = _this.jy;
+					_this.lastClockX = _this.dx;
+					_this.lastClockY = _this.dy;
+					var _this1 = _this.pen;
+					var color = -1;
+					if(color == null) {
+						color = -1;
+					}
+					if(color == -1) {
+						color = _this1.currentColor;
+					}
+					var ax = _this.jx;
+					var ay = _this.jy;
+					var bx = _this.dx;
+					var by = _this.dy;
+					var cx = _this.ex;
+					var cy = _this.ey;
+					var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+					if(trilateral3_Trilateral.transformMatrix != null) {
+						_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+					}
+					if(_this1.useTexture) {
+						ax /= 2000;
+						ay /= 2000;
+						bx /= 2000;
+						by /= 2000;
+						cx /= 2000;
+						cy /= 2000;
+						_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+					}
+					_this1.paintType.cornerColors(color,color,color);
+					_this1.paintType.next();
+					var _this1 = _this.pen;
+					var color = -1;
+					if(color == null) {
+						color = -1;
+					}
+					if(color == -1) {
+						color = _this1.currentColor;
+					}
+					var ax = _this.dxPrev;
+					var ay = _this.dyPrev;
+					var bx = _this.jx;
+					var by = _this.jy;
+					var cx = _this.ex;
+					var cy = _this.ey;
+					var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+					if(trilateral3_Trilateral.transformMatrix != null) {
+						_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+					}
+					if(_this1.useTexture) {
+						ax /= 2000;
+						ay /= 2000;
+						bx /= 2000;
+						by /= 2000;
+						cx /= 2000;
+						cy /= 2000;
+						_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+					}
+					_this1.paintType.cornerColors(color,color,color);
+					_this1.paintType.next();
+				}
+			}
+		}
+		if(curveEnds) {
+			if(clockWise) {
+				var drawType = _this.pen.paintType;
+				var radius = width_ / 2;
+				var edgePoly = _this.pointsClock;
+				var pi = Math.PI;
+				var step = pi * 2 / 36;
+				var positive = dif >= 0;
+				var totalSteps = Math.ceil(Math.abs(dif) / step);
+				var step = dif / totalSteps;
+				var angle = theta0;
+				var cx;
+				var cy;
+				var bx = 0;
+				var by = 0;
+				var p2 = edgePoly.length;
+				var _g = 0;
+				var _g1 = totalSteps + 1;
+				while(_g < _g1) {
+					var i = _g++;
+					cx = ax_ + radius * Math.sin(angle);
+					cy = ay_ + radius * Math.cos(angle);
+					edgePoly[p2++] = cx;
+					edgePoly[p2++] = cy;
+					if(i != 0) {
+						drawType.triangle(ax_,ay_,0,bx,by,0,cx,cy,0);
+						var m = trilateral3_Trilateral.transformMatrix;
+						if(m != null) {
+							drawType.transform(m);
+						}
+						drawType.next();
+					}
+					angle += step;
+					bx = cx;
+					by = cy;
+				}
+				var len = totalSteps;
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				_this1.paintType.colorTriangles(color,len);
+			} else {
+				var drawType = _this.pen.paintType;
+				var radius = width_ / 2;
+				var edgePoly = _this.pointsAnti;
+				var pi = Math.PI;
+				var step = pi * 2 / 36;
+				var positive = dif >= 0;
+				var totalSteps = Math.ceil(Math.abs(dif) / step);
+				var step = dif / totalSteps;
+				var angle = theta0;
+				var cx;
+				var cy;
+				var bx = 0;
+				var by = 0;
+				var p2 = edgePoly.length;
+				var _g = 0;
+				var _g1 = totalSteps + 1;
+				while(_g < _g1) {
+					var i = _g++;
+					cx = ax_ + radius * Math.sin(angle);
+					cy = ay_ + radius * Math.cos(angle);
+					edgePoly[p2++] = cx;
+					edgePoly[p2++] = cy;
+					if(i != 0) {
+						drawType.triangle(ax_,ay_,0,bx,by,0,cx,cy,0);
+						var m = trilateral3_Trilateral.transformMatrix;
+						if(m != null) {
+							drawType.transform(m);
+						}
+						drawType.next();
+					}
+					angle += step;
+					bx = cx;
+					by = cy;
+				}
+				var len = totalSteps;
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				_this1.paintType.colorTriangles(color,len);
+			}
+		} else if(_this.count != 0) {
+			if(overlap) {
+				if(clockWise) {
+					var _this1 = _this.pen;
+					var color = -1;
+					if(color == null) {
+						color = -1;
+					}
+					if(color == -1) {
+						color = _this1.currentColor;
+					}
+					var ax = _this.dxOld;
+					var ay = _this.dyOld;
+					var bx = _this.exPrev;
+					var by = _this.eyPrev;
+					var cx = _this.ax;
+					var cy = _this.ay;
+					var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+					if(trilateral3_Trilateral.transformMatrix != null) {
+						_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+					}
+					if(_this1.useTexture) {
+						ax /= 2000;
+						ay /= 2000;
+						bx /= 2000;
+						by /= 2000;
+						cx /= 2000;
+						cy /= 2000;
+						_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+					}
+					_this1.paintType.cornerColors(color,color,color);
+					_this1.paintType.next();
+				} else {
+					var _this1 = _this.pen;
+					var color = -1;
+					if(color == null) {
+						color = -1;
+					}
+					if(color == -1) {
+						color = _this1.currentColor;
+					}
+					var ax = _this.exOld;
+					var ay = _this.eyOld;
+					var bx = _this.dxPrev;
+					var by = _this.dyPrev;
+					var cx = _this.ax;
+					var cy = _this.ay;
+					var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+					if(trilateral3_Trilateral.transformMatrix != null) {
+						_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+					}
+					if(_this1.useTexture) {
+						ax /= 2000;
+						ay /= 2000;
+						bx /= 2000;
+						by /= 2000;
+						cx /= 2000;
+						cy /= 2000;
+						_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+					}
+					_this1.paintType.cornerColors(color,color,color);
+					_this1.paintType.next();
+				}
+			} else if(clockWise) {
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.dxOld;
+				var ay = _this.dyOld;
+				var bx = _this.exPrev;
+				var by = _this.eyPrev;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			} else {
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.exOld;
+				var ay = _this.eyOld;
+				var bx = _this.dxPrev;
+				var by = _this.dyPrev;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			}
+		}
+		_this.kax = _this.dxPrev;
+		_this.kay = _this.dyPrev;
+		_this.kbx = _this.dx;
+		_this.kby = _this.dy;
+		_this.ncx = _this.exPrev;
+		_this.ncy = _this.eyPrev;
+		_this.kcx = _this.ex;
+		_this.kcy = _this.ey;
+		if(curveEnds && !overlap && _this.count != 0) {
+			if(clockWise) {
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.ax;
+				var ay = _this.ay;
+				var bx = _this.dxOld;
+				var by = _this.dyOld;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.ax;
+				var ay = _this.ay;
+				var bx = _this.exPrev;
+				var by = _this.eyPrev;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			} else {
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.ax;
+				var ay = _this.ay;
+				var bx = _this.exOld;
+				var by = _this.eyOld;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.ax;
+				var ay = _this.ay;
+				var bx = _this.dxPrev;
+				var by = _this.dyPrev;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			}
+		}
+		_this.jxOld = _this.jx;
+		_this.jyOld = _this.jy;
+		_this.lastClock = clockWise;
+		_this.count++;
+	}
+	,fineLine: function(x_,y_) {
+		var _this = this.contour;
+		var ax_ = this.x;
+		var ay_ = this.y;
+		var width_ = this.width;
+		var curveEnds = true;
+		if(curveEnds == null) {
+			curveEnds = false;
+		}
+		var oldAngle = _this.dx != null ? _this.angle1 : null;
+		_this.halfA = Math.PI / 2;
+		_this.ax = x_;
+		_this.ay = y_;
+		_this.bx = ax_;
+		_this.by = ay_;
+		_this.beta = Math.PI / 2 - _this.halfA;
+		_this.r = width_ / 2 * Math.cos(_this.beta);
+		_this.theta = Math.atan2(_this.ay - _this.by,_this.ax - _this.bx);
+		if(_this.theta > 0) {
+			if(_this.halfA < 0) {
+				_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+				_this.angle1 = _this.theta - _this.halfA;
+			} else {
+				_this.angle1 = _this.theta + _this.halfA - Math.PI;
+				_this.angle2 = _this.theta + _this.halfA;
+			}
+		} else if(_this.halfA > 0) {
+			_this.angle1 = _this.theta + _this.halfA - Math.PI;
+			_this.angle2 = _this.theta + _this.halfA;
+		} else {
+			_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+			_this.angle1 = _this.theta - _this.halfA;
+		}
+		if(_this.dxPrev != null) {
+			_this.dxOld = _this.dxPrev;
+		}
+		if(_this.dyPrev != null) {
+			_this.dyOld = _this.dyPrev;
+		}
+		if(_this.exPrev != null) {
+			_this.exOld = _this.exPrev;
+		}
+		if(_this.eyPrev != null) {
+			_this.eyOld = _this.eyPrev;
+		}
+		if(_this.dx != null) {
+			_this.dxPrev = _this.dx;
+		}
+		if(_this.dy != null) {
+			_this.dyPrev = _this.dy;
+		}
+		if(_this.ex != null) {
+			_this.exPrev = _this.ex;
+		}
+		if(_this.ey != null) {
+			_this.eyPrev = _this.ey;
+		}
+		_this.dx = _this.bx + _this.r * Math.cos(_this.angle1);
+		_this.dy = _this.by + _this.r * Math.sin(_this.angle1);
+		_this.ex = _this.bx + _this.r * Math.cos(_this.angle2);
+		_this.ey = _this.by + _this.r * Math.sin(_this.angle2);
+		_this.ax = ax_;
+		_this.ay = ay_;
+		_this.bx = x_;
+		_this.by = y_;
+		_this.theta = Math.atan2(_this.ay - _this.by,_this.ax - _this.bx);
+		if(_this.theta > 0) {
+			if(_this.halfA < 0) {
+				_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+				_this.angle1 = _this.theta - _this.halfA;
+			} else {
+				_this.angle1 = _this.theta + _this.halfA - Math.PI;
+				_this.angle2 = _this.theta + _this.halfA;
+			}
+		} else if(_this.halfA > 0) {
+			_this.angle1 = _this.theta + _this.halfA - Math.PI;
+			_this.angle2 = _this.theta + _this.halfA;
+		} else {
+			_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+			_this.angle1 = _this.theta - _this.halfA;
+		}
+		if(_this.dxPrev != null) {
+			_this.dxOld = _this.dxPrev;
+		}
+		if(_this.dyPrev != null) {
+			_this.dyOld = _this.dyPrev;
+		}
+		if(_this.exPrev != null) {
+			_this.exOld = _this.exPrev;
+		}
+		if(_this.eyPrev != null) {
+			_this.eyOld = _this.eyPrev;
+		}
+		if(_this.dx != null) {
+			_this.dxPrev = _this.dx;
+		}
+		if(_this.dy != null) {
+			_this.dyPrev = _this.dy;
+		}
+		if(_this.ex != null) {
+			_this.exPrev = _this.ex;
+		}
+		if(_this.ey != null) {
+			_this.eyPrev = _this.ey;
+		}
+		_this.dx = _this.bx + _this.r * Math.cos(_this.angle1);
+		_this.dy = _this.by + _this.r * Math.sin(_this.angle1);
+		_this.ex = _this.bx + _this.r * Math.cos(_this.angle2);
+		_this.ey = _this.by + _this.r * Math.sin(_this.angle2);
+		var x = _this.dxOld - x_;
+		var y = _this.dyOld - y_;
+		var x1 = _this.exOld - x_;
+		var y1 = _this.eyOld - y_;
+		var clockWise = x * x + y * y > x1 * x1 + y1 * y1;
+		var theta0;
+		var theta1;
+		if(clockWise) {
+			theta0 = -Math.atan2(_this.ay - _this.dyOld,_this.ax - _this.dxOld) - Math.PI / 2;
+			theta1 = -Math.atan2(_this.ay - _this.eyPrev,_this.ax - _this.exPrev) - Math.PI / 2;
+		} else {
+			theta0 = -Math.atan2(_this.ay - _this.eyOld,_this.ax - _this.exOld) - Math.PI / 2;
+			theta1 = -Math.atan2(_this.ay - _this.dyPrev,_this.ax - _this.dxPrev) - Math.PI / 2;
+		}
+		var dif;
+		switch(fracs_DifferencePreference.SMALL._hx_index) {
+		case 0:
+			var f;
+			if(theta0 >= 0 && theta0 > Math.PI) {
+				f = theta0;
+			} else {
+				var a = theta0 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var za = this1;
+			var f;
+			if(theta1 >= 0 && theta1 > Math.PI) {
+				f = theta1;
+			} else {
+				var a = theta1 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var zb = this1;
+			var fa = za;
+			var fb = zb;
+			var theta = Math.abs(fa - fb);
+			var clockwise = fa < fb;
+			var dif1 = clockwise ? theta : -theta;
+			dif = dif1 > 0 ? dif1 : 2 * Math.PI + dif1;
+			break;
+		case 1:
+			var f;
+			if(theta0 >= 0 && theta0 > Math.PI) {
+				f = theta0;
+			} else {
+				var a = theta0 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var za = this1;
+			var f;
+			if(theta1 >= 0 && theta1 > Math.PI) {
+				f = theta1;
+			} else {
+				var a = theta1 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var zb = this1;
+			var fa = za;
+			var fb = zb;
+			var theta = Math.abs(fa - fb);
+			var clockwise = fa < fb;
+			var dif1 = clockwise ? theta : -theta;
+			dif = dif1 < 0 ? dif1 : -2 * Math.PI + dif1;
+			break;
+		case 2:
+			var f;
+			if(theta0 >= 0 && theta0 > Math.PI) {
+				f = theta0;
+			} else {
+				var a = theta0 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var za = this1;
+			var f;
+			if(theta1 >= 0 && theta1 > Math.PI) {
+				f = theta1;
+			} else {
+				var a = theta1 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var zb = this1;
+			var fa = za;
+			var fb = zb;
+			var theta = Math.abs(fa - fb);
+			var smallest = theta <= Math.PI;
+			var clockwise = fa < fb;
+			var dif1 = clockwise ? theta : -theta;
+			dif = smallest ? dif1 : clockwise ? -(2 * Math.PI - theta) : 2 * Math.PI - theta;
+			break;
+		case 3:
+			var f;
+			if(theta0 >= 0 && theta0 > Math.PI) {
+				f = theta0;
+			} else {
+				var a = theta0 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var za = this1;
+			var f;
+			if(theta1 >= 0 && theta1 > Math.PI) {
+				f = theta1;
+			} else {
+				var a = theta1 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var zb = this1;
+			var fa = za;
+			var fb = zb;
+			var theta = Math.abs(fa - fb);
+			var largest = theta > Math.PI;
+			var clockwise = fa < fb;
+			var dif1 = clockwise ? theta : -theta;
+			dif = largest ? dif1 : clockwise ? -(2 * Math.PI - theta) : 2 * Math.PI - theta;
+			break;
+		}
+		if(_this.count != 0) {
+			var gamma = Math.abs(dif) / 2;
+			var h = width_ / 2 / Math.cos(gamma);
+			var f;
+			if(theta0 <= Math.PI && theta0 > -Math.PI) {
+				f = theta0;
+			} else {
+				var a = (theta0 + Math.PI) % (2 * Math.PI);
+				f = a >= 0 ? a - Math.PI : a + Math.PI;
+			}
+			var this1 = f;
+			var start = this1;
+			var start2 = start;
+			var delta = start2 + dif / 2 + Math.PI;
+			_this.jx = _this.ax + h * Math.sin(delta);
+			_this.jy = _this.ay + h * Math.cos(delta);
+		}
+		if(_this.count == 0 && (_this.endLine == 1 || _this.endLine == 3)) {
+			var ax = _this.ax;
+			var ay = _this.ay;
+			var radius = width_ / 2;
+			var beta = -_this.angle1 - Math.PI / 2;
+			var gamma = -_this.angle1 - Math.PI / 2 + Math.PI;
+			var temp = [];
+			var drawType = _this.pen.paintType;
+			var sides = 36;
+			if(sides == null) {
+				sides = 36;
+			}
+			var pi = Math.PI;
+			var step = pi * 2 / sides;
+			var dif1;
+			switch(fracs_DifferencePreference.SMALL._hx_index) {
+			case 0:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var clockwise = fa < fb;
+				var dif2 = clockwise ? theta : -theta;
+				dif1 = dif2 > 0 ? dif2 : 2 * Math.PI + dif2;
+				break;
+			case 1:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var clockwise = fa < fb;
+				var dif2 = clockwise ? theta : -theta;
+				dif1 = dif2 < 0 ? dif2 : -2 * Math.PI + dif2;
+				break;
+			case 2:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var smallest = theta <= Math.PI;
+				var clockwise = fa < fb;
+				var dif2 = clockwise ? theta : -theta;
+				dif1 = smallest ? dif2 : clockwise ? -(2 * Math.PI - theta) : 2 * Math.PI - theta;
+				break;
+			case 3:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var largest = theta > Math.PI;
+				var clockwise = fa < fb;
+				var dif2 = clockwise ? theta : -theta;
+				dif1 = largest ? dif2 : clockwise ? -(2 * Math.PI - theta) : 2 * Math.PI - theta;
+				break;
+			}
+			var positive = dif1 >= 0;
+			var totalSteps = Math.ceil(Math.abs(dif1) / step);
+			var step = dif1 / totalSteps;
+			var angle = beta;
+			var cx;
+			var cy;
+			var bx = 0;
+			var by = 0;
+			var p2 = temp.length;
+			var _g = 0;
+			var _g1 = totalSteps + 1;
+			while(_g < _g1) {
+				var i = _g++;
+				cx = ax + radius * Math.sin(angle);
+				cy = ay + radius * Math.cos(angle);
+				temp[p2++] = cx;
+				temp[p2++] = cy;
+				if(i != 0) {
+					drawType.triangle(ax,ay,0,bx,by,0,cx,cy,0);
+					var m = trilateral3_Trilateral.transformMatrix;
+					if(m != null) {
+						drawType.transform(m);
+					}
+					drawType.next();
+				}
+				angle += step;
+				bx = cx;
+				by = cy;
+			}
+			var len = totalSteps;
+			var _g = _this.pen.paintType;
+			var v = _g.get_pos() - len;
+			_g.set_pos(v);
+			var _this1 = _this.pen;
+			var color = -1;
+			if(color == -1) {
+				color = _this1.currentColor;
+			}
+			_this1.paintType.colorTriangles(color,len);
+			var pA = _this.pointsAnti.length;
+			var len = temp.length / 2 | 0;
+			var p4 = temp.length / 4 | 0;
+			var _g = 0;
+			var _g1 = p4;
+			while(_g < _g1) {
+				var i = _g++;
+				_this.pointsAnti[pA++] = temp[len - 2 * i + 1];
+				_this.pointsAnti[pA++] = temp[len - 2 * i];
+			}
+			var pC = _this.pointsClock.length;
+			var _g = 0;
+			var _g1 = p4;
+			while(_g < _g1) {
+				var i = _g++;
+				_this.pointsClock[pC++] = temp[i * 2 + len + 1];
+				_this.pointsClock[pC++] = temp[i * 2 + len];
+			}
+		}
+		if(_this.count != 0) {
+			_this.addQuads(clockWise,width_);
+		}
+		_this.quadIndex = _this.pen.paintType.get_pos();
+		if(_this.count == 0) {
+			_this.penultimateAX = _this.dxPrev;
+			_this.penultimateAY = _this.dyPrev;
+			_this.lastAntiX = _this.ex;
+			_this.lastAntiY = _this.ey;
+			_this.penultimateCX = _this.dx;
+			_this.penultimateCY = _this.dy;
+			_this.lastClockX = _this.exPrev;
+			_this.lastClockY = _this.eyPrev;
+			var _this1 = _this.pen;
+			var color = -1;
+			if(color == null) {
+				color = -1;
+			}
+			if(color == -1) {
+				color = _this1.currentColor;
+			}
+			var ax = _this.dxPrev;
+			var ay = _this.dyPrev;
+			var bx = _this.dx;
+			var by = _this.dy;
+			var cx = _this.ex;
+			var cy = _this.ey;
+			var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+			if(trilateral3_Trilateral.transformMatrix != null) {
+				_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+			}
+			if(_this1.useTexture) {
+				ax /= 2000;
+				ay /= 2000;
+				bx /= 2000;
+				by /= 2000;
+				cx /= 2000;
+				cy /= 2000;
+				_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+			}
+			_this1.paintType.cornerColors(color,color,color);
+			_this1.paintType.next();
+			var _this1 = _this.pen;
+			var color = -1;
+			if(color == null) {
+				color = -1;
+			}
+			if(color == -1) {
+				color = _this1.currentColor;
+			}
+			var ax = _this.dxPrev;
+			var ay = _this.dyPrev;
+			var bx = _this.dx;
+			var by = _this.dy;
+			var cx = _this.exPrev;
+			var cy = _this.eyPrev;
+			var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+			if(trilateral3_Trilateral.transformMatrix != null) {
+				_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+			}
+			if(_this1.useTexture) {
+				ax /= 2000;
+				ay /= 2000;
+				bx /= 2000;
+				by /= 2000;
+				cx /= 2000;
+				cy /= 2000;
+				_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+			}
+			_this1.paintType.cornerColors(color,color,color);
+			_this1.paintType.next();
+		} else {
+			if(clockWise && !_this.lastClock) {
+				_this.penultimateAX = _this.jx;
+				_this.penultimateAY = _this.jy;
+				_this.lastAntiX = _this.ex;
+				_this.lastAntiY = _this.ey;
+				_this.penultimateCX = _this.dx;
+				_this.penultimateCY = _this.dy;
+				_this.lastClockX = _this.exPrev;
+				_this.lastClockY = _this.eyPrev;
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.jx;
+				var ay = _this.jy;
+				var bx = _this.dx;
+				var by = _this.dy;
+				var cx = _this.ex;
+				var cy = _this.ey;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.jx;
+				var ay = _this.jy;
+				var bx = _this.dx;
+				var by = _this.dy;
+				var cx = _this.exPrev;
+				var cy = _this.eyPrev;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			}
+			if(clockWise && _this.lastClock) {
+				_this.penultimateAX = _this.jx;
+				_this.penultimateAY = _this.jy;
+				_this.lastAntiX = _this.ex;
+				_this.lastAntiY = _this.ey;
+				_this.penultimateCX = _this.dx;
+				_this.penultimateCY = _this.dy;
+				_this.lastClockX = _this.exPrev;
+				_this.lastClockY = _this.eyPrev;
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.jx;
+				var ay = _this.jy;
+				var bx = _this.dx;
+				var by = _this.dy;
+				var cx = _this.ex;
+				var cy = _this.ey;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.jx;
+				var ay = _this.jy;
+				var bx = _this.dx;
+				var by = _this.dy;
+				var cx = _this.exPrev;
+				var cy = _this.eyPrev;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			}
+			if(!clockWise && !_this.lastClock) {
+				_this.penultimateCX = _this.dx;
+				_this.penultimateCY = _this.dy;
+				_this.lastClockX = _this.jx;
+				_this.lastClockY = _this.jy;
+				_this.penultimateAX = _this.dxPrev;
+				_this.penultimateAY = _this.dyPrev;
+				_this.lastAntiX = _this.ex;
+				_this.lastAntiY = _this.ey;
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.dxPrev;
+				var ay = _this.dyPrev;
+				var bx = _this.dx;
+				var by = _this.dy;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.dxPrev;
+				var ay = _this.dyPrev;
+				var bx = _this.dx;
+				var by = _this.dy;
+				var cx = _this.ex;
+				var cy = _this.ey;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			}
+			if(!clockWise && _this.lastClock) {
+				_this.penultimateAX = _this.dxPrev;
+				_this.penultimateAY = _this.dyPrev;
+				_this.lastAntiX = _this.ex;
+				_this.lastAntiY = _this.ey;
+				_this.penultimateCX = _this.jx;
+				_this.penultimateCY = _this.jy;
+				_this.lastClockX = _this.dx;
+				_this.lastClockY = _this.dy;
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.jx;
+				var ay = _this.jy;
+				var bx = _this.dx;
+				var by = _this.dy;
+				var cx = _this.ex;
+				var cy = _this.ey;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.dxPrev;
+				var ay = _this.dyPrev;
+				var bx = _this.jx;
+				var by = _this.jy;
+				var cx = _this.ex;
+				var cy = _this.ey;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			}
+		}
+		if(curveEnds) {
+			if(clockWise) {
+				var drawType = _this.pen.paintType;
+				var radius = width_ / 2;
+				var edgePoly = _this.pointsClock;
+				var pi = Math.PI;
+				var step = pi * 2 / 36;
+				var positive = dif >= 0;
+				var totalSteps = Math.ceil(Math.abs(dif) / step);
+				var step = dif / totalSteps;
+				var angle = theta0;
+				var cx;
+				var cy;
+				var bx = 0;
+				var by = 0;
+				var p2 = edgePoly.length;
+				var _g = 0;
+				var _g1 = totalSteps + 1;
+				while(_g < _g1) {
+					var i = _g++;
+					cx = ax_ + radius * Math.sin(angle);
+					cy = ay_ + radius * Math.cos(angle);
+					edgePoly[p2++] = cx;
+					edgePoly[p2++] = cy;
+					if(i != 0) {
+						drawType.triangle(ax_,ay_,0,bx,by,0,cx,cy,0);
+						var m = trilateral3_Trilateral.transformMatrix;
+						if(m != null) {
+							drawType.transform(m);
+						}
+						drawType.next();
+					}
+					angle += step;
+					bx = cx;
+					by = cy;
+				}
+				var len = totalSteps;
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				_this1.paintType.colorTriangles(color,len);
+			} else {
+				var drawType = _this.pen.paintType;
+				var radius = width_ / 2;
+				var edgePoly = _this.pointsAnti;
+				var pi = Math.PI;
+				var step = pi * 2 / 36;
+				var positive = dif >= 0;
+				var totalSteps = Math.ceil(Math.abs(dif) / step);
+				var step = dif / totalSteps;
+				var angle = theta0;
+				var cx;
+				var cy;
+				var bx = 0;
+				var by = 0;
+				var p2 = edgePoly.length;
+				var _g = 0;
+				var _g1 = totalSteps + 1;
+				while(_g < _g1) {
+					var i = _g++;
+					cx = ax_ + radius * Math.sin(angle);
+					cy = ay_ + radius * Math.cos(angle);
+					edgePoly[p2++] = cx;
+					edgePoly[p2++] = cy;
+					if(i != 0) {
+						drawType.triangle(ax_,ay_,0,bx,by,0,cx,cy,0);
+						var m = trilateral3_Trilateral.transformMatrix;
+						if(m != null) {
+							drawType.transform(m);
+						}
+						drawType.next();
+					}
+					angle += step;
+					bx = cx;
+					by = cy;
+				}
+				var len = totalSteps;
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				_this1.paintType.colorTriangles(color,len);
+			}
+		} else if(_this.count != 0) {
+			if(clockWise) {
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.dxOld;
+				var ay = _this.dyOld;
+				var bx = _this.exPrev;
+				var by = _this.eyPrev;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			} else {
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.exOld;
+				var ay = _this.eyOld;
+				var bx = _this.dxPrev;
+				var by = _this.dyPrev;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			}
+		}
+		_this.kax = _this.dxPrev;
+		_this.kay = _this.dyPrev;
+		_this.kbx = _this.dx;
+		_this.kby = _this.dy;
+		_this.ncx = _this.exPrev;
+		_this.ncy = _this.eyPrev;
+		_this.kcx = _this.ex;
+		_this.kcy = _this.ey;
+		if(curveEnds && _this.count != 0) {
+			if(clockWise) {
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.ax;
+				var ay = _this.ay;
+				var bx = _this.dxOld;
+				var by = _this.dyOld;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.ax;
+				var ay = _this.ay;
+				var bx = _this.exPrev;
+				var by = _this.eyPrev;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			} else {
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.ax;
+				var ay = _this.ay;
+				var bx = _this.exOld;
+				var by = _this.eyOld;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.ax;
+				var ay = _this.ay;
+				var bx = _this.dxPrev;
+				var by = _this.dyPrev;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			}
+		}
+		_this.jxOld = _this.jx;
+		_this.jyOld = _this.jy;
+		_this.lastClock = clockWise;
+		_this.count++;
+	}
+	,fineOverlapLine: function(x_,y_) {
+		var _this = this.contour;
+		var ax_ = this.x;
+		var ay_ = this.y;
+		var width_ = this.width;
+		var curveEnds = true;
+		var overlap = true;
+		if(overlap == null) {
+			overlap = false;
+		}
+		if(curveEnds == null) {
+			curveEnds = false;
+		}
+		var oldAngle = _this.dx != null ? _this.angle1 : null;
+		_this.halfA = Math.PI / 2;
+		_this.ax = x_;
+		_this.ay = y_;
+		_this.bx = ax_;
+		_this.by = ay_;
+		_this.beta = Math.PI / 2 - _this.halfA;
+		_this.r = width_ / 2 * Math.cos(_this.beta);
+		_this.theta = Math.atan2(_this.ay - _this.by,_this.ax - _this.bx);
+		if(_this.theta > 0) {
+			if(_this.halfA < 0) {
+				_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+				_this.angle1 = _this.theta - _this.halfA;
+			} else {
+				_this.angle1 = _this.theta + _this.halfA - Math.PI;
+				_this.angle2 = _this.theta + _this.halfA;
+			}
+		} else if(_this.halfA > 0) {
+			_this.angle1 = _this.theta + _this.halfA - Math.PI;
+			_this.angle2 = _this.theta + _this.halfA;
+		} else {
+			_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+			_this.angle1 = _this.theta - _this.halfA;
+		}
+		if(_this.dxPrev != null) {
+			_this.dxOld = _this.dxPrev;
+		}
+		if(_this.dyPrev != null) {
+			_this.dyOld = _this.dyPrev;
+		}
+		if(_this.exPrev != null) {
+			_this.exOld = _this.exPrev;
+		}
+		if(_this.eyPrev != null) {
+			_this.eyOld = _this.eyPrev;
+		}
+		if(_this.dx != null) {
+			_this.dxPrev = _this.dx;
+		}
+		if(_this.dy != null) {
+			_this.dyPrev = _this.dy;
+		}
+		if(_this.ex != null) {
+			_this.exPrev = _this.ex;
+		}
+		if(_this.ey != null) {
+			_this.eyPrev = _this.ey;
+		}
+		_this.dx = _this.bx + _this.r * Math.cos(_this.angle1);
+		_this.dy = _this.by + _this.r * Math.sin(_this.angle1);
+		_this.ex = _this.bx + _this.r * Math.cos(_this.angle2);
+		_this.ey = _this.by + _this.r * Math.sin(_this.angle2);
+		_this.ax = ax_;
+		_this.ay = ay_;
+		_this.bx = x_;
+		_this.by = y_;
+		_this.theta = Math.atan2(_this.ay - _this.by,_this.ax - _this.bx);
+		if(_this.theta > 0) {
+			if(_this.halfA < 0) {
+				_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+				_this.angle1 = _this.theta - _this.halfA;
+			} else {
+				_this.angle1 = _this.theta + _this.halfA - Math.PI;
+				_this.angle2 = _this.theta + _this.halfA;
+			}
+		} else if(_this.halfA > 0) {
+			_this.angle1 = _this.theta + _this.halfA - Math.PI;
+			_this.angle2 = _this.theta + _this.halfA;
+		} else {
+			_this.angle2 = _this.theta + _this.halfA + Math.PI / 2;
+			_this.angle1 = _this.theta - _this.halfA;
+		}
+		if(_this.dxPrev != null) {
+			_this.dxOld = _this.dxPrev;
+		}
+		if(_this.dyPrev != null) {
+			_this.dyOld = _this.dyPrev;
+		}
+		if(_this.exPrev != null) {
+			_this.exOld = _this.exPrev;
+		}
+		if(_this.eyPrev != null) {
+			_this.eyOld = _this.eyPrev;
+		}
+		if(_this.dx != null) {
+			_this.dxPrev = _this.dx;
+		}
+		if(_this.dy != null) {
+			_this.dyPrev = _this.dy;
+		}
+		if(_this.ex != null) {
+			_this.exPrev = _this.ex;
+		}
+		if(_this.ey != null) {
+			_this.eyPrev = _this.ey;
+		}
+		_this.dx = _this.bx + _this.r * Math.cos(_this.angle1);
+		_this.dy = _this.by + _this.r * Math.sin(_this.angle1);
+		_this.ex = _this.bx + _this.r * Math.cos(_this.angle2);
+		_this.ey = _this.by + _this.r * Math.sin(_this.angle2);
+		var x = _this.dxOld - x_;
+		var y = _this.dyOld - y_;
+		var x1 = _this.exOld - x_;
+		var y1 = _this.eyOld - y_;
+		var clockWise = x * x + y * y > x1 * x1 + y1 * y1;
+		var theta0;
+		var theta1;
+		if(clockWise) {
+			theta0 = -Math.atan2(_this.ay - _this.dyOld,_this.ax - _this.dxOld) - Math.PI / 2;
+			theta1 = -Math.atan2(_this.ay - _this.eyPrev,_this.ax - _this.exPrev) - Math.PI / 2;
+		} else {
+			theta0 = -Math.atan2(_this.ay - _this.eyOld,_this.ax - _this.exOld) - Math.PI / 2;
+			theta1 = -Math.atan2(_this.ay - _this.dyPrev,_this.ax - _this.dxPrev) - Math.PI / 2;
+		}
+		var dif;
+		switch(fracs_DifferencePreference.SMALL._hx_index) {
+		case 0:
+			var f;
+			if(theta0 >= 0 && theta0 > Math.PI) {
+				f = theta0;
+			} else {
+				var a = theta0 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var za = this1;
+			var f;
+			if(theta1 >= 0 && theta1 > Math.PI) {
+				f = theta1;
+			} else {
+				var a = theta1 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var zb = this1;
+			var fa = za;
+			var fb = zb;
+			var theta = Math.abs(fa - fb);
+			var clockwise = fa < fb;
+			var dif1 = clockwise ? theta : -theta;
+			dif = dif1 > 0 ? dif1 : 2 * Math.PI + dif1;
+			break;
+		case 1:
+			var f;
+			if(theta0 >= 0 && theta0 > Math.PI) {
+				f = theta0;
+			} else {
+				var a = theta0 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var za = this1;
+			var f;
+			if(theta1 >= 0 && theta1 > Math.PI) {
+				f = theta1;
+			} else {
+				var a = theta1 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var zb = this1;
+			var fa = za;
+			var fb = zb;
+			var theta = Math.abs(fa - fb);
+			var clockwise = fa < fb;
+			var dif1 = clockwise ? theta : -theta;
+			dif = dif1 < 0 ? dif1 : -2 * Math.PI + dif1;
+			break;
+		case 2:
+			var f;
+			if(theta0 >= 0 && theta0 > Math.PI) {
+				f = theta0;
+			} else {
+				var a = theta0 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var za = this1;
+			var f;
+			if(theta1 >= 0 && theta1 > Math.PI) {
+				f = theta1;
+			} else {
+				var a = theta1 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var zb = this1;
+			var fa = za;
+			var fb = zb;
+			var theta = Math.abs(fa - fb);
+			var smallest = theta <= Math.PI;
+			var clockwise = fa < fb;
+			var dif1 = clockwise ? theta : -theta;
+			dif = smallest ? dif1 : clockwise ? -(2 * Math.PI - theta) : 2 * Math.PI - theta;
+			break;
+		case 3:
+			var f;
+			if(theta0 >= 0 && theta0 > Math.PI) {
+				f = theta0;
+			} else {
+				var a = theta0 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var za = this1;
+			var f;
+			if(theta1 >= 0 && theta1 > Math.PI) {
+				f = theta1;
+			} else {
+				var a = theta1 % (2 * Math.PI);
+				f = a >= 0 ? a : a + 2 * Math.PI;
+			}
+			var this1 = f;
+			var zb = this1;
+			var fa = za;
+			var fb = zb;
+			var theta = Math.abs(fa - fb);
+			var largest = theta > Math.PI;
+			var clockwise = fa < fb;
+			var dif1 = clockwise ? theta : -theta;
+			dif = largest ? dif1 : clockwise ? -(2 * Math.PI - theta) : 2 * Math.PI - theta;
+			break;
+		}
+		if(!overlap && _this.count != 0) {
+			var gamma = Math.abs(dif) / 2;
+			var h = width_ / 2 / Math.cos(gamma);
+			var f;
+			if(theta0 <= Math.PI && theta0 > -Math.PI) {
+				f = theta0;
+			} else {
+				var a = (theta0 + Math.PI) % (2 * Math.PI);
+				f = a >= 0 ? a - Math.PI : a + Math.PI;
+			}
+			var this1 = f;
+			var start = this1;
+			var start2 = start;
+			var delta = start2 + dif / 2 + Math.PI;
+			_this.jx = _this.ax + h * Math.sin(delta);
+			_this.jy = _this.ay + h * Math.cos(delta);
+		}
+		if(_this.count == 0 && (_this.endLine == 1 || _this.endLine == 3)) {
+			var ax = _this.ax;
+			var ay = _this.ay;
+			var radius = width_ / 2;
+			var beta = -_this.angle1 - Math.PI / 2;
+			var gamma = -_this.angle1 - Math.PI / 2 + Math.PI;
+			var temp = [];
+			var drawType = _this.pen.paintType;
+			var sides = 36;
+			if(sides == null) {
+				sides = 36;
+			}
+			var pi = Math.PI;
+			var step = pi * 2 / sides;
+			var dif1;
+			switch(fracs_DifferencePreference.SMALL._hx_index) {
+			case 0:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var clockwise = fa < fb;
+				var dif2 = clockwise ? theta : -theta;
+				dif1 = dif2 > 0 ? dif2 : 2 * Math.PI + dif2;
+				break;
+			case 1:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var clockwise = fa < fb;
+				var dif2 = clockwise ? theta : -theta;
+				dif1 = dif2 < 0 ? dif2 : -2 * Math.PI + dif2;
+				break;
+			case 2:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var smallest = theta <= Math.PI;
+				var clockwise = fa < fb;
+				var dif2 = clockwise ? theta : -theta;
+				dif1 = smallest ? dif2 : clockwise ? -(2 * Math.PI - theta) : 2 * Math.PI - theta;
+				break;
+			case 3:
+				var f;
+				if(beta >= 0 && beta > Math.PI) {
+					f = beta;
+				} else {
+					var a = beta % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var za = this1;
+				var f;
+				if(gamma >= 0 && gamma > Math.PI) {
+					f = gamma;
+				} else {
+					var a = gamma % (2 * Math.PI);
+					f = a >= 0 ? a : a + 2 * Math.PI;
+				}
+				var this1 = f;
+				var zb = this1;
+				var fa = za;
+				var fb = zb;
+				var theta = Math.abs(fa - fb);
+				var largest = theta > Math.PI;
+				var clockwise = fa < fb;
+				var dif2 = clockwise ? theta : -theta;
+				dif1 = largest ? dif2 : clockwise ? -(2 * Math.PI - theta) : 2 * Math.PI - theta;
+				break;
+			}
+			var positive = dif1 >= 0;
+			var totalSteps = Math.ceil(Math.abs(dif1) / step);
+			var step = dif1 / totalSteps;
+			var angle = beta;
+			var cx;
+			var cy;
+			var bx = 0;
+			var by = 0;
+			var p2 = temp.length;
+			var _g = 0;
+			var _g1 = totalSteps + 1;
+			while(_g < _g1) {
+				var i = _g++;
+				cx = ax + radius * Math.sin(angle);
+				cy = ay + radius * Math.cos(angle);
+				temp[p2++] = cx;
+				temp[p2++] = cy;
+				if(i != 0) {
+					drawType.triangle(ax,ay,0,bx,by,0,cx,cy,0);
+					var m = trilateral3_Trilateral.transformMatrix;
+					if(m != null) {
+						drawType.transform(m);
+					}
+					drawType.next();
+				}
+				angle += step;
+				bx = cx;
+				by = cy;
+			}
+			var len = totalSteps;
+			var _g = _this.pen.paintType;
+			var v = _g.get_pos() - len;
+			_g.set_pos(v);
+			var _this1 = _this.pen;
+			var color = -1;
+			if(color == -1) {
+				color = _this1.currentColor;
+			}
+			_this1.paintType.colorTriangles(color,len);
+			var pA = _this.pointsAnti.length;
+			var len = temp.length / 2 | 0;
+			var p4 = temp.length / 4 | 0;
+			var _g = 0;
+			var _g1 = p4;
+			while(_g < _g1) {
+				var i = _g++;
+				_this.pointsAnti[pA++] = temp[len - 2 * i + 1];
+				_this.pointsAnti[pA++] = temp[len - 2 * i];
+			}
+			var pC = _this.pointsClock.length;
+			var _g = 0;
+			var _g1 = p4;
+			while(_g < _g1) {
+				var i = _g++;
+				_this.pointsClock[pC++] = temp[i * 2 + len + 1];
+				_this.pointsClock[pC++] = temp[i * 2 + len];
+			}
+		}
+		if(overlap) {
+			var _this1 = _this.pen;
+			var color = -1;
+			if(color == -1) {
+				color = _this1.currentColor;
+			}
+			var ax = _this.dxPrev;
+			var ay = _this.dyPrev;
+			var bx = _this.dx;
+			var by = _this.dy;
+			var cx = _this.ex;
+			var cy = _this.ey;
+			var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+			if(trilateral3_Trilateral.transformMatrix != null) {
+				_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+			}
+			if(_this1.useTexture) {
+				ax /= 2000;
+				ay /= 2000;
+				bx /= 2000;
+				by /= 2000;
+				cx /= 2000;
+				cy /= 2000;
+				_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+			}
+			_this1.paintType.cornerColors(color,color,color);
+			_this1.paintType.next();
+			var _this1 = _this.pen;
+			var color = -1;
+			if(color == -1) {
+				color = _this1.currentColor;
+			}
+			var ax = _this.dxPrev;
+			var ay = _this.dyPrev;
+			var bx = _this.dx;
+			var by = _this.dy;
+			var cx = _this.exPrev;
+			var cy = _this.eyPrev;
+			var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+			if(trilateral3_Trilateral.transformMatrix != null) {
+				_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+			}
+			if(_this1.useTexture) {
+				ax /= 2000;
+				ay /= 2000;
+				bx /= 2000;
+				by /= 2000;
+				cx /= 2000;
+				cy /= 2000;
+				_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+			}
+			_this1.paintType.cornerColors(color,color,color);
+			_this1.paintType.next();
+		} else {
+			if(_this.count != 0) {
+				_this.addQuads(clockWise,width_);
+			}
+			_this.quadIndex = _this.pen.paintType.get_pos();
+			if(_this.count == 0) {
+				_this.penultimateAX = _this.dxPrev;
+				_this.penultimateAY = _this.dyPrev;
+				_this.lastAntiX = _this.ex;
+				_this.lastAntiY = _this.ey;
+				_this.penultimateCX = _this.dx;
+				_this.penultimateCY = _this.dy;
+				_this.lastClockX = _this.exPrev;
+				_this.lastClockY = _this.eyPrev;
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.dxPrev;
+				var ay = _this.dyPrev;
+				var bx = _this.dx;
+				var by = _this.dy;
+				var cx = _this.ex;
+				var cy = _this.ey;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.dxPrev;
+				var ay = _this.dyPrev;
+				var bx = _this.dx;
+				var by = _this.dy;
+				var cx = _this.exPrev;
+				var cy = _this.eyPrev;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			} else {
+				if(clockWise && !_this.lastClock) {
+					_this.penultimateAX = _this.jx;
+					_this.penultimateAY = _this.jy;
+					_this.lastAntiX = _this.ex;
+					_this.lastAntiY = _this.ey;
+					_this.penultimateCX = _this.dx;
+					_this.penultimateCY = _this.dy;
+					_this.lastClockX = _this.exPrev;
+					_this.lastClockY = _this.eyPrev;
+					var _this1 = _this.pen;
+					var color = -1;
+					if(color == null) {
+						color = -1;
+					}
+					if(color == -1) {
+						color = _this1.currentColor;
+					}
+					var ax = _this.jx;
+					var ay = _this.jy;
+					var bx = _this.dx;
+					var by = _this.dy;
+					var cx = _this.ex;
+					var cy = _this.ey;
+					var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+					if(trilateral3_Trilateral.transformMatrix != null) {
+						_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+					}
+					if(_this1.useTexture) {
+						ax /= 2000;
+						ay /= 2000;
+						bx /= 2000;
+						by /= 2000;
+						cx /= 2000;
+						cy /= 2000;
+						_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+					}
+					_this1.paintType.cornerColors(color,color,color);
+					_this1.paintType.next();
+					var _this1 = _this.pen;
+					var color = -1;
+					if(color == null) {
+						color = -1;
+					}
+					if(color == -1) {
+						color = _this1.currentColor;
+					}
+					var ax = _this.jx;
+					var ay = _this.jy;
+					var bx = _this.dx;
+					var by = _this.dy;
+					var cx = _this.exPrev;
+					var cy = _this.eyPrev;
+					var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+					if(trilateral3_Trilateral.transformMatrix != null) {
+						_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+					}
+					if(_this1.useTexture) {
+						ax /= 2000;
+						ay /= 2000;
+						bx /= 2000;
+						by /= 2000;
+						cx /= 2000;
+						cy /= 2000;
+						_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+					}
+					_this1.paintType.cornerColors(color,color,color);
+					_this1.paintType.next();
+				}
+				if(clockWise && _this.lastClock) {
+					_this.penultimateAX = _this.jx;
+					_this.penultimateAY = _this.jy;
+					_this.lastAntiX = _this.ex;
+					_this.lastAntiY = _this.ey;
+					_this.penultimateCX = _this.dx;
+					_this.penultimateCY = _this.dy;
+					_this.lastClockX = _this.exPrev;
+					_this.lastClockY = _this.eyPrev;
+					var _this1 = _this.pen;
+					var color = -1;
+					if(color == null) {
+						color = -1;
+					}
+					if(color == -1) {
+						color = _this1.currentColor;
+					}
+					var ax = _this.jx;
+					var ay = _this.jy;
+					var bx = _this.dx;
+					var by = _this.dy;
+					var cx = _this.ex;
+					var cy = _this.ey;
+					var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+					if(trilateral3_Trilateral.transformMatrix != null) {
+						_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+					}
+					if(_this1.useTexture) {
+						ax /= 2000;
+						ay /= 2000;
+						bx /= 2000;
+						by /= 2000;
+						cx /= 2000;
+						cy /= 2000;
+						_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+					}
+					_this1.paintType.cornerColors(color,color,color);
+					_this1.paintType.next();
+					var _this1 = _this.pen;
+					var color = -1;
+					if(color == null) {
+						color = -1;
+					}
+					if(color == -1) {
+						color = _this1.currentColor;
+					}
+					var ax = _this.jx;
+					var ay = _this.jy;
+					var bx = _this.dx;
+					var by = _this.dy;
+					var cx = _this.exPrev;
+					var cy = _this.eyPrev;
+					var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+					if(trilateral3_Trilateral.transformMatrix != null) {
+						_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+					}
+					if(_this1.useTexture) {
+						ax /= 2000;
+						ay /= 2000;
+						bx /= 2000;
+						by /= 2000;
+						cx /= 2000;
+						cy /= 2000;
+						_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+					}
+					_this1.paintType.cornerColors(color,color,color);
+					_this1.paintType.next();
+				}
+				if(!clockWise && !_this.lastClock) {
+					_this.penultimateCX = _this.dx;
+					_this.penultimateCY = _this.dy;
+					_this.lastClockX = _this.jx;
+					_this.lastClockY = _this.jy;
+					_this.penultimateAX = _this.dxPrev;
+					_this.penultimateAY = _this.dyPrev;
+					_this.lastAntiX = _this.ex;
+					_this.lastAntiY = _this.ey;
+					var _this1 = _this.pen;
+					var color = -1;
+					if(color == null) {
+						color = -1;
+					}
+					if(color == -1) {
+						color = _this1.currentColor;
+					}
+					var ax = _this.dxPrev;
+					var ay = _this.dyPrev;
+					var bx = _this.dx;
+					var by = _this.dy;
+					var cx = _this.jx;
+					var cy = _this.jy;
+					var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+					if(trilateral3_Trilateral.transformMatrix != null) {
+						_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+					}
+					if(_this1.useTexture) {
+						ax /= 2000;
+						ay /= 2000;
+						bx /= 2000;
+						by /= 2000;
+						cx /= 2000;
+						cy /= 2000;
+						_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+					}
+					_this1.paintType.cornerColors(color,color,color);
+					_this1.paintType.next();
+					var _this1 = _this.pen;
+					var color = -1;
+					if(color == null) {
+						color = -1;
+					}
+					if(color == -1) {
+						color = _this1.currentColor;
+					}
+					var ax = _this.dxPrev;
+					var ay = _this.dyPrev;
+					var bx = _this.dx;
+					var by = _this.dy;
+					var cx = _this.ex;
+					var cy = _this.ey;
+					var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+					if(trilateral3_Trilateral.transformMatrix != null) {
+						_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+					}
+					if(_this1.useTexture) {
+						ax /= 2000;
+						ay /= 2000;
+						bx /= 2000;
+						by /= 2000;
+						cx /= 2000;
+						cy /= 2000;
+						_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+					}
+					_this1.paintType.cornerColors(color,color,color);
+					_this1.paintType.next();
+				}
+				if(!clockWise && _this.lastClock) {
+					_this.penultimateAX = _this.dxPrev;
+					_this.penultimateAY = _this.dyPrev;
+					_this.lastAntiX = _this.ex;
+					_this.lastAntiY = _this.ey;
+					_this.penultimateCX = _this.jx;
+					_this.penultimateCY = _this.jy;
+					_this.lastClockX = _this.dx;
+					_this.lastClockY = _this.dy;
+					var _this1 = _this.pen;
+					var color = -1;
+					if(color == null) {
+						color = -1;
+					}
+					if(color == -1) {
+						color = _this1.currentColor;
+					}
+					var ax = _this.jx;
+					var ay = _this.jy;
+					var bx = _this.dx;
+					var by = _this.dy;
+					var cx = _this.ex;
+					var cy = _this.ey;
+					var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+					if(trilateral3_Trilateral.transformMatrix != null) {
+						_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+					}
+					if(_this1.useTexture) {
+						ax /= 2000;
+						ay /= 2000;
+						bx /= 2000;
+						by /= 2000;
+						cx /= 2000;
+						cy /= 2000;
+						_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+					}
+					_this1.paintType.cornerColors(color,color,color);
+					_this1.paintType.next();
+					var _this1 = _this.pen;
+					var color = -1;
+					if(color == null) {
+						color = -1;
+					}
+					if(color == -1) {
+						color = _this1.currentColor;
+					}
+					var ax = _this.dxPrev;
+					var ay = _this.dyPrev;
+					var bx = _this.jx;
+					var by = _this.jy;
+					var cx = _this.ex;
+					var cy = _this.ey;
+					var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+					if(trilateral3_Trilateral.transformMatrix != null) {
+						_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+					}
+					if(_this1.useTexture) {
+						ax /= 2000;
+						ay /= 2000;
+						bx /= 2000;
+						by /= 2000;
+						cx /= 2000;
+						cy /= 2000;
+						_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+					}
+					_this1.paintType.cornerColors(color,color,color);
+					_this1.paintType.next();
+				}
+			}
+		}
+		if(curveEnds) {
+			if(clockWise) {
+				var drawType = _this.pen.paintType;
+				var radius = width_ / 2;
+				var edgePoly = _this.pointsClock;
+				var pi = Math.PI;
+				var step = pi * 2 / 36;
+				var positive = dif >= 0;
+				var totalSteps = Math.ceil(Math.abs(dif) / step);
+				var step = dif / totalSteps;
+				var angle = theta0;
+				var cx;
+				var cy;
+				var bx = 0;
+				var by = 0;
+				var p2 = edgePoly.length;
+				var _g = 0;
+				var _g1 = totalSteps + 1;
+				while(_g < _g1) {
+					var i = _g++;
+					cx = ax_ + radius * Math.sin(angle);
+					cy = ay_ + radius * Math.cos(angle);
+					edgePoly[p2++] = cx;
+					edgePoly[p2++] = cy;
+					if(i != 0) {
+						drawType.triangle(ax_,ay_,0,bx,by,0,cx,cy,0);
+						var m = trilateral3_Trilateral.transformMatrix;
+						if(m != null) {
+							drawType.transform(m);
+						}
+						drawType.next();
+					}
+					angle += step;
+					bx = cx;
+					by = cy;
+				}
+				var len = totalSteps;
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				_this1.paintType.colorTriangles(color,len);
+			} else {
+				var drawType = _this.pen.paintType;
+				var radius = width_ / 2;
+				var edgePoly = _this.pointsAnti;
+				var pi = Math.PI;
+				var step = pi * 2 / 36;
+				var positive = dif >= 0;
+				var totalSteps = Math.ceil(Math.abs(dif) / step);
+				var step = dif / totalSteps;
+				var angle = theta0;
+				var cx;
+				var cy;
+				var bx = 0;
+				var by = 0;
+				var p2 = edgePoly.length;
+				var _g = 0;
+				var _g1 = totalSteps + 1;
+				while(_g < _g1) {
+					var i = _g++;
+					cx = ax_ + radius * Math.sin(angle);
+					cy = ay_ + radius * Math.cos(angle);
+					edgePoly[p2++] = cx;
+					edgePoly[p2++] = cy;
+					if(i != 0) {
+						drawType.triangle(ax_,ay_,0,bx,by,0,cx,cy,0);
+						var m = trilateral3_Trilateral.transformMatrix;
+						if(m != null) {
+							drawType.transform(m);
+						}
+						drawType.next();
+					}
+					angle += step;
+					bx = cx;
+					by = cy;
+				}
+				var len = totalSteps;
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				_this1.paintType.colorTriangles(color,len);
+			}
+		} else if(_this.count != 0) {
+			if(overlap) {
+				if(clockWise) {
+					var _this1 = _this.pen;
+					var color = -1;
+					if(color == null) {
+						color = -1;
+					}
+					if(color == -1) {
+						color = _this1.currentColor;
+					}
+					var ax = _this.dxOld;
+					var ay = _this.dyOld;
+					var bx = _this.exPrev;
+					var by = _this.eyPrev;
+					var cx = _this.ax;
+					var cy = _this.ay;
+					var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+					if(trilateral3_Trilateral.transformMatrix != null) {
+						_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+					}
+					if(_this1.useTexture) {
+						ax /= 2000;
+						ay /= 2000;
+						bx /= 2000;
+						by /= 2000;
+						cx /= 2000;
+						cy /= 2000;
+						_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+					}
+					_this1.paintType.cornerColors(color,color,color);
+					_this1.paintType.next();
+				} else {
+					var _this1 = _this.pen;
+					var color = -1;
+					if(color == null) {
+						color = -1;
+					}
+					if(color == -1) {
+						color = _this1.currentColor;
+					}
+					var ax = _this.exOld;
+					var ay = _this.eyOld;
+					var bx = _this.dxPrev;
+					var by = _this.dyPrev;
+					var cx = _this.ax;
+					var cy = _this.ay;
+					var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+					if(trilateral3_Trilateral.transformMatrix != null) {
+						_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+					}
+					if(_this1.useTexture) {
+						ax /= 2000;
+						ay /= 2000;
+						bx /= 2000;
+						by /= 2000;
+						cx /= 2000;
+						cy /= 2000;
+						_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+					}
+					_this1.paintType.cornerColors(color,color,color);
+					_this1.paintType.next();
+				}
+			} else if(clockWise) {
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.dxOld;
+				var ay = _this.dyOld;
+				var bx = _this.exPrev;
+				var by = _this.eyPrev;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			} else {
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.exOld;
+				var ay = _this.eyOld;
+				var bx = _this.dxPrev;
+				var by = _this.dyPrev;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			}
+		}
+		_this.kax = _this.dxPrev;
+		_this.kay = _this.dyPrev;
+		_this.kbx = _this.dx;
+		_this.kby = _this.dy;
+		_this.ncx = _this.exPrev;
+		_this.ncy = _this.eyPrev;
+		_this.kcx = _this.ex;
+		_this.kcy = _this.ey;
+		if(curveEnds && !overlap && _this.count != 0) {
+			if(clockWise) {
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.ax;
+				var ay = _this.ay;
+				var bx = _this.dxOld;
+				var by = _this.dyOld;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.ax;
+				var ay = _this.ay;
+				var bx = _this.exPrev;
+				var by = _this.eyPrev;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			} else {
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.ax;
+				var ay = _this.ay;
+				var bx = _this.exOld;
+				var by = _this.eyOld;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+				var _this1 = _this.pen;
+				var color = -1;
+				if(color == null) {
+					color = -1;
+				}
+				if(color == -1) {
+					color = _this1.currentColor;
+				}
+				var ax = _this.ax;
+				var ay = _this.ay;
+				var bx = _this.dxPrev;
+				var by = _this.dyPrev;
+				var cx = _this.jx;
+				var cy = _this.jy;
+				var windAdjust = _this1.paintType.triangle(ax,ay,_this1.z2D,bx,by,_this1.z2D,cx,cy,_this1.z2D);
+				if(trilateral3_Trilateral.transformMatrix != null) {
+					_this1.paintType.transform(trilateral3_Trilateral.transformMatrix);
+				}
+				if(_this1.useTexture) {
+					ax /= 2000;
+					ay /= 2000;
+					bx /= 2000;
+					by /= 2000;
+					cx /= 2000;
+					cy /= 2000;
+					_this1.paintType.triangleUV(ax,ay,bx,by,cx,cy,windAdjust);
+				}
+				_this1.paintType.cornerColors(color,color,color);
+				_this1.paintType.next();
+			}
+		}
+		_this.jxOld = _this.jx;
+		_this.jyOld = _this.jy;
+		_this.lastClock = clockWise;
+		_this.count++;
+	}
+	,line: null
+	,__class__: trilateral3_drawing_Sketch
 };
 var trilateral3_geom_FlatColorTrianglesUV = {};
 trilateral3_geom_FlatColorTrianglesUV.transform = function(this1,m) {
