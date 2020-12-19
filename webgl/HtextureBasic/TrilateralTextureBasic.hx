@@ -87,6 +87,7 @@ class TrilateralTextureBasic extends PlyUV {
     public var starFillShow      = true;
     public var kiwiOutlineShow   = true;
     public var kiwiFillShow      = true;
+    public var useImage1         = true;
     public var sliderU: Float = 0;
     public var sliderV: Float = 0;
     public var sliderX: Float = 0;
@@ -98,11 +99,13 @@ class TrilateralTextureBasic extends PlyUV {
     public var outlineKiwiRange: IndexRange;
     public var fillKiwiRange:    IndexRange;
     public var penPaint = new PenPaint();
+    public var img2: Image;
+    public var img3: Image;
     //public var penNodule = new PenNodule();
     public function new( width: Int, height: Int ){
         super( width, height );
         trace( 'draw' );
-        imageLoader.loadEncoded( [ HaxeLogo.png, 'font1AlphaWhite.png' ],[ 'haxelogo','font1AlphaWhite' ] );
+        imageLoader.loadEncoded( [ HaxeLogo.png, 'font1AlphaWhite.png','f-texture.png' ],[ 'haxelogo','font1AlphaWhite','ftexture' ] );
     }
     
     public function drawn( img: Image ){
@@ -113,7 +116,9 @@ class TrilateralTextureBasic extends PlyUV {
     public function draw(){
         sliderSetup();
         
-        img =  imageLoader.imageArr[ 0 ];
+        img =  imageLoader.imageArr[ 1 ];
+        img2 = imageLoader.imageArr[ 0 ];
+        img3 = imageLoader.imageArr[ 2 ];
         var w            = img.width;
         var h            = img.height;
         //mainSheet.cx.drawImage( img, 0, 0, w, h );  // this line should not be needed!!
@@ -211,8 +216,10 @@ class TrilateralTextureBasic extends PlyUV {
             default:
                 null;
         }
+        if( !useImage1 ) changeImage( img2 );
         if( starOutlineShow ) drawShape( outlineStarRange.start, outlineStarRange.end, bgStarOutline );
         if( starFillShow )    drawShape( fillStarRange.start,    fillStarRange.end, bgStarFill       );
+        //if( !useImage1 ) changeImage( img3 );
         if( kiwiOutlineShow ) drawShape( outlineKiwiRange.start, outlineKiwiRange.end, bgKiwiOutline );
         if( kiwiFillShow )    drawShape( fillKiwiRange.start,    fillKiwiRange.end, bgKiwiFill       );
     }
@@ -308,6 +315,13 @@ class TrilateralTextureBasic extends PlyUV {
             kiwiFillShow = !checkBoxHideKiwiFill.selected;
         }
         vbox.addComponent( checkBoxHideKiwiFill  );
+        var checkBoxChangeImage = new CheckBox();
+        checkBoxChangeImage.text = ' change image';
+        checkBoxChangeImage.backgroundColor = 0xD3D3D3;
+        checkBoxChangeImage.onClick = function ( e ){
+            useImage1 = !checkBoxChangeImage.selected;
+        }
+        vbox.addComponent( checkBoxChangeImage );
     }
     inline
     function toHexInt( c: Float ): Int
