@@ -10,9 +10,9 @@
 -lib hxGeomAlgo
 -lib kitGL
 
--lib haxeui-core
--lib haxeui-html5
--lib hscript
+#-lib haxeui-core
+#-lib haxeui-html5
+#-lib hscript
 
 
 -main TrilateralTileSheetTexture
