@@ -32,9 +32,7 @@ class TrilateralGradient extends Ply {
     }
     override
     public function renderDraw(){
-        penNodule = new PenNodule();
-        dataGL = { get_data: penNodule.get_data, get_size: penNodule.get_size };
-        pen = penNodule.pen;
+        pen.pos = 0;
         // don't use too many colours as run out of triangles?
         var colors = [ Indigo, Red, Orange, Green ];
         var horizontal = true;

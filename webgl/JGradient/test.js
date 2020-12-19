@@ -1270,9 +1270,7 @@ TrilateralGradient.prototype = $extend(kitGL_glWeb_Ply.prototype,{
 		}
 	}
 	,renderDraw: function() {
-		this.penNodule = new trilateral3_nodule_PenNodule();
-		this.dataGL = { get_data : ($_=this.penNodule,$bind($_,$_.get_data)), get_size : ($_=this.penNodule,$bind($_,$_.get_size))};
-		this.pen = this.penNodule.pen;
+		this.pen.paintType.set_pos(0);
 		var colors = [-11861886,-65536,-33024,-16711936];
 		var horizontal = true;
 		var _this = this.pen;
