@@ -26,7 +26,7 @@ import trilateral3.drawing.Color3Abstract;
 import trilateral3.drawing.Nymph;
 import trilateral3.shape.IndexRange;
 import trilateral3.Trilateral;
-
+import Font1AlphaWhite;
 import dsHelper.flatInterleave.FloatColorTrianglesUV;
 
 // SVG path parser
@@ -57,11 +57,13 @@ class TrilateralTextureBasic extends PlyUV {
     public var nymphLetters:     Nymph;
     public var pen: Pen;
     public var allRange:         IndexRange;
-    public var penPaint = new PenPaint();
+    public var penPaint          = new PenPaint();
+    var scale                    = 2;
     public function new( width: Int, height: Int ){
         super( width, height );
         trace( 'draw' );
-        imageLoader.loadEncoded( [ 'font1AlphaWhite.png' ],[ 'font1AlphaWhite' ] );
+        //imageLoader.loadEncoded( [ 'font1AlphaWhite.png' ],[ 'font1AlphaWhite' ] );
+        imageLoader.loadEncoded( [ Font1AlphaWhite.png ],[ 'font1AlphaWhite' ] );
     }
     
     public function drawn( img: Image ){
@@ -70,6 +72,7 @@ class TrilateralTextureBasic extends PlyUV {
     }
     override
     public function draw(){
+        
         img =  imageLoader.imageArr[ 0 ];
         var w            = img.width;
         var h            = img.height;
@@ -86,44 +89,47 @@ class TrilateralTextureBasic extends PlyUV {
         pen.z2D = -0.1;
         allRange = { start: Std.int( pen.pos ), end: 0 };
         nymphLetters = new Nymph( pen, allRange );
-        var inputStr = 'Trilateral3';
+        var inputStr = 'The quick brown fox jumps over the lazy dog';
         letterGrid( img, inputStr );
         allRange.end = Std.int( pen.pos );
         var count = 0;
         var val: Float;
         var curr = pen.triangleCurrent;
+        var letterSpace = 40/scale;// 80;
         for( i in allRange.start...allRange.end ){
              count = Math.floor( i/2 );
              pen.pos = i;
-             val = 100 + 80*count;
+             val = 100 + letterSpace*count;
              curr.x = (val-1000)/1000;
              val = 500;
              curr.y = -(val-1000)/1000;
         }
-        transformUV( gl, program, uvTransform, [ 2.,0.,0.
-                                               , 0.,2.,0.
+        transformUV( gl, program, uvTransform, [ scale*2.,0.,0.
+                                               , 0.,scale*2.,0.
                                                , 0.,0.,1.] );
     }
     var theta = 0.;
+    
     override
     public function renderDraw(){
-        nymphLetters.setColor( 0xFF000000 + Math.round( 0xFF*theta ) );
+        //nymphLetters.setColor( 0xFF000000 + Math.round( 0xFF*theta ) );
         var curr = pen.triangleCurrent;
         var val = 0.;
         for( i in allRange.start...allRange.end ){
              pen.pos = i;
              val = 500 + 20* Math.sin( theta );
-             curr.y = -(val-1000)/1000;
+             //curr.y = -(val-1000)/1000;
              theta += Math.PI/10;
         }
         drawShape( allRange.start, allRange.end, 0 );// 0x0f000000 );
     }
+    
     inline
     function letterGrid( img: Image, letter: String ){
         var noW = 10;
         var noH = 10;
-        var dw = img.width*2/11;
-        var dh = img.height*2/11;
+        var dw = ( img.width*2/11 )/scale;
+        var dh = ( img.height*2/11 )/scale;
         for( charNo in 0...letter.length ){
             var charCode = letter.charCodeAt( charNo );
             var id = charCode - 97 + 65;

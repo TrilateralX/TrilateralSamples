@@ -4388,6 +4388,8 @@ kitGL_glWeb_PlyUV.prototype = {
 			gl.enable(3042);
 			gl.blendFunc(1,771);
 			gl.enable(2929);
+			_gthis.gl.bindBuffer(34962,null);
+			_gthis.gl.bindBuffer(34962,_gthis.buf);
 			_gthis.renderDraw();
 		};
 	}
@@ -4407,8 +4409,6 @@ kitGL_glWeb_PlyUV.prototype = {
 		var colUniform = gl.getUniformLocation(this.program,this.uniformColor);
 		gl.uniform4f(colUniform,argb_r,argb_g,argb_b,argb_a);
 		var partData = this.dataGL.get_data().subarray(start * 27,end * 27);
-		this.gl.bindBuffer(34962,null);
-		this.gl.bindBuffer(34962,this.buf);
 		this.gl.bufferSubData(34962,0,partData);
 		this.gl.useProgram(this.program);
 		this.gl.drawArrays(4,0,(end - start) * 3 | 0);

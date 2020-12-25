@@ -55,11 +55,11 @@ var kitGL_glWeb_Ply = function(width_,height_) {
 			tmp = program;
 		}
 	}
-	this.program = tmp;
+	this.programColor = tmp;
 	this.draw();
 	var gl = this.gl;
-	var program = this.program;
-	var data = this.dataGL.get_data();
+	var program = this.programColor;
+	var data = this.dataGLcolor.get_data();
 	var xyzName = this.vertexPosition;
 	var rgbaName = this.vertexColor;
 	var isDynamic = true;
@@ -97,7 +97,7 @@ var kitGL_glWeb_Ply = function(width_,height_) {
 	var offBytes = 3 * elementBytes;
 	gl.vertexAttribPointer(inp,4,fp,false,strideBytes,offBytes);
 	gl.enableVertexAttribArray(inp);
-	this.buf = vbo;
+	this.bufColor = vbo;
 	var _gthis = this;
 	if(kitGL_glWeb_AnimateTimer.s == null) {
 		kitGL_glWeb_AnimateTimer.s = window.document.createElement("style");
@@ -117,23 +117,27 @@ var kitGL_glWeb_Ply = function(width_,height_) {
 		gl.enable(3042);
 		gl.blendFunc(1,771);
 		gl.enable(2929);
+		_gthis.gl.bindBuffer(34962,_gthis.bufColor);
 		_gthis.renderDraw();
-		_gthis.gl.bindBuffer(34962,_gthis.buf);
-		_gthis.gl.bufferSubData(34962,0,_gthis.dataGL.get_data());
-		_gthis.gl.useProgram(_gthis.program);
-		_gthis.gl.drawArrays(4,0,_gthis.dataGL.get_size());
 	};
 };
 kitGL_glWeb_Ply.__name__ = true;
 kitGL_glWeb_Ply.prototype = {
 	draw: function() {
 	}
+	,drawShape: function(start,end) {
+		var program = this.programColor;
+		var partData = this.dataGLcolor.get_data().subarray(start * 21,end * 21);
+		this.gl.bufferSubData(34962,0,partData);
+		this.gl.useProgram(program);
+		this.gl.drawArrays(4,0,(end - start) * 3 | 0);
+	}
 	,renderDraw: function() {
 	}
 };
 var TrilateralGradient = function(width,height) {
 	this.theta = 0.;
-	this.penNodule = new trilateral3_nodule_PenNodule();
+	this.penNoduleColor = new trilateral3_nodule_PenNodule();
 	kitGL_glWeb_Ply.call(this,width,height);
 };
 TrilateralGradient.__name__ = true;
@@ -155,11 +159,11 @@ TrilateralGradient.expEaseInOut = function(t,b,c,d) {
 TrilateralGradient.__super__ = kitGL_glWeb_Ply;
 TrilateralGradient.prototype = $extend(kitGL_glWeb_Ply.prototype,{
 	draw: function() {
-		this.dataGL = { get_data : ($_=this.penNodule,$bind($_,$_.get_data)), get_size : ($_=this.penNodule,$bind($_,$_.get_size))};
-		this.pen = this.penNodule.pen;
+		this.dataGLcolor = { get_data : ($_=this.penNoduleColor,$bind($_,$_.get_data)), get_size : ($_=this.penNoduleColor,$bind($_,$_.get_size))};
+		this.penColor = this.penNoduleColor.pen;
 		var colors = [-7077677,-11861886,-16776961,-16711936,-256,-33024,-65536];
 		var horizontal = true;
-		var _this = this.pen;
+		var _this = this.penColor;
 		var func = trilateral3_drawing_Pen.tweenWrap(TrilateralGradient.quadEaseIn);
 		if(colors.length != 0) {
 			var left = 0.;
@@ -786,10 +790,12 @@ TrilateralGradient.prototype = $extend(kitGL_glWeb_Ply.prototype,{
 		}
 	}
 	,renderDraw: function() {
-		this.pen.paintType.set_pos(0);
+		this.penColor.paintType.set_pos(0);
 		var colors = [-11861886,-65536,-33024,-16711936];
 		var horizontal = true;
-		var _this = this.pen;
+		var firstGrad_start = this.penColor.paintType.get_pos();
+		var firstGrad_end = 0;
+		var _this = this.penColor;
 		var func = trilateral3_drawing_Pen.tweenWrap(TrilateralGradient.quadEaseIn);
 		var theta = this.theta;
 		var pivotX = 550;
@@ -1426,8 +1432,9 @@ TrilateralGradient.prototype = $extend(kitGL_glWeb_Ply.prototype,{
 				}
 			}
 		}
+		firstGrad_end = this.penColor.paintType.get_pos();
 		var colors = [-7077677,-256,-65536];
-		var _this = this.pen;
+		var _this = this.penColor;
 		var func = trilateral3_drawing_Pen.tweenWrap(TrilateralGradient.expEaseInOut);
 		var theta = 0;
 		var pivotX = 350;
@@ -1758,12 +1765,13 @@ TrilateralGradient.prototype = $extend(kitGL_glWeb_Ply.prototype,{
 			}
 		}
 		this.theta += 0.1;
+		this.drawShape(firstGrad_start,firstGrad_end);
 	}
 });
 function TrilateralGradient_main() {
 	new TrilateralGradient(1000,1000);
 	var divertTrace = new kitGL_glWeb_DivertTrace();
-	haxe_Log.trace("TrilateralGradient example",{ fileName : "TrilateralGradient.hx", lineNumber : 15, className : "_TrilateralGradient.TrilateralGradient_Fields_", methodName : "main"});
+	haxe_Log.trace("TrilateralGradient example",{ fileName : "TrilateralGradient.hx", lineNumber : 16, className : "_TrilateralGradient.TrilateralGradient_Fields_", methodName : "main"});
 }
 var dsHelper_flat_io_Float32Flat = {};
 dsHelper_flat_io_Float32Flat.get_size = function(this1) {

@@ -6,6 +6,7 @@ import kitGL.glWeb.DataGL;
 // Sketching
 import trilateral3.drawing.Pen;
 import trilateral3.nodule.PenNodule;
+import trilateral3.shape.IndexRange;
 // To trace on screen
 import kitGL.glWeb.DivertTrace;
 
@@ -15,33 +16,37 @@ function main(){
     trace("TrilateralGradient example");
 }
 class TrilateralGradient extends Ply {
-    public var pen: Pen;
-    public var penNodule = new PenNodule();
+    public var penColor: Pen;
+    public var penNoduleColor = new PenNodule();
     public var theta = 0.;
+    public var firstGrad: IndexRange;
     public function new( width: Int, height: Int ){
         super( width, height );
     }
     override
     public function draw(){
-        dataGL = { get_data: penNodule.get_data, get_size: penNodule.get_size };
-        pen = penNodule.pen;
+        dataGLcolor = { get_data: penNoduleColor.get_data, get_size: penNoduleColor.get_size };
+        penColor = penNoduleColor.pen;
         var colors = [ Violet, Indigo, Blue, Green, Yellow, Orange, Red ];
         var horizontal = true;
-        pen.multiGradient( horizontal, 0., 0., 500., 500.
-                         , colors, Pen.tweenWrap( quadEaseIn ) );
+        penColor.multiGradient( horizontal, 0., 0., 500., 500.
+                              , colors, Pen.tweenWrap( quadEaseIn ) );
     }
     override
     public function renderDraw(){
-        pen.pos = 0;
+        penColor.pos = 0;
         // don't use too many colours as run out of triangles?
         var colors = [ Indigo, Red, Orange, Green ];
         var horizontal = true;
-        pen.multiGradient( horizontal, 300.,300., 500., 500.
+        var firstGrad = { start: penColor.pos, end: 0 };
+        penColor.multiGradient( horizontal, 300.,300., 500., 500.
                          , colors, Pen.tweenWrap( quadEaseIn ), theta, 300+250, 300+250 );
+        firstGrad.end = cast penColor.pos;
         var colors = [ Violet, Yellow, Red ];
-        pen.multiGradient( false, 0., 0., 500., 500.
+        penColor.multiGradient( false, 0., 0., 500., 500.
                       , colors, Pen.tweenWrap( expEaseInOut ), 0, 350, 350 );
         theta += 0.1;
+        drawShape( cast firstGrad.start, cast firstGrad.end );
     }
     public static function quadEaseIn( t: Float, b: Float, c: Float, d: Float ): Float {
         return c * ( t /= d ) * t + b;

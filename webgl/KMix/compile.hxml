@@ -10,18 +10,12 @@
 -lib hxGeomAlgo
 -lib kitGL
 
--lib haxeui-core
--lib haxeui-html5
--lib hscript
-
-
--main TrilateralTextureBasic
-#-D js-flatten 
+-main TrilateralMix
+-D js-flatten 
 #-D trilateral_debug
 #-D trilateral_debugPoints
 -dce full
 #--no-traces
-#-D no_inline
 --next
 
 
