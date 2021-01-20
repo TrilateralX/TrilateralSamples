@@ -24,7 +24,6 @@ import trilateral3.drawing.TriangleAbstract;
 import trilateral3.drawing.TriangleAbstractUV;
 import trilateral3.drawing.Color3Abstract;
 import trilateral3.drawing.Nymph;
-import trilateral3.shape.IteratorRange;
 import trilateral3.shape.IndexRange;
 import trilateral3.Trilateral;
 import Font1AlphaWhite;
@@ -57,7 +56,7 @@ function main(){
 class TrilateralTextureBasic extends PlyUV {
     public var nymphLetters:     Nymph;
     public var pen: Pen;
-    public var allRange:         IteratorRange;
+    public var allRange:         IndexRange;
     public var penPaint          = new PenPaint();
     var scale                    = 2;
     public function new( width: Int, height: Int ){
@@ -88,18 +87,16 @@ class TrilateralTextureBasic extends PlyUV {
         var sketch       = new Sketch( pen, StyleSketch.Fine, StyleEndLine.no );
         sketch.width     = 8;
         pen.z2D = -0.1;
-        var posMin = cast pen.pos;
+        allRange = { start: Std.int( pen.pos ), end: 0 };
+        nymphLetters = new Nymph( pen, allRange );
         var inputStr = 'The quick brown fox jumps over the lazy dog';
         letterGrid( img, inputStr );
-        allRange = ( posMin + 0 )...(Std.int( pen.pos ) - 1);
-        //allRange2 = { start: allRange.min, end: allRange.max };
-        //nymphLetters = new Nymph( pen, allRange2 );
-        nymphLetters = Nymph.iterNymph( pen, allRange );
+        allRange.end = Std.int( pen.pos );
         var count = 0;
         var val: Float;
         var curr = pen.triangleCurrent;
         var letterSpace = 40/scale;// 80;
-        for( i in allRange ){
+        for( i in allRange.start...allRange.end ){
              count = Math.floor( i/2 );
              pen.pos = i;
              val = 100 + letterSpace*count;
@@ -112,19 +109,19 @@ class TrilateralTextureBasic extends PlyUV {
                                                , 0.,0.,1.] );
     }
     var theta = 0.;
-    //var allRange2: IndexRange;
+    
     override
     public function renderDraw(){
         //nymphLetters.setColor( 0xFF000000 + Math.round( 0xFF*theta ) );
         var curr = pen.triangleCurrent;
         var val = 0.;
-        for( i in allRange ){
+        for( i in allRange.start...allRange.end ){
              pen.pos = i;
              val = 500 + 20* Math.sin( theta );
-             curr.y = -(val-1000)/1000;
+             //curr.y = -(val-1000)/1000;
              theta += Math.PI/10;
         }
-        drawShape( allRange.start, allRange.max, 0 );// 0x0f000000 );
+        drawShape( allRange.start, allRange.end, 0 );// 0x0f000000 );
     }
     
     inline
@@ -140,7 +137,6 @@ class TrilateralTextureBasic extends PlyUV {
             var col           = id - row*noH;
             var dx = col*dw - 6;
             var dy = row*dw - 6; // dw here seems wrong needs more effort.
-            //pen.quad2DFill( dx, dy, dw, dh - 4 );
             //   A   B
             //   D   C
             // A B D

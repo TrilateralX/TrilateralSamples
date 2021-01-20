@@ -6,7 +6,7 @@ import kitGL.glWeb.DataGL;
 // Sketching
 import trilateral3.drawing.Pen;
 import trilateral3.nodule.PenNodule;
-import trilateral3.shape.IndexRange;
+import trilateral3.shape.IteratorRange;
 // To trace on screen
 import kitGL.glWeb.DivertTrace;
 
@@ -19,7 +19,7 @@ class TrilateralGradient extends Ply {
     public var penColor: Pen;
     public var penNoduleColor = new PenNodule();
     public var theta = 0.;
-    public var firstGrad: IndexRange;
+    public var firstGrad: IteratorRange;
     public function new( width: Int, height: Int ){
         super( width, height );
     }
@@ -38,15 +38,15 @@ class TrilateralGradient extends Ply {
         // don't use too many colours as run out of triangles?
         var colors = [ Indigo, Red, Orange, Green ];
         var horizontal = true;
-        var firstGrad = { start: penColor.pos, end: 0 };
+        var posMin =  cast penColor.pos;
         penColor.multiGradient( horizontal, 300.,300., 500., 500.
                          , colors, Pen.tweenWrap( quadEaseIn ), theta, 300+250, 300+250 );
-        firstGrad.end = cast penColor.pos;
+        firstGrad = posMin...cast penColor.pos;
         var colors = [ Violet, Yellow, Red ];
         penColor.multiGradient( false, 0., 0., 500., 500.
                       , colors, Pen.tweenWrap( expEaseInOut ), 0, 350, 350 );
         theta += 0.1;
-        drawShape( cast firstGrad.start, cast firstGrad.end );
+        drawShape( cast firstGrad.min, cast firstGrad.max );
     }
     public static function quadEaseIn( t: Float, b: Float, c: Float, d: Float ): Float {
         return c * ( t /= d ) * t + b;

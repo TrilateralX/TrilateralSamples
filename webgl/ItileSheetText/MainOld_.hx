@@ -91,10 +91,9 @@ class TrilateralTextureBasic extends PlyUV {
         var posMin = cast pen.pos;
         var inputStr = 'The quick brown fox jumps over the lazy dog';
         letterGrid( img, inputStr );
-        allRange = ( posMin + 0 )...(Std.int( pen.pos ) - 1);
-        //allRange2 = { start: allRange.min, end: allRange.max };
-        //nymphLetters = new Nymph( pen, allRange2 );
-        nymphLetters = Nymph.iterNymph( pen, allRange );
+        allRange = posMin...Std.int( pen.pos );
+        var temp: IndexRange = { start: allRange.min, end: allRange.max -1 };
+        nymphLetters = new Nymph( pen, temp );
         var count = 0;
         var val: Float;
         var curr = pen.triangleCurrent;
@@ -112,7 +111,7 @@ class TrilateralTextureBasic extends PlyUV {
                                                , 0.,0.,1.] );
     }
     var theta = 0.;
-    //var allRange2: IndexRange;
+    
     override
     public function renderDraw(){
         //nymphLetters.setColor( 0xFF000000 + Math.round( 0xFF*theta ) );
@@ -121,10 +120,10 @@ class TrilateralTextureBasic extends PlyUV {
         for( i in allRange ){
              pen.pos = i;
              val = 500 + 20* Math.sin( theta );
-             curr.y = -(val-1000)/1000;
+             //curr.y = -(val-1000)/1000;
              theta += Math.PI/10;
         }
-        drawShape( allRange.start, allRange.max, 0 );// 0x0f000000 );
+        drawShape( allRange.min, allRange.max, 0 );// 0x0f000000 );
     }
     
     inline

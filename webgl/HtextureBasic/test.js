@@ -4479,31 +4479,27 @@ TrilateralTextureBasic.prototype = $extend(kitGL_glWeb_PlyUV.prototype,{
 		var sketch = new trilateral3_drawing_Sketch(this.pen,4,0);
 		sketch.width = 8;
 		this.pen.z2D = -0.1;
-		this.outlineStarRange = new trilateral3_structure_StartEnd(this.pen.paintType.get_pos() | 0,0);
+		var posMin = this.pen.paintType.get_pos() | 0;
 		this.drawStar(sketch,3);
 		this.pen.z2D = 0.2;
-		var tmp = this.pen.paintType.get_pos() - 1 | 0;
-		this.outlineStarRange.end = tmp;
-		this.nymphStarOutline = new trilateral3_drawing_Nymph(this.pen,this.outlineStarRange);
-		this.fillStarRange = new trilateral3_structure_StartEnd(this.pen.paintType.get_pos() | 0,0);
+		this.outlineStarRange = new IntIterator(posMin,this.pen.paintType.get_pos() - 1 | 0);
+		this.nymphStarOutline = trilateral3_drawing_Nymph.iterNymph(this.pen,this.outlineStarRange);
+		posMin = this.pen.paintType.get_pos() | 0;
 		trilateral3_drawing_Fill_triangulate(this.pen,sketch,1);
-		var tmp = this.pen.paintType.get_pos() - 1 | 0;
-		this.fillStarRange.end = tmp;
-		this.nymphStarFill = new trilateral3_drawing_Nymph(this.pen,this.fillStarRange);
+		this.fillStarRange = new IntIterator(posMin,this.pen.paintType.get_pos() - 1 | 0);
+		this.nymphStarFill = trilateral3_drawing_Nymph.iterNymph(this.pen,this.fillStarRange);
 		this.pen.currentColor = -16711936;
 		this.pen.z2D = -0.1;
 		var sketch = new trilateral3_drawing_Sketch(this.pen,4,3);
 		sketch.width = 8;
-		this.outlineKiwiRange = new trilateral3_structure_StartEnd(this.pen.paintType.get_pos() | 0,0);
+		posMin = this.pen.paintType.get_pos() | 0;
 		this.drawBird(sketch);
-		var tmp = this.pen.paintType.get_pos() - 1 | 0;
-		this.outlineKiwiRange.end = tmp;
-		this.nymphKiwiOutline = new trilateral3_drawing_Nymph(this.pen,this.outlineKiwiRange);
-		this.fillKiwiRange = new trilateral3_structure_StartEnd(this.pen.paintType.get_pos() | 0,0);
+		this.outlineKiwiRange = new IntIterator(posMin,this.pen.paintType.get_pos() - 1 | 0);
+		this.nymphKiwiOutline = trilateral3_drawing_Nymph.iterNymph(this.pen,this.outlineKiwiRange);
+		posMin = this.pen.paintType.get_pos() | 0;
 		trilateral3_drawing_Fill_triangulate(this.pen,sketch,0);
-		var tmp = this.pen.paintType.get_pos() - 1 | 0;
-		this.fillKiwiRange.end = tmp;
-		this.nymphKiwiFill = new trilateral3_drawing_Nymph(this.pen,this.fillKiwiRange);
+		this.fillKiwiRange = new IntIterator(posMin,this.pen.paintType.get_pos() - 1 | 0);
+		this.nymphKiwiFill = trilateral3_drawing_Nymph.iterNymph(this.pen,this.fillKiwiRange);
 		var gl = this.gl;
 		var val = [2.,0.,0.,0.,2.,0.,0.,0.,1.];
 		var uvTransform = gl.getUniformLocation(this.program,this.uvTransform);
@@ -4905,16 +4901,16 @@ TrilateralTextureBasic.prototype = $extend(kitGL_glWeb_PlyUV.prototype,{
 			aRange = null;
 		}
 		if(this.starOutlineShow) {
-			this.drawShape(this.outlineStarRange.start,this.outlineStarRange.end,this.bgStarOutline);
+			this.drawShape(this.outlineStarRange.min,this.outlineStarRange.max,this.bgStarOutline);
 		}
 		if(this.starFillShow) {
-			this.drawShape(this.fillStarRange.start,this.fillStarRange.end,this.bgStarFill);
+			this.drawShape(this.fillStarRange.min,this.fillStarRange.max,this.bgStarFill);
 		}
 		if(this.kiwiOutlineShow) {
-			this.drawShape(this.outlineKiwiRange.start,this.outlineKiwiRange.end,this.bgKiwiOutline);
+			this.drawShape(this.outlineKiwiRange.min,this.outlineKiwiRange.max,this.bgKiwiOutline);
 		}
 		if(this.kiwiFillShow) {
-			this.drawShape(this.fillKiwiRange.start,this.fillKiwiRange.end,this.bgKiwiFill);
+			this.drawShape(this.fillKiwiRange.min,this.fillKiwiRange.max,this.bgKiwiFill);
 		}
 	}
 	,shapeSelected: null
@@ -4932,7 +4928,7 @@ TrilateralTextureBasic.prototype = $extend(kitGL_glWeb_PlyUV.prototype,{
 			var ob = js_Boot.__cast(e.target , haxe_ui_components_OptionBox);
 			if(ob.get_selected()) {
 				_gthis.shapeSelected = ob.get_id();
-				haxe_Log.trace("" + ob.get_id() + " selected!",{ fileName : "TrilateralTextureBasic.hx", lineNumber : 233, className : "TrilateralTextureBasic", methodName : "sliderSetup"});
+				haxe_Log.trace("" + ob.get_id() + " selected!",{ fileName : "TrilateralTextureBasic.hx", lineNumber : 237, className : "TrilateralTextureBasic", methodName : "sliderSetup"});
 			}
 		});
 		var sliderPairUV = new HSliderPair();
@@ -5125,6 +5121,37 @@ dsHelper_flat_io_Float32Flat.set_size = function(this1,id) {
 		this1[1] = this1[0];
 	}
 	return id;
+};
+dsHelper_flat_io_Float32Flat.rangeToEnd = function(this1,starting,totalLen) {
+	var l_ = this1[1] | 0;
+	if(starting > l_ - totalLen) {
+		return false;
+	}
+	starting += 2;
+	var ending = starting + totalLen;
+	var temp = [];
+	var count = 0;
+	var _g = starting;
+	var _g1 = ending;
+	while(_g < _g1) {
+		var i = _g++;
+		temp[count] = this1[i];
+		++count;
+	}
+	var _g = starting;
+	var _g1 = l_ - 1;
+	while(_g < _g1) {
+		var i = _g++;
+		this1[i] = this1[i + totalLen];
+	}
+	var _g = 0;
+	var _g1 = totalLen;
+	while(_g < _g1) {
+		var i = _g++;
+		this1[l_ - i + 1] = temp[totalLen - i - 1];
+	}
+	temp = null;
+	return true;
 };
 var dsHelper_flatInterleave_FloatColorTriangles = {};
 dsHelper_flatInterleave_FloatColorTriangles.__properties__ = {set_cz:"set_cz",set_cy:"set_cy",get_cy:"get_cy",set_cx:"set_cx",get_cx:"get_cx",set_bz:"set_bz",set_by:"set_by",get_by:"get_by",set_bx:"set_bx",get_bx:"get_bx",set_az:"set_az",set_ay:"set_ay",get_ay:"get_ay",set_ax:"set_ax",get_ax:"get_ax"};
@@ -48718,6 +48745,10 @@ var trilateral3_drawing_Nymph = function(pen,indexRange) {
 };
 $hxClasses["trilateral3.drawing.Nymph"] = trilateral3_drawing_Nymph;
 trilateral3_drawing_Nymph.__name__ = "trilateral3.drawing.Nymph";
+trilateral3_drawing_Nymph.iterNymph = function(pen,iteratorRange) {
+	var ir = new trilateral3_structure_StartEnd(iteratorRange.min,iteratorRange.max);
+	return new trilateral3_drawing_Nymph(pen,ir);
+};
 trilateral3_drawing_Nymph.prototype = {
 	pen: null
 	,curr: null
@@ -55437,6 +55468,8 @@ trilateral3_nodule_PenPaint.prototype = {
 		var _e45 = t;
 		var _e46 = t;
 		var _e47 = t;
+		var _e48 = t;
+		var _e49 = t;
 		var paintAbstract = { triangle : function(ax_,ay_,az_,bx_,by_,bz_,cx_,cy_,cz_) {
 			return dsHelper_flatInterleave_FloatColorTrianglesUV.triangle(_e33,ax_,ay_,az_,bx_,by_,bz_,cx_,cy_,cz_);
 		}, triangleUV : function(uA_,vA_,uB_,vB_,uC_,vC_,windAdjust_) {
@@ -55527,6 +55560,43 @@ trilateral3_nodule_PenPaint.prototype = {
 			return dsHelper_flat_io_Float32Flat.get_size(_e46);
 		}, set_size : function(id) {
 			return dsHelper_flat_io_Float32Flat.set_size(_e47,id);
+		}, toStart : function(id) {
+			var starting = id * 27;
+			if(starting == 0) {
+				return false;
+			} else {
+				starting += 2;
+				var ending = starting + 27;
+				var l_ = _e48[1] | 0;
+				var temp = [];
+				var count = 0;
+				var _g = starting;
+				var _g1 = ending;
+				while(_g < _g1) {
+					var i = _g++;
+					temp[count] = _e48[i];
+					++count;
+				}
+				count = 27;
+				var _g = 0;
+				var _g1 = starting - 2;
+				while(_g < _g1) {
+					var i = _g++;
+					_e48[ending - i - 1] = _e48[starting - 1 - i];
+				}
+				count = 0;
+				var _g = 2;
+				var _g1 = 29;
+				while(_g < _g1) {
+					var i = _g++;
+					_e48[i] = temp[count];
+					++count;
+				}
+				temp = null;
+				return true;
+			}
+		}, toEnd : function(id) {
+			return dsHelper_flat_io_Float32Flat.rangeToEnd(_e49,id * 27,27);
 		}, triangleCurrent : triangleAbstract, triangleCurrentUV : triangleAbstractUV, color3current : color3Abstract};
 		this.pen = new trilateral3_drawing_Pen(paintAbstract);
 	}

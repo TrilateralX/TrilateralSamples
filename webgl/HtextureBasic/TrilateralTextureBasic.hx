@@ -42,7 +42,7 @@ import trilateral3.drawing.TriangleAbstract;
 import trilateral3.drawing.TriangleAbstractUV;
 import trilateral3.drawing.Color3Abstract;
 import trilateral3.drawing.Nymph;
-import trilateral3.shape.IndexRange;
+import trilateral3.shape.IteratorRange;
 import trilateral3.Trilateral;
 
 import dsHelper.flatInterleave.FloatColorTrianglesUV;
@@ -93,10 +93,10 @@ class TrilateralTextureBasic extends PlyUV {
     public var sliderY: Float = 0;
     public var sliderARGB: Int = 0xFFFFFFFF;
     public var sliderBgARGB: Int = 0xFFFFFFFF;
-    public var outlineStarRange: IndexRange;
-    public var fillStarRange:    IndexRange;
-    public var outlineKiwiRange: IndexRange;
-    public var fillKiwiRange:    IndexRange;
+    public var outlineStarRange: IteratorRange;
+    public var fillStarRange:    IteratorRange;
+    public var outlineKiwiRange: IteratorRange;
+    public var fillKiwiRange:    IteratorRange;
     public var penPaint = new PenPaint();
     //public var penNodule = new PenNodule();
     public function new( width: Int, height: Int ){
@@ -128,36 +128,40 @@ class TrilateralTextureBasic extends PlyUV {
         sketch.width     = 8;
         
         pen.z2D = -0.1;
-        outlineStarRange = { start: Std.int( pen.pos ), end: 0 };
+        var posMin = Std.int( pen.pos );
+        //outlineStarRange = { start: Std.int( pen.pos ), end: 0 };
         drawStar( sketch, 3 );
         pen.z2D = 0.2;
         
-        outlineStarRange.end = Std.int( pen.pos -1 );
-        nymphStarOutline = new Nymph( pen, outlineStarRange );
+        outlineStarRange = posMin...Std.int( pen.pos -1 );
+        nymphStarOutline = Nymph.iterNymph( pen, outlineStarRange );
         
-        fillStarRange = { start: Std.int( pen.pos ), end: 0 };
+        //fillStarRange = { start: Std.int( pen.pos ), end: 0 };
+        posMin = Std.int( pen.pos );
         triangulate( pen, sketch, polyK );
-        fillStarRange.end = Std.int( pen.pos -1 );
-        nymphStarFill = new Nymph( pen, fillStarRange );
+        fillStarRange = posMin...Std.int( pen.pos -1 );
+        nymphStarFill = Nymph.iterNymph( pen, fillStarRange );
         
         //pen.useTexture   = false;
         pen.currentColor = Green;
         pen.z2D = -0.1;
         var sketch       = new Sketch( pen, StyleSketch.Fine, StyleEndLine.both );
         sketch.width     = 8;
-        outlineKiwiRange = { start: Std.int( pen.pos ), end: 0 };
+        //outlineKiwiRange = { start: Std.int( pen.pos ), end: 0 };
+        posMin = Std.int( pen.pos );
         drawBird( sketch );
-        outlineKiwiRange.end = Std.int( pen.pos -1 );
-        nymphKiwiOutline = new Nymph( pen, outlineKiwiRange );
+        outlineKiwiRange = posMin...Std.int( pen.pos -1 );
+        nymphKiwiOutline = Nymph.iterNymph( pen, outlineKiwiRange );
         /*
     tess2;
     polyK;
     poly2tri;
         */
-        fillKiwiRange = { start: Std.int( pen.pos ), end: 0 };
+        //fillKiwiRange = { start: Std.int( pen.pos ), end: 0 };
+        posMin = Std.int( pen.pos );
         triangulate( pen, sketch, tess2 );
-        fillKiwiRange.end = Std.int( pen.pos -1 );
-        nymphKiwiFill = new Nymph( pen, fillKiwiRange );
+        fillKiwiRange = posMin...Std.int( pen.pos -1 );
+        nymphKiwiFill = Nymph.iterNymph( pen, fillKiwiRange );
         transformUV( gl, program, uvTransform, [ 2.,0.,0.
                                                , 0.,2.,0.
                                                , 0.,0.,1.] );
@@ -186,7 +190,7 @@ class TrilateralTextureBasic extends PlyUV {
     }
     override
     public function renderDraw(){
-        var aRange: IndexRange = 
+        var aRange: IteratorRange = 
         switch( shapeSelected ){
             case 'staroutline':
                 nymphStarOutline.dMoveXYUV( sliderX, sliderY, sliderU, sliderV );
@@ -211,10 +215,10 @@ class TrilateralTextureBasic extends PlyUV {
             default:
                 null;
         }
-        if( starOutlineShow ) drawShape( outlineStarRange.start, outlineStarRange.end, bgStarOutline );
-        if( starFillShow )    drawShape( fillStarRange.start,    fillStarRange.end, bgStarFill       );
-        if( kiwiOutlineShow ) drawShape( outlineKiwiRange.start, outlineKiwiRange.end, bgKiwiOutline );
-        if( kiwiFillShow )    drawShape( fillKiwiRange.start,    fillKiwiRange.end, bgKiwiFill       );
+        if( starOutlineShow ) drawShape( outlineStarRange.min, outlineStarRange.max, bgStarOutline );
+        if( starFillShow )    drawShape( fillStarRange.min,    fillStarRange.max, bgStarFill       );
+        if( kiwiOutlineShow ) drawShape( outlineKiwiRange.min, outlineKiwiRange.max, bgKiwiOutline );
+        if( kiwiFillShow )    drawShape( fillKiwiRange.min,    fillKiwiRange.max, bgKiwiFill       );
     }
     public var shapeSelected: String;
     public function sliderSetup(){

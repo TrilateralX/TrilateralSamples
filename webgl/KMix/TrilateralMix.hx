@@ -7,7 +7,7 @@ import kitGL.glWeb.DataGL;
 import trilateral3.drawing.Pen;
 import trilateral3.nodule.PenPaint;
 import trilateral3.nodule.PenNodule;
-import trilateral3.shape.IndexRange;
+import trilateral3.shape.IteratorRange;
 import kitGL.glWeb.ImageGL;
 import kitGL.glWeb.BufferGL;
 import trilateral3.drawing.StyleEndLine;
@@ -30,9 +30,9 @@ class TrilateralMix extends PlyMix {
     public var penTexture: Pen;
     public var penNoduleTexture = new PenPaint();
     public var theta = 0.;
-    public var firstGrad: IndexRange;
-    public var outlineStarRange: IndexRange;
-    public var fillStarRange:    IndexRange;
+    public var firstGrad: IteratorRange;
+    public var outlineStarRange: IteratorRange;
+    public var fillStarRange:    IteratorRange;
     public var bgStarOutline     = 0xFFFFFFFF;
     public var bgStarFill        = 0xFFFFFFFF;
     public var starOutlineShaper: RangeShaper;
@@ -63,21 +63,20 @@ class TrilateralMix extends PlyMix {
         penTexture = penNoduleTexture.pen;
         penTexture.useTexture   = true;
         penTexture.currentColor = Green;
-        firstGrad = { start: cast penColor.pos, end: 0 };
+        var posMin: Int = cast penColor.pos;
         penColor.multiGradient( horizontal, 0., 0., 500., 500.
                          , colors, Pen.tweenWrap( quadEaseIn ) ); 
-        firstGrad.end = cast penColor.pos;
+        firstGrad = posMin...cast penColor.pos;
                          
         sketch       = new Sketch( penTexture, StyleSketch.Fine, StyleEndLine.no );
         sketch.width     = 8;
         penTexture.z2D = -0.1;
-        outlineStarRange = { start: Std.int( penTexture.pos ), end: 0 };
+        posMin = Std.int( penTexture.pos );
         drawStar( sketch, 3 );
         penTexture.z2D = 0.2;
-        outlineStarRange.end = Std.int( penTexture.pos -1 );
-        fillStarRange = { start: Std.int( penTexture.pos ), end: 0 };
+        outlineStarRange = posMin...Std.int( penTexture.pos -1 );
         triangulate( penTexture, sketch, polyK );
-        fillStarRange.end = Std.int( penTexture.pos -1 );
+        fillStarRange = posMin...Std.int( penTexture.pos -1 );
         transformUVArr = [ 2.,0.,0.
                          , 0.,2.,0.
                          , 0.,0.,1.];
@@ -88,14 +87,15 @@ class TrilateralMix extends PlyMix {
         var colors2 = [ Violet, Indigo, Blue, Green, Yellow, 0xFF000000 + Math.round( 0xFFFFFF*Math.cos( theta/3000 )), 0xFF000000 + Math.round( 0xFFFFFF*Math.sin( theta/5000 )), Red ];
         var horizontal = true;
         penColor.pos = 0;
+        trace( 'penColor.size ' + penColor.size );
         penColor.multiGradient( horizontal, 0., 0., 500. + 100*Math.sin( theta/10), 500.
                          , colors2, Pen.tweenWrap( quadEaseIn ) ); 
         theta += 0.1;
         var dx = 20*Math.sin( theta * Math.PI/10 );
         starOutlineShaper.setXY( {x: dx, y:0. } );
-        drawColorShape( firstGrad.start, firstGrad.end );
-        drawTextureShape( outlineStarRange.start, outlineStarRange.end, bgStarOutline );
-        drawTextureShape( fillStarRange.start,    fillStarRange.end, bgStarFill       );
+        drawColorShape( firstGrad.start, firstGrad.max );
+        drawTextureShape( outlineStarRange.start, outlineStarRange.max, bgStarOutline );
+        drawTextureShape( fillStarRange.start,    fillStarRange.max, bgStarFill       );
     }
     public function drawStar( sketch: Sketch, size: Float ){
         var s = size;

@@ -6,6 +6,11 @@ function $extend(from, fields) {
 	if( fields.toString !== Object.prototype.toString ) proto.toString = fields.toString;
 	return proto;
 }
+var IntIterator = function(min,max) {
+	this.min = min;
+	this.max = max;
+};
+IntIterator.__name__ = true;
 Math.__name__ = true;
 var Std = function() { };
 Std.__name__ = true;
@@ -793,8 +798,7 @@ TrilateralGradient.prototype = $extend(kitGL_glWeb_Ply.prototype,{
 		this.penColor.paintType.set_pos(0);
 		var colors = [-11861886,-65536,-33024,-16711936];
 		var horizontal = true;
-		var firstGrad_start = this.penColor.paintType.get_pos();
-		var firstGrad_end = 0;
+		var posMin = this.penColor.paintType.get_pos();
 		var _this = this.penColor;
 		var func = trilateral3_drawing_Pen.tweenWrap(TrilateralGradient.quadEaseIn);
 		var theta = this.theta;
@@ -1432,7 +1436,7 @@ TrilateralGradient.prototype = $extend(kitGL_glWeb_Ply.prototype,{
 				}
 			}
 		}
-		firstGrad_end = this.penColor.paintType.get_pos();
+		this.firstGrad = new IntIterator(posMin,this.penColor.paintType.get_pos());
 		var colors = [-7077677,-256,-65536];
 		var _this = this.penColor;
 		var func = trilateral3_drawing_Pen.tweenWrap(TrilateralGradient.expEaseInOut);
@@ -1765,7 +1769,7 @@ TrilateralGradient.prototype = $extend(kitGL_glWeb_Ply.prototype,{
 			}
 		}
 		this.theta += 0.1;
-		this.drawShape(firstGrad_start,firstGrad_end);
+		this.drawShape(this.firstGrad.min,this.firstGrad.max);
 	}
 });
 function TrilateralGradient_main() {
@@ -1784,6 +1788,37 @@ dsHelper_flat_io_Float32Flat.set_size = function(this1,id) {
 		this1[1] = this1[0];
 	}
 	return id;
+};
+dsHelper_flat_io_Float32Flat.rangeToEnd = function(this1,starting,totalLen) {
+	var l_ = this1[1] | 0;
+	if(starting > l_ - totalLen) {
+		return false;
+	}
+	starting += 2;
+	var ending = starting + totalLen;
+	var temp = [];
+	var count = 0;
+	var _g = starting;
+	var _g1 = ending;
+	while(_g < _g1) {
+		var i = _g++;
+		temp[count] = this1[i];
+		++count;
+	}
+	var _g = starting;
+	var _g1 = l_ - 1;
+	while(_g < _g1) {
+		var i = _g++;
+		this1[i] = this1[i + totalLen];
+	}
+	var _g = 0;
+	var _g1 = totalLen;
+	while(_g < _g1) {
+		var i = _g++;
+		this1[l_ - i + 1] = temp[totalLen - i - 1];
+	}
+	temp = null;
+	return true;
 };
 var dsHelper_flatInterleave_FloatColorTriangles = {};
 dsHelper_flatInterleave_FloatColorTriangles.get_ax = function(this1) {
@@ -2482,6 +2517,8 @@ trilateral3_nodule_PenNodule.prototype = {
 		var _e34 = t;
 		var _e35 = t;
 		var _e36 = t;
+		var _e37 = t;
+		var _e38 = t;
 		var paintAbstract = { triangle : function(ax_,ay_,az_,bx_,by_,bz_,cx_,cy_,cz_) {
 			return dsHelper_flatInterleave_FloatColorTriangles.triangle(_e24,ax_,ay_,az_,bx_,by_,bz_,cx_,cy_,cz_);
 		}, cornerColors : function(colorA,colorB,colorC) {
@@ -2570,6 +2607,43 @@ trilateral3_nodule_PenNodule.prototype = {
 			return dsHelper_flat_io_Float32Flat.get_size(_e35);
 		}, set_size : function(id) {
 			return dsHelper_flat_io_Float32Flat.set_size(_e36,id);
+		}, toStart : function(id) {
+			var starting = id * 21;
+			if(starting == 0) {
+				return false;
+			} else {
+				starting += 2;
+				var ending = starting + 21;
+				var l_ = _e37[1] | 0;
+				var temp = [];
+				var count = 0;
+				var _g = starting;
+				var _g1 = ending;
+				while(_g < _g1) {
+					var i = _g++;
+					temp[count] = _e37[i];
+					++count;
+				}
+				count = 21;
+				var _g = 0;
+				var _g1 = starting - 2;
+				while(_g < _g1) {
+					var i = _g++;
+					_e37[ending - i - 1] = _e37[starting - 1 - i];
+				}
+				count = 0;
+				var _g = 2;
+				var _g1 = 23;
+				while(_g < _g1) {
+					var i = _g++;
+					_e37[i] = temp[count];
+					++count;
+				}
+				temp = null;
+				return true;
+			}
+		}, toEnd : function(id) {
+			return dsHelper_flat_io_Float32Flat.rangeToEnd(_e38,id * 21,21);
 		}, triangleCurrent : triangleAbstract, color3current : color3Abstract};
 		this.pen = new trilateral3_drawing_Pen(paintAbstract);
 		return this.pen;
