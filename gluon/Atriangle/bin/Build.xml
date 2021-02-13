@@ -93,6 +93,7 @@
   <file name="src/trilateral3/nodule/PenNodule.cpp" >
    <depend name="include/Std.h"/>
    <depend name="include/dsHelper/flat/io/_Float32Flat/Float32Flat_Impl_.h"/>
+   <depend name="include/dsHelper/flat/io/_Float32FlatDepth/Float32FlatDepth_Impl_.h"/>
    <depend name="include/dsHelper/flatInterleave/_FloatColorTriangles/FloatColorTriangles_Impl_.h"/>
    <depend name="include/haxe/Exception.h"/>
    <depend name="include/haxe/io/Bytes.h"/>
@@ -154,6 +155,35 @@
   <file name="src/trilateral3/Trilateral.cpp" >
    <depend name="include/trilateral3/Trilateral.h"/>
    <depend name="include/trilateral3/matrix/MatrixDozen.h"/>
+  </file>
+  <file name="src/sys/thread/_Thread/HaxeThread.cpp" >
+   <depend name="include/sys/thread/EventLoop.h"/>
+   <depend name="include/sys/thread/Mutex.h"/>
+   <depend name="include/sys/thread/_Thread/HaxeThread.h"/>
+  </file>
+  <file name="src/sys/thread/_Thread/Thread_Impl_.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/sys/thread/EventLoop.h"/>
+   <depend name="include/sys/thread/NoEventLoopException.h"/>
+   <depend name="include/sys/thread/_Thread/HaxeThread.h"/>
+   <depend name="include/sys/thread/_Thread/Thread_Impl_.h"/>
+  </file>
+  <file name="src/sys/thread/NoEventLoopException.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/sys/thread/NoEventLoopException.h"/>
+  </file>
+  <file name="src/sys/thread/Lock.cpp" >
+   <depend name="include/sys/thread/Lock.h"/>
+  </file>
+  <file name="src/sys/thread/_EventLoop/RegularEvent.cpp" >
+   <depend name="include/sys/thread/_EventLoop/RegularEvent.h"/>
+  </file>
+  <file name="src/sys/thread/EventLoop.cpp" >
+   <depend name="include/Sys.h"/>
+   <depend name="include/sys/thread/EventLoop.h"/>
+   <depend name="include/sys/thread/Lock.h"/>
+   <depend name="include/sys/thread/Mutex.h"/>
+   <depend name="include/sys/thread/_EventLoop/RegularEvent.h"/>
   </file>
   <file name="src/kitGL/gluon/Glwrapper.cpp" >
    <depend name="include/Std.h"/>
@@ -324,9 +354,16 @@
    <depend name="include/haxe/StackItem.h"/>
   </file>
   <file name="src/haxe/MainLoop.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/haxe/EntryPoint.h"/>
    <depend name="include/haxe/Exception.h"/>
    <depend name="include/haxe/MainEvent.h"/>
    <depend name="include/haxe/MainLoop.h"/>
+   <depend name="include/sys/thread/EventLoop.h"/>
+   <depend name="include/sys/thread/Mutex.h"/>
+   <depend name="include/sys/thread/_EventLoop/RegularEvent.h"/>
+   <depend name="include/sys/thread/_Thread/HaxeThread.h"/>
+   <depend name="include/sys/thread/_Thread/Thread_Impl_.h"/>
   </file>
   <file name="src/haxe/MainEvent.cpp" >
    <depend name="include/haxe/MainEvent.h"/>
@@ -344,12 +381,7 @@
   </file>
   <file name="src/haxe/EntryPoint.cpp" >
    <depend name="include/haxe/EntryPoint.h"/>
-   <depend name="include/haxe/MainLoop.h"/>
-   <depend name="include/sys/thread/Lock.h"/>
-   <depend name="include/sys/thread/Mutex.h"/>
-  </file>
-  <file name="src/sys/thread/Lock.cpp" >
-   <depend name="include/sys/thread/Lock.h"/>
+   <depend name="include/sys/thread/_Thread/HaxeThread.h"/>
   </file>
   <file name="src/sys/thread/Mutex.cpp" >
    <depend name="include/sys/thread/Mutex.h"/>
@@ -475,6 +507,16 @@
    <depend name="include/typedarray/ArrayBufferViewBase.h"/>
    <depend name="include/typedarray/Float32ArrayImpl.h"/>
   </file>
+  <file name="src/dsHelper/flat/io/_Float32FlatDepth/Float32FlatDepth_Impl_.cpp" >
+   <depend name="include/dsHelper/flat/io/_Float32Flat/Float32Flat_Impl_.h"/>
+   <depend name="include/dsHelper/flat/io/_Float32FlatDepth/Float32FlatDepth_Impl_.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/typedarray/ArrayBufferView.h"/>
+   <depend name="include/typedarray/ArrayBufferViewBase.h"/>
+   <depend name="include/typedarray/Float32ArrayImpl.h"/>
+  </file>
   <file name="src/dsHelper/flat/io/_Float32Flat/Float32Flat_Impl_.cpp" >
    <depend name="include/Std.h"/>
    <depend name="include/dsHelper/flat/io/_Float32Flat/Float32Flat_Impl_.h"/>
@@ -513,6 +555,9 @@
    <depend name="include/typedarray/Float32ArrayImpl.h"/>
    <depend name="include/typedarray/_BufferSource/BufferSourceType.h"/>
   </file>
+  <file name="src/Sys.cpp" >
+   <depend name="include/Sys.h"/>
+  </file>
   <file name="src/Std.cpp" >
    <depend name="include/Std.h"/>
   </file>
@@ -545,10 +590,11 @@
    <depend name="include/fracs/DifferencePreference.h"/>
    <depend name="include/trilateral3/nodule/PenNodule.h"/>
    <depend name="include/trilateral3/Trilateral.h"/>
+   <depend name="include/sys/thread/_Thread/HaxeThread.h"/>
    <depend name="include/hxGeomAlgo/PolyTools.h"/>
    <depend name="include/hxGeomAlgo/_HxPoint/HxPoint_Impl_.h"/>
+   <depend name="include/haxe/MainLoop.h"/>
    <depend name="include/haxe/Log.h"/>
-   <depend name="include/haxe/EntryPoint.h"/>
    <depend name="include/glfw/GLFWWindowSizeHandler.h"/>
    <depend name="include/glfw/GLFWMouseWheelHandler.h"/>
    <depend name="include/glfw/GLFWMouseButtonHandler.h"/>
@@ -567,6 +613,7 @@
   <file name="src/__lib__.cpp" >
    <depend name="include/_Main/Main_Fields_.h"/>
    <depend name="include/haxe/EntryPoint.h"/>
+   <depend name="include/sys/thread/_Thread/Thread_Impl_.h"/>
   </file>
 </files>
 <files id="__main__">
@@ -574,6 +621,7 @@
   <file name="src/__main__.cpp" >
    <depend name="include/_Main/Main_Fields_.h"/>
    <depend name="include/haxe/EntryPoint.h"/>
+   <depend name="include/sys/thread/_Thread/Thread_Impl_.h"/>
   </file>
 </files>
 <files id="__resources__">
@@ -582,6 +630,8 @@
 </files>
 <set name="HAXE_OUTPUT" value="Main" />
 <include name="${HXCPP}/build-tool/BuildCommon.xml"/>
+<include name="${HXCPP}/src/hx/libs/std/Build.xml"/>
+<include name="${HXCPP}/src/hx/libs/std/Build.xml"/>
 <set name="LINC_GLFW_PATH" value="/usr/local/lib/haxeLibrary/linc_glfw/git/"/>
 <include name="${LINC_GLFW_PATH}linc/linc_glfw.xml" />
 

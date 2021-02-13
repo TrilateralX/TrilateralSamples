@@ -341,7 +341,7 @@ kitGL_glWeb_PlyMix.prototype = {
 		};
 	}
 	,draw: function() {
-		haxe_Log.trace("parent draw",{ fileName : "kitGL/glWeb/PlyMix.js.hx", lineNumber : 148, className : "kitGL.glWeb.PlyMix", methodName : "draw"});
+		haxe_Log.trace("parent draw",{ fileName : "kitGL/glWeb/PlyMix.js.hx", lineNumber : 149, className : "kitGL.glWeb.PlyMix", methodName : "draw"});
 	}
 	,drawTextureShape: function(start,end,bgColor) {
 		var modeChange = this.setProgramMode(2);
@@ -407,17 +407,17 @@ TrilateralMix.quadEaseIn = function(t,b,c,d) {
 TrilateralMix.__super__ = kitGL_glWeb_PlyMix;
 TrilateralMix.prototype = $extend(kitGL_glWeb_PlyMix.prototype,{
 	draw: function() {
-		haxe_Log.trace("draw ",{ fileName : "TrilateralMix.hx", lineNumber : 49, className : "TrilateralMix", methodName : "draw"});
+		haxe_Log.trace("draw ",{ fileName : "TrilateralMix.hx", lineNumber : 71, className : "TrilateralMix", methodName : "draw"});
 		this.img = this.imageLoader.imageArr[0];
 		var w = this.img.width;
 		var h = this.img.height;
 		this.dataGLcolor = { get_data : ($_=this.penNoduleColor,$bind($_,$_.get_data)), get_size : ($_=this.penNoduleColor,$bind($_,$_.get_size))};
 		this.dataGLtexture = { get_data : ($_=this.penNoduleTexture,$bind($_,$_.get_data)), get_size : ($_=this.penNoduleTexture,$bind($_,$_.get_size))};
 		this.penColor = this.penNoduleColor.pen;
-		this.penColor.currentColor = -65536;
+		this.penColor.currentColor = -1;
 		this.penTexture = this.penNoduleTexture.pen;
 		this.penTexture.useTexture = true;
-		this.penTexture.currentColor = -16711936;
+		this.penTexture.currentColor = -1;
 		var posMin = this.penColor.paintType.get_pos();
 		var _this = this.penColor;
 		var horizontal_ = this.horizontal;
@@ -1072,7 +1072,7 @@ TrilateralMix.prototype = $extend(kitGL_glWeb_PlyMix.prototype,{
 		var colors2 = [-7077677,-11861886,-16776961,-16711936,-256,-16777216 + Math.round(16777215 * Math.cos(this.theta / 3000)),-16777216 + Math.round(16777215 * Math.sin(this.theta / 5000)),-65536];
 		var horizontal = true;
 		this.penColor.paintType.set_pos(0);
-		haxe_Log.trace("penColor.size " + this.penColor.paintType.get_size(),{ fileName : "TrilateralMix.hx", lineNumber : 90, className : "TrilateralMix", methodName : "renderDraw"});
+		haxe_Log.trace("penColor.size " + this.penColor.paintType.get_size(),{ fileName : "TrilateralMix.hx", lineNumber : 101, className : "TrilateralMix", methodName : "renderDraw"});
 		var _this = this.penColor;
 		var wid_ = 500. + 100 * Math.sin(this.theta / 10);
 		var func = trilateral3_drawing_Pen.tweenWrap(TrilateralMix.quadEaseIn);
@@ -2081,8 +2081,8 @@ dsHelper_flat_io_Float32Flat.set_size = function(this1,id) {
 	}
 	return id;
 };
-dsHelper_flat_io_Float32Flat.rangeToEnd = function(this1,starting,totalLen,section) {
-	starting += 2;
+var dsHelper_flat_io_Float32FlatDepth = {};
+dsHelper_flat_io_Float32FlatDepth.rangeToEnd = function(this1,starting,totalLen,section) {
 	var ending = starting + totalLen;
 	var temp = [];
 	var count = 0;
@@ -2090,23 +2090,25 @@ dsHelper_flat_io_Float32Flat.rangeToEnd = function(this1,starting,totalLen,secti
 	var _g1 = ending;
 	while(_g < _g1) {
 		var i = _g++;
-		temp[count++] = this1[i];
+		temp[count++] = this1[i + 2];
 	}
 	var left = section * dsHelper_flat_io_Float32Flat.get_size(this1) - ending;
 	var _g = 0;
 	var _g1 = left;
 	while(_g < _g1) {
 		var i = _g++;
-		this1[starting + i] = this1[ending + i];
+		var v = this1[ending + i + 2];
+		this1[starting + i + 2] = v;
 	}
-	var last = section * dsHelper_flat_io_Float32Flat.get_size(this1) + 2;
+	var last = section * dsHelper_flat_io_Float32Flat.get_size(this1);
 	var reserveTop = last - totalLen;
 	count = 0;
 	var _g = reserveTop;
 	var _g1 = last;
 	while(_g < _g1) {
 		var i = _g++;
-		this1[i] = temp[count++];
+		var v = temp[count++];
+		this1[i + 2] = v;
 	}
 	temp = null;
 	return true;
@@ -2506,6 +2508,11 @@ haxe_ValueException.prototype = $extend(haxe_Exception.prototype,{
 		return this.value;
 	}
 });
+var haxe_ds_Either = $hxEnums["haxe.ds.Either"] = { __ename__:"haxe.ds.Either",__constructs__:null
+	,Left: ($_=function(v) { return {_hx_index:0,v:v,__enum__:"haxe.ds.Either",toString:$estr}; },$_._hx_name="Left",$_.__params__ = ["v"],$_)
+	,Right: ($_=function(v) { return {_hx_index:1,v:v,__enum__:"haxe.ds.Either",toString:$estr}; },$_._hx_name="Right",$_.__params__ = ["v"],$_)
+};
+haxe_ds_Either.__constructs__ = [haxe_ds_Either.Left,haxe_ds_Either.Right];
 var haxe_ds_StringMap = function() {
 	this.h = Object.create(null);
 };
@@ -5578,10 +5585,26 @@ var kitGL_glWeb_DivertTrace = function(left_) {
 	style.zIndex = "99";
 	style.overflow = "auto";
 	haxe_Log.trace = $bind(this,this.myTrace);
+	window.onerror = $bind(this,this.myError);
 };
 kitGL_glWeb_DivertTrace.__name__ = true;
 kitGL_glWeb_DivertTrace.prototype = {
-	myTrace: function(v,inf) {
+	myError: function(msg,url,lineNo,columnNo,errorObj) {
+		var arr = url.split("/");
+		var file = arr[arr.length - 2] + " " + arr[arr.length - 1];
+		var str = this.textStyle0;
+		str += "ERROR: " + file + " ( " + (lineNo == null ? "null" : "" + lineNo) + ": " + (columnNo == null ? "null" : "" + columnNo) + " )";
+		str += "</span>";
+		str += "<br> - ";
+		str += this.textStyle1;
+		str += Std.string(msg);
+		str += "</span>";
+		str += "<br>";
+		this.traceString += str;
+		this.traceDiv.innerHTML = this.traceString;
+		return false;
+	}
+	,myTrace: function(v,inf) {
 		if(Std.string(v) == "") {
 			return;
 		}
@@ -5694,12 +5717,25 @@ kitGL_glWeb_Sheet.prototype = {
 		this.canvasGL = window.document.createElement("canvas");
 		this.canvasGL.width = this.width;
 		this.canvasGL.height = this.height;
+		window.document.body.style.overflow = "hidden";
+		window.document.body.style.position = "fixed";
+		var bodyEL = window.document.body;
+		var style = bodyEL.style;
+		style.paddingLeft = Std.string(0 + "px");
+		style.paddingTop = Std.string(0 + "px");
+		style.left = Std.string(0 + "px");
+		style.top = Std.string(0 + "px");
+		style.marginLeft = Std.string(0 + "px");
+		style.marginTop = Std.string(0 + "px");
+		style.position = "absolute";
 		this.domGL = this.canvasGL;
 		var style = this.domGL.style;
 		style.paddingLeft = Std.string(0 + "px");
 		style.paddingTop = Std.string(0 + "px");
 		style.left = Std.string(0 + "px");
 		style.top = Std.string(0 + "px");
+		style.marginLeft = Std.string(0 + "px");
+		style.marginTop = Std.string(0 + "px");
 		style.position = "absolute";
 		if(autoChild) {
 			window.document.body.appendChild(this.canvasGL);
@@ -5713,6 +5749,8 @@ kitGL_glWeb_Sheet.prototype = {
 		style.paddingTop = Std.string(0 + "px");
 		style.left = Std.string(0 + "px");
 		style.top = Std.string(0 + "px");
+		style.marginLeft = Std.string(0 + "px");
+		style.marginTop = Std.string(0 + "px");
 		style.position = "absolute";
 		if(autoChild) {
 			window.document.body.appendChild(this.canvas2D);
@@ -13959,6 +13997,7 @@ trilateral3_nodule_PenNodule.prototype = {
 		var _e36 = t;
 		var _e37 = t;
 		var _e38 = t;
+		var _e39 = t;
 		var paintAbstract = { triangle : function(ax_,ay_,az_,bx_,by_,bz_,cx_,cy_,cz_) {
 			return dsHelper_flatInterleave_FloatColorTriangles.triangle(_e24,ax_,ay_,az_,bx_,by_,bz_,cx_,cy_,cz_);
 		}, cornerColors : function(colorA,colorB,colorC) {
@@ -14053,7 +14092,6 @@ trilateral3_nodule_PenNodule.prototype = {
 			if(starting == 0) {
 				return false;
 			} else {
-				starting += 2;
 				var ending = starting + totalLen;
 				var temp = [];
 				var count = 0;
@@ -14061,29 +14099,51 @@ trilateral3_nodule_PenNodule.prototype = {
 				var _g1 = ending;
 				while(_g < _g1) {
 					var i = _g++;
-					temp[count] = _e37[i];
+					temp[count] = _e37[i + 2];
 					++count;
 				}
 				count = totalLen;
 				var _g = 0;
-				var _g1 = starting - 2;
+				var _g1 = starting;
 				while(_g < _g1) {
 					var i = _g++;
-					_e37[ending - i - 1] = _e37[starting - 1 - i];
+					var v = _e37[starting - 1 - i + 2];
+					_e37[ending - 1 - i + 2] = v;
 				}
 				count = 0;
-				var _g = 2;
-				var _g1 = totalLen + 2;
+				var _g = 0;
+				var _g1 = totalLen;
 				while(_g < _g1) {
 					var i = _g++;
-					_e37[i] = temp[count];
+					var v = temp[count - 2];
+					_e37[i + 2] = v;
 					++count;
 				}
 				temp = null;
 				return true;
 			}
 		}, toEnd : function(id,len) {
-			return dsHelper_flat_io_Float32Flat.rangeToEnd(_e38,id * 21,21 * len | 0,21 * dsHelper_flat_io_Float32Flat.get_size(_e38));
+			return dsHelper_flat_io_Float32FlatDepth.rangeToEnd(_e38,id * 21,21 * len | 0,21 * dsHelper_flat_io_Float32Flat.get_size(_e38));
+		}, swap : function(id0,id1,len) {
+			var start0 = id0 * 21;
+			var start1 = id1 * 21;
+			var totalLen = 21 * len | 0;
+			if(start0 + totalLen > dsHelper_flat_io_Float32Flat.get_size(_e39) && start1 + totalLen > dsHelper_flat_io_Float32Flat.get_size(_e39)) {
+				var temp0;
+				var temp1;
+				var _g = 0;
+				var _g1 = totalLen;
+				while(_g < _g1) {
+					var i = _g++;
+					temp0 = _e39[start0 + i + 2];
+					temp1 = _e39[start1 + i + 2];
+					_e39[start0 + i + 2] = temp1;
+					_e39[start1 + i + 2] = temp0;
+				}
+				return true;
+			} else {
+				return false;
+			}
 		}, triangleCurrent : triangleAbstract, color3current : color3Abstract};
 		this.pen = new trilateral3_drawing_Pen(paintAbstract);
 		return this.pen;
@@ -14386,6 +14446,7 @@ trilateral3_nodule_PenPaint.prototype = {
 		var _e47 = t;
 		var _e48 = t;
 		var _e49 = t;
+		var _e50 = t;
 		var paintAbstract = { triangle : function(ax_,ay_,az_,bx_,by_,bz_,cx_,cy_,cz_) {
 			return dsHelper_flatInterleave_FloatColorTrianglesUV.triangle(_e33,ax_,ay_,az_,bx_,by_,bz_,cx_,cy_,cz_);
 		}, triangleUV : function(uA_,vA_,uB_,vB_,uC_,vC_,windAdjust_) {
@@ -14482,7 +14543,6 @@ trilateral3_nodule_PenPaint.prototype = {
 			if(starting == 0) {
 				return false;
 			} else {
-				starting += 2;
 				var ending = starting + totalLen;
 				var temp = [];
 				var count = 0;
@@ -14490,29 +14550,51 @@ trilateral3_nodule_PenPaint.prototype = {
 				var _g1 = ending;
 				while(_g < _g1) {
 					var i = _g++;
-					temp[count] = _e48[i];
+					temp[count] = _e48[i + 2];
 					++count;
 				}
 				count = totalLen;
 				var _g = 0;
-				var _g1 = starting - 2;
+				var _g1 = starting;
 				while(_g < _g1) {
 					var i = _g++;
-					_e48[ending - i - 1] = _e48[starting - 1 - i];
+					var v = _e48[starting - 1 - i + 2];
+					_e48[ending - 1 - i + 2] = v;
 				}
 				count = 0;
-				var _g = 2;
-				var _g1 = totalLen + 2;
+				var _g = 0;
+				var _g1 = totalLen;
 				while(_g < _g1) {
 					var i = _g++;
-					_e48[i] = temp[count];
+					var v = temp[count - 2];
+					_e48[i + 2] = v;
 					++count;
 				}
 				temp = null;
 				return true;
 			}
 		}, toEnd : function(id,len) {
-			return dsHelper_flat_io_Float32Flat.rangeToEnd(_e49,id * 27,27 * len | 0,27);
+			return dsHelper_flat_io_Float32FlatDepth.rangeToEnd(_e49,id * 27,27 * len | 0,27);
+		}, swap : function(id0,id1,len) {
+			var start0 = id0 * 21;
+			var start1 = id1 * 21;
+			var totalLen = 21 * len | 0;
+			if(start0 + totalLen > dsHelper_flat_io_Float32Flat.get_size(_e50) && start1 + totalLen > dsHelper_flat_io_Float32Flat.get_size(_e50)) {
+				var temp0;
+				var temp1;
+				var _g = 0;
+				var _g1 = totalLen;
+				while(_g < _g1) {
+					var i = _g++;
+					temp0 = _e50[start0 + i + 2];
+					temp1 = _e50[start1 + i + 2];
+					_e50[start0 + i + 2] = temp1;
+					_e50[start1 + i + 2] = temp0;
+				}
+				return true;
+			} else {
+				return false;
+			}
 		}, triangleCurrent : triangleAbstract, triangleCurrentUV : triangleAbstractUV, color3current : color3Abstract};
 		this.pen = new trilateral3_drawing_Pen(paintAbstract);
 	}
@@ -14544,17 +14626,21 @@ var trilateral3_reShape_RangeShaper = function(pen,iteratorRange,wid,hi) {
 	while(_g_min < _g_max) {
 		var i = _g_min++;
 		pen.paintType.set_pos(i);
-		if(this.tri.get_x() < this.px) {
-			this.px = this.tri.get_x();
+		var _this = this.tri;
+		if(_this.curr.get_x() * _this.wid + _this.wid < this.px) {
+			var _this1 = this.tri;
+			this.px = _this1.curr.get_x() * _this1.wid + _this1.wid;
 		}
-		if(this.tri.get_y() < this.py) {
-			this.py = this.tri.get_y();
+		var _this2 = this.tri;
+		if(-(_this2.curr.get_y() * _this2.hi - _this2.hi) < this.py) {
+			var _this3 = this.tri;
+			this.py = -(_this3.curr.get_y() * _this3.hi - _this3.hi);
 		}
-		if(this.tri.get_u() < this.pu) {
-			this.pu = this.tri.get_u();
+		if(-this.tri.currUV.get_u() * 1000 < this.pu) {
+			this.pu = -this.tri.currUV.get_u() * 1000;
 		}
-		if(this.tri.get_v() < this.pv) {
-			this.pv = this.tri.get_v();
+		if(-this.tri.currUV.get_v() * 1000 < this.pv) {
+			this.pv = -this.tri.currUV.get_v() * 1000;
 		}
 	}
 };
@@ -14569,8 +14655,16 @@ trilateral3_reShape_RangeShaper.prototype = {
 		while(_g_min < _g_max) {
 			var i = _g_min++;
 			this.pen.paintType.set_pos(i);
-			this.tri.set_x(this.tri.get_x() + dx);
-			this.tri.set_y(this.tri.get_y() + dy);
+			var _this = this.tri;
+			var _this1 = this.tri;
+			var val = _this1.curr.get_x() * _this1.wid + _this1.wid + dx;
+			var val_ = (val - _this.wid) / _this.wid;
+			_this.curr.set_x(val_);
+			var _this2 = this.tri;
+			var _this3 = this.tri;
+			var val1 = -(_this3.curr.get_y() * _this3.hi - _this3.hi) + dy;
+			var val_1 = -(val1 - _this2.wid) / _this2.wid;
+			_this2.curr.set_y(val_1);
 		}
 		this.px = xy.x;
 		this.py = xy.y;
@@ -14591,30 +14685,6 @@ var trilateral3_reShape_TrianglesShaper = function(pen,wid,hi) {
 	this.curr3color = pen.paintType.color3current;
 };
 trilateral3_reShape_TrianglesShaper.__name__ = true;
-trilateral3_reShape_TrianglesShaper.prototype = {
-	get_x: function() {
-		return this.curr.get_x() * this.wid + this.wid;
-	}
-	,set_x: function(val) {
-		var val_ = (val - this.wid) / this.wid;
-		this.curr.set_x(val_);
-		return val;
-	}
-	,get_y: function() {
-		return -(this.curr.get_y() * this.hi * this.hi);
-	}
-	,set_y: function(val) {
-		var val_ = -(val - this.wid) / this.wid;
-		this.curr.set_y(val_);
-		return val;
-	}
-	,get_u: function() {
-		return -this.currUV.get_u() * 1000;
-	}
-	,get_v: function() {
-		return -this.currUV.get_v() * 1000;
-	}
-};
 var trilateral3_shape_IntIterStart = function(min_,max_) {
 	this.start = min_;
 	this.max = max_;

@@ -56,7 +56,7 @@ class TrilateralSliderPuzzle extends PlyMix {
     var colors                      = [ Violet, Indigo, Blue, Green, Yellow, Orange, Red, Red ];
     var horizontal                  = true;
     public var sketch:              Sketch;
-    var pixelRatio:                 Float;
+    //var pixelRatio:                 Float;
     var wasHit:                     Bool = true;
     var ratio:                      Float;
     var nW:                         Int = 7;
@@ -69,7 +69,7 @@ class TrilateralSliderPuzzle extends PlyMix {
     public
     function new( width: Int, height: Int ){
         super( width, height );
-        pixelRatio = Browser.window.devicePixelRatio;
+        //pixelRatio = Browser.window.devicePixelRatio;
         trace( 'draw' );
         imageLoader.loadEncoded( [ TableCloth.png ],[ 'tableCloth' ] );
         //imageLoader.loadEncoded( [ HaxeLogo.png ],[ 'haxeLogo' ] );
@@ -77,6 +77,11 @@ class TrilateralSliderPuzzle extends PlyMix {
     inline
     function showImageOnCanvas( img: Image, wid: Int, hi: Int ){
         mainSheet.cx.drawImage( img, 0, 0, wid, hi );
+    }
+    inline
+    function setupDrawingPens(){
+        setupNoduleBuffers();
+        penInits();
     }
     // connects data buffers to pen drawing.
     inline
@@ -104,18 +109,22 @@ class TrilateralSliderPuzzle extends PlyMix {
         var w            = img.width;
         var h            = img.height;
         #if MsliderPuzzle_showImageOnCanvas showImageOnCanvas( img, w, h ); #end
-        setupNoduleBuffers();
-        penInits();
-        ratio = 262/371;
+        setupDrawingPens();
+        
         //nW = 1;
         //nH = 1;
+        //ratio = 400/300;
+        ratio = 262/371;
         dw = 1000/nW;
         dh = 1000*ratio/nH;
-        //ratio = 400/300;
+        
         quadDepth = new QuadDepth( penTexture );
         quadDepth.space = 1;
         quadDepth.grid( 100, 200, dw, dh, nW, nH );
-        mouseDownSetup();
+        mainSheet.mouseDownSetup();
+        mainSheet.mouseDownXY = mouseDownXY;
+        mainSheet.mouseUpXY   = mouseUpXY;
+        mainSheet.mouseMoveXY = mouseMoveXY;
         keyDownSetup();
         #if MsliderPuzzle_showCheckerboard checkerBoard(); #end
         //traceLayout();
@@ -149,9 +158,12 @@ class TrilateralSliderPuzzle extends PlyMix {
         doc.onkeydown = keyDown;
     }
     inline
+    function keyboardInt( e: KeyboardEvent ){
+        return mainSheet.keyboardInt( e );
+    }
+    inline
     function keyDown( e: KeyboardEvent ) {
-        e.preventDefault();
-        var keyCode = e.keyCode;
+        var keyCode = keyboardInt( e );
         if( movePiece ) return;
         if( keyCode == KeyboardEvent.DOM_VK_BACK_SPACE ){
             step = 0.07;
@@ -269,6 +281,7 @@ class TrilateralSliderPuzzle extends PlyMix {
             false;
         }
     }
+    /*
     inline
     function mouseDownSetup(){
         var body = Browser.document.body;
@@ -290,6 +303,14 @@ class TrilateralSliderPuzzle extends PlyMix {
         var body = Browser.document.body;
         body.onmousemove = mouseMove;
     }
+    */
+    /*
+    inline
+    function mouseXY( e: Event ): XY {
+        return mainSheet.mouseXY( e );
+    }
+    */
+    /*
     inline
     function mouseXY( e: Event ): XY {
         var p: MouseEvent = cast e;
@@ -303,29 +324,30 @@ class TrilateralSliderPuzzle extends PlyMix {
         var y = xy.y * pixelRatio;
         return { x: x, y: y };
     }
+    */
     var last = 16;
     var tempX: Float;
     var tempY: Float;
-    public function mouseDown( e: Event ){
+    public function mouseDownXY( xy: XY ){
         if( movePiece ) return;
-        var mxy = mouseXY( e );
         movePiece = true;
         step = 0.06;
         /* #if trilateral_hitDebug 
               var dist = quadDepth.distHit( mxy.x, mxy.y );
               trace( dist ); #end */
-        hitTile( mxy );
+        hitTile( xy );
     }
+    
     public
-    function mouseUp( e: Event ){
-        mouseUpSetup();
+    function mouseUpXY( xy: XY ){
+        mainSheet.mouseDragStop();
     }
-    public function mouseMove( e: Event ){
+    
+    public function mouseMoveXY( xy: XY ){
         if( movePiece ) return;
-        var mxy = mouseXY( e );
         if( wasHit ) {
-            var px = mxy.x - tempX;
-            var py = mxy.y - tempY;
+            var px = xy.x - tempX;
+            var py = xy.y - tempY;
             quadDepth.setXY( itemCounter, px, py );
         }
     }
@@ -334,10 +356,10 @@ class TrilateralSliderPuzzle extends PlyMix {
         var results = quadDepth.fullHit( mxy.x, mxy.y );
         wasHit = results[0] != null;
         if( wasHit ) {
-            mouseDownDisable();
+            mainSheet.mouseDownDisable();
             var countNo = results[ 0 ]; // since results are in depth order.    
             moveTile( countNo, true, mxy );
-            mouseMoveSetup();
+            mainSheet.mouseMoveSetup();
         }
     }
     inline

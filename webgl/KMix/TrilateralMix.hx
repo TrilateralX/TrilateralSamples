@@ -44,6 +44,28 @@ class TrilateralMix extends PlyMix {
         trace( 'draw' );
         imageLoader.loadEncoded( [ HaxeLogo.png ],[ 'haxelogo' ] );
     }
+    inline
+    function setupDrawingPens(){
+        setupNoduleBuffers();
+        penInits();
+    }
+    // connects data buffers to pen drawing.
+    inline
+    function setupNoduleBuffers(){
+        dataGLcolor   = { get_data: penNoduleColor.get_data
+                        , get_size: penNoduleColor.get_size };
+        dataGLtexture = { get_data: penNoduleTexture.get_data
+                        , get_size: penNoduleTexture.get_size };
+    }
+    inline
+    function penInits(){
+        penColor = penNoduleColor.pen;
+        penColor.currentColor = 0xFFFFFFFF;
+        penTexture = penNoduleTexture.pen;
+        penTexture.useTexture   = true;
+        penTexture.currentColor = 0xffFFFFFF;
+    }
+    
     override
     public function draw(){
         trace( 'draw ');
@@ -51,18 +73,7 @@ class TrilateralMix extends PlyMix {
         var w            = img.width;
         var h            = img.height;
         //mainSheet.cx.drawImage( img, 0, 0, w, h );  // this line should not be needed!!
-        
-        
-        dataGLcolor   = { get_data: penNoduleColor.get_data, get_size: penNoduleColor.get_size };
-        dataGLtexture = { get_data: penNoduleTexture.get_data, get_size: penNoduleTexture.get_size };
-        
-        penColor = penNoduleColor.pen;
-        penColor.currentColor = Red;
-        
-        
-        penTexture = penNoduleTexture.pen;
-        penTexture.useTexture   = true;
-        penTexture.currentColor = Green;
+        setupDrawingPens();
         var posMin: Int = cast penColor.pos;
         penColor.multiGradient( horizontal, 0., 0., 500., 500.
                          , colors, Pen.tweenWrap( quadEaseIn ) ); 

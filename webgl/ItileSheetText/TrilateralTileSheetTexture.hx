@@ -5,6 +5,7 @@ import js.html.Element;
 
 import kitGL.glWeb.PlyUV;
 import kitGL.glWeb.Ply;
+import kitGL.glWeb.PlyMix;
 import kitGL.glWeb.DataGL;
 import kitGL.glWeb.ImageGL;
 import js.Browser;
@@ -54,11 +55,17 @@ function main(){
     new TrilateralTextureBasic( 1000, 1000 );
     var divertTrace = new DivertTrace();
 }
-class TrilateralTextureBasic extends PlyUV {
-    public var nymphLetters:     Nymph;
-    public var pen: Pen;
+class TrilateralTextureBasic extends PlyMix {
+    public var penColor: Pen;
+    public var penNoduleColor = new PenNodule();
+    public var penTexture: Pen;
+    public var penNoduleTexture = new PenPaint();
+    public var fontImgWidth   = 562;
+    public var fontImgHeight  = 599;
+    public var fontImgRez     = 96;
+    public var fontImgColumns = 10;
+    public var fontImgCol     = 10;
     public var allRange:         IteratorRange;
-    public var penPaint          = new PenPaint();
     var scale                    = 2;
     public function new( width: Int, height: Int ){
         super( width, height );
@@ -71,62 +78,85 @@ class TrilateralTextureBasic extends PlyUV {
         this.img = img;
         return img;
     }
+    inline
+    function setupDrawingPens(){
+        setupNoduleBuffers();
+        penInits();
+    }
+    // connects data buffers to pen drawing.
+    inline
+    function setupNoduleBuffers(){
+        dataGLcolor   = { get_data: penNoduleColor.get_data
+                        , get_size: penNoduleColor.get_size };
+        dataGLtexture = { get_data: penNoduleTexture.get_data
+                        , get_size: penNoduleTexture.get_size };
+    }
+    inline
+    function penInits(){
+        penColor = penNoduleColor.pen;
+        penColor.currentColor = 0xFFFFFFFF;
+        penTexture = penNoduleTexture.pen;
+        penTexture.useTexture   = true;
+        penTexture.currentColor = 0xFF000000;
+    }
+    
     override
     public function draw(){
-        
         img =  imageLoader.imageArr[ 0 ];
         var w            = img.width;
         var h            = img.height;
-        //mainSheet.cx.drawImage( img, 0, 0, w, h );  // this line should not be needed!!
-        dataGL           = { get_data: penPaint.get_data
-                           , get_size: penPaint.get_size };
-        pen              = penPaint.pen;
-        var start = pen.pos;
-        pen.useTexture   = true;
-        pen.currentColor = 0xff000000;//
-        
-        var sketch       = new Sketch( pen, StyleSketch.Fine, StyleEndLine.no );
+        setupDrawingPens();
+        var start = penTexture.pos;
+        var sketch       = new Sketch( penTexture, StyleSketch.Fine, StyleEndLine.no );
         sketch.width     = 8;
-        pen.z2D = -0.1;
-        var posMin = cast pen.pos;
+        penTexture.z2D = -0.1;
+        var posMin = cast penTexture.pos;
         var inputStr = 'The quick brown fox jumps over the lazy dog';
         letterGrid( img, inputStr );
-        allRange = ( posMin + 0 )...(Std.int( pen.pos ) - 1);
-        //allRange2 = { start: allRange.min, end: allRange.max };
-        //nymphLetters = new Nymph( pen, allRange2 );
-        nymphLetters = Nymph.iterNymph( pen, allRange );
+        allRange = ( posMin + 0 )...(Std.int( penTexture.pos ) - 1);
         var count = 0;
         var val: Float;
-        var curr = pen.triangleCurrent;
-        var letterSpace = 40/scale;// 80;
+        var curr = penTexture.triangleCurrent;
+        var letterSpace = 40/scale;
+        
         for( i in allRange ){
              count = Math.floor( i/2 );
-             pen.pos = i;
+             penTexture.pos = i;
              val = 100 + letterSpace*count;
              curr.x = (val-1000)/1000;
              val = 500;
              curr.y = -(val-1000)/1000;
         }
-        transformUV( gl, program, uvTransform, [ scale*2.,0.,0.
-                                               , 0.,scale*2.,0.
-                                               , 0.,0.,1.] );
+        transformUVArr = [ scale*2.,0.,0.
+                         , 0.,scale*2.,0.
+                         , 0.,0.,1.];
     }
     var theta = 0.;
     //var allRange2: IndexRange;
     override
     public function renderDraw(){
+        trace('renderDraw');
         //nymphLetters.setColor( 0xFF000000 + Math.round( 0xFF*theta ) );
-        var curr = pen.triangleCurrent;
+        var curr = penTexture.triangleCurrent;
         var val = 0.;
+        var thetaStart = theta;
         for( i in allRange ){
-             pen.pos = i;
+             penTexture.pos = i;
              val = 500 + 20* Math.sin( theta );
              curr.y = -(val-1000)/1000;
+             //if( i+1 % 2 == 0 ) 
              theta += Math.PI/10;
         }
-        drawShape( allRange.start, allRange.max, 0 );// 0x0f000000 );
+        theta = thetaStart + Math.PI/10;
+        //drawShape( allRange.start, allRange.max, 0 );// 0x0f000000 );
+        drawTextureShape( allRange.start, allRange.max, 0 );
+        tempHackFix();
     }
     
+    public function tempHackFix(){
+        // need to work out why the color mode needs to be set each frame
+        drawColorShape( 0, 0 );
+    }
     inline
     function letterGrid( img: Image, letter: String ){
         var noW = 10;
@@ -149,8 +179,8 @@ class TrilateralTextureBasic extends PlyUV {
             var B = { x: dx + dw, y: dy };
             var C = { x: dx + dw, y: dy + dh - 4 };
             var D = { x: dx,         y: dy + dh - 4}
-            pen.triangle2DFill( A.x, A.y, B.x, B.y, D.x, D.y );
-            pen.triangle2DFill( B.x, B.y, C.x, C.y, D.x, D.y );
+            penTexture.triangle2DFill( A.x, A.y, B.x, B.y, D.x, D.y );
+            penTexture.triangle2DFill( B.x, B.y, C.x, C.y, D.x, D.y );
         }
     }
 }

@@ -46,7 +46,8 @@ class TrilateralGradient extends Ply {
         penColor.multiGradient( false, 0., 0., 500., 500.
                       , colors, Pen.tweenWrap( expEaseInOut ), 0, 350, 350 );
         theta += 0.1;
-        drawShape( cast firstGrad.min, cast firstGrad.max );
+        var allGrad: IteratorRange = posMin...cast penColor.pos;
+        drawShape( cast allGrad.start, cast allGrad.max );
     }
     public static function quadEaseIn( t: Float, b: Float, c: Float, d: Float ): Float {
         return c * ( t /= d ) * t + b;
