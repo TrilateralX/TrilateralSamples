@@ -2,6 +2,7 @@ package;
 // Color pallettes
 import pallette.simple.QuickARGB;
 import kitGL.glWeb.Ply;
+import kitGL.glWeb.PlyMix;
 import kitGL.glWeb.DataGL;
 // SVG path parser
 import justPath.*;
@@ -15,31 +16,38 @@ import trilateral3.drawing.StyleSketch;
 import trilateral3.drawing.Fill;
 import trilateral3.drawing.Pen;
 import trilateral3.geom.FlatColorTriangles;
-import trilateral3.nodule.PenNodule;
+import trilateral3.nodule.PenColor;
 // To trace on screen
 import kitGL.glWeb.DivertTrace;
 
 function main(){
-    new TrilateralSVG( 1000, 1000 );
     var divertTrace = new DivertTrace();
+    new TrilateralSVG( 1000, 1000 );
+    
     trace("TrilateralSVG example");
 }
 class TrilateralSVG extends Ply {
     var quadtest_d = "M200,300 Q400,50 600,300 T1000,300";
     var cubictest_d = "M100,200 C100,100 250,100 250,200S400,300 400,200";
     public var pen: Pen;
-    public var penNodule = new PenNodule();
-    public function new( width: Int, height: Int ){
-        super( width, height );
+    public var penColor = new PenColor();
+    public function new( width: Int, height: Int, ?animate: Bool ){
+        super( width, height, false );
     }
+    var p0: Int;
+    var p1: Int;
     override
     public function draw(){
-        dataGL = { get_data: penNodule.get_data, get_size: penNodule.get_size };
-        pen = penNodule.pen;
+        trace('draw');
+        dataGLcolor   = { get_data: penColor.get_data
+                        , get_size: penColor.get_size };
+        pen = penColor.pen;
         pen.currentColor = Blue;
+        p0 = cast pen.pos;
         cubicSVG();
         pen.currentColor = Blue;
         quadSVG();
+        p1 = cast pen.pos;
     }
     function cubicSVG(){
         var sketch = new Sketch( pen, StyleSketch.Fine, StyleEndLine.both );
@@ -62,5 +70,10 @@ class TrilateralSVG extends Ply {
         var translateContext = new TranslationContext( sketch, -100, 300 );
         var p = new SvgPath( translateContext );
         p.parse( quadtest_d );
+    }
+    override
+    public function renderOnce(){
+        //super.renderOnce();
+        drawShape( p0, p1 );
     }
 }

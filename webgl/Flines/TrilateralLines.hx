@@ -1,7 +1,6 @@
 package;
-import kitGL.glWeb.InterleaveAlterGL;
-import kitGL.glWeb.InterleaveDataGL;
-
+import kitGL.glWeb.DataGL;
+import kitGL.glWeb.Ply;
 // Color pallettes
 import pallette.simple.QuickARGB;
 import pallette.metal.Gold;
@@ -18,7 +17,7 @@ import trilateral3.drawing.StyleSketch;
 import trilateral3.drawing.Fill;
 import trilateral3.drawing.Pen;
 import trilateral3.geom.FlatColorTriangles;
-import trilateral3.nodule.PenNodule;
+import trilateral3.nodule.PenColor;
 // To trace on screen
 import kitGL.glWeb.DivertTrace;
 
@@ -27,9 +26,9 @@ function main(){
     var divertTrace = new DivertTrace();
     trace("TrilateralLines example");
 }
-class TrilateralLines extends InterleaveAlterGL {
+class TrilateralLines extends Ply {
     public var pen: Pen;
-    public var penNodule = new PenNodule();
+    public var penNodule = new PenColor();
     public function new( width: Int, height: Int ){
         super( width, height );
     }
@@ -41,7 +40,7 @@ class TrilateralLines extends InterleaveAlterGL {
     public var scaleY: Float = 2.5;
     override
     public function draw(){
-        interleaveDataGL = { get_data: penNodule.get_data, get_size: penNodule.get_size };
+        dataGLcolor = { get_data: penNodule.get_data, get_size: penNodule.get_size };
         pen = penNodule.pen;
         var sketch = new Sketch( pen, StyleSketch.Crude, StyleEndLine.no );
         sketch.width = 1.7;
@@ -76,6 +75,7 @@ class TrilateralLines extends InterleaveAlterGL {
                               , dy + 500*scaleY- si[ i*2 + 1 ]*scaleY );
             }
         }
+        
     }
 }
 

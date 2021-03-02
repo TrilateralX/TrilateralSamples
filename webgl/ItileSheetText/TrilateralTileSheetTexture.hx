@@ -18,8 +18,8 @@ import pallette.metal.Gold;
 // Sketching
 import trilateral3.drawing.Pen;
 import trilateral3.geom.FlatColorTriangles;
-import trilateral3.nodule.PenPaint;
-import trilateral3.nodule.PenNodule;
+import trilateral3.nodule.PenColor;
+import trilateral3.nodule.PenTexture;
 import trilateral3.shape.Shaper;
 import trilateral3.drawing.TriangleAbstract;
 import trilateral3.drawing.TriangleAbstractUV;
@@ -57,9 +57,9 @@ function main(){
 }
 class TrilateralTextureBasic extends PlyMix {
     public var penColor: Pen;
-    public var penNoduleColor = new PenNodule();
+    public var penNoduleColor = new PenColor();
     public var penTexture: Pen;
-    public var penNoduleTexture = new PenPaint();
+    public var penNoduleTexture = new PenTexture();
     public var fontImgWidth   = 562;
     public var fontImgHeight  = 599;
     public var fontImgRez     = 96;

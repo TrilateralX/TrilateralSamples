@@ -5,7 +5,7 @@ import kitGL.glWeb.DataGL;
 // Sketching
 import trilateral3.drawing.Pen;
 import trilateral3.geom.FlatColorTriangles;
-import trilateral3.nodule.PenNodule;
+import trilateral3.nodule.PenColor;
 import trilateral3.shape.Shaper;
 import trilateral3.drawing.TriangleAbstract;
 import trilateral3.shape.IndexRange;
@@ -18,7 +18,7 @@ function main(){
     var divertTrace = new DivertTrace();
     trace("TrilateralRotateMove example");
 }
-class TrilateralRotateMove extends InterleaveAlterGL {
+class TrilateralRotateMove extends Ply {
     //var arr: Array<IndexRange> = [];
     var triangle: IndexRange;
     var all: IndexRange;
@@ -27,21 +27,21 @@ class TrilateralRotateMove extends InterleaveAlterGL {
     var dx = [];
     var dy = [];
     public var pen: Pen;
-    public var penNodule = new PenNodule();
+    public var penNodule = new PenColor();
     public function new( width: Int, height: Int ){
         super( width, height );
     }
     override
     public function draw(){ 
-        interleaveDataGL = { get_data: penNodule.get_data, get_size: penNodule.get_size };
+        dataGLcolor = { get_data: penNodule.get_data, get_size: penNodule.get_size };
         pen = penNodule.pen;
         curr = pen.triangleCurrent;
         var divertTrace = new DivertTrace();
         trace("TrilateralRotateMove example");
         var start = pen.pos;
-        var len = add2DTriangle( pen.drawType, 300, 100, 100, 300, 500, 300 );
+        var len = add2DTriangle( pen.paintType, 300, 100, 100, 300, 500, 300 );
         var end = start + len - 1 ;
-        var len = add2DTriangle( pen.drawType, 300, 100, 100, 300, 500, 300 );
+        var len = add2DTriangle( pen.paintType, 300, 100, 100, 300, 500, 300 );
         end += len;
         triangle = cast { start: start, end: end };
         var red = 0xFFFF0000;
@@ -53,7 +53,7 @@ class TrilateralRotateMove extends InterleaveAlterGL {
         len = 0;
         start = pen.pos;
         for( i in 0...1000 ){
-            len += add2DTriangle( pen.drawType, 30, 10, 10, 30, 50, 30 );
+            len += add2DTriangle( pen.paintType, 30, 10, 10, 30, 50, 30 );
             pen.pos--;
             x = Math.random()*1000;
             y = Math.random()*1000;

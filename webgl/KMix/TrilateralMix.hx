@@ -5,8 +5,8 @@ import kitGL.glWeb.PlyMix;
 import kitGL.glWeb.DataGL;
 // Sketching
 import trilateral3.drawing.Pen;
-import trilateral3.nodule.PenPaint;
-import trilateral3.nodule.PenNodule;
+import trilateral3.nodule.PenColor;
+import trilateral3.nodule.PenTexture;
 import trilateral3.shape.IteratorRange;
 import kitGL.glWeb.ImageGL;
 import kitGL.glWeb.BufferGL;
@@ -16,6 +16,7 @@ import trilateral3.drawing.StyleSketch;
 import trilateral3.drawing.Fill;
 import kitGL.glWeb.GL;
 import trilateral3.reShape.RangeShaper;
+
 // To trace on screen
 import kitGL.glWeb.DivertTrace;
 
@@ -26,9 +27,9 @@ function main(){
 }
 class TrilateralMix extends PlyMix {
     public var penColor: Pen;
-    public var penNoduleColor = new PenNodule();
+    public var penNoduleColor = new PenColor();
     public var penTexture: Pen;
-    public var penNoduleTexture = new PenPaint();
+    public var penNoduleTexture = new PenTexture();
     public var theta = 0.;
     public var firstGrad: IteratorRange;
     public var outlineStarRange: IteratorRange;

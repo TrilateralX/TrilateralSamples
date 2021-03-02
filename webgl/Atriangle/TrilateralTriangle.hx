@@ -2,8 +2,7 @@ package;
 
 // To trace on screen
 import kitGL.glWeb.DivertTrace;
-import kitGL.glWeb.InterleaveAlterGL;
-import kitGL.glWeb.InterleaveDataGL;
+import kitGL.glWeb.Ply;
 import trilateral3.Trilateral;
 import trilateral3.drawing.Pen;
 import trilateral3.geom.FlatColorTriangles;
@@ -18,16 +17,20 @@ function main(){
     var divertTrace = new DivertTrace();
     trace("TrilateralTriangle example");
 }
-class TrilateralTriangle extends InterleaveAlterGL {
+class TrilateralTriangle extends Ply {
     public var pen: Pen;
-    public var penNodule = new PenNodule();
+    public var penColor = new PenColor();
+    var p0: Int;
+    var p1: Int;
     public function new( width: Int, height: Int ){
-        super( width, height );
+        super( width, height, false );
     }
     override
     public function draw(){
-        interleaveDataGL = { get_data: penNodule.get_data, get_size: penNodule.get_size };
+        dataGLcolor   = { get_data: penColor.get_data
+                        , get_size: penColor.get_size };
         pen = penNodule.pen;
+        p0 = cast pen.pos;
         pen.addTriangle( 100, 100, 0
                        , 500, 500, 0
                        , 100, 500, 0 );
@@ -55,9 +58,11 @@ class TrilateralTriangle extends InterleaveAlterGL {
         pen.pos = start;
         var numberTriangles = Std.int( end-start );
         pen.colorTriangles( 0xFF0000FF, numberTriangles ); // color border Blue
+        p1 = cast pen.pos;
     }
     override
-    public function renderDraw(){
-        // don't modify the triangle
+    public function renderOnce(){
+        //super.renderOnce();
+        drawShape( p0, p1 );
     }
 }
