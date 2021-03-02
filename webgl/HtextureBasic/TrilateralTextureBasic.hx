@@ -35,8 +35,8 @@ import pallette.metal.Gold;
 // Sketching
 import trilateral3.drawing.Pen;
 import trilateral3.geom.FlatColorTriangles;
-import trilateral3.nodule.PenPaint;
-import trilateral3.nodule.PenNodule;
+import trilateral3.nodule.PenTexture;
+import trilateral3.nodule.PenColor;
 import trilateral3.shape.Shaper;
 import trilateral3.drawing.TriangleAbstract;
 import trilateral3.drawing.TriangleAbstractUV;
@@ -97,7 +97,7 @@ class TrilateralTextureBasic extends PlyUV {
     public var fillStarRange:    IteratorRange;
     public var outlineKiwiRange: IteratorRange;
     public var fillKiwiRange:    IteratorRange;
-    public var penPaint = new PenPaint();
+    public var penPaint = new PenTexture();
     //public var penNodule = new PenNodule();
     public function new( width: Int, height: Int ){
         super( width, height );
@@ -215,10 +215,10 @@ class TrilateralTextureBasic extends PlyUV {
             default:
                 null;
         }
-        if( starOutlineShow ) drawShape( outlineStarRange.min, outlineStarRange.max, bgStarOutline );
-        if( starFillShow )    drawShape( fillStarRange.min,    fillStarRange.max, bgStarFill       );
-        if( kiwiOutlineShow ) drawShape( outlineKiwiRange.min, outlineKiwiRange.max, bgKiwiOutline );
-        if( kiwiFillShow )    drawShape( fillKiwiRange.min,    fillKiwiRange.max, bgKiwiFill       );
+        if( starOutlineShow ) drawShape( outlineStarRange.start, outlineStarRange.max, bgStarOutline );
+        if( starFillShow )    drawShape( fillStarRange.start,    fillStarRange.max, bgStarFill       );
+        if( kiwiOutlineShow ) drawShape( outlineKiwiRange.start, outlineKiwiRange.max, bgKiwiOutline );
+        if( kiwiFillShow )    drawShape( fillKiwiRange.start,    fillKiwiRange.max, bgKiwiFill       );
     }
     public var shapeSelected: String;
     public function sliderSetup(){

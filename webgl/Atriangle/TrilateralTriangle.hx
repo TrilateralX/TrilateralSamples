@@ -6,15 +6,15 @@ import kitGL.glWeb.Ply;
 import trilateral3.Trilateral;
 import trilateral3.drawing.Pen;
 import trilateral3.geom.FlatColorTriangles;
-import trilateral3.nodule.PenNodule;
+import trilateral3.nodule.PenColor;
 
 import trilateral3.drawing.StyleEndLine;
 import trilateral3.drawing.Sketch;
 import trilateral3.drawing.StyleSketch;
 
 function main(){
-    new TrilateralTriangle( 1000, 1000 );
     var divertTrace = new DivertTrace();
+    new TrilateralTriangle( 1000, 1000 );
     trace("TrilateralTriangle example");
 }
 class TrilateralTriangle extends Ply {
@@ -29,21 +29,19 @@ class TrilateralTriangle extends Ply {
     public function draw(){
         dataGLcolor   = { get_data: penColor.get_data
                         , get_size: penColor.get_size };
-        pen = penNodule.pen;
+        pen = penColor.pen;
+        pen.currentColor = 0xFFFFFFFF;
         p0 = cast pen.pos;
-        pen.addTriangle( 100, 100, 0
-                       , 500, 500, 0
-                       , 100, 500, 0 );
-        pen.addTriangle( 100, 100, 0
-                       , 500, 100, 0
-                       , 500, 500, 0);
-        pen.addTriangle( 300, 300, 0
-                       , 400, 300, 0
-                       , 400, 400, 0);
-        // start coloring from second triangle
-        pen.pos = 1;
-        pen.colorTriangles( 0xFFFF0000, 1 ); // Red
-        pen.colorTriangles( 0xFFFFFF00, 1 ); // Yellow
+        pen.triangle2DFill( 300, 300
+                          , 400, 300
+                          , 400, 400, 0xFFFFFF00 );
+        pen.triangle2DFill( 100, 100
+                          , 500, 500
+                          , 100, 500 );
+        pen.triangle2DFill( 100, 100
+                          , 500, 100
+                          , 500, 500, 0xFFFF0000 );
+        p1 = cast pen.pos;
         // drawing a border 
         var sketch = new Sketch( pen, StyleSketch.Fine, StyleEndLine.both ); // ending not working at moment
         //pen.currentColor = 0xFF00FFFF; <- not working... need to check.
@@ -59,10 +57,11 @@ class TrilateralTriangle extends Ply {
         var numberTriangles = Std.int( end-start );
         pen.colorTriangles( 0xFF0000FF, numberTriangles ); // color border Blue
         p1 = cast pen.pos;
+        
     }
     override
     public function renderOnce(){
-        //super.renderOnce();
+        super.renderOnce();
         drawShape( p0, p1 );
     }
 }

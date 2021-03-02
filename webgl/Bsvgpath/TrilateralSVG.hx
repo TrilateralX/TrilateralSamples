@@ -22,20 +22,20 @@ import kitGL.glWeb.DivertTrace;
 
 function main(){
     var divertTrace = new DivertTrace();
-    new TrilateralSVG( 1000, 1000 );
-    
     trace("TrilateralSVG example");
+    new TrilateralSVG( 1000, 1000 );
 }
 class TrilateralSVG extends Ply {
     var quadtest_d = "M200,300 Q400,50 600,300 T1000,300";
     var cubictest_d = "M100,200 C100,100 250,100 250,200S400,300 400,200";
-    public var pen: Pen;
-    public var penColor = new PenColor();
+    var pen: Pen;
+    var penColor = new PenColor();
+    var p0: Int;
+    var p1: Int;
     public function new( width: Int, height: Int, ?animate: Bool ){
         super( width, height, false );
     }
-    var p0: Int;
-    var p1: Int;
+
     override
     public function draw(){
         trace('draw');

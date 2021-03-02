@@ -1,6 +1,5 @@
 package;
-import kitGL.glWeb.InterleaveAlterGL;
-import kitGL.glWeb.InterleaveDataGL;
+import kitGL.glWeb.Ply;
 
 // Color pallettes
 import pallette.simple.QuickARGB;
@@ -18,16 +17,16 @@ import trilateral3.drawing.StyleSketch;
 import trilateral3.drawing.Fill;
 import trilateral3.drawing.Pen;
 import trilateral3.geom.FlatColorTriangles;
-import trilateral3.nodule.PenNodule;
+import trilateral3.nodule.PenColor;
 // To trace on screen
 import kitGL.glWeb.DivertTrace;
 
 function main(){
-    new TrilateralEllipse( 1000, 1000 );
     var divertTrace = new DivertTrace();
     trace("TrilateralEllipse example");
+    new TrilateralEllipse( 1000, 1000 );
 }
-class TrilateralEllipse extends InterleaveAlterGL {
+class TrilateralEllipse extends Ply {
     var crimson     = 0xFFDC143C;
     var silver      = 0xFFC0C0C0;
     var gainsboro   = 0xFFDCDCDC;
@@ -64,15 +63,18 @@ class TrilateralEllipse extends InterleaveAlterGL {
     var arc7_1      = "M 100 200 A 100 50 -45 0 1 250 150";
     var arc7_2      = "M 100 200 A 100 50 -45 1 0 250 150";
     var arc7_3      = "M 100 200 A 100 50 -45 1 1 250 150";
-    public var pen: Pen;
-    public var penNodule = new PenNodule();
+    var pen: Pen;
+    var penColor = new PenColor();
+    var p0: Int;
+    var p1: Int;
     public function new( width: Int, height: Int ){
-        super( width, height );
+        super( width, height, false );
     }
     override
     public function draw(){
-        interleaveDataGL = { get_data: penNodule.get_data, get_size: penNodule.get_size };
-        pen = penNodule.pen;
+        dataGLcolor   = { get_data: penColor.get_data
+                        , get_size: penColor.get_size };
+        pen = penColor.pen;
         var arcs0  = [ arc0_0, arc0_1, arc0_2, arc0_3 ];
         var arcs1  = [ arc1_0, arc1_1, arc1_2, arc1_3 ];
         var arcs2  = [ arc2_0, arc2_1, arc2_2, arc2_3 ];
@@ -86,10 +88,12 @@ class TrilateralEllipse extends InterleaveAlterGL {
         var x1 = 450;
         var yPos = [ -30, 100, 250, 400 ];
         var arcs = [ arcs0, arcs1, arcs2, arcs3, arcs4, arcs5, arcs6, arcs7 ];
+        p0 = cast pen.pos;
         for( i in 0...yPos.length ){
             drawSet( pen, arcs.shift(), pallet, 2*x0, 2*yPos[i], 1 );
             drawSet( pen, arcs.shift(), pallet, 2*x1, 2*yPos[i], 1 );
         }
+        p1 = cast pen.pos;
     }
     // draws a set of svg ellipses.
     function drawSet( pen: Pen, arcs: Array<String>, col:Array<Int>, x: Float, y: Float, s: Float ){    
@@ -103,5 +107,10 @@ class TrilateralEllipse extends InterleaveAlterGL {
         var trans = new ScaleTranslateContext( sketch, x, y, s, s );
         var p = new SvgPath( trans );
         p.parse( d );
+    }
+    override
+    public function renderOnce(){
+        //super.renderOnce();
+        drawShape( p0, p1 );
     }
 }

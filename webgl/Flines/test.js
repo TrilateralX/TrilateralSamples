@@ -15,9 +15,13 @@ Std.__name__ = true;
 Std.string = function(s) {
 	return js_Boot.__string_rec(s,"");
 };
-var kitGL_glWeb_Ply = function(width_,height_) {
+var kitGL_glWeb_Ply = function(width_,height_,animate) {
+	if(animate == null) {
+		animate = true;
+	}
 	this.vertexColor = "vertexColor";
 	this.vertexPosition = "vertexPosition";
+	this.animate = animate;
 	this.width = width_;
 	this.height = height_;
 	var mainSheet = new kitGL_glWeb_Sheet();
@@ -101,18 +105,50 @@ var kitGL_glWeb_Ply = function(width_,height_) {
 	gl.vertexAttribPointer(inp,4,fp,false,strideBytes,offBytes);
 	gl.enableVertexAttribArray(inp);
 	this.bufColor = vbo;
-	var _gthis = this;
-	if(kitGL_glWeb_AnimateTimer.s == null) {
-		kitGL_glWeb_AnimateTimer.s = window.document.createElement("style");
-		kitGL_glWeb_AnimateTimer.s.innerHTML = "@keyframes spin { from { transform:rotate( 0deg ); } to { transform:rotate( 360deg ); } }";
-		window.document.getElementsByTagName("head")[0].appendChild(kitGL_glWeb_AnimateTimer.s);
-		kitGL_glWeb_AnimateTimer.s.animation = "spin 1s linear infinite";
-		kitGL_glWeb_AnimateTimer.loop(60.0);
+	if(this.animate) {
+		var _gthis = this;
+		if(kitGL_glWeb_AnimateTimer.s == null) {
+			kitGL_glWeb_AnimateTimer.s = window.document.createElement("style");
+			kitGL_glWeb_AnimateTimer.s.innerHTML = "@keyframes spin { from { transform:rotate( 0deg ); } to { transform:rotate( 360deg ); } }";
+			window.document.getElementsByTagName("head")[0].appendChild(kitGL_glWeb_AnimateTimer.s);
+			kitGL_glWeb_AnimateTimer.s.animation = "spin 1s linear infinite";
+			kitGL_glWeb_AnimateTimer.loop(60.0);
+		}
+		kitGL_glWeb_AnimateTimer.onFrame = function(v) {
+			var gl = _gthis.gl;
+			var width = _gthis.width;
+			var height = _gthis.height;
+			gl.clearColor(0.5,0.0,0.5,0.9);
+			gl.enable(2929);
+			gl.clear(16384);
+			gl.viewport(0,0,width,height);
+			gl.enable(3042);
+			gl.blendFunc(1,771);
+			gl.enable(2929);
+			_gthis.gl.bindBuffer(34962,_gthis.bufColor);
+			_gthis.renderDraw();
+		};
+	} else {
+		this.renderOnce();
 	}
-	kitGL_glWeb_AnimateTimer.onFrame = function(v) {
-		var gl = _gthis.gl;
-		var width = _gthis.width;
-		var height = _gthis.height;
+};
+kitGL_glWeb_Ply.__name__ = true;
+kitGL_glWeb_Ply.prototype = {
+	draw: function() {
+	}
+	,drawShape: function(start,end) {
+		var program = this.programColor;
+		var partData = this.dataGLcolor.get_data().subarray(start * 21,end * 21);
+		this.gl.bufferSubData(34962,0,partData);
+		this.gl.useProgram(program);
+		this.gl.drawArrays(4,0,(end - start) * 3 | 0);
+	}
+	,renderDraw: function() {
+	}
+	,renderOnce: function() {
+		var gl = this.gl;
+		var width = this.width;
+		var height = this.height;
 		gl.clearColor(0.5,0.0,0.5,0.9);
 		gl.enable(2929);
 		gl.clear(16384);
@@ -120,20 +156,6 @@ var kitGL_glWeb_Ply = function(width_,height_) {
 		gl.enable(3042);
 		gl.blendFunc(1,771);
 		gl.enable(2929);
-		_gthis.gl.bindBuffer(34962,_gthis.bufColor);
-		_gthis.renderDraw();
-	};
-};
-kitGL_glWeb_Ply.__name__ = true;
-kitGL_glWeb_Ply.prototype = {
-	draw: function() {
-	}
-	,drawAll: function() {
-		this.gl.bufferSubData(34962,0,this.dataGLcolor.get_data());
-		this.gl.useProgram(this.programColor);
-		this.gl.drawArrays(4,0,this.dataGLcolor.get_size());
-	}
-	,renderDraw: function() {
 	}
 };
 var TrilateralLines = function(width,height) {
@@ -141,19 +163,20 @@ var TrilateralLines = function(width,height) {
 	this.scaleX = 2.5;
 	this.dy = 100;
 	this.dx = 200;
-	this.penNodule = new trilateral3_nodule_PenColor();
-	kitGL_glWeb_Ply.call(this,width,height);
+	this.penColor = new trilateral3_nodule_PenColor();
+	kitGL_glWeb_Ply.call(this,width,height,false);
 };
 TrilateralLines.__name__ = true;
 TrilateralLines.__super__ = kitGL_glWeb_Ply;
 TrilateralLines.prototype = $extend(kitGL_glWeb_Ply.prototype,{
 	draw: function() {
-		this.dataGLcolor = { get_data : ($_=this.penNodule,$bind($_,$_.get_data)), get_size : ($_=this.penNodule,$bind($_,$_.get_size))};
-		this.pen = this.penNodule.pen;
+		this.dataGLcolor = { get_data : ($_=this.penColor,$bind($_,$_.get_data)), get_size : ($_=this.penColor,$bind($_,$_.get_size))};
+		this.pen = this.penColor.pen;
 		var sketch = new trilateral3_drawing_Sketch(this.pen,2,0);
 		sketch.width = 1.7;
 		var shapes = [TrilateralLines_shape1,TrilateralLines_shape2,TrilateralLines_shape3,TrilateralLines_shape4,TrilateralLines_shape5,TrilateralLines_shape6,TrilateralLines_shape7,TrilateralLines_shape8,TrilateralLines_shape9,TrilateralLines_shape10,TrilateralLines_shape11,TrilateralLines_shape12,TrilateralLines_shape13,TrilateralLines_shape14,TrilateralLines_shape15,TrilateralLines_shape16,TrilateralLines_shape17,TrilateralLines_shape18,TrilateralLines_shape19,TrilateralLines_shape20,TrilateralLines_shape21,TrilateralLines_shape22];
 		this.pen.currentColor = -65536;
+		this.p0 = this.pen.paintType.get_pos();
 		var _g = 0;
 		while(_g < shapes.length) {
 			var si = shapes[_g];
@@ -197,7 +220,10 @@ TrilateralLines.prototype = $extend(kitGL_glWeb_Ply.prototype,{
 				}
 			}
 		}
-		this.drawAll();
+		this.p1 = this.pen.paintType.get_pos();
+	}
+	,renderOnce: function() {
+		this.drawShape(this.p0,this.p1);
 	}
 });
 function TrilateralLines_main() {

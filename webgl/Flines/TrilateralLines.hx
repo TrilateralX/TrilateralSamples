@@ -27,10 +27,12 @@ function main(){
     trace("TrilateralLines example");
 }
 class TrilateralLines extends Ply {
-    public var pen: Pen;
-    public var penNodule = new PenColor();
+    var pen: Pen;
+    var penColor = new PenColor();
+    var p0: Int;
+    var p1: Int;
     public function new( width: Int, height: Int ){
-        super( width, height );
+        super( width, height, false );
     }
     public var dx = 200;
     public var dy = 100;
@@ -40,8 +42,9 @@ class TrilateralLines extends Ply {
     public var scaleY: Float = 2.5;
     override
     public function draw(){
-        dataGLcolor = { get_data: penNodule.get_data, get_size: penNodule.get_size };
-        pen = penNodule.pen;
+        dataGLcolor   = { get_data: penColor.get_data
+                        , get_size: penColor.get_size };
+        pen = penColor.pen;
         var sketch = new Sketch( pen, StyleSketch.Crude, StyleEndLine.no );
         sketch.width = 1.7;
         var shapes = [shape1
@@ -67,6 +70,7 @@ class TrilateralLines extends Ply {
                      ,shape21
                      ,shape22];
         pen.currentColor = 0xFFFF0000;
+        p0 = cast pen.pos;
         for( si in shapes ){
             sketch.moveTo( dx + si[ 0 ]*scaleX
                           , dy + 500*scaleY-si[ 1 ]*scaleY );
@@ -75,7 +79,12 @@ class TrilateralLines extends Ply {
                               , dy + 500*scaleY- si[ i*2 + 1 ]*scaleY );
             }
         }
-        
+        p1 = cast pen.pos;
+    }
+    override
+    public function renderOnce(){
+        //super.renderOnce();
+        drawShape( p0, p1 );
     }
 }
 

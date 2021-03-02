@@ -18,8 +18,7 @@ import trilateral3.drawing.Fill;
 import trilateral3.drawing.Pen;
 // To trace on screen
 import kitGL.glWeb.DivertTrace;
-import kitGL.glWeb.InterleaveAlterGL;
-import kitGL.glWeb.InterleaveDataGL;
+import kitGL.glWeb.Ply;
 import trilateral3.shape.Regular;
 import trilateral3.structure.RegularShape;
 import trilateral3.shape.StyleRegular;
@@ -30,7 +29,7 @@ import trilateral3.structure.ARGB;
 import trilateral3.Trilateral;
 import trilateral3.drawing.Pen;
 import trilateral3.geom.FlatColorTriangles;
-import trilateral3.nodule.PenNodule;
+import trilateral3.nodule.PenColor;
 
 typedef ColorPalletInt = pallette.utils.ColorInt;
 typedef ColorT3Int = trilateral3.color.ColorInt;
@@ -39,19 +38,22 @@ function main(){
     var divertTrace = new DivertTrace();
     trace("TrilateralRegularColor example");
 }
-class TrilateralRegularColor extends InterleaveAlterGL {
+class TrilateralRegularColor extends Ply {
     var regular: Regular;
     var arr: Array<IndexRange> = [];
     var nines: Array<Int>;
-    public var pen: Pen;
-    public var penNodule = new PenNodule();
+    var pen: Pen;
+    var penColor = new PenColor();
+    var p0: Int;
+    var p1: Int;
     public function new( width: Int, height: Int ){
         super( width, height );
     }
     override
     public function draw(){
-        interleaveDataGL = { get_data: penNodule.get_data, get_size: penNodule.get_size };
-        pen = penNodule.pen;
+        dataGLcolor   = { get_data: penColor.get_data
+                        , get_size: penColor.get_size };
+        pen = penColor.pen;
         regular = new Regular( pen );
         var c: Int = 1;//9*4;
         count = c;
@@ -60,6 +62,7 @@ class TrilateralRegularColor extends InterleaveAlterGL {
         var y = 0;
         var dx = 300;
         var dy = 200;
+        p0 = cast pen.pos;
         arr[0] = regular.addRegular( { x: x + dx,   y: y + dy,   radius: 50, color: nines[ c ] },      SQUARE      );
         arr[1] = regular.addRegular( { x: x + dx,   y: y + 2*dy, radius: 50, color: nines[ c + 2] },   PENTAGON    );
         arr[2] = regular.addRegular( { x: x + dx,   y: y + 3*dy, radius: 50, color: nines[ c + 4] },   CIRCLE      );
@@ -68,12 +71,14 @@ class TrilateralRegularColor extends InterleaveAlterGL {
         arr[5] = regular.addRegular( { x: x + dx*2, y: y + 2*dy, radius: 50, color: nines[ c + 3] },   HEXAGON     );
         arr[6] = regular.addRegular( { x: x + dx*2, y: y + 3*dy, radius: 50, color: nines[ c + 5] },   ROUNDSQUARE );
         arr[7] = regular.addRegular( { x: x + dx*2, y: y + 4*dy, radius: 50, color: nines[ c + 7] },   STAR        );
+        p1 = cast pen.pos;
     }
     var tick = 0;
     var range = 80.; // controls transition speed
     var dStep = 0.;
     var delayStart = 100;
     var count: Int;
+    
     override
     public function renderDraw(){
         if( tick > delayStart ) {
@@ -81,7 +86,7 @@ class TrilateralRegularColor extends InterleaveAlterGL {
             for( i in 0...8 ){
                 var startEnd = arr[i];
                 pen.pos = startEnd.start;
-                var col3 = pen.colorType.getTriInt();
+                var col3 = pen.paintType.getTriInt();
                 var colA: ColorPalletInt = col3.a;
                 var nine: ColorPalletInt = cast nines[ count ];
                 var col: Int = cast colA.blendRGB( nine, dStep );
@@ -98,5 +103,6 @@ class TrilateralRegularColor extends InterleaveAlterGL {
             }
         }
         tick++;
+        drawShape( p0, p1 );
     }
 }
