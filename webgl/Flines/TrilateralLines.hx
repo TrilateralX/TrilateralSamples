@@ -17,7 +17,7 @@ import trilateral3.drawing.StyleSketch;
 import trilateral3.drawing.Fill;
 import trilateral3.drawing.Pen;
 import trilateral3.geom.FlatColorTriangles;
-import trilateral3.nodule.PenColor;
+import trilateral3.nodule.PenArrColor;
 // To trace on screen
 import kitGL.glWeb.DivertTrace;
 
@@ -28,7 +28,7 @@ function main(){
 }
 class TrilateralLines extends Ply {
     var pen: Pen;
-    var penColor = new PenColor();
+    var penColor = new PenArrColor();
     var p0: Int;
     var p1: Int;
     public function new( width: Int, height: Int ){

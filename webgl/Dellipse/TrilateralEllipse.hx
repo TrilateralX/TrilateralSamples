@@ -17,7 +17,7 @@ import trilateral3.drawing.StyleSketch;
 import trilateral3.drawing.Fill;
 import trilateral3.drawing.Pen;
 import trilateral3.geom.FlatColorTriangles;
-import trilateral3.nodule.PenColor;
+import trilateral3.nodule.PenArrColor;
 // To trace on screen
 import kitGL.glWeb.DivertTrace;
 
@@ -64,7 +64,7 @@ class TrilateralEllipse extends Ply {
     var arc7_2      = "M 100 200 A 100 50 -45 1 0 250 150";
     var arc7_3      = "M 100 200 A 100 50 -45 1 1 250 150";
     var pen: Pen;
-    var penColor = new PenColor();
+    var penColor = new PenArrColor();
     var p0: Int;
     var p1: Int;
     public function new( width: Int, height: Int ){

@@ -5,8 +5,8 @@ import kitGL.glWeb.PlyMix;
 import kitGL.glWeb.DataGL;
 // Sketching
 import trilateral3.drawing.Pen;
-import trilateral3.nodule.PenColor;
-import trilateral3.nodule.PenTexture;
+import trilateral3.nodule.PenArrColor;
+import trilateral3.nodule.PenArrTexture;
 import trilateral3.shape.IteratorRange;
 import kitGL.glWeb.ImageGL;
 import kitGL.glWeb.BufferGL;
@@ -27,9 +27,9 @@ function main(){
 }
 class TrilateralMix extends PlyMix {
     public var penColor: Pen;
-    public var penNoduleColor = new PenColor();
+    public var penNoduleColor = new PenArrColor();
     public var penTexture: Pen;
-    public var penNoduleTexture = new PenTexture();
+    public var penNoduleTexture = new PenArrTexture();
     public var theta = 0.;
     public var firstGrad: IteratorRange;
     public var outlineStarRange: IteratorRange;
@@ -104,7 +104,7 @@ class TrilateralMix extends PlyMix {
                          , colors2, Pen.tweenWrap( quadEaseIn ) ); 
         theta += 0.1;
         var dx = 20*Math.sin( theta * Math.PI/10 );
-        starOutlineShaper.setXY( {x: dx, y:0. } );
+        starOutlineShaper.xy = {x: dx, y:0. };
         drawColorShape( firstGrad.start, firstGrad.max );
         drawTextureShape( outlineStarRange.start, outlineStarRange.max, bgStarOutline );
         drawTextureShape( fillStarRange.start,    fillStarRange.max, bgStarFill       );

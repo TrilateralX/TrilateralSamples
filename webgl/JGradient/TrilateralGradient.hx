@@ -5,7 +5,7 @@ import kitGL.glWeb.Ply;
 import kitGL.glWeb.DataGL;
 // Sketching
 import trilateral3.drawing.Pen;
-import trilateral3.nodule.PenColor;
+import trilateral3.nodule.PenArrColor;
 import trilateral3.shape.IteratorRange;
 // To trace on screen
 import kitGL.glWeb.DivertTrace;
@@ -17,7 +17,7 @@ function main(){
 }
 class TrilateralGradient extends Ply {
     public var penColor: Pen;
-    public var penNoduleColor = new PenColor();
+    public var penNoduleColor = new PenArrColor();
     public var theta = 0.;
     public var firstGrad: IteratorRange;
     public function new( width: Int, height: Int ){

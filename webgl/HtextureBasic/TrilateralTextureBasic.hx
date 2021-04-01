@@ -35,8 +35,8 @@ import pallette.metal.Gold;
 // Sketching
 import trilateral3.drawing.Pen;
 import trilateral3.geom.FlatColorTriangles;
-import trilateral3.nodule.PenTexture;
-import trilateral3.nodule.PenColor;
+import trilateral3.nodule.PenArrTexture;
+import trilateral3.nodule.PenArrColor;
 import trilateral3.shape.Shaper;
 import trilateral3.drawing.TriangleAbstract;
 import trilateral3.drawing.TriangleAbstractUV;
@@ -97,7 +97,7 @@ class TrilateralTextureBasic extends PlyUV {
     public var fillStarRange:    IteratorRange;
     public var outlineKiwiRange: IteratorRange;
     public var fillKiwiRange:    IteratorRange;
-    public var penPaint = new PenTexture();
+    public var penPaint = new PenArrTexture();
     //public var penNodule = new PenNodule();
     public function new( width: Int, height: Int ){
         super( width, height );

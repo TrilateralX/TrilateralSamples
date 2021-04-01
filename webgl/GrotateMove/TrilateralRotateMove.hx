@@ -5,7 +5,7 @@ import kitGL.glWeb.DataGL;
 // Sketching
 import trilateral3.drawing.Pen;
 import trilateral3.geom.FlatColorTriangles;
-import trilateral3.nodule.PenColor;
+import trilateral3.nodule.PenArrColor;
 import trilateral3.shape.Shaper;
 import trilateral3.drawing.TriangleAbstract;
 import trilateral3.shape.IndexRange;
@@ -27,7 +27,7 @@ class TrilateralRotateMove extends Ply {
     var dx = [];
     var dy = [];
     public var pen: Pen;
-    public var penNodule = new PenColor();
+    public var penNodule = new PenArrColor();
     public function new( width: Int, height: Int ){
         super( width, height );
     }

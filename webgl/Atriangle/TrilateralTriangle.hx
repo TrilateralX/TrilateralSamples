@@ -6,7 +6,7 @@ import kitGL.glWeb.Ply;
 import trilateral3.Trilateral;
 import trilateral3.drawing.Pen;
 import trilateral3.geom.FlatColorTriangles;
-import trilateral3.nodule.PenColor;
+import trilateral3.nodule.PenArrColor;
 
 import trilateral3.drawing.StyleEndLine;
 import trilateral3.drawing.Sketch;
@@ -19,7 +19,7 @@ function main(){
 }
 class TrilateralTriangle extends Ply {
     public var pen: Pen;
-    public var penColor = new PenColor();
+    public var penColor = new PenArrColor();
     var p0: Int;
     var p1: Int;
     public function new( width: Int, height: Int ){

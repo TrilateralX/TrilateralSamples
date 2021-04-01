@@ -16,7 +16,7 @@ import trilateral3.drawing.StyleSketch;
 import trilateral3.drawing.Fill;
 import trilateral3.drawing.Pen;
 import trilateral3.geom.FlatColorTriangles;
-import trilateral3.nodule.PenColor;
+import trilateral3.nodule.PenArrColor;
 // To trace on screen
 import kitGL.glWeb.DivertTrace;
 
@@ -29,7 +29,7 @@ class TrilateralSVG extends Ply {
     var quadtest_d = "M200,300 Q400,50 600,300 T1000,300";
     var cubictest_d = "M100,200 C100,100 250,100 250,200S400,300 400,200";
     var pen: Pen;
-    var penColor = new PenColor();
+    var penColor = new PenArrColor();
     var p0: Int;
     var p1: Int;
     public function new( width: Int, height: Int, ?animate: Bool ){

@@ -30,6 +30,7 @@ import trilateral3.Trilateral;
 import trilateral3.drawing.Pen;
 import trilateral3.geom.FlatColorTriangles;
 import trilateral3.nodule.PenColor;
+import trilateral3.nodule.PenNodule;
 
 typedef ColorPalletInt = pallette.utils.ColorInt;
 typedef ColorT3Int = trilateral3.color.ColorInt;
@@ -43,14 +44,17 @@ class TrilateralRegularColor extends Ply {
     var arr: Array<IndexRange> = [];
     var nines: Array<Int>;
     var pen: Pen;
-    var penColor = new PenColor();
+    var penColor: PenNodule;
     var p0: Int;
     var p1: Int;
     public function new( width: Int, height: Int ){
         super( width, height );
     }
+    @:access(trilateral3.nodule.PenNodule)
     override
     public function draw(){
+        PenNodule.largeEnough = 3000;
+        var penColor = new PenColor();
         dataGLcolor   = { get_data: penColor.get_data
                         , get_size: penColor.get_size };
         pen = penColor.pen;
